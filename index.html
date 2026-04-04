@@ -8,31 +8,6 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/*
-  ====================================================================
-  COLOR PSYCHOLOGY — WHY THIS PALETTE
-  ====================================================================
-  --accent: #d4a853 (Warm Amber/Gold)
-    → Ambition, energy, warmth. Commands attention without aggression.
-      Used by premium brands to signal value and drive action.
-
-  --surface-2: #1a2744 (Deep Navy)
-    → Trust, competence, expertise. The #1 color in tech/finance for a
-      reason — it reads "this person knows what they're doing."
-
-  --surface: #111827 (Charcoal Navy)
-    → Premium, grounded, serious. Complements navy without blending.
-
-  --bg: #f5f0e8 (Warm Cream)
-    → Inviting, readable, premium. Softer than white — reduces eye 
-      fatigue and signals care for the reader's experience.
-
-  Together: Cream + Navy + Gold = credibility + warmth + ambition.
-  A client who lands here feels they're talking to a trusted expert,
-  not browsing a freelancer marketplace.
-  ====================================================================
-*/
-
 :root {
   --accent: #d4a853;
   --accent-muted: #e8c07a;
@@ -41,7 +16,6 @@
   --sans: 'Syne', sans-serif;
 }
 
-/* LIGHT MODE */
 [data-theme="light"],
 [data-theme="system"] {
   --bg: #f5f0e8;
@@ -58,7 +32,6 @@
   --cursor-blend: multiply;
 }
 
-/* DARK MODE */
 [data-theme="dark"] {
   --bg: #0d1117;
   --bg-2: #161b27;
@@ -103,12 +76,7 @@ body::before {
   pointer-events: none; z-index: 100; opacity: 0.45;
 }
 
-/* ============================================================
-   CURSOR
-   mix-blend-mode is now controlled per theme:
-   - Light mode: multiply (darkens over light bg = visible)
-   - Dark mode: difference (inverts = always contrasts dark bg)
-   ============================================================ */
+/* CURSOR */
 .cursor {
   position: fixed; width: 12px; height: 12px; background: var(--accent);
   border-radius: 50%; pointer-events: none; z-index: 9999;
@@ -120,7 +88,7 @@ body::before {
 .cursor.big { width: 48px; height: 48px; background: var(--accent-muted); opacity: 0.5; }
 
 /* ============================================================
-   THEME TOGGLE
+   DESKTOP THEME TOGGLE (in nav)
    ============================================================ */
 .theme-toggle {
   display: flex; align-items: center; gap: 2px;
@@ -139,25 +107,15 @@ body::before {
 }
 .theme-btn.active {
   background: var(--accent);
-  color: #ffffff !important;   /* white on gold — readable in all modes */
+  color: #ffffff !important;
   font-weight: 800;
   opacity: 1;
   box-shadow: 0 1px 6px rgba(212,168,83,0.4);
   text-shadow: 0 1px 2px rgba(0,0,0,0.25);
 }
-
-/* Light mode active = white text on gold (gold is light, so white pops) */
-[data-theme="light"] .theme-btn[data-theme="light"].active { color: #ffffff !important; }
-
-/* Inactive buttons in light mode = dark so they read on cream nav */
 [data-theme="light"] .theme-btn:not(.active) { color: #0f172a; opacity: 0.6; }
-
-/* Dark mode active = dark text on gold (standard) */
 [data-theme="dark"] .theme-btn[data-theme="dark"].active { color: #111827 !important; }
-
-/* Inactive buttons in dark mode = white so they read on dark nav */
 [data-theme="dark"] .theme-btn:not(.active) { color: #f0ebe2; opacity: 0.6; }
-
 @media (prefers-color-scheme: dark) {
   [data-theme="system"] .theme-btn:not(.active) { color: #f0ebe2; opacity: 0.6; }
 }
@@ -172,16 +130,11 @@ body::before {
 
 /* ============================================================
    NAV
-   FIX: Nav links were opacity: 0.5 — nearly invisible in light mode.
-   Now they sit at 0.72 minimum with a clear hover to 1.0.
-   Color is explicitly var(--fg) so it's dark (#0f172a) on cream bg.
    ============================================================ */
 nav {
   position: fixed; top: 0; left: 0; right: 0;
   display: flex; justify-content: space-between; align-items: center;
   padding: 18px 48px; z-index: 500;
-  /* Always-on background: nav spans both cream + navy hero panels.
-     Without this, links disappear over the dark right panel. */
   background: var(--bg);
   border-bottom: 1px solid var(--divider);
   transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
@@ -208,14 +161,12 @@ nav.scrolled {
 }
 .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-/* Dark mode nav — explicit white so there's zero ambiguity */
 [data-theme="dark"] .nav-logo,
 [data-theme="dark"] .nav-links a { color: #f0ebe2; }
 [data-theme="dark"] nav { background: #0d1117; border-bottom-color: rgba(240,235,226,0.1); }
 [data-theme="dark"] .theme-toggle { background: #161b27; border-color: rgba(240,235,226,0.35); }
 [data-theme="dark"] .theme-btn { color: #f0ebe2; }
 
-/* System dark mode — same overrides */
 @media (prefers-color-scheme: dark) {
   [data-theme="system"] .nav-logo,
   [data-theme="system"] .nav-links a { color: #f0ebe2; }
@@ -239,7 +190,6 @@ nav.scrolled {
 .btn-outline { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--fg-3); padding-bottom: 2px; opacity: 0.55; transition: opacity 0.2s, color 0.2s, border-color 0.2s; }
 .btn-outline:hover { opacity: 1; color: var(--accent); border-color: var(--accent); }
 
-/* Hero right — navy panel signals trust/expertise immediately */
 .hero-right { background: var(--surface-2); position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: flex-start; padding: 60px 48px; opacity: 0; animation: fadeIn 1s ease 0.3s forwards; }
 .hero-right-number { font-family: var(--display); font-size: clamp(160px, 20vw, 280px); font-weight: 700; color: rgba(212,168,83,0.08); line-height: 1; position: absolute; bottom: -20px; right: -20px; user-select: none; }
 .hero-stats { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 28px; }
@@ -317,17 +267,9 @@ nav.scrolled {
 .services-heading em { font-style: italic; color: var(--accent-muted); }
 .services-subhead { font-family: var(--display); font-size: 18px; font-weight: 300; font-style: italic; color: rgba(240,235,226,0.4); margin-bottom: 56px; max-width: 540px; line-height: 1.6; }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.sv-card {
-  padding: 40px 32px;
-  background: rgba(0,0,0,0.22);
-  border-top: 3px solid rgba(240,235,226,0.08);
-  transition: background 0.25s;
-}
+.sv-card { padding: 40px 32px; background: rgba(0,0,0,0.22); border-top: 3px solid rgba(240,235,226,0.08); transition: background 0.25s; }
 .sv-card:hover { background: rgba(0,0,0,0.36); }
-.sv-card.sv-featured {
-  border-top-color: var(--accent);
-  background: rgba(212,168,83,0.1);
-}
+.sv-card.sv-featured { border-top-color: var(--accent); background: rgba(212,168,83,0.1); }
 .sv-card.sv-featured:hover { background: rgba(212,168,83,0.16); }
 .sv-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: rgba(240,235,226,0.25); margin-bottom: 28px; }
 .sv-title { font-family: var(--display); font-size: 26px; font-weight: 700; color: #f0ebe2; line-height: 1.1; margin-bottom: 10px; }
@@ -438,22 +380,165 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 /* ============================================================
+   MOBILE BOTTOM NAV
+   ============================================================ */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 16px;
+  left: 12px;
+  right: 12px;
+  z-index: 600;
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--surface);
+  border: 1px solid rgba(240,235,226,0.14);
+  border-radius: 40px;
+  padding: 6px 8px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+  backdrop-filter: blur(16px);
+}
+.mob-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 7px 10px;
+  border-radius: 30px;
+  color: rgba(240,235,226,0.4);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  flex: 1;
+}
+.mob-nav-item svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.mob-nav-item span {
+  font-family: var(--mono);
+  font-size: 7.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.mob-nav-item:hover,
+.mob-nav-item.mob-active {
+  background: rgba(212,168,83,0.15);
+  color: var(--accent);
+}
+
+/* ============================================================
+   MOBILE THEME TOGGLE — fixed top right, icon-only
+   ============================================================ */
+.theme-toggle-mobile {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  z-index: 700;
+  display: none;
+  align-items: center;
+  gap: 2px;
+  background: var(--bg-2);
+  border-radius: 20px;
+  padding: 4px;
+  border: 1.5px solid var(--divider);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+.theme-toggle-mobile .theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fg);
+  opacity: 0.5;
+  transition: background 0.2s, opacity 0.2s, color 0.2s;
+}
+.theme-toggle-mobile .theme-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.theme-toggle-mobile .theme-btn.active {
+  background: var(--accent);
+  color: #fff;
+  opacity: 1;
+  box-shadow: 0 1px 6px rgba(212,168,83,0.4);
+}
+.theme-toggle-mobile .theme-btn:hover:not(.active) {
+  opacity: 1;
+  background: rgba(212,168,83,0.12);
+}
+[data-theme="dark"] .theme-toggle-mobile,
+[data-theme="dark"] .mobile-bottom-nav { border-color: rgba(240,235,226,0.12); }
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] .theme-toggle-mobile,
+  [data-theme="system"] .mobile-bottom-nav { border-color: rgba(240,235,226,0.12); }
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.back-to-top {
+  position: fixed;
+  bottom: 92px;
+  right: 20px;
+  z-index: 600;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid rgba(240,235,226,0.18);
+  color: rgba(240,235,226,0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.back-to-top svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.back-to-top:hover {
+  background: var(--accent);
+  color: #111827;
+  transform: translateY(-2px);
+}
+.back-to-top.visible { display: flex; }
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 960px) {
   .cursor { display: none !important; }
-  body { cursor: auto; }
-  nav { padding: 18px 24px; }
+  body { cursor: auto; padding-bottom: 100px; }
+  nav { padding: 14px 20px; }
   .nav-links { display: none; }
-  .theme-toggle-mobile {
-    display: flex !important;
-    position: fixed; bottom: 20px; right: 20px; z-index: 600;
-    gap: 2px; background: var(--surface); border-radius: 20px;
-    padding: 4px; border: 1px solid rgba(240,235,226,0.2);
-  }
-  .theme-toggle-mobile .theme-btn { padding: 8px 13px; font-size: 11px; color: var(--surface-fg); font-weight: 600; opacity: 0.55; }
-  .theme-toggle-mobile .theme-btn.active { background: var(--accent); color: #111827 !important; font-weight: 800; opacity: 1; box-shadow: 0 1px 6px rgba(212,168,83,0.4); }
-  .theme-toggle-mobile .theme-btn:hover:not(.active) { opacity: 1; background: rgba(212,168,83,0.12); }
+
+  /* Show mobile elements */
+  .theme-toggle-mobile { display: flex; }
+  .mobile-bottom-nav { display: flex; }
+  .back-to-top { /* shown via .visible class */ }
+
   #hero { grid-template-columns: 1fr; }
   .hero-left { padding: 100px 24px 48px; }
   .hero-right { min-height: 240px; padding: 40px 24px; }
@@ -461,11 +546,14 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   .stat-num { font-size: 32px; }
   .hero-stats { gap: 16px; flex-direction: row; flex-wrap: wrap; }
   .hero-scroll-indicator { display: none; }
+
   #about { grid-template-columns: 1fr; }
   .about-left { padding: 52px 24px 40px; }
   .about-right { padding: 40px 24px 52px; }
+
   #origin { grid-template-columns: 1fr; }
   .origin-left, .origin-right { padding: 52px 24px; }
+
   #projects { padding: 52px 16px; }
   .projects-header { margin-bottom: 32px; }
   .projects-grid { grid-template-columns: 1fr; gap: 3px; }
@@ -474,44 +562,89 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   .project-card { padding: 28px 20px; }
   .project-name { font-size: 26px; }
   .project-img-wrap { margin-bottom: 20px; }
+
   #videos { padding: 52px 16px; }
   .videos-header { flex-direction: column; align-items: flex-start; gap: 12px; }
   .videos-subtitle { text-align: left; max-width: 100%; }
   .videos-grid { grid-template-columns: 1fr; gap: 16px; }
+
   #services { padding: 52px 20px; }
   .services-grid { grid-template-columns: 1fr; gap: 3px; }
   .sv-card.sv-featured { border-top: 3px solid var(--accent); }
   .services-bottom { flex-direction: column; align-items: flex-start; }
   .services-cta { width: 100%; text-align: center; }
+
   #stack { padding: 52px 24px; }
   .stack-inner { grid-template-columns: 1fr; gap: 40px; }
   .stack-grid { grid-template-columns: 1fr; }
+
   #mindset { padding: 52px 16px; }
   .mindset-header { grid-template-columns: 1fr; gap: 20px; margin-bottom: 32px; }
   .mindset-shifts { grid-template-columns: 1fr; }
   .shift-item { padding: 28px 20px; }
+
   #contact { padding: 72px 24px; }
   .contact-links { flex-direction: column; }
   .contact-link { justify-content: center; }
+
   footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px 24px; }
   .video-modal, .lightbox-modal { padding: 20px; }
 }
+
 @media (max-width: 400px) {
   .hero-name { font-size: 56px; }
   .project-card { padding: 20px 16px; }
   .project-name { font-size: 22px; }
+  .mob-nav-item { padding: 6px 6px; }
+  .mob-nav-item svg { width: 15px; height: 15px; }
+  .mob-nav-item span { font-size: 6.5px; letter-spacing: 0.05em; }
 }
 </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
 
-<!-- MOBILE THEME TOGGLE -->
-<div class="theme-toggle-mobile" id="themeToggleMobile" style="display:none;">
-  <button class="theme-btn" data-theme="light" onclick="setTheme('light')">☀</button>
-  <button class="theme-btn" data-theme="dark" onclick="setTheme('dark')">☾</button>
-  <button class="theme-btn active" data-theme="system" onclick="setTheme('system')">⊙</button>
+<!-- MOBILE THEME TOGGLE — top right, icon-only -->
+<div class="theme-toggle-mobile" id="themeToggleMobile">
+  <button class="theme-btn" data-theme="light" onclick="setTheme('light')" title="Light mode">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
+  <button class="theme-btn" data-theme="dark" onclick="setTheme('dark')" title="Dark mode">
+    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <button class="theme-btn active" data-theme="system" onclick="setTheme('system')" title="System mode">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor" stroke="none"/></svg>
+  </button>
 </div>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-bottom-nav" id="mobileBottomNav">
+  <a class="mob-nav-item" href="#about" data-section="about">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    <span>About</span>
+  </a>
+  <a class="mob-nav-item" href="#projects" data-section="projects">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <span>Projects</span>
+  </a>
+  <a class="mob-nav-item" href="#services" data-section="services">
+    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    <span>Services</span>
+  </a>
+  <a class="mob-nav-item" href="#videos" data-section="videos">
+    <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+    <span>Videos</span>
+  </a>
+  <a class="mob-nav-item" href="#contact" data-section="contact">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span>Contact</span>
+  </a>
+</nav>
 
 <nav id="mainNav">
   <a class="nav-logo" href="#">Bayode Akindiose</a>
@@ -794,7 +927,6 @@ function setTheme(t) {
   document.querySelectorAll('.theme-btn').forEach(function(b) {
     b.classList.toggle('active', b.getAttribute('data-theme') === t);
   });
-  /* Update cursor blend mode based on effective theme */
   updateCursorBlend();
 }
 
@@ -810,12 +942,6 @@ function updateCursorBlend() {
   var cursor = document.getElementById('cursor');
   if (!cursor) return;
   var effective = getEffectiveTheme();
-  /*
-    CURSOR PSYCHOLOGY:
-    Light mode → multiply: darkens the accent color against cream bg = visible
-    Dark mode  → difference: inverts pixel colors = always contrasts dark surfaces
-    This means the cursor ALWAYS contradicts the background, visible in both modes.
-  */
   cursor.style.mixBlendMode = (effective === 'dark') ? 'difference' : 'multiply';
 }
 
@@ -825,7 +951,6 @@ function updateCursorBlend() {
   document.querySelectorAll('.theme-btn').forEach(function(b) {
     b.classList.toggle('active', b.getAttribute('data-theme') === saved);
   });
-  /* Listen for OS theme changes when in system mode */
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
     if (document.documentElement.getAttribute('data-theme') === 'system') {
       updateCursorBlend();
@@ -870,7 +995,7 @@ var cursor = document.getElementById('cursor');
 var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 if (!isTouch) {
   cursor.style.display = 'block';
-  updateCursorBlend(); /* Set correct blend on load */
+  updateCursorBlend();
   document.addEventListener('mousemove', function(e) {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
@@ -880,6 +1005,35 @@ if (!isTouch) {
     el.addEventListener('mouseleave', function() { cursor.classList.remove('big'); });
   });
 }
+
+/* ── MOBILE: BACK TO TOP + ACTIVE NAV ── */
+(function() {
+  var backToTop = document.getElementById('backToTop');
+  var sections = ['about', 'projects', 'services', 'videos', 'contact'];
+  var navItems = document.querySelectorAll('.mob-nav-item');
+
+  function onScroll() {
+    /* Back to top visibility */
+    if (backToTop) {
+      backToTop.classList.toggle('visible', window.scrollY > 300);
+    }
+
+    /* Active nav item */
+    var current = '';
+    sections.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 140) {
+        current = id;
+      }
+    });
+    navItems.forEach(function(a) {
+      a.classList.toggle('mob-active', a.getAttribute('data-section') === current);
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); /* run on load */
+})();
 </script>
 </body>
 </html>
