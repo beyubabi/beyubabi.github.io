@@ -161,6 +161,14 @@ nav.scrolled {
 }
 .nav-links a:hover { opacity: 1; color: var(--accent); }
 
+/* NAV — light mode explicit */
+[data-theme="light"] nav { background: #f5f0e8; border-bottom-color: rgba(15,23,42,0.14); }
+[data-theme="light"] .nav-logo,
+[data-theme="light"] .nav-links a { color: #0f172a; }
+[data-theme="light"] .theme-toggle { background: #ede8df; border-color: rgba(15,23,42,0.3); }
+[data-theme="light"] .theme-btn { color: #0f172a; }
+
+/* NAV — dark mode explicit */
 [data-theme="dark"] .nav-logo,
 [data-theme="dark"] .nav-links a { color: #f0ebe2; }
 [data-theme="dark"] nav { background: #0d1117; border-bottom-color: rgba(240,235,226,0.1); }
@@ -173,6 +181,13 @@ nav.scrolled {
   [data-theme="system"] nav { background: #0d1117; border-bottom-color: rgba(240,235,226,0.1); }
   [data-theme="system"] .theme-toggle { background: #161b27; border-color: rgba(240,235,226,0.35); }
   [data-theme="system"] .theme-btn { color: #f0ebe2; }
+}
+@media (prefers-color-scheme: light) {
+  [data-theme="system"] nav { background: #f5f0e8; border-bottom-color: rgba(15,23,42,0.14); }
+  [data-theme="system"] .nav-logo,
+  [data-theme="system"] .nav-links a { color: #0f172a; }
+  [data-theme="system"] .theme-toggle { background: #ede8df; border-color: rgba(15,23,42,0.3); }
+  [data-theme="system"] .theme-btn { color: #0f172a; }
 }
 
 /* ============================================================
@@ -934,6 +949,30 @@ function setTheme(t) {
     b.classList.toggle('active', b.getAttribute('data-theme') === t);
   });
   updateCursorBlend();
+
+  /* Force body and nav to repaint immediately on mobile */
+  var effective = t;
+  if (t === 'system') {
+    effective = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  var isDark = (effective === 'dark');
+  document.body.style.backgroundColor = isDark ? '#0d1117' : '#f5f0e8';
+  document.body.style.color = isDark ? '#f0ebe2' : '#0f172a';
+  var mainNav = document.getElementById('mainNav');
+  if (mainNav) {
+    mainNav.style.background = isDark ? '#0d1117' : '#f5f0e8';
+    mainNav.style.borderBottomColor = isDark ? 'rgba(240,235,226,0.1)' : 'rgba(15,23,42,0.14)';
+  }
+  var mobileBotNav = document.getElementById('mobileBottomNav');
+  if (mobileBotNav) {
+    mobileBotNav.style.background = isDark ? '#1c2333' : '#111827';
+    mobileBotNav.style.borderColor = isDark ? 'rgba(240,235,226,0.12)' : 'rgba(15,23,42,0.12)';
+  }
+  var mobileToggle = document.getElementById('themeToggleMobile');
+  if (mobileToggle) {
+    mobileToggle.style.background = isDark ? '#161b27' : '#ede8df';
+    mobileToggle.style.borderColor = isDark ? 'rgba(240,235,226,0.25)' : 'rgba(15,23,42,0.2)';
+  }
 }
 
 function getEffectiveTheme() {
