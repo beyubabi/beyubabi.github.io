@@ -88,7 +88,7 @@
 html { scroll-behavior: smooth; }
 body {
   background-color: var(--bg); color: var(--fg);
-  font-family: var(--sans); overflow-x: hidden; cursor: none;
+  font-family: var(--sans); overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 body::before {
@@ -102,11 +102,13 @@ body::before {
   position: fixed; width: 12px; height: 12px; background: var(--accent);
   border-radius: 50%; pointer-events: none; z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, background 0.3s, mix-blend-mode 0.3s;
-  mix-blend-mode: var(--cursor-blend);
-  display: none;
+  transition: width 0.3s, height 0.3s, background 0.3s;
+  mix-blend-mode: multiply;
+  display: block;
+  left: -100px; top: -100px;
 }
 .cursor.big { width: 48px; height: 48px; background: var(--accent-muted); opacity: 0.5; }
+[data-theme="dark"] .cursor { mix-blend-mode: difference; }
 
 /* ============================================================
    DESKTOP THEME TOGGLE (in nav)
@@ -152,7 +154,7 @@ body::before {
 /* ============================================================
    NAV
    ============================================================ */
-nav {
+#mainNav {
   position: fixed; top: 0; left: 0; right: 0;
   display: flex; justify-content: space-between; align-items: center;
   padding: 18px 48px; z-index: 500;
@@ -160,7 +162,7 @@ nav {
   border-bottom: 1px solid var(--divider);
   transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
-nav.scrolled {
+#mainNav.scrolled {
   background: color-mix(in srgb, var(--bg) 94%, transparent);
   backdrop-filter: blur(16px);
   box-shadow: 0 2px 24px rgba(0,0,0,0.08);
@@ -183,16 +185,14 @@ nav.scrolled {
 .nav-links a:hover { opacity: 1; color: var(--accent); }
 
 /* NAV theme overrides — light */
-[data-theme="light"] nav,
-[data-theme="light"] nav.scrolled { background: #f5f0e8; border-bottom-color: rgba(15,23,42,0.14); }
+[data-theme="light"] #mainNav { background: #f5f0e8; border-bottom-color: rgba(15,23,42,0.14); }
 [data-theme="light"] .nav-logo,
 [data-theme="light"] .nav-links a { color: #0f172a; }
 [data-theme="light"] .theme-toggle { background: #ede8df; border-color: rgba(15,23,42,0.25); }
 [data-theme="light"] .theme-btn:not(.active) { color: #0f172a; opacity: 0.6; }
 
 /* NAV theme overrides — dark */
-[data-theme="dark"] nav,
-[data-theme="dark"] nav.scrolled { background: #0d1117; border-bottom-color: rgba(240,235,226,0.1); }
+[data-theme="dark"] #mainNav { background: #0d1117; border-bottom-color: rgba(240,235,226,0.1); }
 [data-theme="dark"] .nav-logo,
 [data-theme="dark"] .nav-links a { color: #f0ebe2; }
 [data-theme="dark"] .theme-toggle { background: #161b27; border-color: rgba(240,235,226,0.35); }
@@ -200,14 +200,14 @@ nav.scrolled {
 
 /* NAV theme overrides — system */
 @media (prefers-color-scheme: light) {
-  [data-theme="system"] nav { background: #f5f0e8; border-bottom-color: rgba(15,23,42,0.14); }
+  [data-theme="system"] #mainNav { background: #f5f0e8; border-bottom-color: rgba(15,23,42,0.14); }
   [data-theme="system"] .nav-logo,
   [data-theme="system"] .nav-links a { color: #0f172a; }
   [data-theme="system"] .theme-toggle { background: #ede8df; border-color: rgba(15,23,42,0.25); }
   [data-theme="system"] .theme-btn:not(.active) { color: #0f172a; opacity: 0.6; }
 }
 @media (prefers-color-scheme: dark) {
-  [data-theme="system"] nav { background: #0d1117; border-bottom-color: rgba(240,235,226,0.1); }
+  [data-theme="system"] #mainNav { background: #0d1117; border-bottom-color: rgba(240,235,226,0.1); }
   [data-theme="system"] .nav-logo,
   [data-theme="system"] .nav-links a { color: #f0ebe2; }
   [data-theme="system"] .theme-toggle { background: #161b27; border-color: rgba(240,235,226,0.35); }
@@ -540,21 +540,23 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
    ============================================================ */
 .back-to-top {
   position: fixed;
-  bottom: 80px;
-  right: 16px;
-  z-index: 600;
-  width: 40px;
-  height: 40px;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9000;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--surface);
-  border: 1px solid rgba(240,235,226,0.18);
-  color: rgba(240,235,226,0.55);
-  display: none;
+  background: var(--accent);
+  border: none;
+  color: #111827;
+  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
+  box-shadow: 0 4px 24px rgba(212,168,83,0.45);
 }
 .back-to-top svg {
   width: 18px;
@@ -565,26 +567,24 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.back-to-top:hover {
-  background: var(--accent);
-  color: #111827;
-  transform: translateY(-2px);
+.back-to-top:hover { transform: translateY(-3px); }
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+
+@media (max-width: 960px) {
+  .back-to-top { bottom: 82px; right: 16px; width: 40px; height: 40px; }
 }
-.back-to-top.visible { display: flex; }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 960px) {
-  .cursor { display: none !important; }
-  body { cursor: auto; padding-bottom: 72px; }
-  nav { padding: 14px 20px; background: var(--bg); transition: background 0.3s; }
+  body { padding-bottom: 72px; }
+  #mainNav { padding: 14px 20px; }
   .nav-links { display: none; }
 
   /* Show mobile elements */
   .theme-toggle-mobile { display: flex; }
   .mobile-bottom-nav { display: flex !important; flex-direction: row; }
-  .back-to-top { /* shown via .visible class */ }
 
   #hero { grid-template-columns: 1fr; }
   .hero-left { padding: 100px 24px 48px; }
@@ -668,7 +668,7 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
 </button>
 
 <!-- MOBILE BOTTOM NAV -->
-<nav class="mobile-bottom-nav" id="mobileBottomNav">
+<div class="mobile-bottom-nav" id="mobileBottomNav">
   <a class="mob-nav-item" href="#about" data-section="about">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
     <span>About</span>
@@ -689,7 +689,7 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
     <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     <span>Contact</span>
   </a>
-</nav>
+</div>
 
 <nav id="mainNav">
   <a class="nav-logo" href="#">Bayode Akindiose</a>
@@ -1035,35 +1035,39 @@ document.getElementById('videoModal').addEventListener('click', function(e) { if
 document.getElementById('lightboxModal').addEventListener('click', function(e) { if (e.target===this) closeLightbox(); });
 document.addEventListener('keydown', function(e) { if (e.key==='Escape') { closeVideo(); closeLightbox(); } });
 
-/* ── CURSOR — desktop/mouse only ── */
+/* ── CURSOR ── */
 var cursor = document.getElementById('cursor');
-var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-if (!isTouch) {
-  cursor.style.display = 'block';
-  updateCursorBlend();
-  document.addEventListener('mousemove', function(e) {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
-  document.querySelectorAll('a, button, .project-card, .shift-item, .stack-item, .video-card, .sv-card').forEach(function(el) {
-    el.addEventListener('mouseenter', function() { cursor.classList.add('big'); });
-    el.addEventListener('mouseleave', function() { cursor.classList.remove('big'); });
-  });
-}
+var hasMouse = false;
+document.addEventListener('mousemove', function(e) {
+  if (!hasMouse) {
+    hasMouse = true;
+    document.body.style.cursor = 'none';
+  }
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+document.addEventListener('touchstart', function() {
+  cursor.style.display = 'none';
+  document.body.style.cursor = 'auto';
+}, { once: true });
+document.querySelectorAll('a, button, .project-card, .shift-item, .stack-item, .video-card, .sv-card').forEach(function(el) {
+  el.addEventListener('mouseenter', function() { cursor.classList.add('big'); });
+  el.addEventListener('mouseleave', function() { cursor.classList.remove('big'); });
+});
 
-/* ── MOBILE: BACK TO TOP + ACTIVE NAV ── */
+/* ── BACK TO TOP + MOBILE ACTIVE NAV ── */
 (function() {
   var backToTop = document.getElementById('backToTop');
   var sections = ['about', 'projects', 'services', 'videos', 'contact'];
   var navItems = document.querySelectorAll('.mob-nav-item');
 
   function onScroll() {
-    /* Back to top visibility */
+    /* Back to top — shows on ALL devices after 400px scroll */
     if (backToTop) {
-      backToTop.classList.toggle('visible', window.scrollY > 300);
+      backToTop.classList.toggle('visible', window.scrollY > 400);
     }
 
-    /* Active nav item */
+    /* Active mobile nav item */
     var current = '';
     sections.forEach(function(id) {
       var el = document.getElementById(id);
