@@ -383,55 +383,72 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
    MOBILE BOTTOM NAV
    ============================================================ */
 .mobile-bottom-nav {
-  position: fixed;
-  bottom: 16px;
-  left: 12px;
-  right: 12px;
+  position: fixed !important;
+  bottom: 0 !important;
+  top: auto !important;
+  left: 0;
+  right: 0;
   z-index: 600;
   display: none;
+  flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background: var(--surface);
-  border: 1px solid rgba(240,235,226,0.14);
-  border-radius: 40px;
-  padding: 6px 8px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
-  backdrop-filter: blur(16px);
+  background: #111827;
+  border: 1px solid rgba(240,235,226,0.12);
+  border-radius: 24px 24px 0 0;
+  padding-top: 10px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  box-shadow: 0 -6px 24px rgba(0,0,0,0.35);
 }
 .mob-nav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  padding: 7px 10px;
-  border-radius: 30px;
-  color: rgba(240,235,226,0.4);
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 4px 10px;
+  color: rgba(240,235,226,0.38);
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  transition: color 0.2s;
   flex: 1;
+  position: relative;
+}
+.mob-nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 0 0 2px 2px;
+  transform: scaleX(0);
+  transition: transform 0.2s;
 }
 .mob-nav-item svg {
-  width: 17px;
-  height: 17px;
+  width: 22px;
+  height: 22px;
   stroke: currentColor;
   fill: none;
-  stroke-width: 2;
+  stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
   flex-shrink: 0;
 }
 .mob-nav-item span {
   font-family: var(--mono);
-  font-size: 7.5px;
+  font-size: 9px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
   white-space: nowrap;
 }
-.mob-nav-item:hover,
+.mob-nav-item:hover { color: rgba(240,235,226,0.7); }
 .mob-nav-item.mob-active {
-  background: rgba(212,168,83,0.15);
   color: var(--accent);
+}
+.mob-nav-item.mob-active::before {
+  transform: scaleX(1);
 }
 
 /* ============================================================
@@ -493,8 +510,8 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
    ============================================================ */
 .back-to-top {
   position: fixed;
-  bottom: 92px;
-  right: 20px;
+  bottom: 80px;
+  right: 16px;
   z-index: 600;
   width: 40px;
   height: 40px;
@@ -530,13 +547,13 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
    ============================================================ */
 @media (max-width: 960px) {
   .cursor { display: none !important; }
-  body { cursor: auto; padding-bottom: 100px; }
+  body { cursor: auto; padding-bottom: 72px; }
   nav { padding: 14px 20px; }
   .nav-links { display: none; }
 
   /* Show mobile elements */
   .theme-toggle-mobile { display: flex; }
-  .mobile-bottom-nav { display: flex; }
+  .mobile-bottom-nav { display: flex !important; flex-direction: row; }
   .back-to-top { /* shown via .visible class */ }
 
   #hero { grid-template-columns: 1fr; }
@@ -595,9 +612,7 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   .hero-name { font-size: 56px; }
   .project-card { padding: 20px 16px; }
   .project-name { font-size: 22px; }
-  .mob-nav-item { padding: 6px 6px; }
-  .mob-nav-item svg { width: 15px; height: 15px; }
-  .mob-nav-item span { font-size: 6.5px; letter-spacing: 0.05em; }
+  .mob-nav-item span { font-size: 8px; }
 }
 </style>
 </head>
@@ -904,7 +919,7 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
       <a class="contact-link" href="https://www.upwork.com/freelancers/~0142db9a567528c226?mp_source=share" target="_blank">Upwork</a>
       <a class="contact-link" href="https://www.instagram.com/beyu_babi/" target="_blank">Instagram</a>
       <a class="contact-link" href="https://wa.me/2348126679348" target="_blank">WhatsApp</a>
-      <a class="contact-link" href="mailto:bayu4e.com@gmail.com">Email</a>
+      <a class="contact-link" href="/cdn-cgi/l/email-protection#83e1e2faf6b7e6ade0eceec3e4eee2eaefade0ecee">Email</a>
     </div>
     <blockquote class="contact-quote">
       "I don't plan with fear. I plan with purpose."
@@ -919,7 +934,7 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   <span>Built with purpose.</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── THEME ── */
 function setTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
@@ -1027,13 +1042,4 @@ if (!isTouch) {
       }
     });
     navItems.forEach(function(a) {
-      a.classList.toggle('mob-active', a.getAttribute('data-section') === current);
-    });
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); /* run on load */
-})();
-</script>
-</body>
-</html>
+      a.classList.toggle('mob-active', a.getAttribute('data-section') === cu
