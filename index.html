@@ -8,38 +8,12 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/*
-  ====================================================================
-  COLOR PSYCHOLOGY — WHY THIS PALETTE
-  ====================================================================
-  --accent: #d4a853 (Warm Amber/Gold)
-    → Ambition, energy, warmth. Commands attention without aggression.
-      Used by premium brands to signal value and drive action.
-
-  --surface-2: #1a2744 (Deep Navy)
-    → Trust, competence, expertise. The #1 color in tech/finance for a
-      reason — it reads "this person knows what they're doing."
-
-  --surface: #111827 (Charcoal Navy)
-    → Premium, grounded, serious. Complements navy without blending.
-
-  --bg: #f5f0e8 (Warm Cream)
-    → Inviting, readable, premium. Softer than white — reduces eye 
-      fatigue and signals care for the reader's experience.
-
-  Together: Cream + Navy + Gold = credibility + warmth + ambition.
-  A client who lands here feels they're talking to a trusted expert,
-  not browsing a freelancer marketplace.
-  ====================================================================
-*/
-
 :root {
   --accent: #d4a853;
   --accent-muted: #e8c07a;
   --mono: 'DM Mono', monospace;
   --display: 'Fraunces', serif;
   --sans: 'Syne', sans-serif;
-  /* Default light values as fallback */
   --bg: #ffffff;
   --bg-2: #f5f5f5;
   --fg: #0f172a;
@@ -52,61 +26,32 @@
   --cursor-blend: multiply;
 }
 
-/* ── LIGHT (explicit) ── */
 [data-theme="light"] {
-  --bg: #ffffff;
-  --bg-2: #f5f5f5;
-  --fg: #0f172a;
-  --fg-2: rgba(15,23,42,0.60);
-  --fg-3: rgba(15,23,42,0.25);
-  --surface: #111827;
-  --surface-fg: #ffffff;
-  --surface-2: #1a2744;
-  --divider: rgba(15,23,42,0.14);
-  --cursor-blend: multiply;
+  --bg: #ffffff; --bg-2: #f5f5f5; --fg: #0f172a;
+  --fg-2: rgba(15,23,42,0.60); --fg-3: rgba(15,23,42,0.25);
+  --surface: #111827; --surface-fg: #ffffff; --surface-2: #1a2744;
+  --divider: rgba(15,23,42,0.14); --cursor-blend: multiply;
 }
-
-/* ── DARK (explicit) ── */
 [data-theme="dark"] {
-  --bg: #0d1117;
-  --bg-2: #161b27;
-  --fg: #f0ebe2;
-  --fg-2: rgba(240,235,226,0.55);
-  --fg-3: rgba(240,235,226,0.22);
-  --surface: #1c2333;
-  --surface-fg: #f0ebe2;
-  --surface-2: #1a2744;
-  --divider: rgba(240,235,226,0.1);
-  --cursor-blend: difference;
+  --bg: #0d1117; --bg-2: #161b27; --fg: #f0ebe2;
+  --fg-2: rgba(240,235,226,0.55); --fg-3: rgba(240,235,226,0.22);
+  --surface: #1c2333; --surface-fg: #f0ebe2; --surface-2: #1a2744;
+  --divider: rgba(240,235,226,0.1); --cursor-blend: difference;
 }
-
-/* ── SYSTEM: follow OS preference ── */
 @media (prefers-color-scheme: light) {
   [data-theme="system"] {
-    --bg: #ffffff;
-    --bg-2: #f5f5f5;
-    --fg: #0f172a;
-    --fg-2: rgba(15,23,42,0.60);
-    --fg-3: rgba(15,23,42,0.25);
-    --surface: #111827;
-    --surface-fg: #ffffff;
-    --surface-2: #1a2744;
-    --divider: rgba(15,23,42,0.14);
-    --cursor-blend: multiply;
+    --bg: #ffffff; --bg-2: #f5f5f5; --fg: #0f172a;
+    --fg-2: rgba(15,23,42,0.60); --fg-3: rgba(15,23,42,0.25);
+    --surface: #111827; --surface-fg: #ffffff; --surface-2: #1a2744;
+    --divider: rgba(15,23,42,0.14); --cursor-blend: multiply;
   }
 }
 @media (prefers-color-scheme: dark) {
   [data-theme="system"] {
-    --bg: #0d1117;
-    --bg-2: #161b27;
-    --fg: #f0ebe2;
-    --fg-2: rgba(240,235,226,0.55);
-    --fg-3: rgba(240,235,226,0.22);
-    --surface: #1c2333;
-    --surface-fg: #f0ebe2;
-    --surface-2: #1a2744;
-    --divider: rgba(240,235,226,0.1);
-    --cursor-blend: difference;
+    --bg: #0d1117; --bg-2: #161b27; --fg: #f0ebe2;
+    --fg-2: rgba(240,235,226,0.55); --fg-3: rgba(240,235,226,0.22);
+    --surface: #1c2333; --surface-fg: #f0ebe2; --surface-2: #1a2744;
+    --divider: rgba(240,235,226,0.1); --cursor-blend: difference;
   }
 }
 
@@ -124,17 +69,15 @@ body::before {
 
 /* ============================================================
    CURSOR
-   mix-blend-mode is now controlled per theme:
-   - Light mode: multiply (darkens over light bg = visible)
-   - Dark mode: difference (inverts = always contrasts dark bg)
    ============================================================ */
 .cursor {
   position: fixed; width: 12px; height: 12px; background: var(--accent);
   border-radius: 50%; pointer-events: none; z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, background 0.3s, mix-blend-mode 0.3s;
+  transition: width 0.3s, height 0.3s, background 0.3s, mix-blend-mode 0.3s, opacity 0.3s;
   mix-blend-mode: var(--cursor-blend);
-  display: none;
+  display: block;        /* ← was: display: none */
+  opacity: 0;            /* ← hidden until mouse moves */
 }
 .cursor.big { width: 48px; height: 48px; background: var(--accent-muted); opacity: 0.5; }
 
@@ -143,36 +86,25 @@ body::before {
    ============================================================ */
 .theme-toggle {
   display: flex; align-items: center; gap: 1px;
-  background: var(--bg-2);
-  border-radius: 16px; padding: 3px;
+  background: var(--bg-2); border-radius: 16px; padding: 3px;
   border: 1.5px solid var(--fg-2);
 }
 .theme-btn {
   font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em;
   text-transform: uppercase; background: none; border: none;
-  padding: 4px 10px; border-radius: 12px;        /* slimmer height */
-  cursor: pointer; transition: background 0.2s, color 0.2s, opacity 0.2s; white-space: nowrap;
-  color: var(--fg);
-  font-weight: 600;
-  opacity: 0.55;
-  line-height: 1;
+  padding: 4px 10px; border-radius: 12px; cursor: pointer;
+  transition: background 0.2s, color 0.2s, opacity 0.2s; white-space: nowrap;
+  color: var(--fg); font-weight: 600; opacity: 0.55; line-height: 1;
 }
 .theme-btn.active {
-  background: var(--accent);
-  color: #ffffff !important;
-  font-weight: 800; opacity: 1;
-  box-shadow: 0 1px 6px rgba(212,168,83,0.4);
+  background: var(--accent); color: #ffffff !important; font-weight: 800;
+  opacity: 1; box-shadow: 0 1px 6px rgba(212,168,83,0.4);
   text-shadow: 0 1px 2px rgba(0,0,0,0.25);
 }
-
-/* Light mode — inactive labels must be dark navy to show on cream container */
 [data-theme="light"] .theme-toggle { background: #ffffff; border-color: rgba(15,23,42,0.2); }
 [data-theme="light"] .theme-btn:not(.active) { color: #0f172a; opacity: 0.75; }
-
-/* Dark mode — inactive labels must be cream to show on dark container */
 [data-theme="dark"] .theme-toggle { background: #161b27; border-color: rgba(240,235,226,0.25); }
 [data-theme="dark"] .theme-btn:not(.active) { color: #f0ebe2; opacity: 0.75; }
-
 @media (prefers-color-scheme: light) {
   [data-theme="system"] .theme-toggle { background: #ffffff; border-color: rgba(15,23,42,0.2); }
   [data-theme="system"] .theme-btn:not(.active) { color: #0f172a; opacity: 0.75; }
@@ -181,22 +113,15 @@ body::before {
   [data-theme="system"] .theme-toggle { background: #161b27; border-color: rgba(240,235,226,0.25); }
   [data-theme="system"] .theme-btn:not(.active) { color: #f0ebe2; opacity: 0.75; }
 }
-.theme-btn:hover:not(.active) {
-  opacity: 1; color: var(--fg); background: rgba(212,168,83,0.12);
-}
+.theme-btn:hover:not(.active) { opacity: 1; color: var(--fg); background: rgba(212,168,83,0.12); }
 
 /* ============================================================
    NAV
-   FIX: Nav links were opacity: 0.5 — nearly invisible in light mode.
-   Now they sit at 0.72 minimum with a clear hover to 1.0.
-   Color is explicitly var(--fg) so it's dark (#0f172a) on cream bg.
    ============================================================ */
 nav {
   position: fixed; top: 0; left: 0; right: 0;
   display: flex; justify-content: space-between; align-items: center;
   padding: 18px 48px; z-index: 500;
-  /* Always-on background: nav spans both cream + navy hero panels.
-     Without this, links disappear over the dark right panel. */
   background: var(--bg);
   border-bottom: 1px solid var(--divider);
   transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
@@ -208,40 +133,39 @@ nav.scrolled {
 }
 .nav-logo {
   font-family: var(--mono); font-size: 13px; letter-spacing: 0.12em;
-  color: var(--fg); text-decoration: none; text-transform: uppercase;
-  font-weight: 500;
+  color: var(--fg); text-decoration: none; text-transform: uppercase; font-weight: 500;
 }
 .nav-links { display: flex; gap: 28px; align-items: center; }
 .nav-links a {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--fg);
-  text-decoration: none;
-  opacity: 0.72;
-  font-weight: 500;
+  text-transform: uppercase; color: var(--fg); text-decoration: none;
+  opacity: 0.72; font-weight: 500;
   transition: opacity 0.2s, color 0.2s;
+  position: relative;
 }
 .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-/* ── NAV explicit light/dark overrides — prevent any bleed ── */
-
-/* LIGHT MODE nav: cream bg, dark navy text, cream toggle */
-[data-theme="light"] nav {
-  background: #ffffff;
-  border-bottom-color: rgba(15,23,42,0.12);
+/* ── DESKTOP NAV ACTIVE STATE ── */
+.nav-links a.nav-active {
+  opacity: 1;
+  color: var(--accent);
 }
+/* Underline indicator on active desktop link */
+.nav-links a.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+[data-theme="light"] nav { background: #ffffff; border-bottom-color: rgba(15,23,42,0.12); }
 [data-theme="light"] .nav-logo,
 [data-theme="light"] .nav-links a { color: #0f172a; }
-
-/* DARK MODE nav: deep dark bg, cream text */
-[data-theme="dark"] nav {
-  background: #0d1117;
-  border-bottom-color: rgba(240,235,226,0.1);
-}
+[data-theme="dark"] nav { background: #0d1117; border-bottom-color: rgba(240,235,226,0.1); }
 [data-theme="dark"] .nav-logo,
 [data-theme="dark"] .nav-links a { color: #f0ebe2; }
-
-/* SYSTEM — follow OS */
 @media (prefers-color-scheme: light) {
   [data-theme="system"] nav { background: #ffffff; border-bottom-color: rgba(15,23,42,0.12); }
   [data-theme="system"] .nav-logo,
@@ -252,6 +176,11 @@ nav.scrolled {
   [data-theme="system"] .nav-logo,
   [data-theme="system"] .nav-links a { color: #f0ebe2; }
 }
+/* Active link color stays amber regardless of theme */
+[data-theme="light"] .nav-links a.nav-active,
+[data-theme="dark"] .nav-links a.nav-active { color: var(--accent); opacity: 1; }
+@media (prefers-color-scheme: light) { [data-theme="system"] .nav-links a.nav-active { color: var(--accent); opacity: 1; } }
+@media (prefers-color-scheme: dark)  { [data-theme="system"] .nav-links a.nav-active { color: var(--accent); opacity: 1; } }
 
 /* ============================================================
    HERO
@@ -267,8 +196,6 @@ nav.scrolled {
 .btn-primary:hover { background: var(--accent); color: var(--surface); transform: translateY(-2px); }
 .btn-outline { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--fg-3); padding-bottom: 2px; opacity: 0.55; transition: opacity 0.2s, color 0.2s, border-color 0.2s; }
 .btn-outline:hover { opacity: 1; color: var(--accent); border-color: var(--accent); }
-
-/* Hero right — navy panel signals trust/expertise immediately */
 .hero-right { background: var(--surface-2); position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: flex-start; padding: 60px 48px; opacity: 0; animation: fadeIn 1s ease 0.3s forwards; }
 .hero-right-number { font-family: var(--display); font-size: clamp(160px, 20vw, 280px); font-weight: 700; color: rgba(212,168,83,0.08); line-height: 1; position: absolute; bottom: -20px; right: -20px; user-select: none; }
 .hero-stats { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 28px; }
@@ -346,17 +273,9 @@ nav.scrolled {
 .services-heading em { font-style: italic; color: var(--accent-muted); }
 .services-subhead { font-family: var(--display); font-size: 18px; font-weight: 300; font-style: italic; color: rgba(240,235,226,0.4); margin-bottom: 56px; max-width: 540px; line-height: 1.6; }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.sv-card {
-  padding: 40px 32px;
-  background: rgba(0,0,0,0.22);
-  border-top: 3px solid rgba(240,235,226,0.08);
-  transition: background 0.25s;
-}
+.sv-card { padding: 40px 32px; background: rgba(0,0,0,0.22); border-top: 3px solid rgba(240,235,226,0.08); transition: background 0.25s; }
 .sv-card:hover { background: rgba(0,0,0,0.36); }
-.sv-card.sv-featured {
-  border-top-color: var(--accent);
-  background: rgba(212,168,83,0.1);
-}
+.sv-card.sv-featured { border-top-color: var(--accent); background: rgba(212,168,83,0.1); }
 .sv-card.sv-featured:hover { background: rgba(212,168,83,0.16); }
 .sv-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: rgba(240,235,226,0.25); margin-bottom: 28px; }
 .sv-title { font-family: var(--display); font-size: 26px; font-weight: 700; color: #f0ebe2; line-height: 1.1; margin-bottom: 10px; }
@@ -487,27 +406,42 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   align-items: center; justify-content: center;
   gap: 4px; padding: 10px 4px;
   color: var(--fg-2); text-decoration: none;
-  transition: color 0.2s; flex: 1; position: relative;
+  transition: color 0.2s, transform 0.15s; flex: 1; position: relative;
 }
+
+/* ── TOP INDICATOR BAR ── */
 .mob-nav-item::before {
   content: ''; position: absolute; top: 0;
   left: 20%; right: 20%; height: 2px;
   background: var(--accent); border-radius: 0 0 2px 2px;
   transform: scaleX(0); transition: transform 0.2s;
 }
+
 .mob-nav-item svg {
   width: 22px; height: 22px; stroke: currentColor;
   fill: none; stroke-width: 1.8;
   stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;
+  transition: stroke 0.2s;
 }
 .mob-nav-item span {
   font-family: var(--mono); font-size: 9px;
   letter-spacing: 0.08em; text-transform: uppercase;
   font-weight: 600; white-space: nowrap;
+  transition: color 0.2s;
 }
 .mob-nav-item:hover { color: var(--fg); }
 
-/* Light mode — cream container, dark navy icons */
+/* ── MOBILE ACTIVE STATE (works in ALL themes) ── */
+/* Default (dark surface background) */
+.mob-nav-item.mob-active {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+.mob-nav-item.mob-active::before { transform: scaleX(1); }
+.mob-nav-item.mob-active svg { stroke: var(--accent); }
+.mob-nav-item.mob-active span { color: var(--accent); }
+
+/* Light mode — cream nav bg, dark icons for inactive */
 [data-theme="light"] .mobile-bottom-nav {
   background: #ffffff;
   border-top-color: rgba(15,23,42,0.12);
@@ -515,18 +449,33 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
 [data-theme="light"] .mob-nav-item { color: rgba(15,23,42,0.45); }
 [data-theme="light"] .mob-nav-item:hover { color: #0f172a; }
 [data-theme="light"] .mob-nav-item.mob-active { color: var(--accent); }
+[data-theme="light"] .mob-nav-item.mob-active svg { stroke: var(--accent); }
+[data-theme="light"] .mob-nav-item.mob-active span { color: var(--accent); }
+
+/* Dark mode — already dark bg, cream icons for inactive */
+[data-theme="dark"] .mobile-bottom-nav { background: #161b27; border-top-color: rgba(240,235,226,0.1); }
+[data-theme="dark"] .mob-nav-item { color: rgba(240,235,226,0.4); }
+[data-theme="dark"] .mob-nav-item:hover { color: #f0ebe2; }
+[data-theme="dark"] .mob-nav-item.mob-active { color: var(--accent); }
+[data-theme="dark"] .mob-nav-item.mob-active svg { stroke: var(--accent); }
+[data-theme="dark"] .mob-nav-item.mob-active span { color: var(--accent); }
 
 @media (prefers-color-scheme: light) {
-  [data-theme="system"] .mobile-bottom-nav {
-    background: #ffffff;
-    border-top-color: rgba(15,23,42,0.12);
-  }
+  [data-theme="system"] .mobile-bottom-nav { background: #ffffff; border-top-color: rgba(15,23,42,0.12); }
   [data-theme="system"] .mob-nav-item { color: rgba(15,23,42,0.45); }
   [data-theme="system"] .mob-nav-item:hover { color: #0f172a; }
   [data-theme="system"] .mob-nav-item.mob-active { color: var(--accent); }
+  [data-theme="system"] .mob-nav-item.mob-active svg { stroke: var(--accent); }
+  [data-theme="system"] .mob-nav-item.mob-active span { color: var(--accent); }
 }
-.mob-nav-item.mob-active { color: var(--accent); }
-.mob-nav-item.mob-active::before { transform: scaleX(1); }
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] .mobile-bottom-nav { background: #161b27; border-top-color: rgba(240,235,226,0.1); }
+  [data-theme="system"] .mob-nav-item { color: rgba(240,235,226,0.4); }
+  [data-theme="system"] .mob-nav-item:hover { color: #f0ebe2; }
+  [data-theme="system"] .mob-nav-item.mob-active { color: var(--accent); }
+  [data-theme="system"] .mob-nav-item.mob-active svg { stroke: var(--accent); }
+  [data-theme="system"] .mob-nav-item.mob-active span { color: var(--accent); }
+}
 
 /* ============================================================
    MOBILE THEME TOGGLE — fixed top right, icon-only
@@ -541,7 +490,7 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
 }
 .theme-toggle-mobile .theme-btn {
   display: flex; align-items: center; justify-content: center;
-  width: 28px; height: 28px; padding: 0; border-radius: 11px; /* smaller, tighter */
+  width: 28px; height: 28px; padding: 0; border-radius: 11px;
   background: none; border: none; cursor: pointer;
   color: var(--fg); opacity: 0.75;
   transition: background 0.2s, opacity 0.2s, color 0.2s;
@@ -551,24 +500,12 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   background: var(--accent); color: #fff !important;
   opacity: 1; box-shadow: 0 1px 6px rgba(212,168,83,0.4);
 }
-.theme-toggle-mobile .theme-btn:hover:not(.active) {
-  opacity: 1; background: rgba(212,168,83,0.12);
-}
+.theme-toggle-mobile .theme-btn:hover:not(.active) { opacity: 1; background: rgba(212,168,83,0.12); }
 
-/* Light mode mobile toggle — cream bg, dark icons so they show */
-[data-theme="light"] .theme-toggle-mobile {
-  background: #ffffff; border-color: rgba(15,23,42,0.18);
-}
-[data-theme="light"] .theme-toggle-mobile .theme-btn:not(.active) {
-  color: #0f172a; opacity: 0.75;
-}
-/* Dark mode mobile toggle — dark bg, cream icons */
-[data-theme="dark"] .theme-toggle-mobile {
-  background: #161b27; border-color: rgba(240,235,226,0.25);
-}
-[data-theme="dark"] .theme-toggle-mobile .theme-btn:not(.active) {
-  color: #f0ebe2; opacity: 0.75;
-}
+[data-theme="light"] .theme-toggle-mobile { background: #ffffff; border-color: rgba(15,23,42,0.18); }
+[data-theme="light"] .theme-toggle-mobile .theme-btn:not(.active) { color: #0f172a; opacity: 0.75; }
+[data-theme="dark"] .theme-toggle-mobile { background: #161b27; border-color: rgba(240,235,226,0.25); }
+[data-theme="dark"] .theme-toggle-mobile .theme-btn:not(.active) { color: #f0ebe2; opacity: 0.75; }
 @media (prefers-color-scheme: light) {
   [data-theme="system"] .theme-toggle-mobile { background: #ffffff; border-color: rgba(15,23,42,0.18); }
   [data-theme="system"] .theme-toggle-mobile .theme-btn:not(.active) { color: #0f172a; opacity: 0.75; }
@@ -590,11 +527,7 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   transition: opacity 0.3s, transform 0.2s;
   box-shadow: 0 4px 24px rgba(212,168,83,0.45);
 }
-.back-to-top svg {
-  width: 18px; height: 18px; stroke: currentColor;
-  fill: none; stroke-width: 2.5;
-  stroke-linecap: round; stroke-linejoin: round;
-}
+.back-to-top svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .back-to-top:hover { transform: translateY(-3px); }
 .back-to-top.visible { opacity: 1; pointer-events: all; }
 
@@ -608,7 +541,6 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   .theme-toggle-mobile { display: flex; }
   .mobile-bottom-nav { display: flex !important; flex-direction: row; }
   .back-to-top { bottom: 82px; right: 16px; width: 40px; height: 40px; }
-  /* mobile toggle positioned top-right — handled by base CSS above */
   #hero { grid-template-columns: 1fr; }
   .hero-left { padding: 100px 24px 48px; }
   .hero-right { min-height: 240px; padding: 40px 24px; }
@@ -661,15 +593,15 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
 <body>
 <div class="cursor" id="cursor"></div>
 
-<!-- MOBILE THEME TOGGLE — top right, icon-only -->
+<!-- MOBILE THEME TOGGLE -->
 <div class="theme-toggle-mobile" id="themeToggleMobile">
-  <button class="theme-btn" data-theme="light" onclick="setTheme('light')" title="Light mode">
+  <button class="theme-btn" data-theme="light" title="Light mode">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
   </button>
-  <button class="theme-btn" data-theme="dark" onclick="setTheme('dark')" title="Dark mode">
+  <button class="theme-btn" data-theme="dark" title="Dark mode">
     <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
   </button>
-  <button class="theme-btn active" data-theme="system" onclick="setTheme('system')" title="System mode">
+  <button class="theme-btn active" data-theme="system" title="System mode">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor" stroke="none"/></svg>
   </button>
 </div>
@@ -706,16 +638,16 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
 <nav id="mainNav">
   <a class="nav-logo" href="#">Bayode Akindiose</a>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#services">Services</a>
-    <a href="#videos">Videos</a>
-    <a href="#stack">Stack</a>
-    <a href="#contact">Contact</a>
+    <a href="#about" data-section="about">About</a>
+    <a href="#projects" data-section="projects">Projects</a>
+    <a href="#services" data-section="services">Services</a>
+    <a href="#videos" data-section="videos">Videos</a>
+    <a href="#stack" data-section="stack">Stack</a>
+    <a href="#contact" data-section="contact">Contact</a>
     <div class="theme-toggle" id="themeToggle">
-      <button class="theme-btn" data-theme="light" onclick="setTheme('light')">Light</button>
-      <button class="theme-btn" data-theme="dark" onclick="setTheme('dark')">Dark</button>
-      <button class="theme-btn active" data-theme="system" onclick="setTheme('system')">System</button>
+      <button class="theme-btn" data-theme="light">Light</button>
+      <button class="theme-btn" data-theme="dark">Dark</button>
+      <button class="theme-btn active" data-theme="system">System</button>
     </div>
   </div>
 </nav>
@@ -961,7 +893,7 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
       <a class="contact-link" href="https://www.upwork.com/freelancers/~0142db9a567528c226?mp_source=share" target="_blank">Upwork</a>
       <a class="contact-link" href="https://www.instagram.com/beyu_babi/" target="_blank">Instagram</a>
       <a class="contact-link" href="https://wa.me/2348126679348" target="_blank">WhatsApp</a>
-      <a class="contact-link" href="mailto:bayu4e.com@gmail.com">Email</a>
+      <a class="contact-link" href="/cdn-cgi/l/email-protection#a5c7c4dcd091c08bc6cac8e5c2c8c4ccc98bc6cac8">Email</a>
     </div>
     <blockquote class="contact-quote">
       "I don't plan with fear. I plan with purpose."
@@ -977,77 +909,125 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
 </footer>
 
 <script>
-/* ── THEME ── */
+/* ============================================================
+   THEME
+   All buttons wired via addEventListener — no inline onclick.
+   This is immune to Cloudflare / any script injecting between
+   tags and breaking the global scope timing.
+   ============================================================ */
+function getEffectiveTheme() {
+  var t = document.documentElement.getAttribute('data-theme');
+  if (t === 'system') return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return t;
+}
+function updateCursorBlend() {
+  var cursor = document.getElementById('cursor');
+  if (!cursor) return;
+  cursor.style.mixBlendMode = (getEffectiveTheme() === 'dark') ? 'difference' : 'multiply';
+}
 function setTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
   localStorage.setItem('bb-theme', t);
   document.querySelectorAll('.theme-btn').forEach(function(b) {
     b.classList.toggle('active', b.getAttribute('data-theme') === t);
   });
-  /* Update cursor blend mode based on effective theme */
   updateCursorBlend();
 }
 
-function getEffectiveTheme() {
-  var t = document.documentElement.getAttribute('data-theme');
-  if (t === 'system') {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  return t;
-}
-
-function updateCursorBlend() {
-  var cursor = document.getElementById('cursor');
-  if (!cursor) return;
-  var effective = getEffectiveTheme();
-  /*
-    CURSOR PSYCHOLOGY:
-    Light mode → multiply: darkens the accent color against cream bg = visible
-    Dark mode  → difference: inverts pixel colors = always contrasts dark surfaces
-    This means the cursor ALWAYS contradicts the background, visible in both modes.
-  */
-  cursor.style.mixBlendMode = (effective === 'dark') ? 'difference' : 'multiply';
-}
-
+/* Apply saved theme immediately */
 (function() {
   var saved = localStorage.getItem('bb-theme') || 'system';
   document.documentElement.setAttribute('data-theme', saved);
   document.querySelectorAll('.theme-btn').forEach(function(b) {
     b.classList.toggle('active', b.getAttribute('data-theme') === saved);
   });
-  /* Listen for OS theme changes when in system mode */
+  /* Re-run cursor blend when OS preference changes while in system mode */
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
-    if (document.documentElement.getAttribute('data-theme') === 'system') {
-      updateCursorBlend();
-    }
+    if (document.documentElement.getAttribute('data-theme') === 'system') updateCursorBlend();
   });
 })();
 
-/* ── NAV SCROLL + BACK TO TOP + MOBILE ACTIVE NAV ── */
-(function() {
-  var backToTop = document.getElementById('backToTop');
-  var sections = ['about', 'projects', 'services', 'videos', 'contact'];
-  var navItems = document.querySelectorAll('.mob-nav-item');
+/* Wire ALL buttons + scroll-spy + cursor inside DOMContentLoaded */
+document.addEventListener('DOMContentLoaded', function() {
 
-  window.addEventListener('scroll', function() {
-    /* Desktop nav scroll style */
-    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
-
-    /* Back to top button */
-    if (backToTop) {
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-    }
-
-    /* Mobile bottom nav active state */
-    var current = '';
-    sections.forEach(function(id) {
-      var el = document.getElementById(id);
-      if (el && window.scrollY >= el.offsetTop - 140) { current = id; }
-    });
-    navItems.forEach(function(a) {
-      a.classList.toggle('mob-active', a.getAttribute('data-section') === current);
+  /* ── Theme buttons ── */
+  document.querySelectorAll('.theme-btn[data-theme]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      setTheme(this.getAttribute('data-theme'));
     });
   });
+
+/* ============================================================
+   SCROLL-SPY — drives BOTH desktop nav and mobile bottom nav
+   ============================================================ */
+(function() {
+  var backToTop = document.getElementById('backToTop');
+
+  /* All sections tracked — covers BOTH desktop and mobile nav targets */
+  var ALL_SECTIONS = ['about', 'videos', 'services', 'origin', 'projects', 'stack', 'mindset', 'contact'];
+
+  /* Desktop nav links (have data-section attr) */
+  var desktopLinks = document.querySelectorAll('.nav-links a[data-section]');
+
+  /* Mobile nav items */
+  var mobileItems = document.querySelectorAll('.mob-nav-item');
+
+  var currentSection = '';
+
+  function setActive(sectionId) {
+    if (sectionId === currentSection) return;
+    currentSection = sectionId;
+
+    /* Desktop: toggle .nav-active */
+    desktopLinks.forEach(function(a) {
+      a.classList.toggle('nav-active', a.getAttribute('data-section') === sectionId);
+    });
+
+    /* Mobile: toggle .mob-active */
+    mobileItems.forEach(function(a) {
+      a.classList.toggle('mob-active', a.getAttribute('data-section') === sectionId);
+    });
+  }
+
+  /* ── SCROLL-SPY: position-based, works for all section sizes ──
+     Logic: find the section whose top edge is closest to (but not
+     below) the nav bottom + 16px offset. This means "what section
+     are we actually reading right now". No IntersectionObserver
+     quirks with short sections like #videos.
+  ── */
+  var NAV_OFFSET = 80; /* nav height + small buffer */
+
+  function getSectionInView() {
+    if (window.scrollY < 60) return ''; /* still in hero */
+    var scrollPos = window.scrollY + NAV_OFFSET;
+    var best = '';
+    ALL_SECTIONS.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollPos) {
+        best = id; /* last section whose top is above scroll position wins */
+      }
+    });
+    return best;
+  }
+
+  function onScroll() {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+    if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 400);
+    setActive(getSectionInView());
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  /* Run once on load so active state is correct on page refresh mid-page */
+  onScroll();
+
+  /* ── Click: immediately set active before scroll settles ── */
+  function onNavClick(e) {
+    var section = this.getAttribute('data-section') || this.getAttribute('href');
+    if (section && section.startsWith('#')) section = section.slice(1);
+    if (section) setActive(section);
+  }
+  desktopLinks.forEach(function(a) { a.addEventListener('click', onNavClick); });
+  mobileItems.forEach(function(a) { a.addEventListener('click', onNavClick); });
 })();
 
 /* ── VIDEO MODAL ── */
@@ -1085,6 +1065,7 @@ document.addEventListener('mousemove', function(e) {
   if (!hasMouse) {
     hasMouse = true;
     document.body.style.cursor = 'none';
+    cursor.style.opacity = '1';   // ← add this line
   }
   cursor.style.left = e.clientX + 'px';
   cursor.style.top = e.clientY + 'px';
@@ -1095,8 +1076,10 @@ document.addEventListener('touchstart', function() {
 }, { once: true });
 document.querySelectorAll('a, button, .project-card, .shift-item, .stack-item, .video-card, .sv-card').forEach(function(el) {
   el.addEventListener('mouseenter', function() { cursor.classList.add('big'); });
-  el.addEventListener('mouseleave', function() { cursor.classList.remove('big'); });
-});
+    el.addEventListener('mouseleave', function() { cursor.classList.remove('big'); });
+  });
+
+}); /* end DOMContentLoaded */
 </script>
 </body>
 </html>
