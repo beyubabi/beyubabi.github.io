@@ -76,8 +76,8 @@ body::before {
   transform: translate(-50%, -50%);
   transition: width 0.3s, height 0.3s, background 0.3s, mix-blend-mode 0.3s, opacity 0.3s;
   mix-blend-mode: var(--cursor-blend);
-  display: block;        /* ← was: display: none */
-  opacity: 0;            /* ← hidden until mouse moves */
+  display: block;
+  opacity: 0;
 }
 .cursor.big { width: 48px; height: 48px; background: var(--accent-muted); opacity: 0.5; }
 
@@ -145,12 +145,10 @@ nav.scrolled {
 }
 .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-/* ── DESKTOP NAV ACTIVE STATE ── */
 .nav-links a.nav-active {
   opacity: 1;
   color: var(--accent);
 }
-/* Underline indicator on active desktop link */
 .nav-links a.nav-active::after {
   content: '';
   position: absolute;
@@ -176,7 +174,6 @@ nav.scrolled {
   [data-theme="system"] .nav-logo,
   [data-theme="system"] .nav-links a { color: #f0ebe2; }
 }
-/* Active link color stays amber regardless of theme */
 [data-theme="light"] .nav-links a.nav-active,
 [data-theme="dark"] .nav-links a.nav-active { color: var(--accent); opacity: 1; }
 @media (prefers-color-scheme: light) { [data-theme="system"] .nav-links a.nav-active { color: var(--accent); opacity: 1; } }
@@ -408,15 +405,12 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   color: var(--fg-2); text-decoration: none;
   transition: color 0.2s, transform 0.15s; flex: 1; position: relative;
 }
-
-/* ── TOP INDICATOR BAR ── */
 .mob-nav-item::before {
   content: ''; position: absolute; top: 0;
   left: 20%; right: 20%; height: 2px;
   background: var(--accent); border-radius: 0 0 2px 2px;
   transform: scaleX(0); transition: transform 0.2s;
 }
-
 .mob-nav-item svg {
   width: 22px; height: 22px; stroke: currentColor;
   fill: none; stroke-width: 1.8;
@@ -430,9 +424,6 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   transition: color 0.2s;
 }
 .mob-nav-item:hover { color: var(--fg); }
-
-/* ── MOBILE ACTIVE STATE (works in ALL themes) ── */
-/* Default (dark surface background) */
 .mob-nav-item.mob-active {
   color: var(--accent);
   transform: translateY(-1px);
@@ -441,18 +432,13 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
 .mob-nav-item.mob-active svg { stroke: var(--accent); }
 .mob-nav-item.mob-active span { color: var(--accent); }
 
-/* Light mode — cream nav bg, dark icons for inactive */
-[data-theme="light"] .mobile-bottom-nav {
-  background: #ffffff;
-  border-top-color: rgba(15,23,42,0.12);
-}
+[data-theme="light"] .mobile-bottom-nav { background: #ffffff; border-top-color: rgba(15,23,42,0.12); }
 [data-theme="light"] .mob-nav-item { color: rgba(15,23,42,0.45); }
 [data-theme="light"] .mob-nav-item:hover { color: #0f172a; }
 [data-theme="light"] .mob-nav-item.mob-active { color: var(--accent); }
 [data-theme="light"] .mob-nav-item.mob-active svg { stroke: var(--accent); }
 [data-theme="light"] .mob-nav-item.mob-active span { color: var(--accent); }
 
-/* Dark mode — already dark bg, cream icons for inactive */
 [data-theme="dark"] .mobile-bottom-nav { background: #161b27; border-top-color: rgba(240,235,226,0.1); }
 [data-theme="dark"] .mob-nav-item { color: rgba(240,235,226,0.4); }
 [data-theme="dark"] .mob-nav-item:hover { color: #f0ebe2; }
@@ -478,7 +464,7 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
 }
 
 /* ============================================================
-   MOBILE THEME TOGGLE — fixed top right, icon-only
+   MOBILE THEME TOGGLE
    ============================================================ */
 .theme-toggle-mobile {
   position: fixed; top: 12px; right: 14px; z-index: 700;
@@ -713,12 +699,15 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
   </div>
 </section>
 
+<!-- VIDEO MODAL -->
 <div class="video-modal" id="videoModal">
   <div class="video-modal-inner">
     <button class="video-modal-close" onclick="closeVideo()">✕ Close</button>
     <iframe id="modalIframe" src="" allowfullscreen allow="autoplay"></iframe>
   </div>
 </div>
+
+<!-- LIGHTBOX MODAL -->
 <div class="lightbox-modal" id="lightboxModal">
   <div class="lightbox-modal-inner">
     <button class="lightbox-modal-close" onclick="closeLightbox()">✕ Close</button>
@@ -910,10 +899,7 @@ footer span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
 
 <script>
 /* ============================================================
-   THEME
-   All buttons wired via addEventListener — no inline onclick.
-   This is immune to Cloudflare / any script injecting between
-   tags and breaking the global scope timing.
+   THEME HELPERS — must be global
    ============================================================ */
 function getEffectiveTheme() {
   var t = document.documentElement.getAttribute('data-theme');
@@ -941,96 +927,14 @@ function setTheme(t) {
   document.querySelectorAll('.theme-btn').forEach(function(b) {
     b.classList.toggle('active', b.getAttribute('data-theme') === saved);
   });
-  /* Re-run cursor blend when OS preference changes while in system mode */
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
     if (document.documentElement.getAttribute('data-theme') === 'system') updateCursorBlend();
   });
 })();
 
-/* Wire ALL buttons + scroll-spy + cursor inside DOMContentLoaded */
-document.addEventListener('DOMContentLoaded', function() {
-
-  /* ── Theme buttons ── */
-  document.querySelectorAll('.theme-btn[data-theme]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      setTheme(this.getAttribute('data-theme'));
-    });
-  });
-
 /* ============================================================
-   SCROLL-SPY — drives BOTH desktop nav and mobile bottom nav
+   VIDEO MODAL — global so onclick attributes can find them
    ============================================================ */
-(function() {
-  var backToTop = document.getElementById('backToTop');
-
-  /* All sections tracked — covers BOTH desktop and mobile nav targets */
-  var ALL_SECTIONS = ['about', 'videos', 'services', 'origin', 'projects', 'stack', 'mindset', 'contact'];
-
-  /* Desktop nav links (have data-section attr) */
-  var desktopLinks = document.querySelectorAll('.nav-links a[data-section]');
-
-  /* Mobile nav items */
-  var mobileItems = document.querySelectorAll('.mob-nav-item');
-
-  var currentSection = '';
-
-  function setActive(sectionId) {
-    if (sectionId === currentSection) return;
-    currentSection = sectionId;
-
-    /* Desktop: toggle .nav-active */
-    desktopLinks.forEach(function(a) {
-      a.classList.toggle('nav-active', a.getAttribute('data-section') === sectionId);
-    });
-
-    /* Mobile: toggle .mob-active */
-    mobileItems.forEach(function(a) {
-      a.classList.toggle('mob-active', a.getAttribute('data-section') === sectionId);
-    });
-  }
-
-  /* ── SCROLL-SPY: position-based, works for all section sizes ──
-     Logic: find the section whose top edge is closest to (but not
-     below) the nav bottom + 16px offset. This means "what section
-     are we actually reading right now". No IntersectionObserver
-     quirks with short sections like #videos.
-  ── */
-  var NAV_OFFSET = 80; /* nav height + small buffer */
-
-  function getSectionInView() {
-    if (window.scrollY < 60) return ''; /* still in hero */
-    var scrollPos = window.scrollY + NAV_OFFSET;
-    var best = '';
-    ALL_SECTIONS.forEach(function(id) {
-      var el = document.getElementById(id);
-      if (el && el.offsetTop <= scrollPos) {
-        best = id; /* last section whose top is above scroll position wins */
-      }
-    });
-    return best;
-  }
-
-  function onScroll() {
-    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
-    if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 400);
-    setActive(getSectionInView());
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  /* Run once on load so active state is correct on page refresh mid-page */
-  onScroll();
-
-  /* ── Click: immediately set active before scroll settles ── */
-  function onNavClick(e) {
-    var section = this.getAttribute('data-section') || this.getAttribute('href');
-    if (section && section.startsWith('#')) section = section.slice(1);
-    if (section) setActive(section);
-  }
-  desktopLinks.forEach(function(a) { a.addEventListener('click', onNavClick); });
-  mobileItems.forEach(function(a) { a.addEventListener('click', onNavClick); });
-})();
-
-/* ── VIDEO MODAL ── */
 function openVideo(url) {
   document.getElementById('modalIframe').src = url;
   document.getElementById('videoModal').classList.add('open');
@@ -1042,7 +946,9 @@ function closeVideo() {
   document.body.style.overflow = '';
 }
 
-/* ── LIGHTBOX ── */
+/* ============================================================
+   LIGHTBOX — global so onclick attributes can find them
+   ============================================================ */
 function openLightbox(src) {
   document.getElementById('lightboxImg').src = src;
   document.getElementById('lightboxModal').classList.add('open');
@@ -1053,29 +959,104 @@ function closeLightbox() {
   document.getElementById('lightboxModal').classList.remove('open');
   document.body.style.overflow = '';
 }
-document.getElementById('videoModal').addEventListener('click', function(e) { if (e.target===this) closeVideo(); });
-document.getElementById('lightboxModal').addEventListener('click', function(e) { if (e.target===this) closeLightbox(); });
-document.addEventListener('keydown', function(e) { if (e.key==='Escape') { closeVideo(); closeLightbox(); } });
 
-/* ── CURSOR ── */
-var cursor = document.getElementById('cursor');
-var hasMouse = false;
-updateCursorBlend();
-document.addEventListener('mousemove', function(e) {
-  if (!hasMouse) {
-    hasMouse = true;
-    document.body.style.cursor = 'none';
-    cursor.style.opacity = '1';   // ← add this line
-  }
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
-document.addEventListener('touchstart', function() {
-  cursor.style.display = 'none';
-  document.body.style.cursor = 'auto';
-}, { once: true });
-document.querySelectorAll('a, button, .project-card, .shift-item, .stack-item, .video-card, .sv-card').forEach(function(el) {
-  el.addEventListener('mouseenter', function() { cursor.classList.add('big'); });
+/* ============================================================
+   DOM-DEPENDENT LOGIC
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', function() {
+
+  /* ── Theme buttons ── */
+  document.querySelectorAll('.theme-btn[data-theme]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      setTheme(this.getAttribute('data-theme'));
+    });
+  });
+
+  /* ============================================================
+     SCROLL-SPY
+     ============================================================ */
+  (function() {
+    var backToTop = document.getElementById('backToTop');
+    var ALL_SECTIONS = ['about', 'videos', 'services', 'origin', 'projects', 'stack', 'mindset', 'contact'];
+    var desktopLinks = document.querySelectorAll('.nav-links a[data-section]');
+    var mobileItems = document.querySelectorAll('.mob-nav-item');
+    var currentSection = '';
+
+    function setActive(sectionId) {
+      if (sectionId === currentSection) return;
+      currentSection = sectionId;
+      desktopLinks.forEach(function(a) {
+        a.classList.toggle('nav-active', a.getAttribute('data-section') === sectionId);
+      });
+      mobileItems.forEach(function(a) {
+        a.classList.toggle('mob-active', a.getAttribute('data-section') === sectionId);
+      });
+    }
+
+    var NAV_OFFSET = 80;
+
+    function getSectionInView() {
+      if (window.scrollY < 60) return '';
+      var scrollPos = window.scrollY + NAV_OFFSET;
+      var best = '';
+      ALL_SECTIONS.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos) { best = id; }
+      });
+      return best;
+    }
+
+    function onScroll() {
+      document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+      if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 400);
+      setActive(getSectionInView());
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    function onNavClick() {
+      var section = this.getAttribute('data-section') || this.getAttribute('href');
+      if (section && section.startsWith('#')) section = section.slice(1);
+      if (section) setActive(section);
+    }
+    desktopLinks.forEach(function(a) { a.addEventListener('click', onNavClick); });
+    mobileItems.forEach(function(a) { a.addEventListener('click', onNavClick); });
+  })();
+
+  /* ── Modal backdrop + keyboard close ── */
+  document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) closeVideo();
+  });
+  document.getElementById('lightboxModal').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeVideo(); closeLightbox(); }
+  });
+
+  /* ── CURSOR ── */
+  var cursor = document.getElementById('cursor');
+  var hasMouse = false;
+  updateCursorBlend();
+
+  document.addEventListener('mousemove', function(e) {
+    if (!hasMouse) {
+      hasMouse = true;
+      document.body.style.cursor = 'none';
+      cursor.style.opacity = '1';
+    }
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+
+  document.addEventListener('touchstart', function() {
+    cursor.style.display = 'none';
+    document.body.style.cursor = 'auto';
+  }, { once: true });
+
+  document.querySelectorAll('a, button, .project-card, .shift-item, .stack-item, .video-card, .sv-card').forEach(function(el) {
+    el.addEventListener('mouseenter', function() { cursor.classList.add('big'); });
     el.addEventListener('mouseleave', function() { cursor.classList.remove('big'); });
   });
 
