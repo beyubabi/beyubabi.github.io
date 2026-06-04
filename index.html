@@ -7,38 +7,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --gold: #C9A84C;
-  --gold-lt: #E2C47A;
-  --gold-dk: #8A6B28;
-  --ink: #0A0A08;
-  --ink-2: #111110;
-  --ink-3: #1C1C1A;
-  --fg: #F5F0E8;
-  --fg-2: rgba(245,240,232,0.52);
-  --fg-3: rgba(245,240,232,0.2);
-  --divider: rgba(245,240,232,0.1);
-  --display: 'Bebas Neue', sans-serif;
-  --serif: 'Instrument Serif', serif;
-  --mono: 'IBM Plex Mono', monospace;
+  --gold: #C9A84C; --gold-lt: #E2C47A; --gold-dk: #8A6B28;
+  --ink: #0A0A08; --ink-2: #111110; --ink-3: #1C1C1A;
+  --fg: #F5F0E8; --fg-2: rgba(245,240,232,0.82); --fg-3: rgba(245,240,232,0.55);
+  --divider: rgba(245,240,232,0.15);
+  --display: 'Bebas Neue', sans-serif; --serif: 'Instrument Serif', serif; --mono: 'IBM Plex Mono', monospace;
   --nav-h: 64px;
 }
 [data-theme="light"] {
-  --fg: #0A0A08; --fg-2: rgba(10,10,8,0.55); --fg-3: rgba(10,10,8,0.2);
-  --divider: rgba(10,10,8,0.1);
-  --ink: #F5F0E8; --ink-2: #EDE8DF; --ink-3: #E2DDD4;
+  --fg: #0A0A08; --fg-2: rgba(10,10,8,0.82); --fg-3: rgba(10,10,8,0.58);
+  --divider: rgba(10,10,8,0.15); --ink: #F5F0E8; --ink-2: #EDE8DF; --ink-3: #E2DDD4;
 }
-
 html { scroll-behavior: smooth; }
 body { background: var(--ink); color: var(--fg); font-family: var(--mono); overflow-x: hidden; -webkit-font-smoothing: antialiased; transition: background 0.3s, color 0.3s; }
-
-/* CURSOR */
 #cur { position: fixed; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); mix-blend-mode: difference; opacity: 0; transition: width 0.25s, height 0.25s, opacity 0.3s; }
 #cur.on { opacity: 1; }
 #cur.big { width: 44px; height: 44px; }
-
-/* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; z-index: 800; border-bottom: 1px solid transparent; transition: border-color 0.3s, background 0.3s; }
 nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); border-color: var(--divider); }
 [data-theme="light"] nav.scrolled { background: rgba(245,240,232,0.9); }
@@ -52,8 +37,6 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .theme-pill { display: flex; background: var(--ink-3); border: 1px solid var(--divider); border-radius: 20px; padding: 3px; gap: 2px; }
 .tp-btn { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; background: none; border: none; cursor: pointer; color: var(--fg-2); padding: 4px 12px; border-radius: 16px; transition: background 0.2s, color 0.2s; }
 .tp-btn.act { background: var(--gold); color: var(--ink); font-weight: 500; }
-
-/* HERO */
 #hero { min-height: 100vh; display: grid; grid-template-rows: 1fr auto; padding-top: var(--nav-h); position: relative; overflow: hidden; }
 .hero-bg-num { position: absolute; right: -40px; top: 50%; transform: translateY(-50%); font-family: var(--display); font-size: clamp(300px, 40vw, 500px); color: rgba(201,168,76,0.04); line-height: 1; user-select: none; pointer-events: none; z-index: 1; }
 .hero-main { display: grid; grid-template-columns: 1fr 420px; align-items: end; padding: 80px 48px 0; position: relative; z-index: 2; gap: 48px; }
@@ -81,25 +64,18 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .hero-avail { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); display: flex; align-items: center; gap: 8px; }
 .avail-dot { width: 6px; height: 6px; border-radius: 50%; background: #4CAF50; animation: pulse 2s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-
-/* TICKER */
 .ticker-wrap { overflow: hidden; background: var(--gold); padding: 12px 0; border-top: 1px solid var(--gold-dk); border-bottom: 1px solid var(--gold-dk); }
 .ticker { display: flex; width: max-content; animation: tick 30s linear infinite; }
 .ticker span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); white-space: nowrap; padding: 0 28px; font-weight: 500; }
 .ticker span::after { content: '✦'; margin-left: 28px; opacity: 0.4; }
 @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-/* SHARED */
 .sec-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
 .sec-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
 .sec-title { font-family: var(--display); font-size: clamp(52px, 7vw, 100px); line-height: 0.9; letter-spacing: 0.02em; color: var(--fg); }
 .sec-title em { color: var(--gold); font-style: normal; }
 .sec-title .stroke { -webkit-text-stroke: 1px var(--fg-3); color: transparent; }
-
-/* ABOUT */
 #about { display: grid; grid-template-columns: 380px 1fr; min-height: 80vh; }
 .about-photo-col { background: var(--ink-2); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 48px 36px; }
-.about-img-placeholder { position: absolute; inset: 0; background: repeating-linear-gradient(45deg, var(--ink-3) 0, var(--ink-3) 1px, transparent 0, transparent 50%); background-size: 24px 24px; display: flex; align-items: center; justify-content: center; }
 .about-photo-col::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,8,0.85) 0%, transparent 60%); z-index: 1; }
 .about-photo-info { position: relative; z-index: 2; }
 .about-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; opacity: 0.7; display: block; }
@@ -113,8 +89,6 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .about-body { font-family: var(--serif); font-size: 19px; line-height: 1.75; color: var(--fg-2); max-width: 520px; margin-bottom: 40px; }
 .about-body strong { color: var(--fg); }
 .about-manifesto { border-left: 2px solid var(--gold); padding: 20px 24px; background: rgba(201,168,76,0.05); font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--fg-2); line-height: 1.6; max-width: 480px; }
-
-/* PROJECTS */
 #projects { padding: 100px 48px; background: var(--ink); }
 .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; border-bottom: 1px solid var(--divider); padding-bottom: 24px; }
 .proj-count { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
@@ -127,7 +101,6 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .pcard-img-overlay { position: absolute; inset: 0; background: rgba(201,168,76,0.88); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
 .pcard-img:hover .pcard-img-overlay { opacity: 1; }
 .pcard-link { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid rgba(10,10,8,0.3); padding: 10px 20px; font-weight: 500; cursor: pointer; }
-.pcard-img-placeholder { width: 100%; height: 100%; background: repeating-linear-gradient(-45deg, var(--ink) 0, var(--ink) 2px, var(--ink-3) 0, var(--ink-3) 24px); display: flex; align-items: center; justify-content: center; }
 .pcard-body { padding: 28px 24px 32px; }
 .pcard-num { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; color: var(--fg-3); margin-bottom: 4px; }
 .pcard-badge { display: inline-block; font-family: var(--mono); font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--divider); color: var(--fg-3); margin-bottom: 16px; }
@@ -140,8 +113,6 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .pcard.hero-proj .pcard-name { font-size: 52px; }
 .pcard.wide { grid-column: span 2; }
 .pcard.wide .pcard-img { aspect-ratio: 21/9; }
-
-/* SERVICES */
 #services { background: var(--ink-2); padding: 100px 48px; }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px; }
 .sv { background: var(--ink-3); padding: 40px 32px; border-top: 3px solid transparent; transition: border-color 0.25s, background 0.25s; display: flex; flex-direction: column; }
@@ -158,14 +129,12 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .sv-proof strong { color: var(--gold-lt); }
 .services-footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--divider); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 .services-note { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--fg-2); max-width: 420px; line-height: 1.6; }
-
-/* VIDEOS */
 #videos { padding: 100px 48px; background: var(--ink); }
 .videos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px; }
 .vcard { background: var(--ink-2); cursor: pointer; overflow: hidden; transition: background 0.25s; }
 .vcard:hover { background: var(--ink-3); }
 .vcard-thumb { width: 100%; aspect-ratio: 16/9; position: relative; overflow: hidden; background: var(--ink-3); }
-.vcard-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease; }
+.vcard-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform 0.4s ease; }
 .vcard:hover .vcard-thumb img { transform: scale(1.04); }
 .vcard-overlay { position: absolute; inset: 0; background: rgba(10,10,8,0.4); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
 .vcard:hover .vcard-overlay { background: rgba(201,168,76,0.25); }
@@ -181,8 +150,6 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .vmodal-inner iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; background: #000; }
 .vmodal-close { position: absolute; top: -44px; right: 0; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3); background: none; border: none; cursor: pointer; transition: color 0.2s; }
 .vmodal-close:hover { color: var(--gold); }
-
-/* STACK */
 #stack { background: var(--ink-2); padding: 100px 48px; }
 .stack-wrap { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; margin-top: 60px; }
 .stack-intro { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--fg-2); line-height: 1.7; margin-top: 24px; }
@@ -191,8 +158,6 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .sitem:hover { background: rgba(201,168,76,0.06); }
 .sitem-tool { font-family: var(--display); font-size: 22px; color: var(--fg); }
 .sitem-use { font-family: var(--mono); font-size: 10px; color: var(--fg-3); letter-spacing: 0.04em; line-height: 1.55; }
-
-/* PROOF — NEW SECTION */
 #proof { background: var(--ink-3); padding: 100px 48px; }
 .proof-nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 60px; }
 .proof-num { background: var(--ink-2); padding: 40px 24px; text-align: center; }
@@ -204,8 +169,6 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .review-text { font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--fg-2); line-height: 1.7; flex: 1; }
 .review-author { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); border-top: 1px solid var(--divider); padding-top: 16px; }
 .review-author strong { color: var(--gold); display: block; font-size: 10px; margin-bottom: 2px; }
-
-/* ORIGIN */
 #origin { display: grid; grid-template-columns: 1fr 1fr; }
 .origin-left { background: var(--ink-2); padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
 .origin-quote { font-family: var(--serif); font-size: clamp(22px, 2.5vw, 32px); font-style: italic; color: var(--fg); line-height: 1.45; border-left: 3px solid var(--gold); padding-left: 28px; margin: 32px 0; }
@@ -218,8 +181,6 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .lesson-topic { font-family: var(--mono); font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
 .lesson-text { font-family: var(--serif); font-size: 14px; color: var(--fg-2); line-height: 1.65; }
 .lesson-text strong { color: var(--fg); }
-
-/* CONTACT */
 #contact { background: var(--ink); padding: 120px 48px; position: relative; overflow: hidden; }
 .contact-bg { position: absolute; right: -60px; bottom: -60px; font-family: var(--display); font-size: clamp(120px, 22vw, 320px); color: rgba(201,168,76,0.04); line-height: 1; user-select: none; pointer-events: none; }
 .contact-inner { position: relative; z-index: 2; max-width: 860px; }
@@ -235,20 +196,12 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .contact-closing { margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--divider); }
 .contact-closing-q { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--fg-3); line-height: 1.6; }
 .contact-closing-cite { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3); margin-top: 12px; display: block; }
-
-/* FOOTER */
 footer { background: var(--ink-2); border-top: 1px solid var(--divider); padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
 footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); }
 .footer-logo { font-family: var(--display); font-size: 18px; color: var(--fg-3); letter-spacing: 0.05em; }
-
-/* REVEAL */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
-
-/* MOBILE NAV */
 .mob-nav { display: none; }
-
-/* RESPONSIVE */
 @media (max-width: 900px) {
   body { padding-bottom: 68px; }
   nav { padding: 0 20px; }
@@ -280,7 +233,6 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
 </style>
 </head>
 <body>
-
 <div id="cur"></div>
 
 <nav id="mainNav">
@@ -315,11 +267,7 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
   <div class="hero-main">
     <div>
       <p class="hero-eyebrow">Freelance Shopify Developer · Nigeria</p>
-      <h1 class="hero-h1">
-        BAY<span class="gold">ODE</span><br>
-        <span class="stroke">AKIN</span><br>
-        DIOSE
-      </h1>
+      <h1 class="hero-h1">BAY<span class="gold">ODE</span><br><span class="stroke">AKIN</span><br>DIOSE</h1>
     </div>
     <div class="hero-right-col">
       <p class="hero-tagline">I build stores that are designed to sell — not just look good.</p>
@@ -349,10 +297,7 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
 <!-- ABOUT -->
 <section id="about">
   <div class="about-photo-col">
-    <div class="about-img-placeholder" aria-hidden="true">
-      <span style="font-family:var(--display);font-size:48px;color:rgba(201,168,76,0.15)">BA</span>
-    </div>
-    <!-- To add your photo: replace the div above with <img src="profile.jpg" alt="Bayode Akindiose" class="about-img" /> -->
+    <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/profile.jpg" alt="Bayode Akindiose" class="about-img" />
     <div class="about-photo-info">
       <div class="about-name-display">BAYODE<br>AKINDIOSE</div>
       <div class="about-handle">Beyu Babi</div>
@@ -380,10 +325,10 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
     <span class="proj-count">9 Projects · 2024–2026</span>
   </div>
   <div class="projects-grid">
+
     <div class="pcard hero-proj reveal">
       <div class="pcard-img">
-        <div class="pcard-img-placeholder" aria-hidden="true"><span style="font-family:var(--display);font-size:20px;color:rgba(201,168,76,0.12)">swiftglamour.jpg</span></div>
-        <!-- <img src="swiftglamour.jpg" alt="Swiftglamour" /> -->
+        <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/swiftglamour.jpg" alt="Swiftglamour" />
         <div class="pcard-img-overlay"><a class="pcard-link" href="https://www.swiftglamour.shop" target="_blank">View Live Store →</a></div>
       </div>
       <div class="pcard-body">
@@ -394,10 +339,10 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
         <p class="pcard-lesson">"887 products migrated via Python. 900+ images edited. Domain, shipping, payments, SEO, Google Merchant Center, Search Console, blog content, URL redirects. I didn't know Python before this project. The problem demanded the skill. I learned it."</p>
       </div>
     </div>
+
     <div class="pcard reveal">
       <div class="pcard-img">
-        <div class="pcard-img-placeholder" aria-hidden="true"><span style="font-family:var(--display);font-size:14px;color:rgba(201,168,76,0.1)">oversized-plus.jpg</span></div>
-        <!-- <img src="oversized-plus.jpg" alt="Oversize Plus" /> -->
+        <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/oversized-plus.jpg" alt="Oversize Plus" />
         <div class="pcard-img-overlay"><a class="pcard-link" href="https://oversizedplus.myshopify.com" target="_blank">View Store · Pass: 1</a></div>
       </div>
       <div class="pcard-body">
@@ -408,10 +353,10 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
         <p class="pcard-lesson">"Clothes change as you change. Upload your story — printed on a shirt in your colour."</p>
       </div>
     </div>
+
     <div class="pcard reveal">
       <div class="pcard-img">
-        <div class="pcard-img-placeholder" aria-hidden="true"><span style="font-family:var(--display);font-size:14px;color:rgba(201,168,76,0.1)">fresh-juice.jpg</span></div>
-        <!-- <img src="fresh-juice.jpg" alt="Fresh Juice" /> -->
+        <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/fresh-juice.jpg" alt="Fresh Juice" />
         <div class="pcard-img-overlay"><a class="pcard-link" href="https://fresh-juice-7.myshopify.com" target="_blank">View Store · Pass: 1</a></div>
       </div>
       <div class="pcard-body">
@@ -422,11 +367,11 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
         <p class="pcard-lesson">"Loox reviews, colour variants, conversion structure. A single product positioned to sell."</p>
       </div>
     </div>
+
     <div class="pcard reveal">
       <div class="pcard-img">
-        <div class="pcard-img-placeholder" aria-hidden="true"><span style="font-family:var(--display);font-size:14px;color:rgba(201,168,76,0.1)">toko.jpg</span></div>
-        <!-- <img src="toko.jpg" alt="Toko" /> -->
-        <div class="pcard-img-overlay"><a class="pcard-link" href="#" onclick="return false">View Image</a></div>
+        <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/toko.jpg" alt="Toko" />
+        <div class="pcard-img-overlay"><span class="pcard-link">Image Only</span></div>
       </div>
       <div class="pcard-body">
         <div class="pcard-num">05</div>
@@ -436,10 +381,10 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
         <p class="pcard-lesson">"Zero reviews. Won the job anyway. Learned about bundles, milestones, and third-party client reality."</p>
       </div>
     </div>
+
     <div class="pcard reveal">
       <div class="pcard-img">
-        <div class="pcard-img-placeholder" aria-hidden="true"><span style="font-family:var(--display);font-size:14px;color:rgba(201,168,76,0.1)">incredible-fibre.jpg</span></div>
-        <!-- <img src="incredible-fibre.jpg" alt="Incredible Fiber" /> -->
+        <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/incredible-fibre.jpg" alt="Incredible Fiber" />
         <div class="pcard-img-overlay"><a class="pcard-link" href="https://incredible-fibre.myshopify.com" target="_blank">View Store · Pass: 1</a></div>
       </div>
       <div class="pcard-body">
@@ -450,10 +395,10 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
         <p class="pcard-lesson">"First cross-platform rebuild. Used AI for scaffold — then fixed everything the AI got wrong."</p>
       </div>
     </div>
+
     <div class="pcard reveal">
       <div class="pcard-img">
-        <div class="pcard-img-placeholder" aria-hidden="true"><span style="font-family:var(--display);font-size:14px;color:rgba(201,168,76,0.1)">kuchewood.jpg</span></div>
-        <!-- <img src="kuchewood.jpg" alt="Kuchewood" /> -->
+        <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/kuchewood.jpg" alt="Kuchewood" />
         <div class="pcard-img-overlay"><a class="pcard-link" href="https://kuchewood.myshopify.com" target="_blank">View Store · Pass: 1</a></div>
       </div>
       <div class="pcard-body">
@@ -464,6 +409,7 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
         <p class="pcard-lesson">"Built on a borrowed laptop overnight. The client didn't hire me. I didn't stop."</p>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -525,10 +471,10 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
   <div class="sec-label">Store Walkthroughs</div>
   <h2 class="sec-title reveal">WATCH THE<br><em>WORK.</em></h2>
   <div class="videos-grid">
+
     <div class="vcard reveal" onclick="openV('https://drive.google.com/file/d/1abmZ1lh8Hi6WREq9Z4cTwdgWeNBoCko9/preview')">
       <div class="vcard-thumb">
-        <div class="pcard-img-placeholder" style="position:absolute;inset:0" aria-hidden="true"></div>
-        <!-- <img src="video_swiftglamour_preview.jpg" alt="Swiftglamour walkthrough" /> -->
+        <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_swiftglamour_preview.jpg" alt="Swiftglamour walkthrough" />
         <div class="vcard-overlay"><div class="play-ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0A0A08"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="vcard-info">
@@ -537,10 +483,10 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
         <div class="vcard-desc">887-product WooCommerce to Shopify migration — the full story</div>
       </div>
     </div>
+
     <div class="vcard reveal" onclick="openV('https://drive.google.com/file/d/1KXJXTrdQkawcIZvEjge1nHlkOjFDzFmP/preview')">
       <div class="vcard-thumb">
-        <div class="pcard-img-placeholder" style="position:absolute;inset:0" aria-hidden="true"></div>
-        <!-- <img src="video_oversized-plus_preview.jpg" alt="Oversize Plus walkthrough" /> -->
+        <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_oversized-plus_preview.jpg" alt="Oversize Plus walkthrough" />
         <div class="vcard-overlay"><div class="play-ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0A0A08"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="vcard-info">
@@ -549,10 +495,10 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
         <div class="vcard-desc">Custom-expression clothing — flagship brand and premium redesign</div>
       </div>
     </div>
+
     <div class="vcard reveal" onclick="openV('https://drive.google.com/file/d/1NGFbqJvEdlWj4XVldM6P7gElEPdlqCSW/preview')">
       <div class="vcard-thumb">
-        <div class="pcard-img-placeholder" style="position:absolute;inset:0" aria-hidden="true"></div>
-        <!-- <img src="video_fresh-juice_preview.jpg" alt="Fresh Juice walkthrough" /> -->
+        <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_fresh-juice_preview.jpg" alt="Fresh Juice walkthrough" />
         <div class="vcard-overlay"><div class="play-ring"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0A0A08"><path d="M8 5v14l11-7z"/></svg></div></div>
       </div>
       <div class="vcard-info">
@@ -561,6 +507,7 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
         <div class="vcard-desc">Portable rechargeable blenders — one-product store built to convert</div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -591,27 +538,15 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
   </div>
 </section>
 
-<!-- SOCIAL PROOF — NEW SECTION -->
+<!-- SOCIAL PROOF -->
 <section id="proof">
   <div class="sec-label">Social Proof</div>
   <h2 class="sec-title reveal">THE<br><em>NUMBERS</em><br><span class="stroke">DON'T LIE.</span></h2>
   <div class="proof-nums">
-    <div class="proof-num reveal">
-      <div class="proof-num-n">9</div>
-      <div class="proof-num-l">Projects Completed</div>
-    </div>
-    <div class="proof-num reveal">
-      <div class="proof-num-n">887</div>
-      <div class="proof-num-l">Products Migrated</div>
-    </div>
-    <div class="proof-num reveal">
-      <div class="proof-num-n">900+</div>
-      <div class="proof-num-l">Images Edited</div>
-    </div>
-    <div class="proof-num reveal">
-      <div class="proof-num-n">0</div>
-      <div class="proof-num-l">Reviews When I Won My First Upwork Job</div>
-    </div>
+    <div class="proof-num reveal"><div class="proof-num-n">9</div><div class="proof-num-l">Projects Completed</div></div>
+    <div class="proof-num reveal"><div class="proof-num-n">887</div><div class="proof-num-l">Products Migrated</div></div>
+    <div class="proof-num reveal"><div class="proof-num-n">900+</div><div class="proof-num-l">Images Edited</div></div>
+    <div class="proof-num reveal"><div class="proof-num-n">0</div><div class="proof-num-l">Reviews When I Won My First Upwork Job</div></div>
   </div>
   <div class="proof-grid">
     <div class="review reveal">
@@ -642,30 +577,12 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
   <div class="origin-right">
     <div class="sec-label">Lessons That Followed</div>
     <div class="lessons-grid">
-      <div class="lesson reveal">
-        <div class="lesson-topic">On Technology</div>
-        <p class="lesson-text">I used to think Python was for data scientists. Now I use it to migrate thousands of products. <strong>The tool doesn't care who you are — it cares if you're willing to learn.</strong></p>
-      </div>
-      <div class="lesson reveal">
-        <div class="lesson-topic">On Pricing</div>
-        <p class="lesson-text">The amount I got for an 887-product migration was below market. <strong>The experience was the other payment. Next time the number goes up.</strong></p>
-      </div>
-      <div class="lesson reveal">
-        <div class="lesson-topic">On Upwork</div>
-        <p class="lesson-text">Every connect is limited. Spend strategically. <strong>My first win came with zero reviews. It's possible.</strong></p>
-      </div>
-      <div class="lesson reveal">
-        <div class="lesson-topic">On Starting</div>
-        <p class="lesson-text">I started on a 2GB phone. The laptop removed one obstacle. <strong>Hunger is the constant.</strong></p>
-      </div>
-      <div class="lesson reveal">
-        <div class="lesson-topic">On Your Presence</div>
-        <p class="lesson-text">I rented out my LinkedIn for cash. I can't fully access it now. <strong>Your online presence is not for sale.</strong></p>
-      </div>
-      <div class="lesson reveal">
-        <div class="lesson-topic">On Middlemen</div>
-        <p class="lesson-text">When you have the skills, <strong>find a way to own the client relationship directly.</strong> Middlemen always eat into your earnings.</p>
-      </div>
+      <div class="lesson reveal"><div class="lesson-topic">On Technology</div><p class="lesson-text">I used to think Python was for data scientists. Now I use it to migrate thousands of products. <strong>The tool doesn't care who you are — it cares if you're willing to learn.</strong></p></div>
+      <div class="lesson reveal"><div class="lesson-topic">On Pricing</div><p class="lesson-text">The amount I got for an 887-product migration was below market. <strong>The experience was the other payment. Next time the number goes up.</strong></p></div>
+      <div class="lesson reveal"><div class="lesson-topic">On Upwork</div><p class="lesson-text">Every connect is limited. Spend strategically. <strong>My first win came with zero reviews. It's possible.</strong></p></div>
+      <div class="lesson reveal"><div class="lesson-topic">On Starting</div><p class="lesson-text">I started on a 2GB phone. The laptop removed one obstacle. <strong>Hunger is the constant.</strong></p></div>
+      <div class="lesson reveal"><div class="lesson-topic">On Your Presence</div><p class="lesson-text">I rented out my LinkedIn for cash. I can't fully access it now. <strong>Your online presence is not for sale.</strong></p></div>
+      <div class="lesson reveal"><div class="lesson-topic">On Middlemen</div><p class="lesson-text">When you have the skills, <strong>find a way to own the client relationship directly.</strong> Middlemen always eat into your earnings.</p></div>
     </div>
   </div>
 </section>
@@ -675,9 +592,7 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
   <div class="contact-bg" aria-hidden="true">BEYU.</div>
   <div class="contact-inner">
     <div class="sec-label">Available for Projects</div>
-    <h2 class="contact-headline reveal">
-      LET'S<br>BUILD<br>SOMETHING <em>REAL.</em>
-    </h2>
+    <h2 class="contact-headline reveal">LET'S<br>BUILD<br>SOMETHING <em>REAL.</em></h2>
     <p class="contact-sub reveal">A website without sales is just a page on the internet. I don't build pages. I build stores. And stores are built to sell.</p>
     <div class="contact-links reveal">
       <a class="clink primary" href="https://wa.me/2348126679348" target="_blank">WhatsApp →</a>
@@ -700,14 +615,10 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
 
 <script>
 (function(){
-
-/* THEME */
 var html = document.documentElement;
 var saved = localStorage.getItem('bb-t') || 'dark';
 html.setAttribute('data-theme', saved);
-document.querySelectorAll('.tp-btn').forEach(function(b){
-  b.classList.toggle('act', b.getAttribute('data-t') === saved);
-});
+document.querySelectorAll('.tp-btn').forEach(function(b){ b.classList.toggle('act', b.getAttribute('data-t') === saved); });
 document.querySelectorAll('.tp-btn').forEach(function(b){
   b.addEventListener('click', function(){
     var t = this.getAttribute('data-t');
@@ -717,8 +628,6 @@ document.querySelectorAll('.tp-btn').forEach(function(b){
     this.classList.add('act');
   });
 });
-
-/* CUSTOM CURSOR */
 var cur = document.getElementById('cur');
 var hasMouse = false;
 document.addEventListener('mousemove', function(e){
@@ -731,12 +640,8 @@ document.querySelectorAll('a,button,.pcard,.vcard,.sv,.sitem,.lesson,.review').f
   el.addEventListener('mouseleave', function(){ cur.classList.remove('big'); });
 });
 document.addEventListener('touchstart', function(){ cur.style.display='none'; },{once:true});
-
-/* NAV SCROLL */
 var nav = document.getElementById('mainNav');
 window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 60); updateActive(); },{passive:true});
-
-/* SCROLL SPY */
 var sections = ['about','projects','services','videos','stack','proof','origin','contact'];
 function updateActive(){
   var pos = window.scrollY + 100;
@@ -744,28 +649,14 @@ function updateActive(){
   sections.forEach(function(id){ var el = document.getElementById(id); if(el && el.offsetTop <= pos) best = id; });
   document.querySelectorAll('[data-s]').forEach(function(a){ a.classList.toggle('act', a.getAttribute('data-s') === best); });
 }
-
-/* REVEAL */
 var obs = new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
 },{threshold:0.1, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
-
-/* VIDEO MODAL */
-window.openV = function(url){
-  document.getElementById('vframe').src = url;
-  document.getElementById('vm').classList.add('open');
-  document.body.style.overflow = 'hidden';
-};
-window.closeV = function(){
-  document.getElementById('vframe').src = '';
-  document.getElementById('vm').classList.remove('open');
-  document.body.style.overflow = '';
-};
+window.openV = function(url){ document.getElementById('vframe').src = url; document.getElementById('vm').classList.add('open'); document.body.style.overflow = 'hidden'; };
+window.closeV = function(){ document.getElementById('vframe').src = ''; document.getElementById('vm').classList.remove('open'); document.body.style.overflow = ''; };
 document.getElementById('vm').addEventListener('click', function(e){ if(e.target===this) window.closeV(); });
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') window.closeV(); });
-
-/* HERO ENTRY */
 var heroEls = document.querySelectorAll('.hero-eyebrow,.hero-h1,.hero-tagline,.hero-stats-row,.hero-cta-row,.hero-bottom');
 heroEls.forEach(function(el,i){
   el.style.opacity='0'; el.style.transform='translateY(24px)';
@@ -773,7 +664,6 @@ heroEls.forEach(function(el,i){
   el.style.transitionDelay=(i*0.1+0.1)+'s';
   setTimeout(function(){ el.style.opacity='1'; el.style.transform='translateY(0)'; },40);
 });
-
 })();
 </script>
 </body>
