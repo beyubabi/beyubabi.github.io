@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bayode Akindiose — Shopify Developer</title>
+<title>Bayode Akindiose — E-Commerce & Shopify Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -150,6 +150,12 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .vmodal-inner iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; background: #000; }
 .vmodal-close { position: absolute; top: -44px; right: 0; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3); background: none; border: none; cursor: pointer; transition: color 0.2s; }
 .vmodal-close:hover { color: var(--gold); }
+@media (max-width: 900px) {
+  .vmodal { padding: 0; align-items: stretch; justify-content: stretch; }
+  .vmodal-inner { max-width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; background: #000; }
+  .vmodal-close { position: fixed; top: 16px; right: 16px; background: rgba(0,0,0,0.7); padding: 8px 14px; border-radius: 4px; color: #fff; font-size: 11px; z-index: 10; }
+  .vmodal-inner iframe { width: 100%; aspect-ratio: 16/9; max-height: 100vh; }
+}
 #stack { background: var(--ink-2); padding: 100px 48px; }
 .stack-wrap { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; margin-top: 60px; }
 .stack-intro { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--fg-2); line-height: 1.7; margin-top: 24px; }
@@ -266,7 +272,7 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
   <div class="hero-bg-num" aria-hidden="true">9</div>
   <div class="hero-main">
     <div>
-      <p class="hero-eyebrow">Freelance Shopify Developer · Nigeria</p>
+      <p class="hero-eyebrow">E-Commerce & Shopify Developer · Nigeria</p>
       <h1 class="hero-h1">BAY<span class="gold">ODE</span><br><span class="stroke">AKIN</span><br>DIOSE</h1>
     </div>
     <div class="hero-right-col">
@@ -303,14 +309,14 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
       <div class="about-handle">Beyu Babi</div>
       <div class="about-chips">
         <span class="chip">Shopify</span><span class="chip">E-Commerce</span>
-        <span class="chip">Python</span><span class="chip">Nigeria</span>
+        <span class="chip">Website Builder</span><span class="chip">Python</span><span class="chip">Nigeria</span>
       </div>
     </div>
   </div>
   <div class="about-content">
     <div class="sec-label">The Person</div>
     <h2 class="about-lede reveal">Started on a<br><em>2GB RAM phone.</em><br>Still building.</h2>
-    <p class="about-body reveal">I'm a freelance Shopify developer based in Nigeria. Before I had a laptop — I had a client inquiry and a Samsung A02 with 2GB RAM. I opened Chrome and started building.<br><br>Since then I've completed <strong>9 projects</strong> across Shopify, WooCommerce, Wix and Squarespace — migrating <strong>887 products</strong>, editing <strong>900+ images</strong>, learning Python when a job demanded it, and winning my first Upwork client with zero reviews.</p>
+    <p class="about-body reveal">I'm a freelance e-commerce website builder and Shopify developer based in Nigeria. Before I had a laptop — I had a client inquiry and a Samsung A02 with 2GB RAM. I opened Chrome and started building.<br><br>Since then I've completed <strong>9 projects</strong> across Shopify, WooCommerce, Wix and Squarespace — migrating <strong>887 products</strong>, editing <strong>900+ images</strong>, learning Python when a job demanded it, and winning my first Upwork client with zero reviews.</p>
     <blockquote class="about-manifesto reveal">"A website without sales is just a page on the internet. I don't build pages. I build stores. Stores are built to sell."</blockquote>
   </div>
 </section>
@@ -609,7 +615,7 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
 
 <footer>
   <span class="footer-logo">BAYODE.</span>
-  <span>Freelance Shopify Developer · Nigeria</span>
+  <span>E-Commerce & Shopify Developer · Nigeria</span>
   <span>© 2026 · Built with purpose.</span>
 </footer>
 
