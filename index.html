@@ -194,16 +194,15 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 
 /* Video wrapper — 16:9 aspect ratio box */
 .vmodal-video-wrap {
-  width: 100%; max-width: 960px; position: relative;
-}
-.vmodal-video-wrap::before {
-  content: ''; display: block; padding-top: 56.25%;
+  width: 100%;
+  max-width: 960px;
+  position: relative;
+  aspect-ratio: 16/9;
 }
 .vmodal-video-wrap iframe {
   position: absolute; inset: 0; width: 100%; height: 100%;
   border: none; background: #000;
 }
-
 /* Landscape button — hidden on desktop, shown on mobile */
 .vmodal-landscape-btn {
   display: none; margin-top: 16px;
