@@ -284,9 +284,71 @@ footer span { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; 
   .mob-nav svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; }
   .hero-main { grid-template-columns: 1fr; padding: 48px 20px 0; }
   .hero-bottom { padding: 16px 20px; margin-top: 40px; }
-  #about { grid-template-columns: 1fr; }
-  .about-photo-col { min-height: 320px; }
-  .about-content { padding: 48px 24px; }
+#about { grid-template-columns: 1fr; }
+
+.about-photo-col {
+  min-height: 220px;
+  max-height: 220px;
+  padding: 24px 20px;
+}
+
+.about-photo-col::before {
+  background: linear-gradient(to top, rgba(10,10,8,0.92) 0%, rgba(10,10,8,0.3) 100%);
+}
+
+.about-img {
+  object-position: top center;
+  filter: brightness(0.45);
+}
+
+.about-photo-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-name-display {
+  font-size: 34px;
+  line-height: 0.88;
+  margin-bottom: 6px;
+}
+
+.about-handle {
+  font-size: 9px;
+  margin-bottom: 10px;
+}
+
+.about-chips {
+  justify-content: center;
+  gap: 4px;
+}
+
+.chip {
+  font-size: 8px;
+  padding: 3px 8px;
+}
+
+.about-content {
+  padding: 36px 20px 48px;
+}
+
+.about-lede {
+  font-size: 30px !important;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.about-body {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.about-manifesto {
+  font-size: 15px;
+  padding: 14px 16px;
+}
   .projects-grid, .services-grid, .videos-grid, .proof-grid { grid-template-columns: 1fr; }
   .proof-nums { grid-template-columns: 1fr 1fr; }
   .pcard.hero-proj, .pcard.wide { grid-column: span 1; }
