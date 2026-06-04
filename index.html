@@ -758,38 +758,30 @@ var obs = new IntersectionObserver(function(entries){
 document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
 
 /* VIDEO MODAL */
-/* VIDEO MODAL */
 window.openV = function(url){
   document.getElementById('vframe').src = url;
-  document.getElementById('vm').classList.add('open');
+  var vm = document.getElementById('vm');
+  vm.classList.add('open');
   document.body.style.overflow = 'hidden';
 };
 window.closeV = function(){
   document.getElementById('vframe').src = '';
   document.getElementById('vm').classList.remove('open');
   document.body.style.overflow = '';
-  /* unlock orientation when closing */
-  if(screen.orientation && screen.orientation.unlock) {
-    try { screen.orientation.unlock(); } catch(e){}
-  }
+  try { if(screen.orientation && screen.orientation.unlock) screen.orientation.unlock(); } catch(e){}
   var btn = document.getElementById('landscapeBtn');
-  if(btn) btn.textContent = '';
-  if(btn){ btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg> Rotate to landscape'; }
+  if(btn) btn.textContent = '⟳ Rotate to Landscape';
 };
 window.toggleLandscape = function(){
   var btn = document.getElementById('landscapeBtn');
-  if(!screen.orientation){ return; }
+  if(!screen.orientation) { btn.textContent = 'Rotate your phone sideways'; return; }
   if(screen.orientation.type && screen.orientation.type.startsWith('landscape')){
-    try {
-      screen.orientation.unlock();
-      btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg> Rotate to landscape';
-    } catch(e){}
+    try { screen.orientation.unlock(); btn.textContent = '⟳ Rotate to Landscape'; } catch(e){}
   } else {
     screen.orientation.lock('landscape').then(function(){
-      btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg> Back to portrait';
+      btn.textContent = '↺ Back to Portrait';
     }).catch(function(){
-      /* Fallback: prompt user to rotate manually */
-      btn.textContent = 'Rotate your phone sideways ↻';
+      btn.textContent = 'Rotate your phone sideways';
     });
   }
 };
