@@ -59,6 +59,48 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .back-to-top:hover { transform: translateY(-3px); }
 .back-to-top.visible { opacity: 1; pointer-events: all; }
 @media (min-width: 901px) { .back-to-top { bottom: 32px; right: 32px; } }
+
+ @media (min-width: 901px) and (max-width: 1100px) {
+  .hero-main {
+    grid-template-columns: 1fr 340px;
+    padding: 48px 32px 0;
+    gap: 32px;
+  }
+
+  #hero {
+    min-height: auto;
+  }
+
+  .hero-h1 {
+    font-size: 96px;
+  }
+
+  .hero-bottom {
+    margin-top: 32px;
+    padding: 16px 32px;
+  }
+
+  .hero-right-col {
+    gap: 20px;
+  }
+
+  .hstat-n {
+    font-size: 32px;
+  }
+
+  #about {
+    grid-template-columns: 300px 1fr;
+  }
+
+  .about-content {
+    padding: 48px 40px;
+  }
+
+  .about-lede {
+    font-size: 36px !important;
+  }
+}
+  
 [data-theme="light"] .about-name-display,
 [data-theme="light"] .about-handle,
 [data-theme="light"] .about-chips .chip { color: #F5F0E8; border-color: rgba(245,240,232,0.4); }
