@@ -92,15 +92,22 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
     grid-template-columns: 300px 1fr;
   }
 
+  /* ADD THESE TWO — fixes the face crop */
+  .about-photo-col {
+    min-height: 500px;
+  }
+  .about-img {
+    object-position: center 20% !important;
+  }
+
   .about-content {
     padding: 48px 40px;
   }
-
   .about-lede {
     font-size: 36px !important;
   }
 }
-  
+
 [data-theme="light"] .about-name-display,
 [data-theme="light"] .about-handle,
 [data-theme="light"] .about-chips .chip { color: #F5F0E8; border-color: rgba(245,240,232,0.4); }
