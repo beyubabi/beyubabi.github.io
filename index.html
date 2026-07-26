@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bayode Akindiose — E-Commerce & Shopify Developer</title>
-<meta name="description" content="Freelance E-Commerce & Shopify Developer based in Nigeria. I build stores that are designed to sell — not just look good. 9 projects, 887 products migrated, Python automation." />
+<title>Bayode Akindiose — Shopify & WordPress Developer</title>
+<meta name="description" content="Freelance E-Commerce, Shopify & WordPress Developer based in Nigeria. I turn product ideas into stores built to sell. 9 projects, 887 products migrated, Python automation." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://beyubabi.github.io/" />
-<meta property="og:title" content="Bayode Akindiose — E-Commerce & Shopify Developer" />
-<meta property="og:description" content="I build stores that are designed to sell — not just look good. Shopify · WooCommerce · Wix · Python automation. Based in Nigeria." />
+<meta property="og:title" content="Bayode Akindiose — Shopify & WordPress Developer" />
+<meta property="og:description" content="I build stores that are designed to sell — not just look good. Shopify · WordPress · WooCommerce · Python automation. Based in Nigeria." />
 <meta property="og:image" content="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:site_name" content="Bayode Akindiose" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Bayode Akindiose — E-Commerce & Shopify Developer" />
-<meta name="twitter:description" content="I build stores that are designed to sell — not just look good." />
+<meta name="twitter:title" content="Bayode Akindiose — Shopify & WordPress Developer" />
+<meta name="twitter:description" content="I turn product ideas into stores built to sell — not just look good." />
 <meta name="twitter:image" content="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/og-image.jpg" />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
@@ -30,7 +30,7 @@
 }
 [data-theme="light"] {
   --fg: #0A0A08; --fg-2: rgba(10,10,8,0.82); --fg-3: rgba(10,10,8,0.58);
-  --divider: rgba(10,10,8,0.15); --ink: #F5F0E8; --ink-2: #EDE8DF; --ink-3: #E2DDD4;
+  --divider: rgba(10,10,8,0.15); --ink: #FFFFFF; --ink-2: #F7F7F5; --ink-3: #EFEFEC;
 }
 html { scroll-behavior: smooth; }
 body { background: var(--ink); color: var(--fg); font-family: var(--mono); overflow-x: hidden; -webkit-font-smoothing: antialiased; transition: background 0.3s, color 0.3s; }
@@ -42,10 +42,8 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .nav-logo span { color: var(--gold); }
 .nav-r { display: flex; align-items: center; gap: 32px; }
 .nav-links { display: flex; gap: 24px; list-style: none; }
-/* FIX 1: Remove the dot/underline on active nav link — desktop only uses color change */
 .nav-links a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-2); text-decoration: none; transition: color 0.2s; position: relative; }
 .nav-links a:hover, .nav-links a.act { color: var(--gold); }
-/* REMOVED: .nav-links a.act::after rule that added the underline dot */
 .theme-pill { display: flex; background: var(--ink-3); border: 1px solid var(--divider); border-radius: 20px; padding: 3px; gap: 2px; }
 .tp-btn { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; background: none; border: none; cursor: pointer; color: var(--fg-2); padding: 4px 12px; border-radius: 16px; transition: background 0.2s, color 0.2s; }
 .tp-btn.act { background: var(--gold); color: var(--ink); font-weight: 500; }
@@ -79,46 +77,37 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 #hero { min-height: 100vh; display: grid; grid-template-rows: 1fr auto; padding-top: var(--nav-h); position: relative; overflow: hidden; }
 .hero-bg-num { position: absolute; right: -40px; top: 50%; transform: translateY(-50%); font-family: var(--display); font-size: clamp(300px, 40vw, 500px); color: rgba(201,168,76,0.04); line-height: 1; user-select: none; pointer-events: none; z-index: 1; }
 .hero-main { display: grid; grid-template-columns: 1fr 420px; align-items: end; padding: 80px 48px 0; position: relative; z-index: 2; gap: 48px; }
-/* FONT INCREASE: eyebrow from 10px → 12px */
 .hero-eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 16px; }
 .hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--gold); }
 .hero-h1 { font-family: var(--display); font-size: clamp(88px, 12vw, 176px); line-height: 0.88; letter-spacing: 0.01em; color: var(--fg); }
 .hero-h1 .gold { color: var(--gold); }
 .hero-h1 .stroke { -webkit-text-stroke: 1.5px var(--fg-3); color: transparent; }
 .hero-right-col { display: flex; flex-direction: column; justify-content: flex-end; gap: 28px; padding-bottom: 8px; }
-/* FONT INCREASE: tagline from 20px → 22px */
 .hero-tagline { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--fg-2); line-height: 1.55; border-left: 2px solid var(--gold); padding-left: 20px; }
 .hero-stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--divider); border: 1px solid var(--divider); }
 .hstat { background: var(--ink-2); padding: 20px 16px; }
 .hstat-n { font-family: var(--display); font-size: 40px; color: var(--gold); line-height: 1; }
-/* FONT INCREASE: stat label from 9px → 11px */
 .hstat-l { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); margin-top: 4px; }
 .hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
-/* FONT INCREASE: buttons from 10px → 12px */
 .btn-fill { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: var(--ink); border: none; padding: 14px 28px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; font-weight: 500; }
 .btn-fill:hover { background: var(--gold-lt); }
 .btn-ghost { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; background: none; color: var(--fg-2); border: 1px solid var(--divider); padding: 14px 28px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.2s, color 0.2s; }
 .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-/* FONT INCREASE: price anchor from 9px → 11px */
 .hero-price-anchor { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); margin-top: 4px; }
 .hero-price-anchor span { color: var(--gold); }
 .hero-bottom { border-top: 1px solid var(--divider); display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; margin-top: 64px; }
-/* FONT INCREASE: scroll label from 9px → 11px */
 .hero-scroll { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3); display: flex; align-items: center; gap: 12px; }
 .scroll-anim { width: 1px; height: 36px; background: var(--divider); position: relative; overflow: hidden; }
 .scroll-anim::after { content: ''; position: absolute; top: -36px; left: 0; width: 1px; height: 36px; background: var(--gold); animation: scrollDown 1.8s ease-in-out infinite; }
 @keyframes scrollDown { 0%{top:-36px} 100%{top:36px} }
-/* FONT INCREASE: avail from 9px → 11px */
 .hero-avail { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); display: flex; align-items: center; gap: 8px; }
 .avail-dot { width: 6px; height: 6px; border-radius: 50%; background: #4CAF50; animation: pulse 2s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 .ticker-wrap { overflow: hidden; background: var(--gold); padding: 12px 0; border-top: 1px solid var(--gold-dk); border-bottom: 1px solid var(--gold-dk); }
 .ticker { display: flex; width: max-content; animation: tick 30s linear infinite; }
-/* FONT INCREASE: ticker from 11px → 13px */
 .ticker span { font-family: var(--mono); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); white-space: nowrap; padding: 0 28px; font-weight: 500; }
 .ticker span::after { content: '✦'; margin-left: 28px; opacity: 0.4; }
 @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-/* FONT INCREASE: sec-label from 9px → 11px */
 .sec-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
 .sec-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
 .sec-title { font-family: var(--display); font-size: clamp(52px, 7vw, 100px); line-height: 0.9; letter-spacing: 0.02em; color: var(--fg); }
@@ -132,19 +121,15 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .about-name-display { font-family: var(--display); font-size: 52px; line-height: 0.9; color: var(--fg); margin-bottom: 8px; }
 .about-handle { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
 .about-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-/* FONT INCREASE: chip from 9px → 11px */
 .chip { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid var(--divider); color: var(--fg-3); padding: 4px 10px; }
 .about-content { padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
 .about-lede { font-family: var(--display); font-size: clamp(36px, 4vw, 56px); line-height: 0.95; color: var(--fg); margin-bottom: 36px; }
 .about-lede em { color: var(--gold); font-style: italic; font-family: var(--serif); }
-/* FONT INCREASE: about-body from 19px → 20px */
 .about-body { font-family: var(--serif); font-size: 20px; line-height: 1.75; color: var(--fg-2); max-width: 520px; margin-bottom: 40px; }
 .about-body strong { color: var(--fg); }
-/* FONT INCREASE: manifesto from 18px → 20px */
 .about-manifesto { border-left: 2px solid var(--gold); padding: 20px 24px; background: rgba(201,168,76,0.05); font-family: var(--serif); font-size: 20px; font-style: italic; color: var(--fg-2); line-height: 1.6; max-width: 480px; }
 #projects { padding: 100px 48px; background: var(--ink); }
 .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; border-bottom: 1px solid var(--divider); padding-bottom: 24px; }
-/* FONT INCREASE: proj-count from 9px → 11px */
 .proj-count { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
 .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
 .pcard { background: var(--ink-2); position: relative; overflow: hidden; transition: background 0.25s; }
@@ -154,18 +139,13 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .pcard:hover .pcard-img img { transform: scale(1.04); }
 .pcard-img-overlay { position: absolute; inset: 0; background: rgba(201,168,76,0.88); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
 .pcard-img:hover .pcard-img-overlay { opacity: 1; }
-/* FONT INCREASE: pcard-link from 9px → 11px */
 .pcard-link { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1px solid rgba(10,10,8,0.3); padding: 10px 20px; font-weight: 500; cursor: pointer; }
 .pcard-body { padding: 28px 24px 32px; }
-/* FONT INCREASE: pcard-num from 9px → 11px */
 .pcard-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--fg-3); margin-bottom: 4px; }
-/* FONT INCREASE: pcard-badge from 8px → 10px */
 .pcard-badge { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--divider); color: var(--fg-3); margin-bottom: 16px; }
 .pcard-badge.live { border-color: rgba(201,168,76,0.4); color: var(--gold); background: rgba(201,168,76,0.08); }
 .pcard-name { font-family: var(--display); font-size: 30px; line-height: 1; color: var(--fg); margin-bottom: 8px; }
-/* FONT INCREASE: pcard-type from 9px → 11px */
 .pcard-type { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 16px; line-height: 1.5; }
-/* FONT INCREASE: pcard-lesson from 14px → 15px */
 .pcard-lesson { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--fg-2); line-height: 1.6; border-top: 1px solid var(--divider); padding-top: 16px; margin-top: 16px; }
 .pcard.hero-proj { grid-column: span 3; }
 .pcard.hero-proj .pcard-img { aspect-ratio: 21/8; }
@@ -173,43 +153,30 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .pcard.wide { grid-column: span 2; }
 .pcard.wide .pcard-img { aspect-ratio: 21/9; }
 
-/* ============================================================
-   SERVICES
-   ============================================================ */
 #services { background: var(--ink-2); padding: 100px 48px; }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px; }
 .sv { background: var(--ink-3); padding: 40px 32px; border-top: 3px solid transparent; transition: border-color 0.25s, background 0.25s; display: flex; flex-direction: column; }
 .sv:hover { border-top-color: var(--gold); }
 .sv.featured { border-top-color: var(--gold); background: rgba(201,168,76,0.07); }
-/* FONT INCREASE: sv-num from 9px → 11px */
 .sv-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--fg-3); margin-bottom: 24px; }
 .sv-title { font-family: var(--display); font-size: 34px; color: var(--fg); line-height: 1; margin-bottom: 8px; }
-/* FONT INCREASE: sv-who from 9px → 11px */
 .sv-who { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; line-height: 1.6; }
 .sv-price { font-family: var(--display); font-size: 28px; color: var(--gold); margin-bottom: 4px; line-height: 1; }
-/* FONT INCREASE: sv-price-note from 8px → 10px */
 .sv-price-note { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 24px; }
 .sv-list { list-style: none; margin: 0 0 32px; flex: 1; }
-/* FONT INCREASE: sv-list li from 15px → 16px */
 .sv-list li { font-family: var(--serif); font-size: 16px; color: var(--fg-2); padding: 8px 0; border-bottom: 1px solid var(--divider); display: flex; gap: 10px; line-height: 1.5; }
 .sv-list li:last-child { border-bottom: none; }
 .sv-dash { color: var(--gold); flex-shrink: 0; }
-/* FONT INCREASE: sv-proof from 9px → 11px */
 .sv-proof { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--fg-3); border-top: 1px solid var(--divider); padding-top: 16px; margin-top: auto; }
 .sv-proof strong { color: var(--gold-lt); }
 .services-footer { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--divider); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-/* FONT INCREASE: services-note from 18px → 19px */
 .services-note { font-family: var(--serif); font-size: 19px; font-style: italic; color: var(--fg-2); max-width: 480px; line-height: 1.6; }
 
-/* ============================================================
-   HOW IT WORKS
-   ============================================================ */
 #process { background: var(--ink); padding: 100px 48px; border-top: 1px solid var(--divider); }
 .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 60px; }
 .proc-step { background: var(--ink-2); padding: 36px 28px; position: relative; }
 .proc-num { font-family: var(--display); font-size: 72px; color: rgba(201,168,76,0.12); line-height: 1; margin-bottom: 16px; }
 .proc-title { font-family: var(--display); font-size: 26px; color: var(--fg); line-height: 1; margin-bottom: 12px; }
-/* FONT INCREASE: proc-desc from 15px → 16px */
 .proc-desc { font-family: var(--serif); font-size: 16px; color: var(--fg-2); line-height: 1.7; }
 .proc-arrow { display: none; }
 @media (min-width: 901px) {
@@ -217,9 +184,6 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
   .proc-step:not(:last-child)::after { content: '→'; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); font-family: var(--mono); font-size: 18px; color: var(--gold); z-index: 2; }
 }
 
-/* ============================================================
-   VIDEOS
-   ============================================================ */
 #videos { padding: 100px 48px; background: var(--ink); }
 .videos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px; }
 .vcard { background: var(--ink-2); cursor: pointer; overflow: hidden; transition: background 0.25s; }
@@ -232,13 +196,10 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
 .play-ring { width: 56px; height: 56px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; transition: transform 0.25s; }
 .vcard:hover .play-ring { transform: scale(1.1); }
 .vcard-info { padding: 20px 20px 24px; }
-/* FONT INCREASE: vcard-label from 8px → 10px */
 .vcard-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
 .vcard-title { font-family: var(--display); font-size: 22px; color: var(--fg); line-height: 1.1; margin-bottom: 6px; }
-/* FONT INCREASE: vcard-desc from 10px → 12px */
 .vcard-desc { font-family: var(--mono); font-size: 12px; color: var(--fg-3); line-height: 1.5; }
 
-/* VIDEO MODAL */
 .vmodal { position: fixed; inset: 0; background: #000; z-index: 2000; display: none; flex-direction: column; align-items: center; justify-content: center; padding: 0; }
 .vmodal.open { display: flex; }
 .vmodal-close { position: fixed; top: 14px; right: 14px; z-index: 2100; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #fff; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); padding: 8px 16px; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
@@ -250,107 +211,72 @@ nav.scrolled { background: rgba(10,10,8,0.9); backdrop-filter: blur(18px); borde
   .vmodal-video-wrap { width: 100vw; max-width: 100vw; aspect-ratio: 16/9; }
 }
 
-/* ============================================================
-   STACK
-   ============================================================ */
 #stack { background: var(--ink-2); padding: 100px 48px; }
 .stack-wrap { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; margin-top: 60px; }
-/* FONT INCREASE: stack-intro from 18px → 19px */
 .stack-intro { font-family: var(--serif); font-size: 19px; font-style: italic; color: var(--fg-2); line-height: 1.7; margin-top: 24px; }
 .stack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--divider); }
 .sitem { background: var(--ink-2); padding: 24px 20px; display: flex; flex-direction: column; gap: 6px; transition: background 0.25s; }
 .sitem:hover { background: rgba(201,168,76,0.06); }
 .sitem-tool { font-family: var(--display); font-size: 22px; color: var(--fg); }
-/* FONT INCREASE: sitem-use from 10px → 12px */
 .sitem-use { font-family: var(--mono); font-size: 12px; color: var(--fg-3); letter-spacing: 0.04em; line-height: 1.55; }
 
-/* ============================================================
-   PROOF / REVIEWS
-   ============================================================ */
 #proof { background: var(--ink-3); padding: 100px 48px; }
 .proof-nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 60px; }
 .proof-num { background: var(--ink-2); padding: 40px 24px; text-align: center; }
 .proof-num-n { font-family: var(--display); font-size: 64px; color: var(--gold); line-height: 1; }
-/* FONT INCREASE: proof-num-l from 9px → 11px */
 .proof-num-l { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); margin-top: 8px; line-height: 1.6; }
 .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 2px; }
 .review { background: var(--ink-2); padding: 32px 28px; display: flex; flex-direction: column; gap: 16px; }
 .review-stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; }
-/* FONT INCREASE: review-text from 16px → 17px */
 .review-text { font-family: var(--serif); font-size: 17px; font-style: italic; color: var(--fg-2); line-height: 1.7; flex: 1; }
-/* FONT INCREASE: review-author from 9px → 11px */
 .review-author { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3); border-top: 1px solid var(--divider); padding-top: 16px; }
 .review-author strong { color: var(--gold); display: block; font-size: 12px; margin-bottom: 2px; }
-/* FONT INCREASE: review-verify from 8px → 10px */
 .review-verify { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(201,168,76,0.5); margin-top: 6px; }
 
-/* ============================================================
-   FAQ
-   ============================================================ */
 #faq { background: var(--ink-2); padding: 100px 48px; }
 .faq-wrap { max-width: 760px; margin-top: 60px; }
 .faq-item { border-bottom: 1px solid var(--divider); }
 .faq-q-btn { width: 100%; background: none; border: none; cursor: pointer; text-align: left; padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-/* FONT INCREASE: faq-q-text from 24px → 26px */
 .faq-q-text { font-family: var(--display); font-size: 26px; color: var(--fg); line-height: 1; }
 .faq-icon { font-family: var(--mono); font-size: 20px; color: var(--gold); flex-shrink: 0; transition: transform 0.25s; }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
-/* FONT INCREASE: faq-a from 17px → 18px */
 .faq-a { font-family: var(--serif); font-size: 18px; color: var(--fg-2); line-height: 1.75; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding-bottom: 0; }
 .faq-item.open .faq-a { max-height: 300px; padding-bottom: 24px; }
 
-/* ============================================================
-   ORIGIN
-   ============================================================ */
 #origin { display: grid; grid-template-columns: 1fr 1fr; }
 .origin-left { background: var(--ink-2); padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
-/* FONT INCREASE: origin-quote from clamp 22-32px stays — already good */
 .origin-quote { font-family: var(--serif); font-size: clamp(22px, 2.5vw, 32px); font-style: italic; color: var(--fg); line-height: 1.45; border-left: 3px solid var(--gold); padding-left: 28px; margin: 32px 0; }
 .origin-quote strong { color: var(--gold-lt); font-style: normal; }
-/* FONT INCREASE: origin-byline from 9px → 11px */
 .origin-byline { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3); padding-left: 31px; }
 .origin-right { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; background: var(--ink); }
 .lessons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 32px; background: var(--divider); }
 .lesson { background: var(--ink); padding: 28px 20px; border-left: 2px solid transparent; transition: border-color 0.25s; }
 .lesson:hover { border-left-color: var(--gold); }
-/* FONT INCREASE: lesson-topic from 8px → 10px */
 .lesson-topic { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-/* FONT INCREASE: lesson-text from 14px → 15px */
 .lesson-text { font-family: var(--serif); font-size: 15px; color: var(--fg-2); line-height: 1.65; }
 .lesson-text strong { color: var(--fg); }
 
-/* ============================================================
-   CONTACT
-   ============================================================ */
 #contact { background: var(--ink); padding: 120px 48px; position: relative; overflow: hidden; }
 .contact-bg { position: absolute; right: -60px; bottom: -60px; font-family: var(--display); font-size: clamp(120px, 22vw, 320px); color: rgba(201,168,76,0.04); line-height: 1; user-select: none; pointer-events: none; }
 .contact-inner { position: relative; z-index: 2; max-width: 860px; }
 .contact-headline { font-family: var(--display); font-size: clamp(64px, 9vw, 130px); line-height: 0.88; color: var(--fg); margin: 24px 0 16px; }
 .contact-headline .stroke { -webkit-text-stroke: 1.5px rgba(245,240,232,0.2); color: transparent; }
 .contact-headline em { color: var(--gold); font-style: normal; }
-/* FONT INCREASE: contact-sub from 20px → 22px */
 .contact-sub { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--fg-2); line-height: 1.6; max-width: 500px; margin-bottom: 52px; }
 .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
-/* FONT INCREASE: clink from 10px → 12px */
 .clink { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-2); border: 1px solid var(--divider); padding: 14px 24px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.25s, background 0.25s, color 0.25s; }
 .clink:hover { border-color: var(--gold); background: var(--gold); color: var(--ink); }
 .clink.primary { background: var(--gold); color: var(--ink); border-color: var(--gold); }
 .clink.primary:hover { background: var(--gold-lt); border-color: var(--gold-lt); }
 .contact-closing { margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--divider); }
-/* FONT INCREASE: contact-closing-q from 22px → 24px */
 .contact-closing-q { font-family: var(--serif); font-size: 24px; font-style: italic; color: var(--fg-3); line-height: 1.6; }
-/* FONT INCREASE: contact-closing-cite from 9px → 11px */
 .contact-closing-cite { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3); margin-top: 12px; display: block; }
 footer { background: var(--ink-2); border-top: 1px solid var(--divider); padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-/* FONT INCREASE: footer span from 9px → 11px */
 footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); }
 .footer-logo { font-family: var(--display); font-size: 18px; color: var(--fg-3); letter-spacing: 0.05em; }
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
-/* ============================================================
-   MOBILE NAV — FIX 2: Added FAQ tab with icon
-   ============================================================ */
 .mob-nav { display: none; }
 @media (max-width: 900px) {
   body { padding-bottom: 68px; }
@@ -358,12 +284,10 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   .nav-links { display: none; }
   .theme-pill { display: none; }
   .mob-theme-toggle { display: flex; position: fixed; top: 12px; right: 14px; z-index: 900; background: var(--ink-2); border: 1px solid var(--divider); border-radius: 20px; padding: 3px; gap: 2px; flex-direction: row; }
-  /* FIX 2: mob-nav now has 6 items — made font slightly smaller to fit */
   .mob-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--ink-2); border-top: 1px solid var(--divider); z-index: 800; padding-bottom: env(safe-area-inset-bottom); }
   .mob-nav a { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 10px 2px; color: var(--fg-3); text-decoration: none; font-family: var(--mono); font-size: 7.5px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
   .mob-nav a.act { color: var(--gold); }
   .mob-nav svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; }
-  /* MOBILE FONT INCREASES */
   .hero-main { grid-template-columns: 1fr; padding: 48px 20px 0; }
   .hero-bottom { padding: 16px 20px; margin-top: 40px; }
   #about { grid-template-columns: 1fr; }
@@ -394,10 +318,8 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   .contact-links { flex-direction: column; }
   footer { padding: 16px 20px; flex-direction: column; text-align: center; }
   .hero-h1 { font-size: 76px; }
-  /* MOBILE: faq question slightly smaller to fit */
   .faq-q-text { font-size: 20px; }
   .proc-step:not(:last-child)::after { display: none; }
-  /* MOBILE: increase sec-label, pcard text, review text */
   .sec-label { font-size: 10px; }
   .pcard-type { font-size: 10px; }
   .review-text { font-size: 16px; }
@@ -448,7 +370,6 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
-<!-- FIX 2: Mobile nav now has 6 items including FAQ with a ? icon -->
 <div class="mob-nav">
   <a href="#about" data-s="about"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About</a>
   <a href="#projects" data-s="projects"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Work</a>
@@ -458,18 +379,15 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   <a href="#contact" data-s="contact"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Contact</a>
 </div>
 
-<!-- ============================================================
-     HERO
-     ============================================================ -->
 <section id="hero">
   <div class="hero-bg-num" aria-hidden="true">9</div>
   <div class="hero-main">
     <div>
-      <p class="hero-eyebrow">E-Commerce & Shopify Developer · Available Now</p>
+      <p class="hero-eyebrow">Shopify, WordPress & WooCommerce Developer · Available Now</p>
       <h1 class="hero-h1">BAY<span class="gold">ODE</span><br><span class="stroke">AKIN</span><br>DIOSE</h1>
     </div>
     <div class="hero-right-col">
-      <p class="hero-tagline">I build online stores that sell — on Shopify, WooCommerce, Wix, or Squarespace.</p>
+      <p class="hero-tagline">I turn product ideas into stores built to sell — on Shopify, WordPress, or WooCommerce.</p>
       <div class="hero-stats-row">
         <div class="hstat"><div class="hstat-n">9</div><div class="hstat-l">Projects Built</div></div>
         <div class="hstat"><div class="hstat-n">887</div><div class="hstat-l">Products Migrated</div></div>
@@ -490,13 +408,10 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
 </section>
 
 <div class="ticker-wrap" aria-hidden="true"><div class="ticker">
-  <span>Shopify Customization</span><span>WooCommerce Migration</span><span>Conversion Optimization</span><span>Python Automation</span><span>SEO &amp; Google Merchant Center</span><span>Liquid Templating</span><span>Product Image Branding</span><span>E-Commerce Strategy</span>
-  <span>Shopify Customization</span><span>WooCommerce Migration</span><span>Conversion Optimization</span><span>Python Automation</span><span>SEO &amp; Google Merchant Center</span><span>Liquid Templating</span><span>Product Image Branding</span><span>E-Commerce Strategy</span>
+  <span>Shopify Customization</span><span>WordPress Development</span><span>WooCommerce Migration</span><span>Conversion Optimization</span><span>Python Automation</span><span>SEO &amp; Google Merchant Center</span><span>Liquid Templating</span><span>Product Image Branding</span><span>E-Commerce Strategy</span>
+  <span>Shopify Customization</span><span>WordPress Development</span><span>WooCommerce Migration</span><span>Conversion Optimization</span><span>Python Automation</span><span>SEO &amp; Google Merchant Center</span><span>Liquid Templating</span><span>Product Image Branding</span><span>E-Commerce Strategy</span>
 </div></div>
 
-<!-- ============================================================
-     ABOUT
-     ============================================================ -->
 <section id="about">
   <div class="about-photo-col">
     <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/profile.jpg" alt="Bayode Akindiose" class="about-img" />
@@ -504,22 +419,19 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
       <div class="about-name-display">BAYODE<br>AKINDIOSE</div>
       <div class="about-handle">Beyu Babi</div>
       <div class="about-chips">
-        <span class="chip">Shopify</span><span class="chip">E-Commerce</span>
-        <span class="chip">Website Builder</span><span class="chip">Python</span><span class="chip">Nigeria</span>
+        <span class="chip">Shopify</span><span class="chip">WordPress</span>
+        <span class="chip">E-Commerce</span><span class="chip">Python</span><span class="chip">Nigeria</span>
       </div>
     </div>
   </div>
   <div class="about-content">
     <div class="sec-label">The Person</div>
-    <h2 class="about-lede reveal">Started on a<br><em>2GB RAM phone.</em><br>Still building.</h2>
-    <p class="about-body reveal">I'm a freelance e-commerce website builder and Shopify developer based in Nigeria. Before I had a laptop — I had a client inquiry and a Samsung A02 with 2GB RAM. I opened Chrome and started building.<br><br>Since then I've completed <strong>9 projects</strong> across Shopify, WooCommerce, Wix and Squarespace — migrating <strong>887 products</strong>, editing <strong>900+ images</strong>, learning Python when a job demanded it, and winning my first Upwork client with zero reviews.</p>
+    <h2 class="about-lede reveal">Idea in.<br><em>Sellable store</em><br>out.</h2>
+    <p class="about-body reveal">I turn product ideas into stores built to sell — on Shopify, WordPress, and WooCommerce. I'm a freelance e-commerce developer based in Nigeria.<br><br>I've built multiple demo stores across different niches to sharpen full-stack Shopify and WordPress skills — taking each one from raw concept to a working, sellable brand. Alongside that, I've completed <strong>9 projects</strong>, migrating <strong>887 products</strong>, editing <strong>900+ images</strong>, and learning Python when a job demanded it.<br><br>If you've got a product idea with no store around it yet — that's the gap I close.</p>
     <blockquote class="about-manifesto reveal">"A website without sales is just a page on the internet. I don't build pages. I build stores. Stores are built to sell."</blockquote>
   </div>
 </section>
 
-<!-- ============================================================
-     PROJECTS
-     ============================================================ -->
 <section id="projects">
   <div class="projects-header">
     <div>
@@ -552,7 +464,7 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
         <span class="pcard-badge live">Flagship Brand · 2025</span>
         <div class="pcard-name">Oversize Plus</div>
         <div class="pcard-type">Custom-Expression Oversized Clothing · Full Shopify Build</div>
-        <p class="pcard-lesson">"Clothes change as you change. Upload your story — printed on a shirt in your colour."</p>
+        <p class="pcard-lesson">"Clothes change as you change. Upload your story — printed on a shirt in your colour." Included Photoshop mockups and a content strategy built for LinkedIn engagement.</p>
       </div>
     </div>
     <div class="pcard reveal">
@@ -577,8 +489,8 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
         <div class="pcard-num">05</div>
         <span class="pcard-badge live">Upwork · First Client · 2025</span>
         <div class="pcard-name">Toko</div>
-        <div class="pcard-type">3D Printed Toys · Full Shopify Store · Dubai Agency</div>
-        <p class="pcard-lesson">"Zero reviews. Won the job anyway. Learned about bundles, milestones, and third-party client reality."</p>
+        <div class="pcard-type">3D Printed Children's Toys · Full Shopify Store · Dubai Agency</div>
+        <p class="pcard-lesson">"My first platform client on Upwork — landed with zero prior reviews. Learned about bundles, milestones, and third-party client reality."</p>
       </div>
     </div>
     <div class="pcard reveal">
@@ -604,15 +516,25 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
         <span class="pcard-badge">Demo Store · 2024</span>
         <div class="pcard-name">Küchewood</div>
         <div class="pcard-type">Eco-Friendly Wooden Kitchenware · Full Shopify Customization</div>
-        <p class="pcard-lesson">"Built on a borrowed laptop overnight. The client didn't hire me. I didn't stop."</p>
+        <p class="pcard-lesson">"Started on a 2GB RAM phone, moved to my cousin's borrowed laptop overnight, finished on my own once I got it. The client didn't hire me. I didn't stop."</p>
+      </div>
+    </div>
+    <div class="pcard reveal">
+      <div class="pcard-img">
+        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--ink-3);color:var(--fg-3);font-family:var(--mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;">Screenshot pending</div>
+        <div class="pcard-img-overlay"><a class="pcard-link" href="https://beyutech.gt.tc/?i=3" target="_blank">View Live Store →</a></div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-num">06</div>
+        <span class="pcard-badge live">First WordPress Build · 2025</span>
+        <div class="pcard-name">Bayu Tech</div>
+        <div class="pcard-type">Apple Gadgets — Foreign-Used &amp; Brand New · Full WordPress Build</div>
+        <p class="pcard-lesson">"My first build entirely on WordPress. Different CMS, same standard — a store engineered to sell, not just display."</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     SERVICES (with pricing)
-     ============================================================ -->
 <section id="services">
   <div class="sec-label">What I Build</div>
   <h2 class="sec-title reveal">THREE<br><em>SERVICES.</em><br><span class="stroke">ONE STANDARD.</span></h2>
@@ -620,7 +542,7 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
     <div class="sv featured reveal">
       <div class="sv-num">01 · FLAGSHIP</div>
       <div class="sv-title">Platform Migration</div>
-      <div class="sv-who">For businesses on WooCommerce or Wix ready to move to Shopify</div>
+      <div class="sv-who">For businesses on WordPress or WooCommerce ready to move to Shopify</div>
       <div class="sv-price">From $350 <span style="font-size:16px;color:var(--fg-3);">/ ₦525k</span></div>
       <div class="sv-price-note">Final price depends on product count &amp; complexity</div>
       <ul class="sv-list">
@@ -639,7 +561,7 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
       <div class="sv-title">New Store Build</div>
       <div class="sv-who">For anyone who wants to start selling online — on any platform</div>
       <div class="sv-price">From $150 <span style="font-size:16px;color:var(--fg-3);">/ ₦225k</span></div>
-      <div class="sv-price-note">Works on Shopify · WooCommerce · Wix · Squarespace · price depends on platform &amp; size</div>
+      <div class="sv-price-note">Works on Shopify · WordPress · WooCommerce · price depends on platform &amp; size</div>
       <ul class="sv-list">
         <li><span class="sv-dash">—</span>I pick the right platform for your business — or build on the one you choose</li>
         <li><span class="sv-dash">—</span>Full store setup from zero — design, products, pages</li>
@@ -672,9 +594,6 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   </div>
 </section>
 
-<!-- ============================================================
-     HOW IT WORKS
-     ============================================================ -->
 <section id="process">
   <div class="sec-label">The Process</div>
   <h2 class="sec-title reveal">HOW IT<br><em>WORKS.</em></h2>
@@ -702,9 +621,6 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   </div>
 </section>
 
-<!-- ============================================================
-     VIDEOS
-     ============================================================ -->
 <section id="videos">
   <div class="sec-label">Store Walkthroughs</div>
   <h2 class="sec-title reveal">WATCH THE<br><em>WORK.</em></h2>
@@ -745,7 +661,6 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   </div>
 </section>
 
-<!-- VIDEO MODAL -->
 <div class="vmodal" id="vm">
   <button class="vmodal-close" onclick="closeV()">✕ Close</button>
   <div class="vmodal-video-wrap">
@@ -753,9 +668,6 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   </div>
 </div>
 
-<!-- ============================================================
-     STACK
-     ============================================================ -->
 <section id="stack">
   <div class="sec-label">The Stack</div>
   <h2 class="sec-title reveal">TOOLS I<br><em>ACTUALLY</em><br><span class="stroke">USE.</span></h2>
@@ -768,15 +680,12 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
       <div class="sitem"><div class="sitem-tool">Liquid</div><div class="sitem-use">Dynamic product pages, custom sections, and smart templates that scale as your catalogue grows.</div></div>
       <div class="sitem"><div class="sitem-tool">PhotoRoom</div><div class="sitem-use">900+ product images edited and branded consistently — so your store looks professional at every scroll.</div></div>
       <div class="sitem"><div class="sitem-tool">Google Merchant</div><div class="sitem-use">Your products show up in Google Shopping. More visibility. More clicks. More sales.</div></div>
-      <div class="sitem"><div class="sitem-tool">Wix · WooCommerce</div><div class="sitem-use">I know where you're coming from. Platform migrations done cleanly — your data, your SEO, your traffic protected.</div></div>
+      <div class="sitem"><div class="sitem-tool">WordPress · WooCommerce</div><div class="sitem-use">Full-stack builds and platform migrations done cleanly — your data, your SEO, your traffic protected.</div></div>
       <div class="sitem"><div class="sitem-tool">Loox · Apps</div><div class="sitem-use">Reviews, bundles, upsells — the conversion tools that turn browsers into buyers, configured properly.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     PROOF
-     ============================================================ -->
 <section id="proof">
   <div class="sec-label">Social Proof</div>
   <h2 class="sec-title reveal">THE<br><em>NUMBERS</em><br><span class="stroke">DON'T LIE.</span></h2>
@@ -814,9 +723,6 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   </div>
 </section>
 
-<!-- ============================================================
-     FAQ
-     ============================================================ -->
 <section id="faq">
   <div class="sec-label">Questions</div>
   <h2 class="sec-title reveal">GOT<br><em>QUESTIONS?</em><br><span class="stroke">I GOT ANSWERS.</span></h2>
@@ -826,7 +732,7 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
         <span class="faq-q-text">Do you work with international clients?</span>
         <span class="faq-icon">+</span>
       </button>
-      <p class="faq-a">Yes. I've worked with a Dubai-based agency (Toko) and clients across different time zones. I communicate on WhatsApp, email, or Upwork — whatever works for you. Payment accepted via Upwork, PayPal, or bank transfer. Time zone is never a problem.</p>
+      <p class="faq-a">Yes. I've worked with a Dubai-based agency (Toko) and clients across different time zones. I communicate on WhatsApp or email — whatever works for you. Payment accepted via PayPal or bank transfer. Time zone is never a problem.</p>
     </div>
     <div class="faq-item">
       <button class="faq-q-btn" onclick="toggleFaq(this)">
@@ -866,13 +772,10 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   </div>
 </section>
 
-<!-- ============================================================
-     ORIGIN
-     ============================================================ -->
 <section id="origin">
   <div class="origin-left">
     <div class="sec-label" style="color:rgba(201,168,76,0.55)">The Origin</div>
-    <blockquote class="origin-quote">"I had a <strong>2GB RAM Samsung A02</strong> and a client inquiry. I built the store overnight on my cousin's laptop. They didn't hire me. I didn't stop."</blockquote>
+    <blockquote class="origin-quote">"I had a <strong>2GB RAM Samsung A02</strong> and a client inquiry. I started the store on my phone, moved to my cousin's laptop overnight, and finished it once I got my own. They didn't hire me. I didn't stop."</blockquote>
     <p class="origin-byline">— August 2024, Küchewood Demo</p>
   </div>
   <div class="origin-right">
@@ -888,9 +791,6 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   </div>
 </section>
 
-<!-- ============================================================
-     CONTACT
-     ============================================================ -->
 <section id="contact">
   <div class="contact-bg" aria-hidden="true">BEYU.</div>
   <div class="contact-inner">
@@ -899,9 +799,9 @@ footer span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
     <p class="contact-sub reveal">A website without sales is just a page on the internet. I don't build pages — I build online stores, on any platform. And online stores are built to sell.</p>
     <div class="contact-links reveal">
       <a class="clink primary" href="https://wa.me/2348126679348" target="_blank">WhatsApp →</a>
-      <a class="clink" href="https://www.upwork.com/freelancers/~0142db9a567528c226?mp_source=share" target="_blank">Upwork Profile</a>
-      <a class="clink" href="https://www.instagram.com/beyu_babi/" target="_blank">Instagram</a>
-      <a class="clink" href="mailto:bayodeakindiose@gmail.com">Email</a>
+      <a class="clink" href="https://www.linkedin.com/in/bayode-akindiose-a18a72402" target="_blank">LinkedIn</a>
+      <a class="clink" href="https://www.instagram.com/beyu_babi3/" target="_blank">Instagram</a>
+      <a class="clink" href="mailto:bayu4e.com@gmail.com">Email</a>
     </div>
     <div class="contact-closing">
       <p class="contact-closing-q">"I don't plan with fear. I plan with purpose."</p>
@@ -946,7 +846,6 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
   if(localStorage.getItem('bb-t') === 'system') applyTheme('system');
 });
 
-/* CUSTOM CURSOR */
 var cur = document.getElementById('cur');
 var hasMouse = false;
 document.addEventListener('mousemove', function(e){
@@ -960,7 +859,6 @@ document.querySelectorAll('a,button,.pcard,.vcard,.sv,.sitem,.lesson,.review,.pr
 });
 document.addEventListener('touchstart', function(){ cur.style.display='none'; },{once:true});
 
-/* NAV SCROLL + BACK TO TOP */
 var nav = document.getElementById('mainNav');
 var btt = document.getElementById('backToTop');
 window.addEventListener('scroll', function(){
@@ -970,7 +868,6 @@ window.addEventListener('scroll', function(){
 },{passive:true});
 if(btt){ btt.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); }); }
 
-/* SCROLL SPY */
 var sections = ['about','projects','services','process','videos','stack','proof','faq','origin','contact'];
 function updateActive(){
   var pos = window.scrollY + 100;
@@ -979,13 +876,11 @@ function updateActive(){
   document.querySelectorAll('[data-s]').forEach(function(a){ a.classList.toggle('act', a.getAttribute('data-s') === best); });
 }
 
-/* REVEAL */
 var obs = new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
 },{threshold:0.1, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
 
-/* VIDEO MODAL */
 window.openV = function(url){
   document.getElementById('vframe').src = url;
   document.getElementById('vm').classList.add('open');
@@ -1004,7 +899,6 @@ document.addEventListener('keydown', function(e){
   if(e.key === 'Escape') window.closeV();
 });
 
-/* FAQ ACCORDION */
 window.toggleFaq = function(btn){
   var item = btn.closest('.faq-item');
   var isOpen = item.classList.contains('open');
@@ -1012,7 +906,6 @@ window.toggleFaq = function(btn){
   if(!isOpen) item.classList.add('open');
 };
 
-/* HERO ENTRY */
 var heroEls = document.querySelectorAll('.hero-eyebrow,.hero-h1,.hero-tagline,.hero-stats-row,.hero-cta-row,.hero-price-anchor,.hero-bottom');
 heroEls.forEach(function(el,i){
   el.style.opacity='0'; el.style.transform='translateY(24px)';
