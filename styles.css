@@ -111,6 +111,17 @@ body {
   }
 }
 
+/* Hard override: force the cursor off on mobile/tablet widths regardless
+   of what the device reports for `pointer`. Some tablets and touchscreen
+   laptops report pointer:fine even though they're touch-first, so the
+   media query above isn't reliable on its own — this guarantees it never
+   shows below the site's own tablet breakpoint (1024px). */
+@media (max-width: 1024px) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
 .cursor-dot {
   width: 8px;
   height: 8px;
@@ -2604,6 +2615,20 @@ footer {
   }
   .nav-links, .theme-pill {
     display: none; /* Hide top nav links and theme switcher */
+  }
+
+  /* Back to Top button: it was sitting at bottom:32px with z-index:850,
+     directly underneath the mobile bottom nav bar (bottom:0, ~70px+ tall,
+     z-index:900) — same space, lower stacking order, so it was rendering
+     but effectively hidden behind the nav on every phone. Lifted above
+     the nav bar height (+ notch safe-area) and given a higher z-index so
+     it's actually reachable. */
+  .back-to-top {
+    bottom: calc(70px + 16px + env(safe-area-inset-bottom));
+    right: 16px;
+    z-index: 950;
+    width: 44px;
+    height: 44px;
   }
   
   /* Mobile Sticky Bottom Nav */

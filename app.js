@@ -87,7 +87,13 @@
   // it from ever starting on mobile, instead of relying on CSS to just hide
   // the result.
   const cursor = document.getElementById('customCursor');
-  const cursorIsRelevant = window.matchMedia('(pointer: fine)').matches;
+  // pointer:fine alone isn't reliable — some tablets/touchscreen laptops
+  // report it despite being touch-first. Require BOTH a fine pointer AND a
+  // desktop-width viewport, matching the site's own 1024px breakpoint, so
+  // the cursor logic never runs on mobile or tablet.
+  const cursorIsRelevant =
+    window.matchMedia('(pointer: fine)').matches &&
+    window.matchMedia('(min-width: 1025px)').matches;
 
   if (cursor && cursorIsRelevant) {
   const cursorDot = cursor.querySelector('.cursor-dot');
