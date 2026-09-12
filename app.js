@@ -1,13 +1,14 @@
 /**
  * app.js
  * Premium E-Commerce Portfolio Interactive Scripts
- * Handles custom cursor, local time widget, interactive pricing calculator, video modals, FAQ, and reveal animations.
+ * Handles Theme Management, Project Categorization & Filtering,
+ * Live Africa/Lagos Clock, Cost Estimator, Video Screencast Modal, and FAQ Accordion.
  */
 
 (function () {
   'use strict';
 
-  // --- THEME STATE MANAGER ---
+  // --- 1. THEME STATE MANAGER ---
   const html = document.documentElement;
   const themeButtons = document.querySelectorAll('.tp-btn, .mob-tp-btn');
   const savedTheme = localStorage.getItem('bb-portfolio-theme') || 'dark';
@@ -22,7 +23,7 @@
     
     localStorage.setItem('bb-portfolio-theme', theme);
 
-    // Sync active states on all theme pill buttons
+    // Sync active state on both desktop and mobile theme buttons
     themeButtons.forEach(btn => {
       if (btn.getAttribute('data-t') === theme) {
         btn.classList.add('act');
@@ -42,7 +43,7 @@
     });
   });
 
-  // Watch System Theme changes if set to system
+  // Watch System Theme changes when set to 'system'
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     if (localStorage.getItem('bb-portfolio-theme') === 'system') {
       applyTheme('system');
@@ -50,7 +51,7 @@
   });
 
 
-  // --- LIVE NIGERIA TIMEZONE WIDGET ---
+  // --- 2. LIVE NIGERIA (WAT) TIMEZONE WIDGET ---
   const timeDisplay = document.getElementById('nigeriaTime');
   
   function updateNigeriaTime() {
@@ -65,7 +66,7 @@
       });
       timeDisplay.textContent = formatter.format(new Date());
     } catch (e) {
-      // Fallback if Intl is unsupported
+      // Fallback if Intl is unavailable
       const localDate = new Date();
       const utc = localDate.getTime() + (localDate.getTimezoneOffset() * 60000);
       const watTime = new Date(utc + (3600000 * 1)); // WAT is UTC+1
@@ -77,118 +78,49 @@
   updateNigeriaTime();
 
 
-  // --- CUSTOM SPRING CURSOR ---
-  // Only runs on devices with a precise pointer (mouse/trackpad). On touch
-  // devices this used to still run: a 60fps requestAnimationFrame loop
-  // forever, plus mouseenter/mouseleave listeners bound to every link,
-  // button, card and pill on the page — none of it ever visible, all of it
-  // burning CPU/battery on every phone that loaded the site. That's the
-  // single biggest cause of "mobile feels clogged." Bailing out here stops
-  // it from ever starting on mobile, instead of relying on CSS to just hide
-  // the result.
-  const cursor = document.getElementById('customCursor');
-  // pointer:fine alone isn't reliable — some tablets/touchscreen laptops
-  // report it despite being touch-first. Require BOTH a fine pointer AND a
-  // desktop-width viewport, matching the site's own 1024px breakpoint, so
-  // the cursor logic never runs on mobile or tablet.
-  const cursorIsRelevant =
-    window.matchMedia('(pointer: fine)').matches &&
-    window.matchMedia('(min-width: 1025px)').matches;
+  // --- 3. INTERACTIVE PROJECT CATEGORY FILTERING ---
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const projectCards = document.querySelectorAll('.pcard');
+  const projCountBadge = document.getElementById('projCountBadge');
 
-  if (cursor && cursorIsRelevant) {
-  const cursorDot = cursor.querySelector('.cursor-dot');
-  const cursorRing = cursor.querySelector('.cursor-ring');
-  const cursorText = cursor.querySelector('.cursor-text');
+  if (filterTabs.length > 0 && projectCards.length > 0) {
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', function () {
+        filterTabs.forEach(t => t.classList.remove('act'));
+        this.classList.add('act');
 
-  let mouseX = 0, mouseY = 0; // Target coordinates
-  let ringX = 0, ringY = 0;   // Interpolated ring coordinates
-  let dotX = 0, dotY = 0;     // Interpolated dot coordinates
-  let isMoving = false;
+        const filter = this.getAttribute('data-filter');
+        let visibleCount = 0;
 
-    // Show cursor on first movement
-    document.addEventListener('mousemove', (e) => {
-      if (!isMoving) {
-        cursor.style.display = 'block';
-        isMoving = true;
-      }
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    // Hide cursor if mouse leaves page
-    document.addEventListener('mouseleave', () => {
-      cursor.style.display = 'none';
-      isMoving = false;
-    });
-
-    // Animation Loop (Spring Physics Interpolation)
-    const tickCursor = () => {
-      // Ring interpolation (slower, springy)
-      ringX += (mouseX - ringX) * 0.15;
-      ringY += (mouseY - ringY) * 0.15;
-      
-      // Dot interpolation (faster)
-      dotX += (mouseX - dotX) * 0.35;
-      dotY += (mouseY - dotY) * 0.35;
-
-      if (cursorRing) {
-        cursorRing.style.left = `${ringX}px`;
-        cursorRing.style.top = `${ringY}px`;
-      }
-      if (cursorDot) {
-        cursorDot.style.left = `${dotX}px`;
-        cursorDot.style.top = `${dotY}px`;
-      }
-
-      requestAnimationFrame(tickCursor);
-    };
-    requestAnimationFrame(tickCursor);
-
-    // Dynamic Hover States
-    const attachCursorHovers = () => {
-      // Elements that trigger "VIEW" state
-      document.querySelectorAll('.pcard, .vcard, .sv').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          cursor.className = 'custom-cursor hovering-project';
-          if (cursorText) {
-            cursorText.textContent = el.classList.contains('vcard') ? 'PLAY' : 'VIEW';
+        projectCards.forEach(card => {
+          const categories = (card.getAttribute('data-category') || '').split(' ');
+          
+          if (filter === 'all' || categories.includes(filter)) {
+            card.classList.remove('is-hidden');
+            visibleCount++;
+            
+            // Re-trigger reveal animation smoothly
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(16px)';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 30);
+          } else {
+            card.classList.add('is-hidden');
           }
         });
-        el.addEventListener('mouseleave', () => {
-          cursor.className = 'custom-cursor';
-          if (cursorText) cursorText.textContent = '';
-        });
-      });
 
-      // Elements that trigger "TALK" or accent states
-      document.querySelectorAll('a, button, .service-pill, .addon-card, .faq-q-btn').forEach(el => {
-        // Skip card containers if they already have cursor hover overrides
-        if (el.closest('.pcard') && !el.classList.contains('pcard-link')) return;
-        if (el.closest('.vcard')) return;
-
-        el.addEventListener('mouseenter', () => {
-          cursor.className = 'custom-cursor hovering-contact';
-          if (cursorText) {
-            if (el.classList.contains('calc-whatsapp') || el.classList.contains('clink')) {
-              cursorText.textContent = 'TALK';
-            } else if (el.classList.contains('tp-btn') || el.classList.contains('mob-tp-btn')) {
-              cursorText.textContent = 'THEME';
-            } else {
-              cursorText.textContent = 'CLICK';
-            }
-          }
-        });
-        el.addEventListener('mouseleave', () => {
-          cursor.className = 'custom-cursor';
-          if (cursorText) cursorText.textContent = '';
-        });
+        if (projCountBadge) {
+          const label = filter === 'all' ? 'All' : filter.toUpperCase();
+          projCountBadge.textContent = `Showing ${visibleCount} ${label === 'All' ? '' : label + ' '}Projects · 2024–2026`;
+        }
       });
-    };
-    attachCursorHovers();
+    });
   }
 
 
-  // --- INTERACTIVE COST ESTIMATOR ---
+  // --- 4. INTERACTIVE COST ESTIMATOR ---
   const servicePills = document.querySelectorAll('.service-pill');
   const skuSliderGroup = document.getElementById('productCountGroup');
   const skuSlider = document.getElementById('productCountRange');
@@ -203,11 +135,10 @@
   // Conversion rate (1 USD to NGN)
   const NAIRA_RATE = 1400;
 
-  let activeService = 'migration'; // 'migration', 'newbuild', 'codework'
+  let activeService = 'migration';
   let basePrice = 650;
   let productCount = 100;
 
-  // Track active service pill selection
   servicePills.forEach(pill => {
     pill.addEventListener('click', function () {
       servicePills.forEach(p => p.classList.remove('act'));
@@ -216,11 +147,11 @@
       activeService = this.getAttribute('data-service');
       basePrice = parseFloat(this.getAttribute('data-price'));
 
-      // Show/Hide SKU slider group based on service context
+      // Show/Hide SKU slider based on service context
       if (activeService === 'codework') {
-        skuSliderGroup.style.display = 'none';
+        if (skuSliderGroup) skuSliderGroup.style.display = 'none';
       } else {
-        skuSliderGroup.style.display = 'block';
+        if (skuSliderGroup) skuSliderGroup.style.display = 'block';
       }
 
       calculateEstimate();
@@ -229,12 +160,9 @@
 
   // SKU Slider Input Listener
   if (skuSlider) {
-    // Paint the filled portion of the track. Range inputs don't do this on
-    // their own — without this, the thumb just slides across one flat
-    // color and you can't see how far along you are.
     const paintSliderProgress = () => {
       const min = parseFloat(skuSlider.min) || 0;
-      const max = parseFloat(skuSlider.max) || 100;
+      const max = parseFloat(skuSlider.max) || 1000;
       const pct = ((skuSlider.value - min) / (max - min)) * 100;
       skuSlider.style.setProperty('--range-progress', `${pct}%`);
     };
@@ -248,7 +176,6 @@
       calculateEstimate();
     });
 
-    // Paint the initial position on load (default value is 100/1000).
     paintSliderProgress();
   }
 
@@ -263,11 +190,10 @@
     let totalUSD = basePrice;
     let detailsHTML = '';
 
-    // 1. Service Base Details
+    // 1. Base Service Details
     if (activeService === 'migration') {
-      detailsHTML += `<li>• Base Migration Service: $${basePrice} (Up to 100 products)</li>`;
+      detailsHTML += `<li>• Base Migration Service: $${basePrice} (Up to 100 items)</li>`;
       
-      // Migration scaling: +$25 per additional 50 products above 100 products
       if (productCount > 100) {
         const extraVolume = productCount - 100;
         const extraCharge = Math.ceil(extraVolume / 50) * 25;
@@ -276,9 +202,8 @@
       }
     } 
     else if (activeService === 'newbuild') {
-      detailsHTML += `<li>• Base Build Service: $${basePrice} (Up to 20 products)</li>`;
+      detailsHTML += `<li>• Base Build & Funnel Setup: $${basePrice} (Physical or Service)</li>`;
       
-      // New build scaling: +$15 per additional 20 products above 20 products
       if (productCount > 20) {
         const extraVolume = productCount - 20;
         const extraCharge = Math.ceil(extraVolume / 20) * 15;
@@ -287,7 +212,7 @@
       }
     } 
     else if (activeService === 'codework') {
-      detailsHTML += `<li>• Shopify Custom Code Tasks: $${basePrice} (Quoted base rate)</li>`;
+      detailsHTML += `<li>• Shopify / Liquid Custom Code Tasks: $${basePrice}</li>`;
     }
 
     // 2. Add-ons Calculation
@@ -297,15 +222,15 @@
         totalUSD += value;
         
         let addonName = '';
-        if (cb.id === 'addonImage') addonName = 'Image Background & Branding Crop';
-        if (cb.id === 'addonSeo') addonName = 'SEO URL 301 Redirect Mapping';
+        if (cb.id === 'addonImage') addonName = 'Image Cleanup & Product Framing';
+        if (cb.id === 'addonSeo') addonName = 'SEO 301 Slugs & Redirect Mapping';
         if (cb.id === 'addonMerchant') addonName = 'Google Merchant Shopping Sync';
 
-        detailsHTML += `<li>• Add-on: ${addonName} (+$$${value})</li>`;
+        detailsHTML += `<li>• Add-on: ${addonName} (+$${value})</li>`;
       }
     });
 
-    // 3. Convert NGN (Naira)
+    // 3. Convert NGN
     const totalNaira = totalUSD * NAIRA_RATE;
 
     // 4. Update UI
@@ -315,16 +240,15 @@
 
     // 5. Update WhatsApp pre-filled link
     let serviceLabel = 'Platform Migration';
-    if (activeService === 'newbuild') serviceLabel = 'New Store Build';
-    if (activeService === 'codework') serviceLabel = 'Shopify Code Fixes';
+    if (activeService === 'newbuild') serviceLabel = 'New Store / Service Build';
+    if (activeService === 'codework') serviceLabel = 'Custom Code Fixes';
 
     let messageText = `Hello Bayode, I generated a project quote on your portfolio: \n\n`;
     messageText += `*Service:* ${serviceLabel}\n`;
     if (activeService !== 'codework') {
-      messageText += `*Product Count:* ${productCount} SKUs\n`;
+      messageText += `*Product / Item Count:* ${productCount} items\n`;
     }
     
-    // Checked Add-ons text listing
     const checkedAddons = Array.from(addonCheckboxes)
       .filter(cb => cb.checked)
       .map(cb => {
@@ -340,25 +264,25 @@
     }
     
     messageText += `*Estimated Quote:* $${totalUSD} / ₦${totalNaira.toLocaleString()}\n\n`;
-    messageText += `Let's discuss my project details!`;
+    messageText += `Let's discuss my project requirements!`;
 
     if (whatsappBtn) {
       whatsappBtn.href = `https://wa.me/2348126679348?text=${encodeURIComponent(messageText)}`;
     }
   }
 
-  // Run Estimator Initial Calculation
+  // Initial Calculation
   calculateEstimate();
 
 
-  // --- FAQ ACCORDION TRANSITIONS ---
+  // --- 5. FAQ ACCORDION ---
   window.toggleFaqAccordion = function (buttonElement) {
     if (!buttonElement) return;
 
     const currentItem = buttonElement.closest('.faq-item');
     const isAlreadyOpen = currentItem.classList.contains('open');
 
-    // Close all open elements first
+    // Close open items first
     document.querySelectorAll('.faq-item').forEach(item => {
       item.classList.remove('open');
       const btn = item.querySelector('.faq-q-btn');
@@ -373,24 +297,7 @@
   };
 
 
-  // --- PROJECT GRID SEE MORE TOGGLE ---
-  const projMoreBtn = document.getElementById('projMoreBtn');
-  const projGrid = document.getElementById('projectsGrid');
-
-  if (projMoreBtn && projGrid) {
-    projMoreBtn.addEventListener('click', function () {
-      const isExpanded = projGrid.classList.toggle('expanded');
-      this.textContent = isExpanded ? 'See Less Projects' : 'See More Projects';
-
-      // If collapsing, scroll grid header back into view nicely
-      if (!isExpanded) {
-        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  }
-
-
-  // --- SLEEK SCREENCAST VIDEO MODAL ---
+  // --- 6. SCREENCAST VIDEO MODAL ---
   const videoModal = document.getElementById('videoModal');
   const videoIframe = document.getElementById('videoIframe');
 
@@ -399,7 +306,7 @@
     videoIframe.src = url;
     videoModal.classList.add('open');
     videoModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden'; // Lock background scroll
+    document.body.style.overflow = 'hidden';
   };
 
   window.closeVideoModal = function () {
@@ -407,10 +314,10 @@
     videoIframe.src = '';
     videoModal.classList.remove('open');
     videoModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = ''; // Unlock background scroll
+    document.body.style.overflow = '';
   };
 
-  // Close modal when clicking dark backdrop space
+  // Close modal when clicking backdrop
   videoModal?.addEventListener('click', function (e) {
     if (e.target === this) {
       closeVideoModal();
@@ -425,102 +332,102 @@
   });
 
 
-  // --- NAVIGATION SCROLL EVENTS ---
+  // --- 7. NAVIGATION SCROLL & ACTIVE SECTION TRACKER ---
   const navHeader = document.querySelector('header');
   const backToTopBtn = document.getElementById('backToTop');
+  const trackedSections = ['about', 'projects', 'estimator', 'services', 'videos', 'proof', 'faq', 'contact'];
+
+  let ticking = false;
 
   window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrollPos = window.scrollY;
 
-    // Header styling shift
-    if (navHeader) {
-      if (scrollPos > 60) {
-        navHeader.classList.add('scrolled');
-      } else {
-        navHeader.classList.remove('scrolled');
-      }
+        // Header glassmorphism
+        if (navHeader) {
+          if (scrollPos > 60) {
+            navHeader.classList.add('scrolled');
+          } else {
+            navHeader.classList.remove('scrolled');
+          }
+        }
+
+        // Back to top visibility
+        if (backToTopBtn) {
+          if (scrollPos > 400) {
+            backToTopBtn.classList.add('visible');
+          } else {
+            backToTopBtn.classList.remove('visible');
+          }
+        }
+
+        // Active Nav link tracking
+        const triggerLine = scrollPos + window.innerHeight * 0.35;
+        let activeSectionId = '';
+
+        trackedSections.forEach(sectionId => {
+          const sectionEl = document.getElementById(sectionId);
+          if (sectionEl) {
+            const offsetTop = sectionEl.offsetTop;
+            if (triggerLine >= offsetTop) {
+              activeSectionId = sectionId;
+            }
+          }
+        });
+
+        document.querySelectorAll('[data-s]').forEach(anchorLink => {
+          if (anchorLink.getAttribute('data-s') === activeSectionId) {
+            anchorLink.classList.add('act');
+          } else {
+            anchorLink.classList.remove('act');
+          }
+        });
+
+        ticking = false;
+      });
+      ticking = true;
     }
-
-    // Scroll to Top visibility
-    if (backToTopBtn) {
-      if (scrollPos > 400) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    }
-
-    trackActiveSections();
   }, { passive: true });
 
-  // Scroll to Top action
+  // Back to Top smooth scroll
   backToTopBtn?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
 
-  // --- TRACKING ACTIVE SECTION LINK INDICATORS ---
-  const trackedSections = ['about', 'projects', 'estimator', 'services', 'videos', 'proof', 'faq', 'contact'];
-  
-  function trackActiveSections() {
-    const currentScrollPos = window.scrollY + window.innerHeight * 0.35; // Trigger line
-    let activeSectionId = '';
-
-    trackedSections.forEach(sectionId => {
-      const sectionEl = document.getElementById(sectionId);
-      if (sectionEl) {
-        const offsetTop = sectionEl.offsetTop;
-        if (currentScrollPos >= offsetTop) {
-          activeSectionId = sectionId;
-        }
-      }
-    });
-
-    // Update active highlight classes in both standard nav & mobile nav bar
-    document.querySelectorAll('[data-s]').forEach(anchorLink => {
-      if (anchorLink.getAttribute('data-s') === activeSectionId) {
-        anchorLink.classList.add('act');
-      } else {
-        anchorLink.classList.remove('act');
-      }
-    });
-  }
-
-  // Run initial call
-  trackActiveSections();
-
-
-  // --- INTERSECTION REVEAL OBSERVER ---
+  // --- 8. LIGHTWEIGHT INTERSECTION OBSERVER REVEALS ---
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('revealed');
-        observer.unobserve(entry.target); // Trigger once
+        observer.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
   });
 
-  // Watch layout components
   document.querySelectorAll('.scroll-reveal, .reveal-item').forEach(target => {
     revealObserver.observe(target);
   });
 
-  // Hero Items entry sequencing (without observer waiting)
+  // Hero elements entry sequence
   const animHeroElements = () => {
-    const heroElements = document.querySelectorAll('.avail-widget, .hero-eyebrow, .hero-h1, .hero-tagline, .hero-stats-row, .hero-cta-row, .hero-price-anchor, .hero-bottom');
+    const heroElements = document.querySelectorAll(
+      '.avail-widget, .hero-eyebrow, .hero-h1, .hero-tagline, .hero-stats-row, .hero-cta-row, .hero-price-anchor, .hero-bottom'
+    );
     heroElements.forEach((el, index) => {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(24px)';
-      el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-      el.style.transitionDelay = `${index * 0.08 + 0.05}s`;
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
+      el.style.transitionDelay = `${index * 0.07 + 0.04}s`;
       
       setTimeout(() => {
         el.style.opacity = '1';
         el.style.transform = 'translateY(0)';
-      }, 50);
+      }, 40);
     });
   };
   

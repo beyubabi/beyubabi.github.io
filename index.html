@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bayode Akindiose — Premium E-Commerce & Full-Stack Developer</title>
-  <meta name="description" content="Freelance E-Commerce, Shopify & WordPress Developer based in Nigeria. I build stores, then I stay and fight for the conversions. 9 projects, 887 products migrated, Python automation." />
+  <meta name="description" content="Freelance E-Commerce, Shopify, WordPress & WooCommerce Developer. High-converting store builds, 887+ product migrations, Python automation, and conversion optimization." />
   
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -31,14 +31,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Custom Cursor -->
-  <div id="customCursor" class="custom-cursor">
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring">
-      <span class="cursor-text"></span>
-    </div>
-  </div>
-
   <!-- Noise Overlay for Tactile Texture -->
   <div class="noise-overlay" aria-hidden="true"></div>
 
@@ -58,9 +50,9 @@
           <li><a href="#contact" data-s="contact">Contact</a></li>
         </ul>
         <div class="theme-pill">
-          <button class="tp-btn" data-t="light" id="themeLight">Light</button>
-          <button class="tp-btn act" data-t="dark" id="themeDark">Dark</button>
-          <button class="tp-btn" data-t="system" id="themeSystem">System</button>
+          <button class="tp-btn" data-t="light" id="themeLight" aria-label="Switch to Light Theme">Light</button>
+          <button class="tp-btn act" data-t="dark" id="themeDark" aria-label="Switch to Dark Theme">Dark</button>
+          <button class="tp-btn" data-t="system" id="themeSystem" aria-label="Switch to System Theme">System</button>
         </div>
       </div>
     </nav>
@@ -68,13 +60,13 @@
 
   <!-- Mobile Theme Toggle -->
   <div class="mob-theme-toggle" id="mobTheme">
-    <button class="mob-tp-btn" data-t="light" title="Light" id="mobThemeLight">
+    <button class="mob-tp-btn" data-t="light" title="Light Theme" id="mobThemeLight" aria-label="Light Theme">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
-    <button class="mob-tp-btn act" data-t="dark" title="Dark" id="mobThemeDark">
+    <button class="mob-tp-btn act" data-t="dark" title="Dark Theme" id="mobThemeDark" aria-label="Dark Theme">
       <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
-    <button class="mob-tp-btn" data-t="system" title="System" id="mobThemeSystem">
+    <button class="mob-tp-btn" data-t="system" title="System Theme" id="mobThemeSystem" aria-label="System Theme">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/></svg>
     </button>
   </div>
@@ -114,7 +106,7 @@
         </h1>
       </div>
       <div class="hero-right-col">
-        <p class="hero-tagline">I build high-converting e-commerce stores — then I stay and fight for your sales. Clean code, absolute ownership.</p>
+        <p class="hero-tagline">I build high-converting e-commerce &amp; service platforms — then I stay and fight for your sales. Clean code, absolute ownership.</p>
         
         <div class="hero-stats-row">
           <div class="hstat"><div class="hstat-n">7</div><div class="hstat-l">Projects Built</div></div>
@@ -137,7 +129,7 @@
     </div>
     
     <div class="hero-bottom">
-      <a href="#about" class="hero-scroll" aria-label="Scroll down">
+      <a href="#about" class="hero-scroll" aria-label="Scroll down to About section">
         <div class="scroll-anim"></div>
         <span>Scroll down to meet me</span>
       </a>
@@ -181,7 +173,7 @@
     <div class="about-container">
       <div class="about-photo-col">
         <div class="about-image-wrapper">
-          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/profile.jpg" alt="Bayode Akindiose" class="about-img" />
+          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/profile.jpg" alt="Bayode Akindiose" class="about-img" loading="lazy" decoding="async" width="400" height="460" />
           <div class="about-photo-overlay"></div>
         </div>
         <div class="about-photo-info">
@@ -201,8 +193,8 @@
         <h2 class="about-lede">Idea in. Store out. <br><em>I stay for the conversions.</em></h2>
         <div class="about-body">
           <p>I am a freelance e-commerce engineer based in Nigeria. I don't just write templates and hand them off — I build platforms, clean up data, automate migration hurdles, and stay to optimize conversions.</p>
-          <p>I have built <strong>9 projects</strong>, migrated over <strong>887 products</strong>, branded <strong>900+ images</strong>, and picked up Python when client problems demanded a level of automation off-the-shelf tools couldn't deliver.</p>
-          <p>If you have a product idea but no store around it yet, I close that gap. If your store is live but the sales aren't showing up, I rewrite the interface and fix the leaks.</p>
+          <p>Whether you sell <strong>physical products</strong> or offer <strong>digital services &amp; bookings</strong>, I engineer custom web architectures that turn visitors into paying customers. I have built <strong>7+ live production projects</strong>, migrated over <strong>887 products</strong>, branded <strong>900+ images</strong>, and learned Python when complex client problems demanded automation off-the-shelf tools couldn't handle.</p>
+          <p>If you have a product or service idea but no store around it yet, I close that gap. If your store is live but the sales aren't showing up, I rewrite the interface and fix the leaks.</p>
         </div>
         <div class="about-manifesto">
           <span class="quote-mark">“</span>
@@ -212,74 +204,95 @@
     </div>
   </section>
 
-  <!-- Projects Work Section -->
+  <!-- Projects Work Section with Interactive Categories -->
   <section id="projects" class="projects-section scroll-reveal">
     <div class="projects-header">
       <div class="header-left">
-        <div class="sec-label">Selected Projects</div>
+        <div class="sec-label">Selected Portfolio Work</div>
         <h2 class="sec-title">CRAFTED<br><em>E-COMMERCE</em></h2>
       </div>
       <div class="header-right">
-        <div class="proj-count">7 Completed Builds · 2024–2026</div>
+        <div class="proj-count" id="projCountBadge">Showing 7 Projects · 2024–2026</div>
       </div>
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div class="proj-filter-bar">
+      <button type="button" class="filter-tab act" data-filter="all">
+        <span class="tab-label">All Projects</span>
+        <span class="tab-badge">7</span>
+      </button>
+      <button type="button" class="filter-tab" data-filter="shopify">
+        <span class="tab-label">Shopify Stores</span>
+        <span class="tab-badge">6</span>
+      </button>
+      <button type="button" class="filter-tab" data-filter="wordpress">
+        <span class="tab-label">WordPress &amp; WooCommerce</span>
+        <span class="tab-badge">2</span>
+      </button>
+      <button type="button" class="filter-tab" data-filter="service">
+        <span class="tab-label">Custom Services &amp; Builds</span>
+        <span class="tab-badge">4</span>
+      </button>
     </div>
 
     <div class="projects-grid" id="projectsGrid">
       <!-- 07 Swiftglamour (Featured) -->
-      <div class="pcard hero-proj reveal-item">
+      <div class="pcard hero-proj reveal-item" data-category="shopify wordpress service">
         <div class="pcard-img-container">
-          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/swiftglamour.jpg" alt="Swiftglamour Store" class="pcard-img" />
+          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/swiftglamour.jpg" alt="Swiftglamour Health & Beauty Store" class="pcard-img" loading="lazy" decoding="async" width="800" height="340" />
           <div class="pcard-img-overlay">
-            <a class="pcard-link cursor-hover-project" href="https://www.swiftglamour.shop" target="_blank" rel="noopener">Visit Live Store <span class="icon">↗</span></a>
+            <a class="pcard-link" href="https://www.swiftglamour.shop" target="_blank" rel="noopener">Visit Live Store <span class="icon">↗</span></a>
           </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-meta">
-            <span class="pcard-num">07</span>
+            <span class="pcard-num">01 / FEATURED</span>
             <span class="pcard-badge live">Featured Client Project</span>
           </div>
           <h3 class="pcard-name">Swiftglamour</h3>
           <div class="pcard-type">Health &amp; Beauty • Full WooCommerce to Shopify Migration</div>
           <div class="pcard-tech">
             <span>Shopify</span>
+            <span>WooCommerce</span>
             <span>Python Scraping</span>
-            <span>SEO Mapping</span>
+            <span>SEO 301 Mapping</span>
             <span>Google Merchant</span>
           </div>
-          <p class="pcard-lesson"><strong>The Challenge:</strong> Migrate 887 products and 900+ images from an outdated WooCommerce backend to Shopify without breaking active organic search traffic. <br><strong>The Solution:</strong> Wrote custom Python scripts to parse product feeds, clean up image ratios, map SEO slugs, set up URL redirects, and rebuild the catalog. I didn't know Python before this project; the problem demanded it, so I learned it.</p>
+          <p class="pcard-lesson"><strong>The Challenge:</strong> Migrate 887 products and 900+ images from an outdated WooCommerce backend to Shopify without breaking active organic search traffic.<br><strong>The Solution:</strong> Wrote custom Python scripts to parse product feeds, clean up image ratios, map SEO slugs, set up URL redirects, and rebuild the catalog. I didn't know Python before this project; the problem demanded it, so I learned it.</p>
         </div>
       </div>
 
       <!-- 02 Oversize Plus -->
-      <div class="pcard reveal-item">
+      <div class="pcard reveal-item" data-category="shopify">
         <div class="pcard-img-container">
-          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/oversized-plus.jpg" alt="Oversize Plus Store" class="pcard-img" />
+          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/oversized-plus.jpg" alt="Oversize Plus Custom Apparel Store" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
           <div class="pcard-img-overlay">
-            <a class="pcard-link cursor-hover-project" href="https://oversizedplus.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
+            <a class="pcard-link" href="https://oversizedplus.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
           </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-meta">
             <span class="pcard-num">02</span>
-            <span class="pcard-badge">Flagship Demo Brand</span>
+            <span class="pcard-badge">Flagship Apparel Brand</span>
           </div>
           <h3 class="pcard-name">Oversize Plus</h3>
           <div class="pcard-type">Custom Oversized Apparel • Full Shopify Design &amp; Content</div>
           <div class="pcard-tech">
             <span>Shopify Liquid</span>
-            <span>Photoshop Mockups</span>
+            <span>Variant Customizer</span>
             <span>Content Strategy</span>
           </div>
-          <p class="pcard-lesson">Built as a custom-expression clothing brand. Features integrated interactive story uploads where buyers customize apparel color schemes dynamically. Designed mockups and structured a LinkedIn-centric content layout.</p>
+          <p class="pcard-lesson">Built as a custom-expression clothing brand. Features integrated interactive story uploads where buyers customize apparel color schemes dynamically. Designed mockups and structured a high-engagement layout.</p>
         </div>
       </div>
 
       <!-- 03 Fresh Juice -->
-      <div class="pcard reveal-item">
+      <div class="pcard reveal-item" data-category="shopify service">
         <div class="pcard-img-container">
-          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/fresh-juice.jpg" alt="Fresh Juice Store" class="pcard-img" />
+          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/fresh-juice.jpg" alt="Fresh Juice High Conversion Funnel" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
           <div class="pcard-img-overlay">
-            <a class="pcard-link cursor-hover-project" href="https://fresh-juice-7.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
+            <a class="pcard-link" href="https://fresh-juice-7.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
           </div>
         </div>
         <div class="pcard-body">
@@ -290,111 +303,111 @@
           <h3 class="pcard-name">Fresh Juice</h3>
           <div class="pcard-type">Portable Rechargeable Blenders • High-Converting Funnel</div>
           <div class="pcard-tech">
-            <span>Loox Review Engine</span>
-            <span>Variant Customizer</span>
-            <span>Checkout Optimization</span>
+            <span>Loox Social Proof</span>
+            <span>Fast Checkout</span>
+            <span>Mobile Conversion</span>
           </div>
           <p class="pcard-lesson">Designed specifically around a single high-conversion product page model. Integrated Loox social proof widgets, customized dynamic buy-now modules, and fine-tuned mobile layout paint speeds.</p>
         </div>
       </div>
 
       <!-- 05 Toko -->
-      <div class="pcard reveal-item">
+      <div class="pcard reveal-item" data-category="shopify service">
         <div class="pcard-img-container">
-          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/toko.jpg" alt="Toko Brand Image" class="pcard-img" />
+          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/toko.jpg" alt="Toko 3D Toys Store" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
           <div class="pcard-img-overlay">
-            <span class="pcard-link">Image Asset Only</span>
-          </div>
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-meta">
-            <span class="pcard-num">05</span>
-            <span class="pcard-badge live">Upwork Milestone Build</span>
-          </div>
-          <h3 class="pcard-name">Toko</h3>
-          <div class="pcard-type">3D Printed Children's Toys • Shopify Store Setup</div>
-          <div class="pcard-tech">
-            <span>Upwork</span>
-            <span>Client Handoff</span>
-            <span>Product Bundling</span>
-          </div>
-          <p class="pcard-lesson">Landed as my first international agency contract on Upwork with zero reviews. Built product bundling options, configured local shipping policies for the UAE market, and managed strict milestone deliverables.</p>
-        </div>
-      </div>
-
-      <!-- 04 Incredible Fiber (Extra) -->
-      <div class="pcard pcard-extra reveal-item">
-        <div class="pcard-img-container">
-          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/incredible-fibre.jpg" alt="Incredible Fiber Store" class="pcard-img" />
-          <div class="pcard-img-overlay">
-            <a class="pcard-link cursor-hover-project" href="https://incredible-fibre.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
+            <a class="pcard-link" href="#proof">View Client Feedback <span class="icon">↗</span></a>
           </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-meta">
             <span class="pcard-num">04</span>
-            <span class="pcard-badge">Wix to Shopify Redesign</span>
+            <span class="pcard-badge live">Upwork Milestone Build</span>
+          </div>
+          <h3 class="pcard-name">Toko (Dubai)</h3>
+          <div class="pcard-type">3D Printed Children's Toys • Shopify Store &amp; Bundling</div>
+          <div class="pcard-tech">
+            <span>Shopify</span>
+            <span>Product Bundling</span>
+            <span>UAE Shipping Rules</span>
+            <span>Upwork Milestone</span>
+          </div>
+          <p class="pcard-lesson">Landed as my first international agency contract on Upwork with zero reviews. Built product bundling options, configured local shipping policies for the UAE market, and managed strict milestone deliverables.</p>
+        </div>
+      </div>
+
+      <!-- 06 Bayu Tech (WordPress Store) -->
+      <div class="pcard reveal-item" data-category="wordpress service">
+        <div class="pcard-img-container">
+          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/bayu-tech.jpg" alt="Bayu Tech Apple Gadgets WooCommerce Store" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
+          <div class="pcard-img-overlay">
+            <a class="pcard-link" href="https://beyutech.gt.tc/?i=3" target="_blank" rel="noopener">Open Staging Demo <span class="icon">↗</span></a>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-num">05</span>
+            <span class="pcard-badge live">Full WordPress / WooCommerce</span>
+          </div>
+          <h3 class="pcard-name">Bayu Tech</h3>
+          <div class="pcard-type">Apple Gadgets E-Store &amp; Services • WordPress + WooCommerce</div>
+          <div class="pcard-tech">
+            <span>WordPress</span>
+            <span>WooCommerce</span>
+            <span>Custom Checkout</span>
+            <span>Catalog Filter</span>
+          </div>
+          <p class="pcard-lesson"><strong>Live Staging Architecture:</strong> A complete WooCommerce store and service platform. Programmed dynamic catalog filtering, tax systems, and streamlined checkout interfaces. <br><em class="staging-note">Note: Hosted on a staging server (`gt.tc`). Accept cookie verification prompt if prompted upon visit.</em></p>
+        </div>
+      </div>
+
+      <!-- 04 Incredible Fiber -->
+      <div class="pcard reveal-item" data-category="shopify">
+        <div class="pcard-img-container">
+          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/incredible-fibre.jpg" alt="Incredible Fiber Store" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
+          <div class="pcard-img-overlay">
+            <a class="pcard-link" href="https://incredible-fibre.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-meta">
+            <span class="pcard-num">06</span>
+            <span class="pcard-badge">Wix to Shopify Replatform</span>
           </div>
           <h3 class="pcard-name">Incredible Fiber</h3>
           <div class="pcard-type">Specialty Baking Flour • Wix → Shopify Replatform</div>
           <div class="pcard-tech">
             <span>Shopify Customize</span>
             <span>UI Reconstruction</span>
+            <span>Weight Variants</span>
           </div>
           <p class="pcard-lesson">Reconstructed a visual store layout from Wix to Shopify. Cleansed product attributes, optimized custom flour weights, and redesigned the navigation to highlight recipe content tags.</p>
         </div>
       </div>
 
-      <!-- 01 Kuchewood (Extra) -->
-      <div class="pcard pcard-extra reveal-item">
+      <!-- 01 Kuchewood -->
+      <div class="pcard reveal-item" data-category="shopify">
         <div class="pcard-img-container">
-          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/kuchewood.jpg" alt="Küchewood Store" class="pcard-img" />
+          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/kuchewood.jpg" alt="Küchewood Store" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
           <div class="pcard-img-overlay">
-            <a class="pcard-link cursor-hover-project" href="https://kuchewood.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
+            <a class="pcard-link" href="https://kuchewood.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
           </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-meta">
-            <span class="pcard-num">01</span>
-            <span class="pcard-badge">The Catalyst Demo</span>
+            <span class="pcard-num">07</span>
+            <span class="pcard-badge">The Catalyst Project</span>
           </div>
           <h3 class="pcard-name">Küchewood</h3>
-          <div class="pcard-type">Eco wooden kitchenware • Full Shopify Theme Build</div>
+          <div class="pcard-type">Eco Wooden Kitchenware • Full Shopify Theme Build</div>
           <div class="pcard-tech">
             <span>Shopify Customization</span>
             <span>SEO Structure</span>
+            <span>Catalog Layout</span>
           </div>
           <p class="pcard-lesson">Completed using a low-spec 2GB RAM Samsung phone and a borrowed laptop during overnight coding sessions. Although built strictly for self-development, it proved that resource limits cannot block product execution.</p>
         </div>
       </div>
-
-      <!-- 06 Bayu Tech (Extra) -->
-      <div class="pcard pcard-extra reveal-item">
-        <div class="pcard-img-container">
-          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/bayu-tech.jpg" alt="Bayu Tech Store" class="pcard-img" />
-          <div class="pcard-img-overlay">
-            <a class="pcard-link cursor-hover-project" href="https://beyutech.gt.tc/?i=3" target="_blank" rel="noopener">Visit Live Site <span class="icon">↗</span></a>
-          </div>
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-meta">
-            <span class="pcard-num">06</span>
-            <span class="pcard-badge live">First WordPress Store</span>
-          </div>
-          <h3 class="pcard-name">Bayu Tech</h3>
-          <div class="pcard-type">Apple Gadgets E-Store • Full WordPress / WooCommerce Build</div>
-          <div class="pcard-tech">
-            <span>WordPress</span>
-            <span>WooCommerce</span>
-            <span>Payment Gateway</span>
-          </div>
-          <p class="pcard-lesson">My first full-scale WooCommerce development. Programmed custom tax setups, catalog filtering systems, and optimized checkout pages to look like premium native apps.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="projects-more-wrap">
-      <button class="btn-more" id="projMoreBtn" type="button">See More Projects</button>
     </div>
   </section>
 
@@ -419,7 +432,7 @@
               </button>
               <button type="button" class="service-pill" data-price="300" data-service="newbuild">
                 <span class="title">New Store Build</span>
-                <span class="desc">Shopify/WordPress from scratch</span>
+                <span class="desc">Shopify/WordPress from scratch (Physical or Service)</span>
               </button>
               <button type="button" class="service-pill" data-price="120" data-service="codework">
                 <span class="title">Custom Code &amp; Fixes</span>
@@ -431,7 +444,7 @@
           <!-- Product / SKU slider -->
           <div class="form-group" id="productCountGroup">
             <div class="slider-header">
-              <label class="group-label" for="productCountRange">2. Number of Products to Migrate / Load</label>
+              <label class="group-label" for="productCountRange">2. Number of Products / Items to Migrate or Load</label>
               <span class="slider-value" id="productCountVal">100 Products</span>
             </div>
             <input type="range" id="productCountRange" class="styled-range" min="10" max="1000" step="10" value="100" />
@@ -521,21 +534,21 @@
       <div class="sv reveal-item">
         <div class="sv-header">
           <div class="sv-num">02</div>
-          <h3 class="sv-title">New Store Build</h3>
-          <p class="sv-who">Best for startups launching custom concepts from zero.</p>
+          <h3 class="sv-title">Store &amp; Service Builds</h3>
+          <p class="sv-who">For physical products, service bookings, or startup launches.</p>
         </div>
         <div class="sv-pricing-box">
           <div class="sv-price">From $300</div>
           <div class="sv-naira">~ ₦420k</div>
         </div>
         <ul class="sv-list">
-          <li><span class="sv-dash">—</span>UI configuration on Shopify or WordPress</li>
-          <li><span class="sv-dash">—</span>Theme customization and branding assets</li>
+          <li><span class="sv-dash">—</span>UI configuration on Shopify or WordPress / WooCommerce</li>
+          <li><span class="sv-dash">—</span>Custom physical catalog or service quote checkout setup</li>
           <li><span class="sv-dash">—</span>Optimized layout focused strictly on conversions</li>
           <li><span class="sv-dash">—</span>App settings: Reviews, upsells, discount mechanics</li>
           <li><span class="sv-dash">—</span>Testing responsive performance on core viewports</li>
         </ul>
-        <div class="sv-proof">Proof: <strong>Oversize Plus • Küchewood • Toko</strong></div>
+        <div class="sv-proof">Proof: <strong>Oversize Plus • Bayu Tech • Toko</strong></div>
       </div>
 
       <!-- 03 Code fixes -->
@@ -543,7 +556,7 @@
         <div class="sv-header">
           <div class="sv-num">03</div>
           <h3 class="sv-title">Shopify Code Work</h3>
-          <p class="sv-who">Best for established Shopify stores needing adjustments.</p>
+          <p class="sv-who">Best for established stores needing adjustments or speed optimization.</p>
         </div>
         <div class="sv-pricing-box">
           <div class="sv-price">From $120</div>
@@ -595,60 +608,64 @@
     </div>
   </section>
 
-  <!-- Videos Walkthrough Section -->
+  <!-- Videos Walkthrough Section (Standard 16:9 Uncropped YouTube format) -->
   <section id="videos" class="videos-section scroll-reveal">
     <div class="sec-label">Watch Store Overviews</div>
     <h2 class="sec-title">WALKTHROUGH<br><em>SCREENCASTS</em></h2>
+    <p class="videos-intro">Watch in-depth screencasts covering backend migrations, liquid templates, and conversion funnels.</p>
     
     <div class="videos-grid">
       <!-- Video 01 -->
-      <div class="vcard reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/6_hK2cO8E8k?autoplay=1')" role="button" aria-label="Play Swiftglamour Walkthrough Video">
+      <div class="vcard reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/6_hK2cO8E8k?autoplay=1')" role="button" tabindex="0" aria-label="Play Swiftglamour Walkthrough Video">
         <div class="vcard-thumb">
-          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_swiftglamour_preview.jpg" alt="Swiftglamour Video Walkthrough Preview" class="vcard-img-preview" />
+          <img src="https://img.youtube.com/vi/6_hK2cO8E8k/maxresdefault.jpg" onerror="this.src='https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_swiftglamour_preview.jpg'" alt="Swiftglamour Video Walkthrough Preview" class="vcard-img-preview" loading="lazy" decoding="async" width="640" height="360" />
           <div class="vcard-overlay">
             <div class="play-ring">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
+          <span class="vcard-badge">HD Screencast</span>
         </div>
         <div class="vcard-info">
           <div class="vcard-label">Screencast • 01</div>
           <h3 class="vcard-title">Swiftglamour Case Study</h3>
-          <p class="vcard-desc">Watch how I migrated 887 products and 900+ images from WooCommerce to Shopify.</p>
+          <p class="vcard-desc">Watch how I migrated 887 products and 900+ images from WooCommerce to Shopify without data loss.</p>
         </div>
       </div>
 
       <!-- Video 02 -->
-      <div class="vcard reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/a3pHb6dP5as?autoplay=1')" role="button" aria-label="Play Oversize Plus Walkthrough Video">
+      <div class="vcard reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/a3pHb6dP5as?autoplay=1')" role="button" tabindex="0" aria-label="Play Oversize Plus Walkthrough Video">
         <div class="vcard-thumb">
-          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_oversized-plus_preview.jpg" alt="Oversize Plus Video Walkthrough Preview" class="vcard-img-preview" />
+          <img src="https://img.youtube.com/vi/a3pHb6dP5as/maxresdefault.jpg" onerror="this.src='https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_oversized-plus_preview.jpg'" alt="Oversize Plus Video Walkthrough Preview" class="vcard-img-preview" loading="lazy" decoding="async" width="640" height="360" />
           <div class="vcard-overlay">
             <div class="play-ring">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
+          <span class="vcard-badge">Store Tour</span>
         </div>
         <div class="vcard-info">
           <div class="vcard-label">Screencast • 02</div>
           <h3 class="vcard-title">Oversize Plus Build</h3>
-          <p class="vcard-desc">Reviewing custom Shopify templates, graphics layout, and story variant logic.</p>
+          <p class="vcard-desc">Reviewing custom Shopify templates, graphics layout, and story variant customization logic.</p>
         </div>
       </div>
 
       <!-- Video 03 -->
-      <div class="vcard reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/SoN6YXID5j0?autoplay=1')" role="button" aria-label="Play Fresh Juice Walkthrough Video">
+      <div class="vcard reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/SoN6YXID5j0?autoplay=1')" role="button" tabindex="0" aria-label="Play Fresh Juice Walkthrough Video">
         <div class="vcard-thumb">
-          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_fresh-juice_preview.jpg" alt="Fresh Juice Video Walkthrough Preview" class="vcard-img-preview" />
+          <img src="https://img.youtube.com/vi/SoN6YXID5j0/maxresdefault.jpg" onerror="this.src='https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_fresh-juice_preview.jpg'" alt="Fresh Juice Video Walkthrough Preview" class="vcard-img-preview" loading="lazy" decoding="async" width="640" height="360" />
           <div class="vcard-overlay">
             <div class="play-ring">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
+          <span class="vcard-badge">Funnel Teardown</span>
         </div>
         <div class="vcard-info">
           <div class="vcard-label">Screencast • 03</div>
           <h3 class="vcard-title">Fresh Juice Funnel</h3>
-          <p class="vcard-desc">Explaining checkout optimization and mobile conversion patterns.</p>
+          <p class="vcard-desc">Explaining one-product checkout optimization, Loox review integration, and mobile conversion patterns.</p>
         </div>
       </div>
     </div>
@@ -658,7 +675,7 @@
   <div class="vmodal" id="videoModal" aria-hidden="true" role="dialog">
     <button class="vmodal-close" onclick="closeVideoModal()" aria-label="Close Video Modal">✕ Close</button>
     <div class="vmodal-video-wrap">
-      <iframe id="videoIframe" src="" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
+      <iframe id="videoIframe" src="" title="Portfolio Video Screencast" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
     </div>
   </div>
 
@@ -669,9 +686,9 @@
     
     <div class="stack-wrap">
       <div class="stack-intro-col">
-        <p class="stack-intro">Every tool I use is picked to solve a specific problem. I don't build with bloat. I build for speed, clean structures, and direct ownership.</p>
+        <p class="stack-intro">Every tool I use is picked to solve a specific problem. I don't build with bloat. I build for speed, clean structures, and direct client ownership.</p>
         <div class="stack-illustration">
-          <!-- Tactile code snippet visualization -->
+          <!-- Code snippet visualization -->
           <div class="code-snippet-box">
             <div class="snippet-header">
               <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
@@ -704,7 +721,7 @@ woo_products = woo_db.get_items()
         </div>
         <div class="sitem">
           <h3 class="sitem-tool">WordPress &amp; Woo</h3>
-          <p class="sitem-use">Rebuilding database configurations, mapping tables, and extracting content clean for migrations.</p>
+          <p class="sitem-use">Rebuilding database configurations, mapping tables, custom service funnels, and WooCommerce stores.</p>
         </div>
         <div class="sitem">
           <h3 class="sitem-tool">HTML5, CSS3, ES6</h3>
@@ -810,11 +827,21 @@ woo_products = woo_db.get_items()
 
       <div class="faq-item">
         <button class="faq-q-btn" onclick="toggleFaqAccordion(this)" aria-expanded="false">
+          <span class="faq-q-text">Do you build websites for service-based businesses as well as physical stores?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes. Whether you sell physical e-commerce inventory or offer consulting, repair, digital services, or custom booking funnels, I engineer platforms with seamless checkout, appointment booking, or invoice collection tailored to your business model.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q-btn" onclick="toggleFaqAccordion(this)" aria-expanded="false">
           <span class="faq-q-text">What happens if something breaks post-launch?</span>
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-a">
-          <p>Every store build or platform migration I deliver includes **14 days of dedicated post-launch support** at no additional cost. I monitor your live checkout processes and repair any issues immediately. Ongoing maintenance can be set up after.</p>
+          <p>Every store build or platform migration I deliver includes <strong>14 days of dedicated post-launch support</strong> at no additional cost. I monitor your live checkout processes and repair any issues immediately. Ongoing maintenance can be set up after.</p>
         </div>
       </div>
 
@@ -844,7 +871,7 @@ woo_products = woo_db.get_items()
           <span class="faq-icon" aria-hidden="true">+</span>
         </button>
         <div class="faq-a">
-          <p>I include **2 rounds of complete page revisions** within the scope. I make adjustments until the styling, buttons, links, and overall feel align perfectly with your brand layout.</p>
+          <p>I include <strong>2 rounds of complete page revisions</strong> within the scope. I make adjustments until the styling, buttons, links, and overall feel align perfectly with your brand layout.</p>
         </div>
       </div>
     </div>
@@ -899,22 +926,22 @@ woo_products = woo_db.get_items()
     <div class="contact-inner">
       <div class="sec-label">Start Your Build</div>
       <h2 class="contact-headline">LET'S BUILD<br>SOMETHING <span class="stroke">REAL.</span></h2>
-      <p class="contact-sub">Stop losing traffic. Stop struggling with CSV errors. Let's design an e-commerce setup built to convert visitors into orders.</p>
+      <p class="contact-sub">Stop losing traffic. Stop struggling with CSV errors. Let's design an e-commerce or service setup built to convert visitors into orders.</p>
       
       <div class="contact-links-grid">
-        <a class="clink primary cursor-hover-contact" href="https://wa.me/2348126679348" target="_blank" rel="noopener">
+        <a class="clink primary" href="https://wa.me/2348126679348" target="_blank" rel="noopener">
           <span class="icon">💬</span>
           <span class="text">Chat on WhatsApp</span>
         </a>
-        <a class="clink cursor-hover-contact" href="https://www.linkedin.com/in/bayode-akindiose-a18a72402" target="_blank" rel="noopener">
+        <a class="clink" href="https://www.linkedin.com/in/bayode-akindiose-a18a72402" target="_blank" rel="noopener">
           <span class="icon">🔗</span>
           <span class="text">LinkedIn</span>
         </a>
-        <a class="clink cursor-hover-contact" href="https://www.instagram.com/beyu_babi3/" target="_blank" rel="noopener">
+        <a class="clink" href="https://www.instagram.com/beyu_babi3/" target="_blank" rel="noopener">
           <span class="icon">📸</span>
           <span class="text">Instagram</span>
         </a>
-        <a class="clink cursor-hover-contact" href="mailto:bayu4e.com@gmail.com">
+        <a class="clink" href="mailto:bayu4e.com@gmail.com">
           <span class="icon">✉️</span>
           <span class="text">Direct Email</span>
         </a>
