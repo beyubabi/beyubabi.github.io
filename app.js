@@ -1,7 +1,7 @@
 /**
  * app.js
  * Premium E-Commerce Portfolio Interactive Scripts
- * Handles Theme Management, Project Categorization & Filtering,
+ * Handles Theme Management, Project Categorization & Staggered Animations,
  * Live Africa/Lagos Clock, Cost Estimator, Video Screencast Modal, and FAQ Accordion.
  */
 
@@ -66,7 +66,6 @@
       });
       timeDisplay.textContent = formatter.format(new Date());
     } catch (e) {
-      // Fallback if Intl is unavailable
       const localDate = new Date();
       const utc = localDate.getTime() + (localDate.getTimezoneOffset() * 60000);
       const watTime = new Date(utc + (3600000 * 1)); // WAT is UTC+1
@@ -78,7 +77,7 @@
   updateNigeriaTime();
 
 
-  // --- 3. INTERACTIVE PROJECT CATEGORY FILTERING ---
+  // --- 3. INTERACTIVE PROJECT CATEGORY FILTERING (STAGGERED ANIMATIONS) ---
   const filterTabs = document.querySelectorAll('.filter-tab');
   const projectCards = document.querySelectorAll('.pcard');
   const projCountBadge = document.getElementById('projCountBadge');
@@ -86,34 +85,64 @@
   if (filterTabs.length > 0 && projectCards.length > 0) {
     filterTabs.forEach(tab => {
       tab.addEventListener('click', function () {
+        if (this.classList.contains('act')) return; // Already active
+
         filterTabs.forEach(t => t.classList.remove('act'));
         this.classList.add('act');
 
+        // On mobile, scroll active tab smoothly into view inside the horizontal bar
+        if (window.innerWidth <= 768) {
+          this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+
         const filter = this.getAttribute('data-filter');
         let visibleCount = 0;
+        let staggerIndex = 0;
+
+        // Pop animation on count badge
+        if (projCountBadge) {
+          projCountBadge.classList.add('popping');
+          setTimeout(() => projCountBadge.classList.remove('popping'), 300);
+        }
 
         projectCards.forEach(card => {
           const categories = (card.getAttribute('data-category') || '').split(' ');
-          
-          if (filter === 'all' || categories.includes(filter)) {
-            card.classList.remove('is-hidden');
+          const matches = filter === 'all' || categories.includes(filter);
+
+          if (matches) {
             visibleCount++;
+            const currentDelay = staggerIndex * 0.06;
+            staggerIndex++;
+
+            card.classList.remove('is-hidden');
             
-            // Re-trigger reveal animation smoothly
+            // Staggered Spring Animation
             card.style.opacity = '0';
-            card.style.transform = 'translateY(16px)';
+            card.style.transform = 'scale(0.94) translateY(20px)';
+            card.style.transition = `opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) ${currentDelay}s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${currentDelay}s`;
+            
             setTimeout(() => {
               card.style.opacity = '1';
-              card.style.transform = 'translateY(0)';
-            }, 30);
+              card.style.transform = 'scale(1) translateY(0)';
+            }, 20);
           } else {
-            card.classList.add('is-hidden');
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.92) translateY(10px)';
+            card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+            
+            setTimeout(() => {
+              card.classList.add('is-hidden');
+            }, 200);
           }
         });
 
         if (projCountBadge) {
-          const label = filter === 'all' ? 'All' : filter.toUpperCase();
-          projCountBadge.textContent = `Showing ${visibleCount} ${label === 'All' ? '' : label + ' '}Projects · 2024–2026`;
+          let label = '';
+          if (filter === 'shopify') label = 'Shopify';
+          else if (filter === 'wordpress') label = 'WordPress';
+          else if (filter === 'service') label = 'Custom Service';
+          
+          projCountBadge.textContent = `Showing ${visibleCount} ${label ? label + ' ' : ''}Projects · 2024–2026`;
         }
       });
     });
@@ -158,7 +187,7 @@
     });
   });
 
-  // SKU Slider Input Listener
+  // SKU Slider Input Listener with live paint
   if (skuSlider) {
     const paintSliderProgress = () => {
       const min = parseFloat(skuSlider.min) || 0;
@@ -167,13 +196,15 @@
       skuSlider.style.setProperty('--range-progress', `${pct}%`);
     };
 
-    skuSlider.addEventListener('input', function () {
-      productCount = parseInt(this.value);
-      if (skuDisplayVal) {
-        skuDisplayVal.textContent = `${productCount} Products`;
-      }
-      paintSliderProgress();
-      calculateEstimate();
+    ['input', 'change', 'touchmove'].forEach(evt => {
+      skuSlider.addEventListener(evt, function () {
+        productCount = parseInt(this.value);
+        if (skuDisplayVal) {
+          skuDisplayVal.textContent = `${productCount} Products`;
+        }
+        paintSliderProgress();
+        calculateEstimate();
+      }, { passive: true });
     });
 
     paintSliderProgress();
