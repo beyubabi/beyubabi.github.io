@@ -1,8 +1,9 @@
 /**
  * app.js
  * Premium E-Commerce Portfolio Interactive Scripts
- * Handles Theme Management, Project Categorization & Staggered Animations,
- * Live Africa/Lagos Clock, Cost Estimator, Video Screencast Modal, and FAQ Accordion.
+ * Repositioned for Shopify Migration Rescue & E-Commerce Conversion Sprints
+ * Handles Theme Management, Project Categorization, Live Nigeria (WAT) Clock,
+ * Interactive Scope & Cost Estimator, Video Screencast Modal, and FAQ Accordion.
  */
 
 (function () {
@@ -77,7 +78,7 @@
   updateNigeriaTime();
 
 
-  // --- 3. INTERACTIVE PROJECT CATEGORY FILTERING (STAGGERED ANIMATIONS) ---
+  // --- 3. INTERACTIVE PROJECT CATEGORY FILTERING ---
   const filterTabs = document.querySelectorAll('.filter-tab');
   const projectCards = document.querySelectorAll('.pcard');
   const projCountBadge = document.getElementById('projCountBadge');
@@ -111,15 +112,15 @@
 
           if (matches) {
             visibleCount++;
-            const currentDelay = staggerIndex * 0.06;
+            const currentDelay = staggerIndex * 0.05;
             staggerIndex++;
 
             card.classList.remove('is-hidden');
             
             // Staggered Spring Animation
             card.style.opacity = '0';
-            card.style.transform = 'scale(0.94) translateY(20px)';
-            card.style.transition = `opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) ${currentDelay}s, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) ${currentDelay}s`;
+            card.style.transform = 'scale(0.95) translateY(16px)';
+            card.style.transition = `opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) ${currentDelay}s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) ${currentDelay}s`;
             
             setTimeout(() => {
               card.style.opacity = '1';
@@ -140,7 +141,7 @@
           let label = '';
           if (filter === 'shopify') label = 'Shopify';
           else if (filter === 'wordpress') label = 'WordPress';
-          else if (filter === 'service') label = 'Custom Service';
+          else if (filter === 'conversion') label = 'Conversion Sprint';
           
           projCountBadge.textContent = `Showing ${visibleCount} ${label ? label + ' ' : ''}Projects · 2024–2026`;
         }
@@ -149,11 +150,13 @@
   }
 
 
-  // --- 4. INTERACTIVE COST ESTIMATOR ---
+  // --- 4. INTERACTIVE SCOPE & COST ESTIMATOR ---
   const servicePills = document.querySelectorAll('.service-pill');
   const skuSliderGroup = document.getElementById('productCountGroup');
   const skuSlider = document.getElementById('productCountRange');
   const skuDisplayVal = document.getElementById('productCountVal');
+  const platformChips = document.querySelectorAll('.pchip');
+  const addonsGroup = document.getElementById('addonsGroup');
   const addonCheckboxes = document.querySelectorAll('.addon-checkbox');
   
   const calcPriceEl = document.getElementById('calcPrice');
@@ -167,7 +170,9 @@
   let activeService = 'migration';
   let basePrice = 650;
   let productCount = 100;
+  let activePlatform = 'WooCommerce';
 
+  // Service Pills Listener
   servicePills.forEach(pill => {
     pill.addEventListener('click', function () {
       servicePills.forEach(p => p.classList.remove('act'));
@@ -176,13 +181,25 @@
       activeService = this.getAttribute('data-service');
       basePrice = parseFloat(this.getAttribute('data-price'));
 
-      // Show/Hide SKU slider based on service context
-      if (activeService === 'codework') {
+      // Show/Hide SKU slider & Addons based on service context
+      if (activeService === 'audit') {
         if (skuSliderGroup) skuSliderGroup.style.display = 'none';
+        if (addonsGroup) addonsGroup.style.display = 'none';
       } else {
         if (skuSliderGroup) skuSliderGroup.style.display = 'block';
+        if (addonsGroup) addonsGroup.style.display = 'block';
       }
 
+      calculateEstimate();
+    });
+  });
+
+  // Platform Chips Listener
+  platformChips.forEach(chip => {
+    chip.addEventListener('click', function () {
+      platformChips.forEach(c => c.classList.remove('act'));
+      this.classList.add('act');
+      activePlatform = this.getAttribute('data-plat');
       calculateEstimate();
     });
   });
@@ -223,43 +240,46 @@
 
     // 1. Base Service Details
     if (activeService === 'migration') {
-      detailsHTML += `<li>• Base Migration Service: $${basePrice} (Up to 100 items)</li>`;
+      detailsHTML += `<li>• Shopify Migration Rescue (Base up to 100 SKUs): $${basePrice}</li>`;
       
       if (productCount > 100) {
         const extraVolume = productCount - 100;
-        const extraCharge = Math.ceil(extraVolume / 50) * 25;
+        const extraCharge = Math.ceil(extraVolume / 50) * 35;
         totalUSD += extraCharge;
         detailsHTML += `<li>• Volume SKU Surcharge (${productCount} items): +$${extraCharge}</li>`;
       }
     } 
-    else if (activeService === 'newbuild') {
-      detailsHTML += `<li>• Base Build & Funnel Setup: $${basePrice} (Physical or Service)</li>`;
+    else if (activeService === 'conversion') {
+      detailsHTML += `<li>• Conversion Repair Sprint: $${basePrice} (1-Week Sprint)</li>`;
       
-      if (productCount > 20) {
-        const extraVolume = productCount - 20;
-        const extraCharge = Math.ceil(extraVolume / 20) * 15;
+      if (productCount > 50) {
+        const extraVolume = productCount - 50;
+        const extraCharge = Math.ceil(extraVolume / 25) * 20;
         totalUSD += extraCharge;
-        detailsHTML += `<li>• Volume SKU Surcharge (${productCount} items): +$${extraCharge}</li>`;
+        detailsHTML += `<li>• Extended Catalogue Review (${productCount} items): +$${extraCharge}</li>`;
       }
     } 
-    else if (activeService === 'codework') {
-      detailsHTML += `<li>• Shopify / Liquid Custom Code Tasks: $${basePrice}</li>`;
+    else if (activeService === 'audit') {
+      detailsHTML += `<li>• Strategic Store Audit & 15-Min Loom Teardown: $${basePrice}</li>`;
+      detailsHTML += `<li>• 100% credited toward build if hired for fixes</li>`;
     }
 
-    // 2. Add-ons Calculation
-    addonCheckboxes.forEach(cb => {
-      if (cb.checked) {
-        const value = parseFloat(cb.value);
-        totalUSD += value;
-        
-        let addonName = '';
-        if (cb.id === 'addonImage') addonName = 'Image Cleanup & Product Framing';
-        if (cb.id === 'addonSeo') addonName = 'SEO 301 Slugs & Redirect Mapping';
-        if (cb.id === 'addonMerchant') addonName = 'Google Merchant Shopping Sync';
+    // 2. Add-ons Calculation (if not audit)
+    if (activeService !== 'audit') {
+      addonCheckboxes.forEach(cb => {
+        if (cb.checked) {
+          const value = parseFloat(cb.value);
+          totalUSD += value;
+          
+          let addonName = '';
+          if (cb.id === 'addonImage') addonName = 'Batch Image Cleanup & 1:1 Framing';
+          if (cb.id === 'addonSeo') addonName = '301 SEO URL Redirection Matrix';
+          if (cb.id === 'addonMerchant') addonName = 'Google Merchant Shopping Sync';
 
-        detailsHTML += `<li>• Add-on: ${addonName} (+$${value})</li>`;
-      }
-    });
+          detailsHTML += `<li>• Add-on: ${addonName} (+$${value})</li>`;
+        }
+      });
+    }
 
     // 3. Convert NGN
     const totalNaira = totalUSD * NAIRA_RATE;
@@ -269,32 +289,28 @@
     calcNairaEl.textContent = `₦${totalNaira.toLocaleString()}`;
     calcDetailsEl.innerHTML = detailsHTML;
 
-    // 5. Update WhatsApp pre-filled link
-    let serviceLabel = 'Platform Migration';
-    if (activeService === 'newbuild') serviceLabel = 'New Store / Service Build';
-    if (activeService === 'codework') serviceLabel = 'Custom Code Fixes';
+    // 5. Update WhatsApp pre-filled message according to the high-converting strategic script
+    let serviceLabel = 'Shopify Migration Rescue';
+    let mainProblem = 'migrating without losing products, images, or SEO';
+    
+    if (activeService === 'conversion') {
+      serviceLabel = 'Conversion Repair Sprint';
+      mainProblem = 'fixing mobile product page and checkout conversion leaks';
+    } else if (activeService === 'audit') {
+      serviceLabel = 'Strategic Store Audit';
+      mainProblem = 'diagnosing why mobile visitors are not converting';
+    }
 
-    let messageText = `Hello Bayode, I generated a project quote on your portfolio: \n\n`;
-    messageText += `*Service:* ${serviceLabel}\n`;
-    if (activeService !== 'codework') {
-      messageText += `*Product / Item Count:* ${productCount} items\n`;
+    let messageText = `Hi Bayode, I need help with my e-commerce store.\n\n`;
+    messageText += `*Service Requested:* ${serviceLabel}\n`;
+    messageText += `*Current Platform:* ${activePlatform}\n`;
+    
+    if (activeService !== 'audit') {
+      messageText += `*Approximate Products:* ${productCount} items\n`;
     }
     
-    const checkedAddons = Array.from(addonCheckboxes)
-      .filter(cb => cb.checked)
-      .map(cb => {
-        if (cb.id === 'addonImage') return 'Image Cleanup';
-        if (cb.id === 'addonSeo') return 'SEO Slugs';
-        if (cb.id === 'addonMerchant') return 'Google Merchant';
-        return '';
-      })
-      .join(', ');
-      
-    if (checkedAddons) {
-      messageText += `*Add-ons:* ${checkedAddons}\n`;
-    }
-    
-    messageText += `*Estimated Quote:* $${totalUSD} / ₦${totalNaira.toLocaleString()}\n\n`;
+    messageText += `*Main Objective:* ${mainProblem}\n`;
+    messageText += `*Estimated Scope Quote:* $${totalUSD} / ₦${totalNaira.toLocaleString()}\n\n`;
     messageText += `Let's discuss my project requirements!`;
 
     if (whatsappBtn) {
@@ -366,7 +382,7 @@
   // --- 7. NAVIGATION SCROLL & ACTIVE SECTION TRACKER ---
   const navHeader = document.querySelector('header');
   const backToTopBtn = document.getElementById('backToTop');
-  const trackedSections = ['about', 'projects', 'estimator', 'services', 'videos', 'proof', 'faq', 'contact'];
+  const trackedSections = ['hero', 'case-study', 'services', 'estimator', 'process', 'projects', 'videos', 'stack', 'proof', 'faq', 'origin', 'contact'];
 
   let ticking = false;
 
@@ -436,7 +452,7 @@
       }
     });
   }, {
-    threshold: 0.12,
+    threshold: 0.10,
     rootMargin: '0px 0px -40px 0px'
   });
 
@@ -447,13 +463,13 @@
   // Hero elements entry sequence
   const animHeroElements = () => {
     const heroElements = document.querySelectorAll(
-      '.avail-widget, .hero-eyebrow, .hero-h1, .hero-tagline, .hero-stats-row, .hero-cta-row, .hero-price-anchor, .hero-bottom'
+      '.avail-widget, .hero-eyebrow, .hero-h1, .hero-tagline, .hero-subproof, .hero-stats-row, .hero-cta-row, .hero-price-anchor, .hero-bottom'
     );
     heroElements.forEach((el, index) => {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
-      el.style.transitionDelay = `${index * 0.07 + 0.04}s`;
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+      el.style.transitionDelay = `${index * 0.06 + 0.03}s`;
       
       setTimeout(() => {
         el.style.opacity = '1';
