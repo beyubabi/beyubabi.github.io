@@ -26,6 +26,8 @@
 
     // Sync active state on all theme buttons
     themeButtons.forEach(btn => {
+      btn.setAttribute('role', 'radio');
+      btn.setAttribute('aria-checked', String(btn.getAttribute('data-t') === theme));
       if (btn.getAttribute('data-t') === theme) {
         btn.classList.add('act');
       } else {
@@ -104,6 +106,8 @@
     if (!mobDrawerOverlay) return;
     mobDrawerOverlay.classList.add('open');
     mobDrawerOverlay.setAttribute('aria-hidden', 'false');
+    mobMenuOpenBtn?.setAttribute('aria-expanded', 'true');
+    mobDrawerCloseBtn?.focus();
     document.body.style.overflow = 'hidden';
   }
 
@@ -111,6 +115,7 @@
     if (!mobDrawerOverlay) return;
     mobDrawerOverlay.classList.remove('open');
     mobDrawerOverlay.setAttribute('aria-hidden', 'true');
+    mobMenuOpenBtn?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
 
@@ -137,12 +142,17 @@
   const projCountBadge = document.getElementById('projCountBadge');
 
   if (filterTabs.length > 0 && projectCards.length > 0) {
+    filterTabs.forEach(tab => tab.setAttribute('aria-pressed', String(tab.classList.contains('act'))));
     filterTabs.forEach(tab => {
       tab.addEventListener('click', function () {
         if (this.classList.contains('act')) return;
 
-        filterTabs.forEach(t => t.classList.remove('act'));
+        filterTabs.forEach(t => {
+          t.classList.remove('act');
+          t.setAttribute('aria-pressed', 'false');
+        });
         this.classList.add('act');
+        this.setAttribute('aria-pressed', 'true');
 
         const filter = this.getAttribute('data-filter');
         let visibleCount = 0;
@@ -186,7 +196,7 @@
       subtitle: 'Custom Apparel Brand • Shopify Liquid & Variant Customizer',
       badge: 'Custom Apparel',
       year: '2025–2026',
-      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/oversized-plus.jpg',
+      image: 'oversized-plus.jpg',
       metrics: [
         { val: '+34%', lbl: 'Mobile Add-to-Cart' },
         { val: '0.9s', lbl: 'Catalog Paint Time' },
@@ -203,7 +213,7 @@
       subtitle: 'Portable Blenders • High-Converting DTC Funnel',
       badge: 'Single-Product Funnel',
       year: '2025',
-      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/fresh-juice.jpg',
+      image: 'fresh-juice.jpg',
       metrics: [
         { val: '2-Tap', lbl: 'Mobile Checkout' },
         { val: '98/100', lbl: 'Lighthouse Score' },
@@ -220,7 +230,7 @@
       subtitle: '3D Printed Toys • Shopify Rebuild & UAE Logistics Setup',
       badge: 'UAE Contract',
       year: '2025',
-      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/toko.jpg',
+      image: 'toko.jpg',
       metrics: [
         { val: '5.0★', lbl: 'Upwork Rating' },
         { val: '100%', lbl: 'UAE Currency & Shipping' },
@@ -237,7 +247,7 @@
       subtitle: 'Apple Gadgets E-Store • WordPress + WooCommerce Architecture',
       badge: 'WooCommerce',
       year: '2024–2025',
-      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/bayu-tech.jpg',
+      image: 'bayu-tech.jpg',
       metrics: [
         { val: '250+', lbl: 'High-Ticket SKUs' },
         { val: 'Instant', lbl: 'Spec Filter Query' },
@@ -254,7 +264,7 @@
       subtitle: 'Specialty Flour Brand • Wix → Shopify Replatform',
       badge: 'Wix Replatform',
       year: '2024–2025',
-      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/incredible-fibre.jpg',
+      image: 'incredible-fibre.jpg',
       metrics: [
         { val: '-45%', lbl: 'Mobile Page Weight' },
         { val: '100%', lbl: 'Weight Variants Preserved' },
@@ -271,7 +281,7 @@
       subtitle: 'Eco Wooden Kitchenware • Shopify Theme Build',
       badge: 'Shopify Theme',
       year: '2024',
-      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/kuchewood.jpg',
+      image: 'kuchewood.jpg',
       metrics: [
         { val: '100%', lbl: 'Mobile Responsive' },
         { val: 'Clean', lbl: 'SEO Schema Markup' },
@@ -548,6 +558,16 @@
     if (e.target === this) {
       closeVideoModal();
     }
+  });
+
+  // Keyboard parity for the existing custom project and video controls.
+  document.querySelectorAll('[role="button"][tabindex="0"]').forEach(control => {
+    control.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        control.click();
+      }
+    });
   });
 
   // Global ESC Key Listener

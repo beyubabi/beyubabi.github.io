@@ -5,6 +5,7 @@
  * Clean vector icons, left-to-right animated proof marquee, centralized mobile hero, high-end agency footer.
  */
 
+/* Original slate, emerald and cobalt palette restored at the user’s request. */
 :root {
   /* Dynamic Palette: Obsidian Slate Dark Theme */
   --bg: #090d16;
@@ -16,7 +17,7 @@
   
   --fg: #f8fafc;
   --fg-muted: #94a3b8;
-  --fg-subtle: #64748b;
+  --fg-subtle: #94a3b8;
   
   /* Modern High-End Accent (Vibrant Emerald & Electric Cobalt) */
   --accent: #10b981;
@@ -47,7 +48,7 @@
   
   /* Typography */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-serif: 'Barlow Condensed', 'Arial Narrow', sans-serif;
   --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   
   /* Transitions */
@@ -68,8 +69,8 @@
   --fg-muted: #334155;
   --fg-subtle: #64748b;
   
-  --accent: #059669;
-  --accent-hover: #047857;
+  --accent: #047857;
+  --accent-hover: #065f46;
   --accent-glow: rgba(5, 150, 105, 0.15);
   --accent-tint: rgba(5, 150, 105, 0.08);
   --accent-border: rgba(5, 150, 105, 0.24);
@@ -367,7 +368,7 @@ header.scrolled {
   border-radius: 50%;
   display: inline-block;
   position: relative;
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
+  box-shadow: 0 0 8px var(--accent-glow);
   animation: pulseAvailability 2s infinite ease-in-out;
 }
 
@@ -437,7 +438,7 @@ header.scrolled {
 }
 
 [data-theme="dark"] .tp-btn.act {
-  color: #042f2e;
+  color: var(--accent-fg);
 }
 
 /* Mobile Top Bar Actions (Hidden on Desktop) */
@@ -882,7 +883,7 @@ header.scrolled {
 }
 .wdot.red { background-color: #ef4444; }
 .wdot.yellow { background-color: #f59e0b; }
-.wdot.green { background-color: #10b981; }
+.wdot.green { background-color: var(--accent); }
 
 .app-card-title {
   font-family: var(--font-mono);
@@ -1265,7 +1266,7 @@ header.scrolled {
 }
 
 [data-theme="dark"] .service-badge {
-  color: #042f2e;
+  color: var(--accent-fg);
 }
 
 .service-head {
@@ -1435,7 +1436,7 @@ header.scrolled {
 }
 
 [data-theme="dark"] .st-tag {
-  color: #042f2e;
+  color: var(--accent-fg);
 }
 
 .st-desc {
@@ -1525,7 +1526,7 @@ header.scrolled {
 }
 
 [data-theme="dark"] .plat-chip.act {
-  color: #042f2e;
+  color: var(--accent-fg);
 }
 
 .addons-checkbox-group {
@@ -1713,7 +1714,7 @@ header.scrolled {
 }
 
 [data-theme="dark"] .filter-btn.act {
-  color: #042f2e;
+  color: var(--accent-fg);
 }
 
 .projects-gallery-grid {
@@ -1792,7 +1793,7 @@ header.scrolled {
 }
 
 [data-theme="dark"] .overlay-quick-btn {
-  color: #042f2e;
+  color: var(--accent-fg);
 }
 
 .project-card-body {
@@ -1953,7 +1954,7 @@ header.scrolled {
 }
 
 [data-theme="dark"] .video-play-btn {
-  color: #042f2e;
+  color: var(--accent-fg);
 }
 
 .video-card:hover .video-play-btn {
