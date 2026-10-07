@@ -1,9 +1,8 @@
 /**
  * app.js
- * Premium E-Commerce Portfolio Interactive Scripts
- * Repositioned for Shopify Migration Rescue & E-Commerce Conversion Sprints
- * Handles Theme Management, Project Categorization, Live Nigeria (WAT) Clock,
- * Interactive Scope & Cost Estimator, Video Screencast Modal, and FAQ Accordion.
+ * Interactive Logic for Bayode Akindiose Portfolio
+ * Handles Theme Management, Project Category Filtering, Interactive Scope Estimator,
+ * Project Deep-Dive Modal, Video Screencast Modal, Lagos Clock, and FAQ Accordions.
  */
 
 (function () {
@@ -11,7 +10,8 @@
 
   // --- 1. THEME STATE MANAGER ---
   const html = document.documentElement;
-  const themeButtons = document.querySelectorAll('.tp-btn, .mob-tp-btn');
+  const themeButtons = document.querySelectorAll('.tp-btn');
+  const mobThemeQuickBtn = document.getElementById('mobThemeQuickToggle');
   const savedTheme = localStorage.getItem('bb-portfolio-theme') || 'dark';
 
   function applyTheme(theme) {
@@ -24,7 +24,7 @@
     
     localStorage.setItem('bb-portfolio-theme', theme);
 
-    // Sync active state on both desktop and mobile theme buttons
+    // Sync active state on all theme buttons
     themeButtons.forEach(btn => {
       if (btn.getAttribute('data-t') === theme) {
         btn.classList.add('act');
@@ -37,14 +37,23 @@
   // Initialize Theme
   applyTheme(savedTheme);
 
-  // Bind Theme Clicks
+  // Bind Theme Button Clicks
   themeButtons.forEach(btn => {
     btn.addEventListener('click', function () {
       applyTheme(this.getAttribute('data-t'));
     });
   });
 
-  // Watch System Theme changes when set to 'system'
+  // Mobile Quick Toggle Switch
+  if (mobThemeQuickBtn) {
+    mobThemeQuickBtn.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme') || 'dark';
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+    });
+  }
+
+  // Watch System Theme changes
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     if (localStorage.getItem('bb-portfolio-theme') === 'system') {
       applyTheme('system');
@@ -52,11 +61,13 @@
   });
 
 
-  // --- 2. LIVE NIGERIA (WAT) TIMEZONE WIDGET ---
-  const timeDisplay = document.getElementById('nigeriaTime');
+  // --- 2. LIVE LAGOS (WAT) CLOCK ---
+  const timeDisplayHero = document.getElementById('nigeriaTime');
+  const timeDisplayNav = document.getElementById('nigeriaTimeNav');
+  const timeDisplayDrawer = document.getElementById('nigeriaTimeDrawer');
   
   function updateNigeriaTime() {
-    if (!timeDisplay) return;
+    let formattedTime = '';
     try {
       const formatter = new Intl.DateTimeFormat('en-US', {
         timeZone: 'Africa/Lagos',
@@ -65,46 +76,76 @@
         second: '2-digit',
         hour12: true
       });
-      timeDisplay.textContent = formatter.format(new Date());
+      formattedTime = formatter.format(new Date());
     } catch (e) {
       const localDate = new Date();
       const utc = localDate.getTime() + (localDate.getTimezoneOffset() * 60000);
       const watTime = new Date(utc + (3600000 * 1)); // WAT is UTC+1
-      timeDisplay.textContent = watTime.toLocaleTimeString();
+      formattedTime = watTime.toLocaleTimeString();
     }
+
+    if (timeDisplayHero) timeDisplayHero.textContent = formattedTime;
+    if (timeDisplayNav) timeDisplayNav.textContent = formattedTime;
+    if (timeDisplayDrawer) timeDisplayDrawer.textContent = formattedTime;
   }
   
   setInterval(updateNigeriaTime, 1000);
   updateNigeriaTime();
 
 
-  // --- 3. INTERACTIVE PROJECT CATEGORY FILTERING ---
-  const filterTabs = document.querySelectorAll('.filter-tab');
-  const projectCards = document.querySelectorAll('.pcard');
+  // --- 3. MOBILE NAVIGATION DRAWER & DOCK ---
+  const mobDrawerOverlay = document.getElementById('mobDrawerOverlay');
+  const mobMenuOpenBtn = document.getElementById('mobMenuOpenBtn');
+  const dockMoreBtn = document.getElementById('dockMoreBtn');
+  const mobDrawerCloseBtn = document.getElementById('mobDrawerCloseBtn');
+  const drawerLinks = document.querySelectorAll('[data-drawer-link]');
+
+  function openDrawer() {
+    if (!mobDrawerOverlay) return;
+    mobDrawerOverlay.classList.add('open');
+    mobDrawerOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    if (!mobDrawerOverlay) return;
+    mobDrawerOverlay.classList.remove('open');
+    mobDrawerOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  mobMenuOpenBtn?.addEventListener('click', openDrawer);
+  dockMoreBtn?.addEventListener('click', openDrawer);
+  mobDrawerCloseBtn?.addEventListener('click', closeDrawer);
+
+  mobDrawerOverlay?.addEventListener('click', function (e) {
+    if (e.target === this) {
+      closeDrawer();
+    }
+  });
+
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
+  });
+
+
+  // --- 4. PROJECT CATEGORY FILTERING ---
+  const filterTabs = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
   const projCountBadge = document.getElementById('projCountBadge');
 
   if (filterTabs.length > 0 && projectCards.length > 0) {
     filterTabs.forEach(tab => {
       tab.addEventListener('click', function () {
-        if (this.classList.contains('act')) return; // Already active
+        if (this.classList.contains('act')) return;
 
         filterTabs.forEach(t => t.classList.remove('act'));
         this.classList.add('act');
 
-        // On mobile, scroll active tab smoothly into view inside the horizontal bar
-        if (window.innerWidth <= 768) {
-          this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-        }
-
         const filter = this.getAttribute('data-filter');
         let visibleCount = 0;
-        let staggerIndex = 0;
-
-        // Pop animation on count badge
-        if (projCountBadge) {
-          projCountBadge.classList.add('popping');
-          setTimeout(() => projCountBadge.classList.remove('popping'), 300);
-        }
 
         projectCards.forEach(card => {
           const categories = (card.getAttribute('data-category') || '').split(' ');
@@ -112,36 +153,24 @@
 
           if (matches) {
             visibleCount++;
-            const currentDelay = staggerIndex * 0.05;
-            staggerIndex++;
-
             card.classList.remove('is-hidden');
-            
-            // Staggered Spring Animation
             card.style.opacity = '0';
-            card.style.transform = 'scale(0.95) translateY(16px)';
-            card.style.transition = `opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) ${currentDelay}s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) ${currentDelay}s`;
-            
+            card.style.transform = 'translateY(10px)';
             setTimeout(() => {
+              card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
               card.style.opacity = '1';
-              card.style.transform = 'scale(1) translateY(0)';
-            }, 20);
+              card.style.transform = 'translateY(0)';
+            }, 10);
           } else {
-            card.style.opacity = '0';
-            card.style.transform = 'scale(0.92) translateY(10px)';
-            card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-            
-            setTimeout(() => {
-              card.classList.add('is-hidden');
-            }, 200);
+            card.classList.add('is-hidden');
           }
         });
 
         if (projCountBadge) {
           let label = '';
           if (filter === 'shopify') label = 'Shopify';
-          else if (filter === 'wordpress') label = 'WordPress';
-          else if (filter === 'conversion') label = 'Conversion Sprint';
+          else if (filter === 'wordpress') label = 'WooCommerce';
+          else if (filter === 'conversion') label = 'Conversion';
           
           projCountBadge.textContent = `Showing ${visibleCount} ${label ? label + ' ' : ''}Projects · 2024–2026`;
         }
@@ -150,12 +179,183 @@
   }
 
 
-  // --- 4. INTERACTIVE SCOPE & COST ESTIMATOR ---
-  const servicePills = document.querySelectorAll('.service-pill');
+  // --- 5. PROJECT DEEP-DIVE MODAL SYSTEM ---
+  const projectDatabase = {
+    'oversize-plus': {
+      title: 'Oversize Plus',
+      subtitle: 'Custom Apparel Brand • Shopify Liquid & Variant Customizer',
+      badge: 'Custom Apparel',
+      year: '2025–2026',
+      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/oversized-plus.jpg',
+      metrics: [
+        { val: '+34%', lbl: 'Mobile Add-to-Cart' },
+        { val: '0.9s', lbl: 'Catalog Paint Time' },
+        { val: '100%', lbl: 'Custom Variant Flow' }
+      ],
+      challenge: 'The brand needed an engaging apparel customization experience where buyers could visually choose oversized silhouettes and fabrics without clunky separate product pages.',
+      solution: 'Engineered custom Shopify Liquid templates with an interactive variant builder. Added sticky mobile buy buttons and instant color switching for frictionless purchasing.',
+      tags: ['Shopify Liquid', 'Variant Builder', 'Mobile CRO', 'Custom CSS', 'Core Web Vitals'],
+      liveUrl: 'https://oversizedplus.myshopify.com',
+      liveText: 'Explore Store (Password: 1) ↗'
+    },
+    'fresh-juice': {
+      title: 'Fresh Juice',
+      subtitle: 'Portable Blenders • High-Converting DTC Funnel',
+      badge: 'Single-Product Funnel',
+      year: '2025',
+      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/fresh-juice.jpg',
+      metrics: [
+        { val: '2-Tap', lbl: 'Mobile Checkout' },
+        { val: '98/100', lbl: 'Lighthouse Score' },
+        { val: '4.9★', lbl: 'Photo Social Proof' }
+      ],
+      challenge: 'High drop-offs on mobile ad traffic caused by slow video loading, buried product benefits, and confusing multi-step checkout forms.',
+      solution: 'Re-architected into a streamlined high-velocity landing page. Integrated video modules with zero layout shift, synced Loox photo reviews for instant trust, and stripped checkout friction down to 2 taps.',
+      tags: ['Shopify DTC', 'Loox Reviews', 'Fast Checkout', 'Speed Optimization', 'Mobile Conversion'],
+      liveUrl: 'https://fresh-juice-7.myshopify.com',
+      liveText: 'Explore Store (Password: 1) ↗'
+    },
+    'toko': {
+      title: 'Toko (Dubai)',
+      subtitle: '3D Printed Toys • Shopify Rebuild & UAE Logistics Setup',
+      badge: 'UAE Contract',
+      year: '2025',
+      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/toko.jpg',
+      metrics: [
+        { val: '5.0★', lbl: 'Upwork Rating' },
+        { val: '100%', lbl: 'UAE Currency & Shipping' },
+        { val: '0 Errors', lbl: 'Delivered Early' }
+      ],
+      challenge: 'An international client needed an agency subcontractor to configure multi-tier 3D toy bundling and integrate localized UAE payment gateways and shipping rules.',
+      solution: 'Delivered a clean Shopify rebuild with custom Liquid product bundling, automated delivery rate lookups for the Middle East, and passed all technical acceptance tests ahead of deadline.',
+      tags: ['Shopify Liquid', 'Product Bundling', 'UAE Logistics', 'Currency Matrix', 'Upwork Verified'],
+      liveUrl: '#proof',
+      liveText: 'View Upwork Verified Review ↗'
+    },
+    'bayu-tech': {
+      title: 'Bayu Tech',
+      subtitle: 'Apple Gadgets E-Store • WordPress + WooCommerce Architecture',
+      badge: 'WooCommerce',
+      year: '2024–2025',
+      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/bayu-tech.jpg',
+      metrics: [
+        { val: '250+', lbl: 'High-Ticket SKUs' },
+        { val: 'Instant', lbl: 'Spec Filter Query' },
+        { val: 'Automated', lbl: 'PDF Invoice Pipeline' }
+      ],
+      challenge: 'Managing heavy Apple product spec sheets, serial number tracking, variant storage capacities, and multi-tier pricing filters on a resource-constrained server.',
+      solution: 'Customized WooCommerce core hooks, optimized MySQL database indexing for sub-second filter queries, built custom checkout styling, and implemented automated invoice generation.',
+      tags: ['WordPress', 'WooCommerce', 'MySQL Optimization', 'Custom Checkout', 'PHP/JS'],
+      liveUrl: 'https://beyutech.gt.tc/?i=3',
+      liveText: 'Open Staging Demo (gt.tc) ↗'
+    },
+    'incredible-fiber': {
+      title: 'Incredible Fiber',
+      subtitle: 'Specialty Flour Brand • Wix → Shopify Replatform',
+      badge: 'Wix Replatform',
+      year: '2024–2025',
+      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/incredible-fibre.jpg',
+      metrics: [
+        { val: '-45%', lbl: 'Mobile Page Weight' },
+        { val: '100%', lbl: 'Weight Variants Preserved' },
+        { val: '0', lbl: '404 Broken Links' }
+      ],
+      challenge: 'The client was locked into an unoptimized Wix store with sluggish mobile loading, messy multi-weight variant drop-downs, and disconnected recipe content.',
+      solution: 'Migrated products and customer data onto Shopify. Standardized weight-based SKU matrices, rebuilt recipe content navigation, and reduced mobile load times by over 45%.',
+      tags: ['Shopify Replatform', 'Weight Variants', 'Recipe Engine', 'SEO Slugs', 'Mobile UX'],
+      liveUrl: 'https://incredible-fibre.myshopify.com',
+      liveText: 'Explore Store (Password: 1) ↗'
+    },
+    'kuchewood': {
+      title: 'Küchewood',
+      subtitle: 'Eco Wooden Kitchenware • Shopify Theme Build',
+      badge: 'Shopify Theme',
+      year: '2024',
+      image: 'https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/kuchewood.jpg',
+      metrics: [
+        { val: '100%', lbl: 'Mobile Responsive' },
+        { val: 'Clean', lbl: 'SEO Schema Markup' },
+        { val: '1st', lbl: 'Milestone Build' }
+      ],
+      challenge: 'Creating an organic, tactile kitchenware storefront with structured department filters and clean mobile viewing.',
+      solution: 'Engineered an organic kitchenware catalog layout with rich department filters, schema SEO markups, and fast responsive product cards.',
+      tags: ['Shopify Theme', 'SEO Schema', 'Catalogue Layout', 'Clean Code'],
+      liveUrl: 'https://kuchewood.myshopify.com',
+      liveText: 'Explore Store (Password: 1) ↗'
+    }
+  };
+
+  const projectModal = document.getElementById('projectModal');
+  const pmodalBadge = document.getElementById('pmodalBadge');
+  const pmodalYear = document.getElementById('pmodalYear');
+  const pmodalTitle = document.getElementById('pmodalTitle');
+  const pmodalSubtitle = document.getElementById('pmodalSubtitle');
+  const pmodalImg = document.getElementById('pmodalImg');
+  const pmodalMetrics = document.getElementById('pmodalMetrics');
+  const pmodalChallenge = document.getElementById('pmodalChallenge');
+  const pmodalSolution = document.getElementById('pmodalSolution');
+  const pmodalTags = document.getElementById('pmodalTags');
+  const pmodalLiveBtn = document.getElementById('pmodalLiveBtn');
+  const pmodalWhatsAppBtn = document.getElementById('pmodalWhatsAppBtn');
+
+  window.openProjectModal = function (projectId) {
+    const data = projectDatabase[projectId];
+    if (!data || !projectModal) return;
+
+    if (pmodalBadge) pmodalBadge.textContent = data.badge;
+    if (pmodalYear) pmodalYear.textContent = data.year;
+    if (pmodalTitle) pmodalTitle.textContent = data.title;
+    if (pmodalSubtitle) pmodalSubtitle.textContent = data.subtitle;
+    if (pmodalImg) {
+      pmodalImg.src = data.image;
+      pmodalImg.alt = `${data.title} Preview`;
+    }
+
+    if (pmodalMetrics) {
+      pmodalMetrics.innerHTML = data.metrics.map(m => `
+        <div class="pm-box">
+          <div class="pm-val">${m.val}</div>
+          <div class="pm-lbl">${m.lbl}</div>
+        </div>
+      `).join('');
+    }
+
+    if (pmodalChallenge) pmodalChallenge.textContent = data.challenge;
+    if (pmodalSolution) pmodalSolution.textContent = data.solution;
+
+    if (pmodalTags) {
+      pmodalTags.innerHTML = data.tags.map(t => `<span>${t}</span>`).join('');
+    }
+
+    if (pmodalLiveBtn) {
+      pmodalLiveBtn.href = data.liveUrl;
+      pmodalLiveBtn.textContent = data.liveText;
+    }
+
+    if (pmodalWhatsAppBtn) {
+      const waMsg = `Hi Bayode, I saw your case breakdown for "${data.title}" on your portfolio. I'd like to discuss a similar build for my store!`;
+      pmodalWhatsAppBtn.href = `https://wa.me/2348126679348?text=${encodeURIComponent(waMsg)}`;
+    }
+
+    projectModal.classList.add('open');
+    projectModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeProjectModal = function () {
+    if (!projectModal) return;
+    projectModal.classList.remove('open');
+    projectModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+
+  // --- 6. INTERACTIVE ESTIMATOR ---
+  const servicePills = document.querySelectorAll('.service-toggle-btn');
   const skuSliderGroup = document.getElementById('productCountGroup');
   const skuSlider = document.getElementById('productCountRange');
   const skuDisplayVal = document.getElementById('productCountVal');
-  const platformChips = document.querySelectorAll('.pchip');
+  const platformChips = document.querySelectorAll('.plat-chip');
   const addonsGroup = document.getElementById('addonsGroup');
   const addonCheckboxes = document.querySelectorAll('.addon-checkbox');
   
@@ -164,7 +364,6 @@
   const calcDetailsEl = document.getElementById('calcDetails');
   const whatsappBtn = document.getElementById('estimateWhatsAppBtn');
 
-  // Conversion rate (1 USD to NGN)
   const NAIRA_RATE = 1400;
 
   let activeService = 'migration';
@@ -172,7 +371,7 @@
   let productCount = 100;
   let activePlatform = 'WooCommerce';
 
-  // Service Pills Listener
+  // Service Selection
   servicePills.forEach(pill => {
     pill.addEventListener('click', function () {
       servicePills.forEach(p => p.classList.remove('act'));
@@ -181,7 +380,6 @@
       activeService = this.getAttribute('data-service');
       basePrice = parseFloat(this.getAttribute('data-price'));
 
-      // Show/Hide SKU slider & Addons based on service context
       if (activeService === 'audit') {
         if (skuSliderGroup) skuSliderGroup.style.display = 'none';
         if (addonsGroup) addonsGroup.style.display = 'none';
@@ -194,7 +392,7 @@
     });
   });
 
-  // Platform Chips Listener
+  // Platform Selection
   platformChips.forEach(chip => {
     chip.addEventListener('click', function () {
       platformChips.forEach(c => c.classList.remove('act'));
@@ -204,7 +402,7 @@
     });
   });
 
-  // SKU Slider Input Listener with live paint
+  // Slider Input
   if (skuSlider) {
     const paintSliderProgress = () => {
       const min = parseFloat(skuSlider.min) || 0;
@@ -213,7 +411,7 @@
       skuSlider.style.setProperty('--range-progress', `${pct}%`);
     };
 
-    ['input', 'change', 'touchmove'].forEach(evt => {
+    ['input', 'change'].forEach(evt => {
       skuSlider.addEventListener(evt, function () {
         productCount = parseInt(this.value);
         if (skuDisplayVal) {
@@ -221,7 +419,7 @@
         }
         paintSliderProgress();
         calculateEstimate();
-      }, { passive: true });
+      });
     });
 
     paintSliderProgress();
@@ -238,33 +436,30 @@
     let totalUSD = basePrice;
     let detailsHTML = '';
 
-    // 1. Base Service Details
     if (activeService === 'migration') {
       detailsHTML += `<li>• Shopify Migration Rescue (Base up to 100 SKUs): $${basePrice}</li>`;
-      
       if (productCount > 100) {
         const extraVolume = productCount - 100;
         const extraCharge = Math.ceil(extraVolume / 50) * 35;
         totalUSD += extraCharge;
-        detailsHTML += `<li>• Volume SKU Surcharge (${productCount} items): +$${extraCharge}</li>`;
+        detailsHTML += `<li>• Catalog Volume Surcharge (${productCount} items): +$${extraCharge}</li>`;
       }
     } 
     else if (activeService === 'conversion') {
       detailsHTML += `<li>• Conversion Repair Sprint: $${basePrice} (1-Week Sprint)</li>`;
-      
       if (productCount > 50) {
         const extraVolume = productCount - 50;
         const extraCharge = Math.ceil(extraVolume / 25) * 20;
         totalUSD += extraCharge;
-        detailsHTML += `<li>• Extended Catalogue Review (${productCount} items): +$${extraCharge}</li>`;
+        detailsHTML += `<li>• Extended Catalog Review (${productCount} items): +$${extraCharge}</li>`;
       }
     } 
     else if (activeService === 'audit') {
-      detailsHTML += `<li>• Strategic Store Audit & 15-Min Loom Teardown: $${basePrice}</li>`;
+      detailsHTML += `<li>• Strategic Store Audit & 15-Min Video Teardown: $${basePrice}</li>`;
       detailsHTML += `<li>• 100% credited toward build if hired for fixes</li>`;
     }
 
-    // 2. Add-ons Calculation (if not audit)
+    // Addons
     if (activeService !== 'audit') {
       addonCheckboxes.forEach(cb => {
         if (cb.checked) {
@@ -272,44 +467,32 @@
           totalUSD += value;
           
           let addonName = '';
-          if (cb.id === 'addonImage') addonName = 'Batch Image Cleanup & 1:1 Framing';
-          if (cb.id === 'addonSeo') addonName = '301 SEO URL Redirection Matrix';
-          if (cb.id === 'addonMerchant') addonName = 'Google Merchant Shopping Sync';
+          if (cb.id === 'addonImage') addonName = 'Batch Image 1:1 Canvas Framing';
+          if (cb.id === 'addonSeo') addonName = 'Complete 301 URL SEO Redirection Map';
+          if (cb.id === 'addonMerchant') addonName = 'Google Merchant Shopping Feed Sync';
 
           detailsHTML += `<li>• Add-on: ${addonName} (+$${value})</li>`;
         }
       });
     }
 
-    // 3. Convert NGN
     const totalNaira = totalUSD * NAIRA_RATE;
 
-    // 4. Update UI
     calcPriceEl.textContent = `$${totalUSD}`;
     calcNairaEl.textContent = `₦${totalNaira.toLocaleString()}`;
     calcDetailsEl.innerHTML = detailsHTML;
 
-    // 5. Update WhatsApp pre-filled message according to the high-converting strategic script
+    // WhatsApp Message
     let serviceLabel = 'Shopify Migration Rescue';
-    let mainProblem = 'migrating without losing products, images, or SEO';
-    
-    if (activeService === 'conversion') {
-      serviceLabel = 'Conversion Repair Sprint';
-      mainProblem = 'fixing mobile product page and checkout conversion leaks';
-    } else if (activeService === 'audit') {
-      serviceLabel = 'Strategic Store Audit';
-      mainProblem = 'diagnosing why mobile visitors are not converting';
-    }
+    if (activeService === 'conversion') serviceLabel = 'Conversion Repair Sprint';
+    else if (activeService === 'audit') serviceLabel = 'Strategic Store Audit ($120)';
 
     let messageText = `Hi Bayode, I need help with my e-commerce store.\n\n`;
     messageText += `*Service Requested:* ${serviceLabel}\n`;
     messageText += `*Current Platform:* ${activePlatform}\n`;
-    
     if (activeService !== 'audit') {
-      messageText += `*Approximate Products:* ${productCount} items\n`;
+      messageText += `*Estimated Products:* ${productCount} items\n`;
     }
-    
-    messageText += `*Main Objective:* ${mainProblem}\n`;
     messageText += `*Estimated Scope Quote:* $${totalUSD} / ₦${totalNaira.toLocaleString()}\n\n`;
     messageText += `Let's discuss my project requirements!`;
 
@@ -318,25 +501,22 @@
     }
   }
 
-  // Initial Calculation
   calculateEstimate();
 
 
-  // --- 5. FAQ ACCORDION ---
+  // --- 7. FAQ ACCORDION ---
   window.toggleFaqAccordion = function (buttonElement) {
     if (!buttonElement) return;
 
     const currentItem = buttonElement.closest('.faq-item');
     const isAlreadyOpen = currentItem.classList.contains('open');
 
-    // Close open items first
     document.querySelectorAll('.faq-item').forEach(item => {
       item.classList.remove('open');
-      const btn = item.querySelector('.faq-q-btn');
+      const btn = item.querySelector('.faq-toggle-btn');
       if (btn) btn.setAttribute('aria-expanded', 'false');
     });
 
-    // Toggle current item
     if (!isAlreadyOpen) {
       currentItem.classList.add('open');
       buttonElement.setAttribute('aria-expanded', 'true');
@@ -344,7 +524,7 @@
   };
 
 
-  // --- 6. SCREENCAST VIDEO MODAL ---
+  // --- 8. VIDEO MODAL ---
   const videoModal = document.getElementById('videoModal');
   const videoIframe = document.getElementById('videoIframe');
 
@@ -364,25 +544,26 @@
     document.body.style.overflow = '';
   };
 
-  // Close modal when clicking backdrop
   videoModal?.addEventListener('click', function (e) {
     if (e.target === this) {
       closeVideoModal();
     }
   });
 
-  // Close modal when pressing Escape key
+  // Global ESC Key Listener
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeVideoModal();
+      closeProjectModal();
+      closeDrawer();
     }
   });
 
 
-  // --- 7. NAVIGATION SCROLL & ACTIVE SECTION TRACKER ---
+  // --- 9. NAVIGATION SCROLL & ACTIVE SECTION TRACKER ---
   const navHeader = document.querySelector('header');
   const backToTopBtn = document.getElementById('backToTop');
-  const trackedSections = ['hero', 'case-study', 'services', 'estimator', 'process', 'projects', 'videos', 'stack', 'proof', 'faq', 'origin', 'contact'];
+  const trackedSections = ['hero', 'case-study', 'services', 'estimator', 'projects', 'videos', 'stack', 'proof', 'faq', 'contact'];
 
   let ticking = false;
 
@@ -391,43 +572,49 @@
       window.requestAnimationFrame(() => {
         const scrollPos = window.scrollY;
 
-        // Header glassmorphism
         if (navHeader) {
-          if (scrollPos > 60) {
+          if (scrollPos > 30) {
             navHeader.classList.add('scrolled');
           } else {
             navHeader.classList.remove('scrolled');
           }
         }
 
-        // Back to top visibility
         if (backToTopBtn) {
-          if (scrollPos > 400) {
+          if (scrollPos > 300) {
             backToTopBtn.classList.add('visible');
           } else {
             backToTopBtn.classList.remove('visible');
           }
         }
 
-        // Active Nav link tracking
         const triggerLine = scrollPos + window.innerHeight * 0.35;
         let activeSectionId = '';
 
         trackedSections.forEach(sectionId => {
           const sectionEl = document.getElementById(sectionId);
           if (sectionEl) {
-            const offsetTop = sectionEl.offsetTop;
-            if (triggerLine >= offsetTop) {
+            if (triggerLine >= sectionEl.offsetTop) {
               activeSectionId = sectionId;
             }
           }
         });
 
-        document.querySelectorAll('[data-s]').forEach(anchorLink => {
-          if (anchorLink.getAttribute('data-s') === activeSectionId) {
-            anchorLink.classList.add('act');
+        // Sync Desktop Nav
+        document.querySelectorAll('.nav-links a[data-s]').forEach(a => {
+          if (a.getAttribute('data-s') === activeSectionId) {
+            a.classList.add('act');
           } else {
-            anchorLink.classList.remove('act');
+            a.classList.remove('act');
+          }
+        });
+
+        // Sync Mobile Dock
+        document.querySelectorAll('.mob-nav-dock .dock-item[data-s]').forEach(d => {
+          if (d.getAttribute('data-s') === activeSectionId) {
+            d.classList.add('act');
+          } else {
+            d.classList.remove('act');
           }
         });
 
@@ -437,13 +624,12 @@
     }
   }, { passive: true });
 
-  // Back to Top smooth scroll
   backToTopBtn?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
 
-  // --- 8. LIGHTWEIGHT INTERSECTION OBSERVER REVEALS ---
+  // --- 10. INTERSECTION OBSERVER REVEALS ---
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -452,32 +638,12 @@
       }
     });
   }, {
-    threshold: 0.10,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.06,
+    rootMargin: '0px 0px -20px 0px'
   });
 
   document.querySelectorAll('.scroll-reveal, .reveal-item').forEach(target => {
     revealObserver.observe(target);
   });
-
-  // Hero elements entry sequence
-  const animHeroElements = () => {
-    const heroElements = document.querySelectorAll(
-      '.avail-widget, .hero-eyebrow, .hero-h1, .hero-tagline, .hero-subproof, .hero-stats-row, .hero-cta-row, .hero-price-anchor, .hero-bottom'
-    );
-    heroElements.forEach((el, index) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(16px)';
-      el.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-      el.style.transitionDelay = `${index * 0.06 + 0.03}s`;
-      
-      setTimeout(() => {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }, 40);
-    });
-  };
-  
-  animHeroElements();
 
 })();

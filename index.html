@@ -2,1094 +2,1276 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bayode Akindiose — Shopify Migration Rescue & E-Commerce Conversion Specialist</title>
-  <meta name="description" content="I help growing e-commerce brands migrate to Shopify without losing products, images, SEO traffic, or sales. 887+ products migrated, 900+ images cleaned, custom Python automation." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Bayode Akindiose — Shopify Migration Rescue &amp; Conversion Specialist</title>
+  <meta name="description" content="I migrate complex e-commerce catalogues to Shopify without losing products, images, SEO traffic, or sales. 887+ SKUs migrated." />
   
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://beyubabi.github.io/" />
   <link rel="canonical" href="https://beyubabi.github.io/" />
-  <meta property="og:title" content="Bayode Akindiose — Shopify Migration Rescue & E-Commerce Specialist" />
-  <meta property="og:description" content="I help e-commerce brands move to Shopify without losing products, images, SEO traffic, or sales. 887 products migrated, 900+ images cleaned, custom Python automation." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/og-image.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:title" content="Bayode Akindiose — Shopify Migration Rescue &amp; Conversion Specialist" />
+  <meta property="og:description" content="I help brands migrate to Shopify with zero data or SEO traffic loss. 887+ products migrated." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/profile.jpg" />
   <meta property="og:site_name" content="Bayode Akindiose" />
   
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Bayode Akindiose — Shopify Migration Rescue & E-Commerce Specialist" />
-  <meta name="twitter:description" content="I help e-commerce brands move to Shopify without losing products, images, SEO traffic, or sales." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/og-image.jpg" />
-  
-  <!-- Fonts -->
+  <!-- Fonts: Plus Jakarta Sans & Instrument Serif for luxury editorial headings -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Instrument+Serif:ital@0;1&family=Bebas+Neue&family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet" />
   
   <!-- Styling -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Noise Overlay for Tactile Texture -->
-  <div class="noise-overlay" aria-hidden="true"></div>
+  <!-- Ambient Soft Background Orbs -->
+  <div class="ambient-glow orb-1" aria-hidden="true"></div>
+  <div class="ambient-glow orb-2" aria-hidden="true"></div>
 
   <!-- Header Navigation -->
   <header>
     <nav id="mainNav">
-      <a class="nav-logo" href="#hero">BAYODE<span>.</span></a>
-      <div class="nav-r">
+      <a class="nav-logo" href="#hero" aria-label="Bayode Akindiose Home">
+        BAYODE<span class="logo-dot">.</span>
+        <span class="nav-role-badge">Shopify Specialist</span>
+      </a>
+
+      <div class="nav-center">
         <ul class="nav-links">
-          <li><a href="#case-study" data-s="case-study">887-SKU Case Study</a></li>
-          <li><a href="#services" data-s="services">Offers</a></li>
-          <li><a href="#estimator" data-s="estimator">Estimator</a></li>
+          <li><a href="#case-study" data-s="case-study">Case Study</a></li>
+          <li><a href="#services" data-s="services">Pricing</a></li>
+          <li><a href="#estimator" data-s="estimator">Calculator</a></li>
           <li><a href="#projects" data-s="projects">Work</a></li>
-          <li><a href="#process" data-s="process">Process</a></li>
-          <li><a href="#videos" data-s="videos">Videos</a></li>
-          <li><a href="#proof" data-s="proof">Proof</a></li>
-          <li><a href="#faq" data-s="faq">FAQ</a></li>
+          <li><a href="#proof" data-s="proof">Reviews</a></li>
           <li><a href="#contact" data-s="contact">Contact</a></li>
         </ul>
-        <div class="nav-cta-wrap">
-          <a href="#estimator" class="nav-quick-btn">Get Assessment</a>
-          <div class="theme-pill">
-            <button class="tp-btn" data-t="light" id="themeLight" aria-label="Switch to Light Theme">Light</button>
-            <button class="tp-btn act" data-t="dark" id="themeDark" aria-label="Switch to Dark Theme">Dark</button>
-            <button class="tp-btn" data-t="system" id="themeSystem" aria-label="Switch to System Theme">System</button>
-          </div>
+      </div>
+
+      <div class="nav-actions">
+        <div class="nav-status-pill" title="Lagos, Nigeria Local Time (WAT)">
+          <span class="live-pulse"></span>
+          <span class="time-text">Lagos: <strong id="nigeriaTimeNav">--:--:--</strong></span>
         </div>
+
+        <a href="#estimator" class="nav-cta-btn">Get Quote</a>
+
+        <!-- Sleek Desktop 3-State Theme Switcher (Light / Dark / System) -->
+        <div class="theme-switch-wrap" role="radiogroup" aria-label="Theme selector">
+          <button class="tp-btn" data-t="light" id="themeLight" title="Light mode" aria-label="Light mode">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+          <button class="tp-btn act" data-t="dark" id="themeDark" title="Dark mode" aria-label="Dark mode">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="tp-btn" data-t="system" id="themeSystem" title="System default" aria-label="System default">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Top Bar Actions -->
+      <div class="mob-header-actions">
+        <button class="mob-theme-btn" id="mobThemeQuickToggle" aria-label="Toggle Theme">
+          <svg class="sun-icon icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="mob-menu-btn" id="mobMenuOpenBtn" aria-label="Open Navigation Menu">
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
       </div>
     </nav>
   </header>
 
-  <!-- Mobile Theme Toggle -->
-  <div class="mob-theme-toggle" id="mobTheme">
-    <button class="mob-tp-btn" data-t="light" title="Light Theme" id="mobThemeLight" aria-label="Light Theme">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-    <button class="mob-tp-btn act" data-t="dark" title="Dark Theme" id="mobThemeDark" aria-label="Dark Theme">
-      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-    <button class="mob-tp-btn" data-t="system" title="System Theme" id="mobThemeSystem" aria-label="System Theme">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/></svg>
-    </button>
+  <!-- Mobile Navigation Drawer -->
+  <div class="mob-drawer-overlay" id="mobDrawerOverlay" aria-hidden="true">
+    <div class="mob-drawer" id="mobDrawer">
+      <div class="mob-drawer-header">
+        <div class="mob-drawer-brand">
+          <span class="drawer-logo">BAYODE<span class="logo-dot">.</span></span>
+          <span class="drawer-sub">Shopify Specialist</span>
+        </div>
+        <button class="mob-drawer-close" id="mobDrawerCloseBtn" aria-label="Close menu">✕</button>
+      </div>
+
+      <div class="mob-drawer-body">
+        <div class="drawer-time-card">
+          <div class="dt-left">
+            <span class="live-pulse"></span>
+            <span>Lagos, Nigeria (WAT)</span>
+          </div>
+          <span class="dt-time" id="nigeriaTimeDrawer">--:--:--</span>
+        </div>
+
+        <ul class="mob-drawer-links">
+          <li><a href="#case-study" class="mob-drawer-item" data-drawer-link><span class="drawer-text">887-SKU Case Study</span> <span class="drawer-arrow">→</span></a></li>
+          <li><a href="#services" class="mob-drawer-item" data-drawer-link><span class="drawer-text">Packages &amp; Pricing</span> <span class="drawer-arrow">→</span></a></li>
+          <li><a href="#estimator" class="mob-drawer-item" data-drawer-link><span class="drawer-text">Scope &amp; Cost Calculator</span> <span class="drawer-arrow">→</span></a></li>
+          <li><a href="#projects" class="mob-drawer-item" data-drawer-link><span class="drawer-text">Selected Builds (6)</span> <span class="drawer-arrow">→</span></a></li>
+          <li><a href="#videos" class="mob-drawer-item" data-drawer-link><span class="drawer-text">Video Walkthroughs</span> <span class="drawer-arrow">→</span></a></li>
+          <li><a href="#stack" class="mob-drawer-item" data-drawer-link><span class="drawer-text">Tools &amp; Pipeline</span> <span class="drawer-arrow">→</span></a></li>
+          <li><a href="#proof" class="mob-drawer-item" data-drawer-link><span class="drawer-text">Verified Reviews</span> <span class="drawer-arrow">→</span></a></li>
+          <li><a href="#faq" class="mob-drawer-item" data-drawer-link><span class="drawer-text">FAQ</span> <span class="drawer-arrow">→</span></a></li>
+          <li><a href="#contact" class="mob-drawer-item" data-drawer-link><span class="drawer-text">Contact on WhatsApp</span> <span class="drawer-arrow">→</span></a></li>
+        </ul>
+
+        <div class="drawer-theme-section">
+          <span class="drawer-section-title">Color Mode (Light / Dark / System)</span>
+          <div class="theme-switch-wrap drawer-theme-switch">
+            <button class="tp-btn" data-t="light">Light</button>
+            <button class="tp-btn act" data-t="dark">Dark</button>
+            <button class="tp-btn" data-t="system">System</button>
+          </div>
+        </div>
+
+        <div class="drawer-cta-wrap">
+          <a href="https://wa.me/2348126679348?text=Hi%20Bayode%2C%20I%20saw%20your%20portfolio%20and%20need%20help%20with%20my%20store." target="_blank" rel="noopener" class="btn-primary drawer-whatsapp-btn">
+            Chat on WhatsApp <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Back To Top Button -->
   <button class="back-to-top" id="backToTop" title="Back to top" aria-label="Back to Top">
-    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
-  <!-- Mobile Bottom Nav Bar -->
-  <nav class="mob-nav">
-    <a href="#case-study" data-s="case-study" id="mobLinkCase"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Case Study</a>
-    <a href="#services" data-s="services" id="mobLinkServices"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Offers</a>
-    <a href="#estimator" data-s="estimator" id="mobLinkEstimator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>Estimate</a>
-    <a href="#projects" data-s="projects" id="mobLinkWork"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Work</a>
-    <a href="#proof" data-s="proof" id="mobLinkProof"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Proof</a>
-    <a href="#contact" data-s="contact" id="mobLinkContact"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Contact</a>
+  <!-- Mobile Bottom Quick Dock -->
+  <nav class="mob-nav-dock" id="mobNavDock" aria-label="Mobile Navigation">
+    <a href="#case-study" class="dock-item" data-s="case-study">
+      <div class="dock-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <span class="dock-label">Case</span>
+    </a>
+    
+    <a href="#services" class="dock-item" data-s="services">
+      <div class="dock-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <span class="dock-label">Pricing</span>
+    </a>
+
+    <a href="#estimator" class="dock-item highlight" data-s="estimator">
+      <div class="dock-icon-wrap center-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+      </div>
+      <span class="dock-label">Quote</span>
+    </a>
+
+    <a href="#projects" class="dock-item" data-s="projects">
+      <div class="dock-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      </div>
+      <span class="dock-label">Work</span>
+    </a>
+
+    <button type="button" class="dock-item dock-menu-trigger" id="dockMoreBtn" aria-label="Open menu">
+      <div class="dock-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/><circle cx="5" cy="12" r="1.5"/></svg>
+      </div>
+      <span class="dock-label">Menu</span>
+    </button>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero-section">
-    <div class="hero-bg-num" aria-hidden="true">887</div>
-    <div class="hero-main">
-      <div class="hero-left-col">
-        <!-- Live Availability and Africa/Lagos Time Widget -->
-        <div class="avail-widget">
-          <div class="avail-dot"></div>
-          <span class="avail-status">Available for Migrations &amp; Sprints</span>
-          <span class="time-divider">|</span>
-          <span class="time-text">Lagos (WAT): <span id="nigeriaTime">--:--:--</span></span>
-        </div>
-        
-        <p class="hero-eyebrow">Shopify Migration &amp; Catalogue Engineering</p>
-        
-        <h1 class="hero-h1">
-          <span class="name-line">MOVE TO <span class="gold">SHOPIFY</span></span>
-          <span class="name-line stroke">WITHOUT LOSING</span>
-          <span class="name-line">SEO OR SALES.</span>
-        </h1>
+  <!-- CONTINUOUS LIVE MARQUEE STRIP (Moving Left to Right) -->
+  <div class="marquee-strip-wrapper" aria-hidden="true">
+    <div class="marquee-track">
+      <!-- Sequence 1 -->
+      <div class="marquee-item">
+        <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        <span>887 SKUs Migrated</span>
       </div>
-      
-      <div class="hero-right-col">
-        <p class="hero-tagline">I help growing e-commerce brands migrate to Shopify, clean up complex product catalogues, and fix the mobile conversion leaks stopping visitors from buying.</p>
-        
-        <div class="hero-subproof">
-          <strong>887 products migrated. 900+ images cleaned.</strong> Custom Python automation for messy catalogues that standard CSV imports break.
-        </div>
-
-        <div class="hero-stats-row">
-          <div class="hstat">
-            <div class="hstat-n">887</div>
-            <div class="hstat-l">SKUs Migrated</div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-n">900+</div>
-            <div class="hstat-l">Images Framed</div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-n">100%</div>
-            <div class="hstat-l">SEO Slugs Kept</div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-n">14d</div>
-            <div class="hstat-l">Post-Launch Care</div>
-          </div>
-        </div>
-
-        <div class="hero-cta-row">
-          <a class="btn-fill" href="#estimator">Get Migration Assessment <span class="arrow">→</span></a>
-          <a class="btn-ghost" href="#case-study">See 887-SKU Case Study</a>
-        </div>
-        
-        <div class="hero-price-anchor">
-          <span>Shopify Migrations from <strong>$650</strong></span>
-          <span class="anchor-dot">•</span>
-          <span>Conversion Sprints from <strong>$350</strong></span>
-          <span class="anchor-dot">•</span>
-          <span>Store Audits from <strong>$120</strong></span>
-        </div>
+      <div class="marquee-item">
+        <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>900+ Images Cleaned &amp; Framed</span>
       </div>
-    </div>
-    
-    <div class="hero-bottom">
-      <a href="#case-study" class="hero-scroll" aria-label="Scroll down to Case Study">
-        <div class="scroll-anim"></div>
-        <span>Explore the 887-Product Case Study</span>
-      </a>
-      <div class="tech-ticker-preview">
-        <span>Python Automation</span>
-        <span>•</span>
-        <span>301 SEO Matrix</span>
-        <span>•</span>
-        <span>Liquid Engineering</span>
-        <span>•</span>
-        <span>Zero 404 Leaks</span>
+      <div class="marquee-item">
+        <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        <span>100% SEO 301 Protection</span>
       </div>
-    </div>
-  </section>
+      <div class="marquee-item">
+        <span class="m-stars">★★★★★</span>
+        <span>5.0 Verified Client Reviews</span>
+      </div>
+      <div class="marquee-item">
+        <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>14-Day Post-Launch Warranty</span>
+      </div>
+      <div class="marquee-item">
+        <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>Sub-Second Mobile Checkout Speed</span>
+      </div>
 
-  <!-- Marquee Ticker -->
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker">
-      <span>Shopify Migration Rescue</span>
-      <span>887 Products Migrated</span>
-      <span>900+ Product Images Standardized</span>
-      <span>Zero SEO Traffic Loss</span>
-      <span>Python Catalogue Automation</span>
-      <span>Mobile Checkout Conversion Repair</span>
-      <span>301 Redirection Mapping</span>
-      <span>Custom Liquid Logic</span>
-      <span>14-Day Post-Launch Warranty</span>
-      <!-- Duplicate for seamless scroll -->
-      <span>Shopify Migration Rescue</span>
-      <span>887 Products Migrated</span>
-      <span>900+ Product Images Standardized</span>
-      <span>Zero SEO Traffic Loss</span>
-      <span>Python Catalogue Automation</span>
-      <span>Mobile Checkout Conversion Repair</span>
-      <span>301 Redirection Mapping</span>
-      <span>Custom Liquid Logic</span>
-      <span>14-Day Post-Launch Warranty</span>
+      <!-- Sequence 2 (Duplicate for infinite seamless loop) -->
+      <div class="marquee-item">
+        <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        <span>887 SKUs Migrated</span>
+      </div>
+      <div class="marquee-item">
+        <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>900+ Images Cleaned &amp; Framed</span>
+      </div>
+      <div class="marquee-item">
+        <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        <span>100% SEO 301 Protection</span>
+      </div>
+      <div class="marquee-item">
+        <span class="m-stars">★★★★★</span>
+        <span>5.0 Verified Client Reviews</span>
+      </div>
+      <div class="marquee-item">
+        <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>14-Day Post-Launch Warranty</span>
+      </div>
+      <div class="marquee-item">
+        <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>Sub-Second Mobile Checkout Speed</span>
+      </div>
     </div>
   </div>
 
-  <!-- DEDICATED 887-PRODUCT CASE STUDY: SWIFTGLAMOUR DEEP-DIVE -->
-  <section id="case-study" class="case-study-section scroll-reveal">
-    <div class="case-study-container">
-      <div class="case-study-header">
-        <div class="sec-label">Primary Sales Asset • Live Case Study</div>
-        <h2 class="sec-title">THE 887-PRODUCT<br><em>MIGRATION RESCUE</em></h2>
-        <p class="case-study-lead">
-          Moving from WooCommerce, Wix, or Magento to Shopify is <strong>not just exporting a CSV</strong>. 
-          When catalogues grow past 100+ items with messy variants, generic apps break image links, destroy variant groupings, and wipe out years of Google SEO rankings. 
-          Here is how I engineered a seamless replatform for Swiftglamour.
+  <!-- HERO SECTION (Centralized on Mobile, Balanced 2-Column on Desktop) -->
+  <section id="hero" class="hero-section">
+    <div class="hero-container">
+      <!-- Left Column: Value Prop, Profile Badge & Bio -->
+      <div class="hero-content-col">
+        <!-- Founder Profile & Picture Badge -->
+        <div class="hero-founder-card">
+          <div class="founder-avatar-wrap">
+            <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/profile.jpg" alt="Bayode Akindiose — Shopify Migration &amp; Conversion Specialist" class="founder-avatar-img" onerror="this.onerror=null;this.src='profile.jpg';" />
+            <span class="founder-status-dot" title="Available for Projects"></span>
+          </div>
+          <div class="founder-info">
+            <div class="founder-name-row">
+              <strong class="founder-name">Bayode Akindiose <span class="founder-check">✓</span></strong>
+              <span class="founder-role">Shopify Migration &amp; CRO Specialist</span>
+            </div>
+            <p class="founder-pitch">
+              I specialize in complex catalog replatforming, custom Liquid architectures, and high-velocity mobile checkouts with <strong>zero SEO drops</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="avail-badge">
+          <span class="avail-dot"></span>
+          <span>Available for New Migrations &amp; Audits</span>
+          <span class="badge-sep">•</span>
+          <span class="badge-time">WAT: <span id="nigeriaTime">--:--:--</span></span>
+        </div>
+        
+        <h1 class="hero-headline">
+          Migrating your store to Shopify? I make sure you don't lose a single product, image, or Google search ranking.
+        </h1>
+
+        <p class="hero-subtext">
+          I help brands on WooCommerce, Wix, and custom platforms safely replatform to high-speed Shopify stores with <strong>zero broken links</strong>, <strong>clean uniform product images</strong>, and <strong>fast mobile checkouts</strong>.
         </p>
-      </div>
 
-      <!-- Case Study Hero Visual & Metrics Bar -->
-      <div class="case-study-hero-card">
-        <div class="case-visual-col">
-          <div class="case-img-wrap">
-            <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/swiftglamour.jpg" alt="Swiftglamour 887 Product Migration Case Study" class="case-featured-img" loading="lazy" decoding="async" width="800" height="420" />
-            <div class="case-img-overlay">
-              <a href="https://www.swiftglamour.shop" target="_blank" rel="noopener" class="case-live-btn">
-                Visit Live Production Store ↗
-              </a>
-            </div>
+        <!-- Compact Hero Stats Grid -->
+        <div class="hero-metrics-grid">
+          <div class="metric-card">
+            <span class="metric-num">887</span>
+            <span class="metric-lbl">SKUs Migrated</span>
           </div>
-          <div class="case-screencast-prompt" onclick="openVideoModal('https://www.youtube.com/embed/6_hK2cO8E8k?autoplay=1')" role="button" tabindex="0">
-            <span class="play-icon-sm">▶</span>
-            <span>Watch 2-Minute Screencast Breakdown of this Migration</span>
+          <div class="metric-card">
+            <span class="metric-num">900+</span>
+            <span class="metric-lbl">Images Framed</span>
           </div>
-        </div>
-
-        <div class="case-sidebar-metrics">
-          <div class="case-metric-box">
-            <span class="cm-num">887</span>
-            <span class="cm-label">Products Extracted &amp; Migrated</span>
+          <div class="metric-card">
+            <span class="metric-num">0</span>
+            <span class="metric-lbl">404 Errors / Loss</span>
           </div>
-          <div class="case-metric-box">
-            <span class="cm-num">900+</span>
-            <span class="cm-label">Images Cleaned &amp; Framed</span>
-          </div>
-          <div class="case-metric-box">
-            <span class="cm-num">0</span>
-            <span class="cm-label">404 Errors / Zero SEO Rank Loss</span>
-          </div>
-          <div class="case-metric-box">
-            <span class="cm-num">100%</span>
-            <span class="cm-label">Mobile Checkout Conversion Flow</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- The 5-Point Strategic Anatomy -->
-      <div class="case-anatomy-grid">
-        <!-- 1. Before -->
-        <div class="anatomy-card before">
-          <div class="anatomy-badge">01 / The State Before</div>
-          <h3 class="anatomy-title">Outdated WooCommerce Backend &amp; Fragmented Data</h3>
-          <p class="anatomy-text">
-            Swiftglamour was struggling on an unoptimized WooCommerce instance: 887 health &amp; beauty SKUs, irregular product descriptions, non-standardized multi-aspect image ratios, slow load times, and high mobile cart abandonment.
-          </p>
-        </div>
-
-        <!-- 2. The Risk -->
-        <div class="anatomy-card risk">
-          <div class="anatomy-badge danger">02 / The Critical Risk</div>
-          <h3 class="anatomy-title">Data Destruction &amp; Organic Traffic Collapse</h3>
-          <p class="anatomy-text">
-            Standard CSV export apps timed out on MySQL queries. Nested variants and media URLs were disconnecting. Crucially, without a comprehensive 301 URL redirect map, the brand risked losing thousands of organic Google search visitors overnight.
-          </p>
-        </div>
-
-        <!-- 3. The Engineering Solution -->
-        <div class="anatomy-card solution span-2">
-          <div class="anatomy-badge highlight">03 / The Engineering Solution (Work Performed)</div>
-          <h3 class="anatomy-title">Custom Python Automation, Image Pipelines &amp; Liquid Rebuild</h3>
-          <div class="solution-pillars">
-            <div class="sp-item">
-              <strong>1. Python Data Engine:</strong> Wrote custom scripts to bypass CSV bottlenecks, parse raw database feeds, clean HTML formatting, and preserve variant groupings.
-            </div>
-            <div class="sp-item">
-              <strong>2. Batch Image Processing:</strong> Automated PhotoRoom workflows to remove distracting backdrops, standardize 900+ images to crisp 1:1 ratios, and brand consistent margins.
-            </div>
-            <div class="sp-item">
-              <strong>3. 301 SEO Redirection Matrix:</strong> Mapped every legacy WooCommerce URL slug to its new Shopify equivalent, preserving 100% of existing search engine equity.
-            </div>
-            <div class="sp-item">
-              <strong>4. Mobile Conversion Theme:</strong> Built a fast, lightweight Liquid theme with sticky buy buttons, verified gateway checkout, and Google Merchant Center sync.
-            </div>
+          <div class="metric-card">
+            <span class="metric-num">14d</span>
+            <span class="metric-lbl">Warranty Included</span>
           </div>
         </div>
 
-        <!-- 4. The Result -->
-        <div class="anatomy-card result">
-          <div class="anatomy-badge success">04 / The Result</div>
-          <h3 class="anatomy-title">Flawless Replatform with Zero Revenue Interruption</h3>
-          <p class="anatomy-text">
-            All 887 products and 900+ images launched seamlessly. Organic rankings were protected with zero 404 leaks. Mobile buyers gained a fast, one-thumb checkout experience that eliminated previous friction.
-          </p>
-        </div>
-
-        <!-- 5. Who Needs This -->
-        <div class="anatomy-card audience">
-          <div class="anatomy-badge">05 / Is This For You?</div>
-          <h3 class="anatomy-title">Who Needs A Migration Rescue</h3>
-          <p class="anatomy-text">
-            Brands with <strong>50 to 1,000+ products</strong> currently running on WooCommerce, Wix, Magento, or messy Excel sheets who want to move to Shopify without risking their catalogue, SEO rankings, or revenue.
-          </p>
-        </div>
-      </div>
-
-      <!-- Direct Case Study Call To Action -->
-      <div class="case-cta-banner">
-        <div class="case-cta-content">
-          <h3 class="case-cta-h3">Preparing to move your store to Shopify?</h3>
-          <p class="case-cta-p">Send me your current platform link and estimated product count. I'll inspect your catalog structure and provide a fixed-scope migration plan within 24 hours.</p>
-        </div>
-        <div class="case-cta-actions">
-          <a href="https://wa.me/2348126679348?text=Hi%20Bayode%2C%20I%20saw%20your%20887-product%20case%20study.%20I%20need%20help%20with%20my%20e-commerce%20store.%20My%20current%20platform%20is%20%5Bplatform%5D%2C%20I%20have%20approximately%20%5Bnumber%5D%20products%2C%20and%20my%20main%20problem%20is%20%5Bproblem%5D." target="_blank" rel="noopener" class="btn-fill">
-            Send Store Link on WhatsApp <span class="arrow">→</span>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#estimator">
+            <span>Calculate Migration Scope</span>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="#estimator" class="btn-ghost">Calculate Migration Cost</a>
+          <a class="btn-secondary" href="#case-study">View 887-SKU Case Study</a>
+        </div>
+        
+        <div class="hero-quick-pricing">
+          <span>Fixed Packages: Replatform from <strong>$650</strong></span>
+          <span class="sep">•</span>
+          <span>Conversion Sprints <strong>$350</strong></span>
+          <span class="sep">•</span>
+          <span>Audits <strong>$120</strong></span>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Migration Preview Card (Desktop Showcase) -->
+      <div class="hero-visual-col">
+        <div class="preview-app-card">
+          <div class="app-card-header">
+            <div class="window-controls">
+              <span class="wdot red"></span>
+              <span class="wdot yellow"></span>
+              <span class="wdot green"></span>
+            </div>
+            <div class="app-card-title">Shopify Migration Inspector</div>
+            <span class="app-badge-live">LIVE STORE READY</span>
+          </div>
+
+          <div class="app-card-body">
+            <!-- Inspection Summary -->
+            <div class="inspector-row">
+              <div class="inspector-icon ok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="inspector-info">
+                <strong>Catalogue Extraction</strong>
+                <span>887 products, variants &amp; metafields parsed cleanly</span>
+              </div>
+              <span class="inspector-status">100% OK</span>
+            </div>
+
+            <div class="inspector-row">
+              <div class="inspector-icon ok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="inspector-info">
+                <strong>1:1 Image Canvas Framing</strong>
+                <span>900+ images auto-centered with uniform square margins</span>
+              </div>
+              <span class="inspector-status">Framed</span>
+            </div>
+
+            <div class="inspector-row">
+              <div class="inspector-icon ok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="inspector-info">
+                <strong>301 SEO Redirection Matrix</strong>
+                <span>Mapped legacy URLs directly to new Shopify paths</span>
+              </div>
+              <span class="inspector-status">0 Leaks</span>
+            </div>
+
+            <div class="inspector-row">
+              <div class="inspector-icon ok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="inspector-info">
+                <strong>Mobile Speed &amp; Checkout</strong>
+                <span>Streamlined Liquid templates for sub-second catalog paints</span>
+              </div>
+              <span class="inspector-status">0.8s</span>
+            </div>
+
+            <!-- Mini Live Feed Box -->
+            <div class="live-feed-box">
+              <div class="feed-header">
+                <span class="feed-dot"></span>
+                <span>Lifestyle Anchor Brand: Swiftglamour.shop (887 Items)</span>
+              </div>
+              <p class="feed-note">
+                "Full replatform launched on time with 0 downtime, pristine 1:1 image framing, and 100% Google index retention."
+              </p>
+            </div>
+          </div>
+
+          <div class="app-card-footer">
+            <a href="https://www.swiftglamour.shop" target="_blank" rel="noopener" class="app-footer-link">
+              Visit Live Brand Store (swiftglamour.shop) ↗
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- THREE SHARP COMMERCIAL OFFERS SECTION -->
-  <section id="services" class="services-section scroll-reveal">
-    <div class="sec-label">Commercial Positioning</div>
-    <h2 class="sec-title">THREE DEFINED OFFERS.<br><span class="stroke">ZERO VAGUE PROMISES.</span></h2>
-    <p class="services-subhead">
-      I do not sell vague "web design." You get a clearly defined outcome: a catalog safely migrated, conversion leaks fixed, or a prioritized teardown of why mobile visitors aren't buying.
-    </p>
-    
-    <div class="services-grid">
-      <!-- 01 PRIMARY OFFER: Shopify Migration Rescue -->
-      <div class="sv featured reveal-item">
-        <div class="sv-featured-tag">★ Recommended Primary Offer</div>
-        <div class="sv-header">
-          <div class="sv-num">01 / Flagship Service</div>
-          <h3 class="sv-title">Shopify Migration Rescue</h3>
-          <p class="sv-who">For brands currently using WooCommerce, Wix, Magento, or messy spreadsheets who cannot afford to lose products, images, or SEO traffic.</p>
-        </div>
-        <div class="sv-pricing-box">
-          <div class="sv-price">Starting from $650</div>
-          <div class="sv-naira">~ ₦910,000 (Based on SKU volume &amp; platform)</div>
-        </div>
-        <ul class="sv-list">
-          <li><span class="sv-dash">✓</span><strong>Full Product Database Extraction:</strong> 50 to 1,000+ items migrated safely without timeouts.</li>
-          <li><span class="sv-dash">✓</span><strong>Image Cleanup &amp; Standardization:</strong> Aspect ratio alignment, background cleanup &amp; framing.</li>
-          <li><span class="sv-dash">✓</span><strong>Variant &amp; SKU Organization:</strong> Rebuilding clean size/color matrices and inventory counts.</li>
-          <li><span class="sv-dash">✓</span><strong>100% 301 URL Redirects:</strong> Preserving all Google backlinks and organic search equity.</li>
-          <li><span class="sv-dash">✓</span><strong>Liquid Setup &amp; Checkout Testing:</strong> Mobile-first layout, payment gateways &amp; currency sync.</li>
-          <li><span class="sv-dash">✓</span><strong>14-Day Post-Launch Warranty:</strong> I monitor live sales to guarantee zero checkout friction.</li>
-        </ul>
-        <div class="sv-proof">Proven On: <strong>Swiftglamour (887 SKUs · 900+ images)</strong></div>
-        <a href="#estimator" class="btn-fill sv-card-btn">Estimate Migration Scope <span class="arrow">→</span></a>
-      </div>
-
-      <!-- 02 SECONDARY OFFER: Shopify Conversion Repair Sprint -->
-      <div class="sv reveal-item">
-        <div class="sv-header">
-          <div class="sv-num">02 / Conversion Sprint</div>
-          <h3 class="sv-title">Shopify Conversion Repair</h3>
-          <p class="sv-who">For stores with active traffic but disappointing sales, high bounce rates, and mobile checkout drop-offs.</p>
-        </div>
-        <div class="sv-pricing-box">
-          <div class="sv-price">From $350 – $800</div>
-          <div class="sv-naira">~ ₦490,000 – ₦1.12M (1-Week Sprint)</div>
-        </div>
-        <ul class="sv-list">
-          <li><span class="sv-dash">✓</span><strong>Mobile Product Page Teardown:</strong> Above-the-fold hierarchy, sticky Add-To-Cart &amp; Buy Now buttons.</li>
-          <li><span class="sv-dash">✓</span><strong>Checkout Friction Elimination:</strong> Reducing form fields, fixing mobile bugs, and boosting tap speeds.</li>
-          <li><span class="sv-dash">✓</span><strong>Trust &amp; Shipping Visibility:</strong> Integrating photo reviews (Loox), badges, and clear delivery timers.</li>
-          <li><span class="sv-dash">✓</span><strong>Speed &amp; Core Web Vitals:</strong> Removing app bloat, optimizing asset payloads, fixing layout shift.</li>
-          <li><span class="sv-dash">✓</span><strong>Pixel &amp; Analytics Check:</strong> Ensuring Meta &amp; Google ad tracking fires accurately.</li>
-        </ul>
-        <div class="sv-proof">Proven On: <strong>Fresh Juice &amp; Oversize Plus</strong></div>
-        <a href="#estimator" class="btn-ghost sv-card-btn">Configure Sprint Scope</a>
-      </div>
-
-      <!-- 03 ENTRY OFFER: Paid Strategic Store Audit -->
-      <div class="sv reveal-item">
-        <div class="sv-header">
-          <div class="sv-num">03 / Low-Risk Entry</div>
-          <h3 class="sv-title">Paid Strategic Store Audit</h3>
-          <p class="sv-who">A low-risk way to start working together. Discover the exact leaks killing your sales before committing to a full build.</p>
-        </div>
-        <div class="sv-pricing-box">
-          <div class="sv-price">Fixed $120</div>
-          <div class="sv-naira">~ ₦168,000 (Turnaround: 24–48 Hours)</div>
-        </div>
-        <ul class="sv-list">
-          <li><span class="sv-dash">✓</span><strong>15-Minute Loom Video Walkthrough:</strong> Live teardown of your mobile and desktop experience.</li>
-          <li><span class="sv-dash">✓</span><strong>10–15 Prioritized Issues:</strong> Documented ranking of highest-severity revenue leaks.</li>
-          <li><span class="sv-dash">✓</span><strong>Product Page &amp; Cart Audit:</strong> Inspecting messaging, button visibility, shipping clarity &amp; trust.</li>
-          <li><span class="sv-dash">✓</span><strong>Actionable Implementation Roadmap:</strong> Clear instructions you or your team can execute.</li>
-          <li><span class="sv-dash">✓</span><strong>Fixed Implementation Quote:</strong> 100% credited toward your project if you hire me to fix them.</li>
-        </ul>
-        <div class="sv-proof">Guaranteed: <strong>Actionable Diagnostic or Full Refund</strong></div>
-        <a href="https://wa.me/2348126679348?text=Hi%20Bayode%2C%20I%20would%20like%20to%20book%20a%20Paid%20Store%20Audit%20%28%24120%29%20for%20my%20store.%20My%20website%20URL%20is%20%5BURL%5D." target="_blank" rel="noopener" class="btn-ghost sv-card-btn">Book $120 Strategic Audit</a>
-      </div>
+  <!-- FEATURED CASE STUDY: SWIFTGLAMOUR (887-SKU REPLATFORM) -->
+  <section id="case-study" class="section-container scroll-reveal">
+    <div class="section-header">
+      <span class="section-tag">Anchor Case Study · Lifestyle Brand</span>
+      <h2 class="section-title">The 887-Product <em>Migration Rescue</em></h2>
+      <p class="section-desc">
+        Moving a high-volume catalogue from WooCommerce to Shopify is not just exporting a CSV. Here is how I safely replatformed 887 health, beauty &amp; lifestyle SKUs for anchor brand Swiftglamour with zero traffic loss.
+      </p>
     </div>
-    
-    <div class="services-footer">
-      <div class="sf-left">
-        <p class="services-note">"Not sure which offer fits your current numbers? Let's check your store on WhatsApp. I'll tell you honestly what makes commercial sense."</p>
+
+    <!-- Case Study Card -->
+    <div class="case-study-card">
+      <div class="case-card-visual">
+        <div class="case-img-container">
+          <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/swiftglamour.jpg" alt="Swiftglamour 887 Product Migration Case Study" class="case-img" loading="lazy" decoding="async" width="800" height="450" />
+          <div class="case-img-overlay">
+            <a href="https://www.swiftglamour.shop" target="_blank" rel="noopener" class="case-overlay-btn">
+              Visit Live Store ↗
+            </a>
+          </div>
+        </div>
+        <div class="case-screencast-btn" onclick="openVideoModal('https://www.youtube.com/embed/6_hK2cO8E8k?autoplay=1')" role="button" tabindex="0">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <span>Watch 2-Minute Video Walkthrough</span>
+        </div>
       </div>
-      <a class="btn-fill" href="https://wa.me/2348126679348?text=Hi%20Bayode%2C%20I%20need%20help%20deciding%20which%20service%20matches%20my%20store.%20My%20website%20is%20%5BURL%5D." target="_blank" rel="noopener">
-        Discuss Your Store on WhatsApp <span class="arrow">→</span>
-      </a>
+
+      <div class="case-card-details">
+        <div class="case-metrics-banner">
+          <div class="case-metric-item">
+            <span class="cm-val">887</span>
+            <span class="cm-lbl">SKUs Extracted</span>
+          </div>
+          <div class="case-metric-item">
+            <span class="cm-val">900+</span>
+            <span class="cm-lbl">Images Framed</span>
+          </div>
+          <div class="case-metric-item">
+            <span class="cm-val">0</span>
+            <span class="cm-lbl">404 Errors</span>
+          </div>
+          <div class="case-metric-item">
+            <span class="cm-val">100%</span>
+            <span class="cm-lbl">SEO Retained</span>
+          </div>
+        </div>
+
+        <div class="case-breakdown-grid">
+          <div class="breakdown-card">
+            <span class="breakdown-tag warning">The Problem</span>
+            <h3 class="breakdown-title">Database Overload &amp; Complex Variants</h3>
+            <p class="breakdown-text">887 products with multiple sizes and shade variations were timing out standard Shopify import apps and causing mobile checkout lag.</p>
+          </div>
+
+          <div class="breakdown-card">
+            <span class="breakdown-tag danger">The Risk</span>
+            <h3 class="breakdown-title">Losing Organic Google Search Rankings</h3>
+            <p class="breakdown-text">Without comprehensive 301 URL redirects, existing organic search traffic would hit broken 404 pages, destroying customer trust and sales.</p>
+          </div>
+
+          <div class="breakdown-card">
+            <span class="breakdown-tag highlight">The Solution</span>
+            <h3 class="breakdown-title">Custom Python Extraction &amp; 1:1 Image Framing</h3>
+            <p class="breakdown-text">Wrote custom ETL scripts to extract and clean product data, automated PhotoRoom to standardize 900+ images into 1:1 squares, and created a complete 301 redirect map.</p>
+          </div>
+
+          <div class="breakdown-card">
+            <span class="breakdown-tag success">The Result</span>
+            <h3 class="breakdown-title">Flawless Replatform · Zero Downtime</h3>
+            <p class="breakdown-text">Store launched smoothly on a clean Shopify Liquid theme with fast 2-step mobile checkout, preserved SEO rankings, and happy buyers.</p>
+          </div>
+        </div>
+
+        <div class="case-action-bar">
+          <div class="case-action-text">
+            <strong>Ready to move your store safely?</strong>
+            <span>Send me your store link and estimated product count for a fixed proposal.</span>
+          </div>
+          <a href="https://wa.me/2348126679348?text=Hi%20Bayode%2C%20I%20saw%20your%20887-product%20case%20study.%20I%20need%20help%20migrating%20my%20store." target="_blank" rel="noopener" class="btn-primary">
+            <span>Chat on WhatsApp</span>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- INTERACTIVE MIGRATION INTAKE & COST ESTIMATOR -->
-  <section id="estimator" class="estimator-section scroll-reveal">
-    <div class="estimator-container">
-      <div class="estimator-header">
-        <div class="sec-label">Scope &amp; Investment Estimator</div>
-        <h2 class="sec-title">CALCULATE YOUR<br><em>PROJECT INVESTMENT</em></h2>
-        <p class="estimator-intro">Select your required service, adjust your product catalogue count, and get an instant, transparent estimate. Click to transfer the exact scope directly into a pre-filled WhatsApp message.</p>
-      </div>
+  <!-- COMMERCIAL PACKAGES & PRICING -->
+  <section id="services" class="section-container scroll-reveal">
+    <div class="section-header">
+      <span class="section-tag">Packages &amp; Pricing</span>
+      <h2 class="section-title">Clear Deliverables. <em>Fixed Pricing.</em></h2>
+      <p class="section-desc">
+        No unexpected fees or vague hourly billing. You hire for exact outcomes: safe catalog migration, conversion optimization, or an actionable audit.
+      </p>
+    </div>
 
-      <div class="estimator-box">
-        <div class="estimator-form">
-          <!-- Step 1: Service Selection -->
-          <div class="form-group">
-            <label class="group-label">1. Select Desired Service</label>
-            <div class="service-selector">
-              <button type="button" class="service-pill act" data-price="650" data-service="migration">
-                <div class="sp-badge-wrap">
-                  <span class="title">Shopify Migration Rescue</span>
-                  <span class="badge-mini">Flagship</span>
-                </div>
-                <span class="desc">Safe replatform from WooCommerce/Wix/Magento (Zero data or SEO loss)</span>
-              </button>
-              
-              <button type="button" class="service-pill" data-price="350" data-service="conversion">
-                <span class="title">Conversion Repair Sprint</span>
-                <span class="desc">Fix mobile product page leaks, checkout friction &amp; speed bottlenecks</span>
-              </button>
-              
-              <button type="button" class="service-pill" data-price="120" data-service="audit">
-                <span class="title">Strategic Store Audit ($120)</span>
-                <span class="desc">15-minute Loom teardown + 10-15 prioritized fixes + execution roadmap</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Step 2: SKU volume slider -->
-          <div class="form-group" id="productCountGroup">
-            <div class="slider-header">
-              <label class="group-label" for="productCountRange">2. Number of Products / SKUs to Migrate or Optimize</label>
-              <span class="slider-value" id="productCountVal">100 Products</span>
-            </div>
-            <input type="range" id="productCountRange" class="styled-range" min="10" max="1000" step="10" value="100" />
-            <div class="range-labels">
-              <span>10 SKUs (Boutique)</span>
-              <span>500 SKUs (Growing)</span>
-              <span>1,000+ SKUs (High-Volume)</span>
-            </div>
-          </div>
-
-          <!-- Step 3: Current Platform Selector -->
-          <div class="form-group" id="platformSelectGroup">
-            <label class="group-label">3. Current Store Platform</label>
-            <div class="platform-chips">
-              <button type="button" class="pchip act" data-plat="WooCommerce">WooCommerce</button>
-              <button type="button" class="pchip" data-plat="Wix">Wix</button>
-              <button type="button" class="pchip" data-plat="Magento">Magento</button>
-              <button type="button" class="pchip" data-plat="Shopify">Existing Shopify</button>
-              <button type="button" class="pchip" data-plat="Custom/Spreadsheet">Custom / Excel</button>
-            </div>
-          </div>
-
-          <!-- Step 4: Addons -->
-          <div class="form-group" id="addonsGroup">
-            <label class="group-label">4. Technical Add-ons &amp; Safeguards</label>
-            <div class="addons-list">
-              <label class="addon-card">
-                <input type="checkbox" id="addonImage" value="150" class="addon-checkbox" checked />
-                <span class="addon-label">
-                  <strong class="title">Automated Batch Image Cleanup &amp; 1:1 Framing (+$150)</strong>
-                  <span class="desc">Standardizes mixed aspect ratios, removes background clutter, and adds uniform branding.</span>
-                </span>
-              </label>
-              <label class="addon-card">
-                <input type="checkbox" id="addonSeo" value="100" class="addon-checkbox" checked />
-                <span class="addon-label">
-                  <strong class="title">Comprehensive 301 URL Redirect Matrix (+$100)</strong>
-                  <span class="desc">Preserves Google search rankings and prevents 404 broken links on legacy URLs.</span>
-                </span>
-              </label>
-              <label class="addon-card">
-                <input type="checkbox" id="addonMerchant" value="120" class="addon-checkbox" />
-                <span class="addon-label">
-                  <strong class="title">Google Merchant Center &amp; Shopping Feed Sync (+$120)</strong>
-                  <span class="desc">Configures clean XML product data feeds directly for Google Shopping campaigns.</span>
-                </span>
-              </label>
-            </div>
-          </div>
+    <div class="services-cards-grid">
+      <!-- 01 Flagship Migration -->
+      <div class="service-card featured reveal-item">
+        <div class="service-badge">★ Most Popular</div>
+        <div class="service-head">
+          <span class="service-kicker">Package 01</span>
+          <h3 class="service-title">Shopify Migration Rescue</h3>
+          <p class="service-desc">For store owners migrating from WooCommerce, Wix, or Magento who cannot afford to lose products, images, or SEO.</p>
         </div>
 
-        <!-- Result Card -->
-        <div class="estimator-result">
-          <div class="result-card">
-            <span class="card-eyebrow">Estimated Project Scope</span>
-            <div class="result-price" id="calcPrice">$900</div>
-            <div class="result-naira" id="calcNaira">₦1,260,000</div>
+        <div class="service-price-block">
+          <div class="service-price-val">From $650</div>
+          <div class="service-price-sub">~ ₦910,000 (Based on catalog volume)</div>
+        </div>
+
+        <ul class="service-features-list">
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Full Data Extraction:</strong> 50 to 1,000+ SKUs, variants, prices &amp; inventory.</div>
+          </li>
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>1:1 Image Framing:</strong> Standardized square canvases with clean margins.</div>
+          </li>
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>301 SEO Redirection Matrix:</strong> 100% protection against broken 404 links.</div>
+          </li>
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Liquid Setup &amp; Checkout:</strong> Sub-second mobile conversion layout.</div>
+          </li>
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>14-Day Post-Launch Warranty:</strong> Active daily transaction monitoring.</div>
+          </li>
+        </ul>
+
+        <div class="service-footer">
+          <a href="#estimator" class="btn-primary service-cta">
+            <span>Calculate Migration Scope</span>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 02 Conversion Sprint -->
+      <div class="service-card reveal-item">
+        <div class="service-head">
+          <span class="service-kicker">Package 02</span>
+          <h3 class="service-title">Conversion Repair Sprint</h3>
+          <p class="service-desc">For active Shopify stores getting visitor traffic but suffering from low conversion rates and mobile drop-offs.</p>
+        </div>
+
+        <div class="service-price-block">
+          <div class="service-price-val">$350 – $800</div>
+          <div class="service-price-sub">~ ₦490,000 – ₦1.12M (1-Week Turnaround)</div>
+        </div>
+
+        <ul class="service-features-list">
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Mobile Product Page Revamp:</strong> Sticky buy button &amp; trust hierarchy.</div>
+          </li>
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>2-Tap Checkout Flow:</strong> Removing unnecessary fields &amp; friction.</div>
+          </li>
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Speed Optimization:</strong> Removing app bloat &amp; optimizing image assets.</div>
+          </li>
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Social Proof Sync:</strong> Customer photo review integration (Loox/Judge.me).</div>
+          </li>
+        </ul>
+
+        <div class="service-footer">
+          <a href="#estimator" class="btn-secondary service-cta">Configure Sprint</a>
+        </div>
+      </div>
+
+      <!-- 03 Paid Store Audit -->
+      <div class="service-card reveal-item">
+        <div class="service-head">
+          <span class="service-kicker">Package 03</span>
+          <h3 class="service-title">Strategic Store Audit</h3>
+          <p class="service-desc">Discover the exact mobile leaks killing your checkout sales before committing to a larger build.</p>
+        </div>
+
+        <div class="service-price-block">
+          <div class="service-price-val">Fixed $120</div>
+          <div class="service-price-sub">~ ₦168,000 (Delivered in 24–48 hours)</div>
+        </div>
+
+        <ul class="service-features-list">
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>15-Minute Video Teardown:</strong> Live inspection of your mobile user flow.</div>
+          </li>
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Top 10 Prioritized Leaks:</strong> Clear severity ratings with fix advice.</div>
+          </li>
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Implementation Guide:</strong> Step-by-step instructions for your team.</div>
+          </li>
+          <li>
+            <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>100% Credited:</strong> Deducted from project cost if you hire me for the fixes.</div>
+          </li>
+        </ul>
+
+        <div class="service-footer">
+          <a href="https://wa.me/2348126679348?text=Hi%20Bayode%2C%20I%20would%20like%20to%20book%20a%20%24120%20Store%20Audit." target="_blank" rel="noopener" class="btn-secondary service-cta">Book $120 Audit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE COST & SCOPE CALCULATOR -->
+  <section id="estimator" class="section-container scroll-reveal">
+    <div class="section-header">
+      <span class="section-tag">Interactive Calculator</span>
+      <h2 class="section-title">Calculate Your <em>Project Investment</em></h2>
+      <p class="section-desc">Select your requirements to see an immediate estimated scope, then send the exact breakdown straight to WhatsApp.</p>
+    </div>
+
+    <div class="estimator-layout">
+      <div class="estimator-controls">
+        <!-- Step 1 -->
+        <div class="form-section">
+          <label class="section-subtitle">1. Select Your Service</label>
+          <div class="service-pill-group">
+            <button type="button" class="service-toggle-btn act" data-price="650" data-service="migration">
+              <div class="st-top">
+                <span class="st-title">Shopify Migration Rescue</span>
+                <span class="st-tag">Flagship</span>
+              </div>
+              <span class="st-desc">Full safe replatform with zero SEO or image data loss</span>
+            </button>
             
-            <ul class="result-details" id="calcDetails">
-              <li>• Base Migration Rescue: $650 (Up to 100 SKUs)</li>
-              <li>• Add-on: Image Cleanup &amp; Framing (+$150)</li>
-              <li>• Add-on: 301 SEO Redirection Matrix (+$100)</li>
-            </ul>
+            <button type="button" class="service-toggle-btn" data-price="350" data-service="conversion">
+              <div class="st-top">
+                <span class="st-title">Conversion Repair Sprint</span>
+              </div>
+              <span class="st-desc">Mobile checkout repair &amp; speed boost (1-week sprint)</span>
+            </button>
+            
+            <button type="button" class="service-toggle-btn" data-price="120" data-service="audit">
+              <div class="st-top">
+                <span class="st-title">Strategic Store Audit ($120)</span>
+              </div>
+              <span class="st-desc">15-min video teardown + prioritized fix list</span>
+            </button>
+          </div>
+        </div>
 
-            <div class="result-footer">
-              <a href="#" id="estimateWhatsAppBtn" class="btn-fill calc-whatsapp" target="_blank" rel="noopener">
-                Send Scope to WhatsApp <span class="arrow">→</span>
-              </a>
-              <span class="guarantee-note">✓ 14 days post-launch support included on all migrations.</span>
-              <span class="refund-note">✓ Transparent pricing with zero hidden fees.</span>
-            </div>
+        <!-- Step 2 -->
+        <div class="form-section" id="productCountGroup">
+          <div class="slider-header-row">
+            <label class="section-subtitle" for="productCountRange">2. Number of Products / SKUs</label>
+            <span class="slider-display-val" id="productCountVal">100 Products</span>
+          </div>
+          <input type="range" id="productCountRange" class="styled-slider" min="10" max="1000" step="10" value="100" />
+          <div class="slider-markers">
+            <span>10 SKUs</span>
+            <span>500 SKUs</span>
+            <span>1,000+ SKUs</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="form-section" id="platformSelectGroup">
+          <label class="section-subtitle">3. Current Store Platform</label>
+          <div class="platform-btn-group">
+            <button type="button" class="plat-chip act" data-plat="WooCommerce">WooCommerce</button>
+            <button type="button" class="plat-chip" data-plat="Wix">Wix</button>
+            <button type="button" class="plat-chip" data-plat="Magento">Magento</button>
+            <button type="button" class="plat-chip" data-plat="Shopify">Shopify</button>
+            <button type="button" class="plat-chip" data-plat="Spreadsheet">Excel / Other</button>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="form-section" id="addonsGroup">
+          <label class="section-subtitle">4. Technical Safeguards</label>
+          <div class="addons-checkbox-group">
+            <label class="addon-row">
+              <input type="checkbox" id="addonImage" value="150" class="addon-checkbox" checked />
+              <div class="addon-info">
+                <strong>Batch Image 1:1 Framing &amp; Clean Margin Polish (+$150)</strong>
+                <span>Ensures all product thumbnails have consistent square dimensions</span>
+              </div>
+            </label>
+            
+            <label class="addon-row">
+              <input type="checkbox" id="addonSeo" value="100" class="addon-checkbox" checked />
+              <div class="addon-info">
+                <strong>Complete 301 URL SEO Redirection Map (+$100)</strong>
+                <span>Guarantees all old links smoothly redirect to your new Shopify URLs</span>
+              </div>
+            </label>
+            
+            <label class="addon-row">
+              <input type="checkbox" id="addonMerchant" value="120" class="addon-checkbox" />
+              <div class="addon-info">
+                <strong>Google Merchant Center &amp; Shopping Feed Sync (+$120)</strong>
+                <span>Validates all product attributes for Google Shopping campaigns</span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Card -->
+      <div class="estimator-sidebar">
+        <div class="quote-summary-card">
+          <span class="quote-eyebrow">Estimated Scope Quote</span>
+          <div class="quote-price-usd" id="calcPrice">$900</div>
+          <div class="quote-price-ngn" id="calcNaira">₦1,260,000</div>
+          
+          <ul class="quote-breakdown-list" id="calcDetails">
+            <li>• Base Migration Rescue: $650</li>
+            <li>• Add-on: Image 1:1 Framing (+$150)</li>
+            <li>• Add-on: 301 SEO Matrix (+$100)</li>
+          </ul>
+
+          <div class="quote-footer">
+            <a href="#" id="estimateWhatsAppBtn" class="btn-primary calc-submit-btn" target="_blank" rel="noopener">
+              <span>Send Scope to WhatsApp</span>
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <span class="quote-warranty-note">✓ 14 days post-launch support included with all builds.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3-STEP CLEAR BUYING PATH & WORKFLOW -->
-  <section id="process" class="process-section scroll-reveal">
-    <div class="sec-label">The Buying Path</div>
-    <h2 class="sec-title">HOW WE WORK<br><em>TOGETHER</em></h2>
-    <p class="process-intro">Clients buy clearly defined outcomes, not vague hours. Here is the exact path from your first message to live sales.</p>
-    
-    <div class="process-grid">
-      <div class="proc-step reveal-item">
-        <span class="proc-num">01</span>
-        <h3 class="proc-title">Discovery Assessment</h3>
-        <p class="proc-desc">
-          You send your current store link and catalog size. I review your backend, detect variant/redirect risks or conversion leaks, and deliver a fixed-scope quote within 24 hours.
-        </p>
+  <!-- SELECTED PORTFOLIO WORK (Compact 3-Column Desktop Grid) -->
+  <section id="projects" class="section-container scroll-reveal">
+    <div class="projects-section-header">
+      <div>
+        <span class="section-tag">Selected Portfolio</span>
+        <h2 class="section-title">Recent Builds &amp; <em>Proven Stores</em></h2>
       </div>
-      
-      <div class="proc-step reveal-item">
-        <span class="proc-num">02</span>
-        <h3 class="proc-title">Python Sync &amp; Build</h3>
-        <p class="proc-desc">
-          I execute Python extraction scripts, clean image payloads, map 301 redirect slugs, code custom Liquid templates, and configure payment gateways in a staging environment.
-        </p>
-      </div>
-      
-      <div class="proc-step reveal-item">
-        <span class="proc-num">03</span>
-        <h3 class="proc-title">Mobile Stress Testing</h3>
-        <p class="proc-desc">
-          We test catalog navigation, variant selectors, add-to-cart buttons, shipping calculators, and checkout flows on real mobile devices to verify sub-second speeds.
-        </p>
-      </div>
-      
-      <div class="proc-step reveal-item">
-        <span class="proc-num">04</span>
-        <h3 class="proc-title">Handoff &amp; 14-Day Care</h3>
-        <p class="proc-desc">
-          We connect your custom domain and flip the switch. I stay for 14 days of dedicated post-launch monitoring to ensure every transaction and redirect executes smoothly.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SELECTED PORTFOLIO WORK SECTION -->
-  <section id="projects" class="projects-section scroll-reveal">
-    <div class="projects-header">
-      <div class="header-left">
-        <div class="sec-label">Selected Portfolio Work</div>
-        <h2 class="sec-title">OTHER COMPLETED<br><em>E-COMMERCE BUILDS</em></h2>
-      </div>
-      <div class="header-right">
-        <div class="proj-count" id="projCountBadge">Showing 6 Additional Projects · 2024–2026</div>
-      </div>
+      <div class="project-count-badge" id="projCountBadge">Showing 6 Projects · 2024–2026</div>
     </div>
 
     <!-- Category Filter Bar -->
-    <div class="proj-filter-bar">
-      <button type="button" class="filter-tab act" data-filter="all">
-        <span class="tab-label">All Projects</span>
-        <span class="tab-badge">6</span>
-      </button>
-      <button type="button" class="filter-tab" data-filter="shopify">
-        <span class="tab-label">Shopify Stores</span>
-        <span class="tab-badge">5</span>
-      </button>
-      <button type="button" class="filter-tab" data-filter="wordpress">
-        <span class="tab-label">WordPress &amp; WooCommerce</span>
-        <span class="tab-badge">1</span>
-      </button>
-      <button type="button" class="filter-tab" data-filter="conversion">
-        <span class="tab-label">Conversion Sprints</span>
-        <span class="tab-badge">3</span>
-      </button>
+    <div class="filter-tabs-bar">
+      <button type="button" class="filter-btn act" data-filter="all">All Projects (6)</button>
+      <button type="button" class="filter-btn" data-filter="shopify">Shopify (5)</button>
+      <button type="button" class="filter-btn" data-filter="wordpress">WooCommerce (1)</button>
+      <button type="button" class="filter-btn" data-filter="conversion">Conversion Sprints (3)</button>
     </div>
 
-    <div class="projects-grid" id="projectsGrid">
-      <!-- 02 Oversize Plus -->
-      <div class="pcard reveal-item" data-category="shopify conversion">
-        <div class="pcard-img-container">
+    <div class="projects-gallery-grid" id="projectsGrid">
+      <!-- 01 Oversize Plus -->
+      <div class="project-card reveal-item" data-category="shopify conversion" data-project-id="oversize-plus">
+        <div class="project-thumbnail">
           <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/oversized-plus.jpg" alt="Oversize Plus Custom Apparel Store" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
-          <div class="pcard-img-overlay">
-            <a class="pcard-link" href="https://oversizedplus.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
+          <div class="project-img-overlay">
+            <button type="button" class="overlay-quick-btn" onclick="openProjectModal('oversize-plus')">Quick View ↗</button>
           </div>
         </div>
-        <div class="pcard-body">
-          <div class="pcard-meta">
-            <span class="pcard-num">02</span>
-            <span class="pcard-badge">Custom Apparel Brand</span>
+        <div class="project-card-body">
+          <div class="project-meta-row">
+            <span class="pcard-badge">Custom Apparel</span>
+            <span class="pcard-year">2025–2026</span>
           </div>
-          <h3 class="pcard-name">Oversize Plus</h3>
-          <div class="pcard-type">Custom Oversized Apparel • Shopify Liquid &amp; Variant Customizer</div>
-          <div class="pcard-tech">
-            <span>Shopify Liquid</span>
-            <span>Variant Customizer</span>
-            <span>Mobile UX</span>
+          <h3 class="project-card-title">Oversize Plus</h3>
+          <p class="project-card-desc">Interactive Shopify variant customizer with mobile-optimized product selection and instant color switching.</p>
+          <div class="project-card-footer">
+            <button type="button" class="card-detail-btn" onclick="openProjectModal('oversize-plus')">Case Details ↗</button>
+            <a href="https://oversizedplus.myshopify.com" target="_blank" rel="noopener" class="card-live-link">Live Store (Pass: 1) ↗</a>
           </div>
-          <p class="pcard-lesson"><strong>Outcome:</strong> Integrated interactive story-driven variant selectors where buyers customize apparel palettes dynamically. Engineered high-converting mobile product layout.</p>
         </div>
       </div>
 
-      <!-- 03 Fresh Juice -->
-      <div class="pcard reveal-item" data-category="shopify conversion">
-        <div class="pcard-img-container">
+      <!-- 02 Fresh Juice -->
+      <div class="project-card reveal-item" data-category="shopify conversion" data-project-id="fresh-juice">
+        <div class="project-thumbnail">
           <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/fresh-juice.jpg" alt="Fresh Juice High Conversion Funnel" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
-          <div class="pcard-img-overlay">
-            <a class="pcard-link" href="https://fresh-juice-7.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
+          <div class="project-img-overlay">
+            <button type="button" class="overlay-quick-btn" onclick="openProjectModal('fresh-juice')">Quick View ↗</button>
           </div>
         </div>
-        <div class="pcard-body">
-          <div class="pcard-meta">
-            <span class="pcard-num">03</span>
-            <span class="pcard-badge">One-Product Conversion Sprint</span>
+        <div class="project-card-body">
+          <div class="project-meta-row">
+            <span class="pcard-badge">DTC Funnel</span>
+            <span class="pcard-year">2025</span>
           </div>
-          <h3 class="pcard-name">Fresh Juice</h3>
-          <div class="pcard-type">Portable Rechargeable Blenders • High-Converting DTC Funnel</div>
-          <div class="pcard-tech">
-            <span>Loox Social Proof</span>
-            <span>Fast Checkout</span>
-            <span>Speed Optimization</span>
+          <h3 class="project-card-title">Fresh Juice</h3>
+          <p class="project-card-desc">Single-product landing page with streamlined 2-tap checkout, Loox photo reviews, and 98/100 mobile speed score.</p>
+          <div class="project-card-footer">
+            <button type="button" class="card-detail-btn" onclick="openProjectModal('fresh-juice')">Case Details ↗</button>
+            <a href="https://fresh-juice-7.myshopify.com" target="_blank" rel="noopener" class="card-live-link">Live Store (Pass: 1) ↗</a>
           </div>
-          <p class="pcard-lesson"><strong>Outcome:</strong> Structured a high-velocity single product page with photo-based social proof, dynamic buy-now modules, and streamlined 2-tap checkout.</p>
         </div>
       </div>
 
-      <!-- 04 Toko -->
-      <div class="pcard reveal-item" data-category="shopify">
-        <div class="pcard-img-container">
+      <!-- 03 Toko -->
+      <div class="project-card reveal-item" data-category="shopify" data-project-id="toko">
+        <div class="project-thumbnail">
           <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/toko.jpg" alt="Toko 3D Toys Store" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
-          <div class="pcard-img-overlay">
-            <a class="pcard-link" href="#proof">View Client Feedback <span class="icon">↗</span></a>
+          <div class="project-img-overlay">
+            <button type="button" class="overlay-quick-btn" onclick="openProjectModal('toko')">Quick View ↗</button>
           </div>
         </div>
-        <div class="pcard-body">
-          <div class="pcard-meta">
-            <span class="pcard-num">04</span>
-            <span class="pcard-badge live">International Contract</span>
+        <div class="project-card-body">
+          <div class="project-meta-row">
+            <span class="pcard-badge verified">UAE Contract</span>
+            <span class="pcard-year">2025</span>
           </div>
-          <h3 class="pcard-name">Toko (Dubai)</h3>
-          <div class="pcard-type">3D Printed Toys • Shopify Rebuild &amp; UAE Shipping Setup</div>
-          <div class="pcard-tech">
-            <span>Shopify</span>
-            <span>Product Bundling</span>
-            <span>UAE Logistics</span>
-            <span>Upwork Milestone</span>
+          <h3 class="project-card-title">Toko (Dubai)</h3>
+          <p class="project-card-desc">Custom Shopify Liquid product bundling and UAE localized shipping rules. Earned a 5.0★ Upwork rating.</p>
+          <div class="project-card-footer">
+            <button type="button" class="card-detail-btn" onclick="openProjectModal('toko')">Case Details ↗</button>
+            <a href="#proof" class="card-live-link">View Upwork Review ↗</a>
           </div>
-          <p class="pcard-lesson"><strong>Outcome:</strong> Built product bundling logic, localized shipping and payment rules for the UAE market, and delivered full client satisfaction on an agency subcontractor brief.</p>
         </div>
       </div>
 
-      <!-- 05 Bayu Tech -->
-      <div class="pcard reveal-item" data-category="wordpress">
-        <div class="pcard-img-container">
+      <!-- 04 Bayu Tech -->
+      <div class="project-card reveal-item" data-category="wordpress" data-project-id="bayu-tech">
+        <div class="project-thumbnail">
           <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/bayu-tech.jpg" alt="Bayu Tech Apple Gadgets WooCommerce Store" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
-          <div class="pcard-img-overlay">
-            <a class="pcard-link" href="https://beyutech.gt.tc/?i=3" target="_blank" rel="noopener">Open Staging Demo <span class="icon">↗</span></a>
+          <div class="project-img-overlay">
+            <button type="button" class="overlay-quick-btn" onclick="openProjectModal('bayu-tech')">Quick View ↗</button>
           </div>
         </div>
-        <div class="pcard-body">
-          <div class="pcard-meta">
-            <span class="pcard-num">05</span>
-            <span class="pcard-badge live">Full WooCommerce Architecture</span>
+        <div class="project-card-body">
+          <div class="project-meta-row">
+            <span class="pcard-badge">WooCommerce</span>
+            <span class="pcard-year">2024–2025</span>
           </div>
-          <h3 class="pcard-name">Bayu Tech</h3>
-          <div class="pcard-type">Apple Gadgets E-Store • WordPress + WooCommerce</div>
-          <div class="pcard-tech">
-            <span>WordPress</span>
-            <span>WooCommerce</span>
-            <span>Custom Checkout</span>
-            <span>Catalog Filter</span>
+          <h3 class="project-card-title">Bayu Tech</h3>
+          <p class="project-card-desc">High-ticket Apple gadgets catalog with sub-second spec filters, custom checkout styling, and automated PDF invoicing.</p>
+          <div class="project-card-footer">
+            <button type="button" class="card-detail-btn" onclick="openProjectModal('bayu-tech')">Case Details ↗</button>
+            <a href="https://beyutech.gt.tc/?i=3" target="_blank" rel="noopener" class="card-live-link">Staging Demo ↗</a>
           </div>
-          <p class="pcard-lesson"><strong>Outcome:</strong> Complete WooCommerce catalog architecture with dynamic filtering, tax handling, and invoice receipt generation. <br><em class="staging-note">Hosted on staging server (`gt.tc`). Accept cookie prompt if needed.</em></p>
         </div>
       </div>
 
-      <!-- 06 Incredible Fiber -->
-      <div class="pcard reveal-item" data-category="shopify conversion">
-        <div class="pcard-img-container">
+      <!-- 05 Incredible Fiber -->
+      <div class="project-card reveal-item" data-category="shopify conversion" data-project-id="incredible-fiber">
+        <div class="project-thumbnail">
           <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/incredible-fibre.jpg" alt="Incredible Fiber Store" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
-          <div class="pcard-img-overlay">
-            <a class="pcard-link" href="https://incredible-fibre.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
+          <div class="project-img-overlay">
+            <button type="button" class="overlay-quick-btn" onclick="openProjectModal('incredible-fiber')">Quick View ↗</button>
           </div>
         </div>
-        <div class="pcard-body">
-          <div class="pcard-meta">
-            <span class="pcard-num">06</span>
-            <span class="pcard-badge">Wix to Shopify Replatform</span>
+        <div class="project-card-body">
+          <div class="project-meta-row">
+            <span class="pcard-badge">Wix Replatform</span>
+            <span class="pcard-year">2024–2025</span>
           </div>
-          <h3 class="pcard-name">Incredible Fiber</h3>
-          <div class="pcard-type">Specialty Flour Brand • Wix → Shopify Replatform</div>
-          <div class="pcard-tech">
-            <span>Shopify Replatform</span>
-            <span>Weight Variants</span>
-            <span>Recipe Navigation</span>
+          <h3 class="project-card-title">Incredible Fiber</h3>
+          <p class="project-card-desc">Safely migrated from Wix to Shopify, preserving all multi-weight variants, recipe blogs, and reducing load time by 45%.</p>
+          <div class="project-card-footer">
+            <button type="button" class="card-detail-btn" onclick="openProjectModal('incredible-fiber')">Case Details ↗</button>
+            <a href="https://incredible-fibre.myshopify.com" target="_blank" rel="noopener" class="card-live-link">Live Store (Pass: 1) ↗</a>
           </div>
-          <p class="pcard-lesson"><strong>Outcome:</strong> Rebuilt slow Wix store on Shopify. Standardized weight-based variants, organized recipe content tags, and reduced mobile load time by over 40%.</p>
         </div>
       </div>
 
-      <!-- 07 Kuchewood -->
-      <div class="pcard reveal-item" data-category="shopify">
-        <div class="pcard-img-container">
+      <!-- 06 Kuchewood -->
+      <div class="project-card reveal-item" data-category="shopify" data-project-id="kuchewood">
+        <div class="project-thumbnail">
           <img src="https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/kuchewood.jpg" alt="Küchewood Store" class="pcard-img" loading="lazy" decoding="async" width="600" height="375" />
-          <div class="pcard-img-overlay">
-            <a class="pcard-link" href="https://kuchewood.myshopify.com" target="_blank" rel="noopener">Explore Store (Pass: 1) <span class="icon">↗</span></a>
+          <div class="project-img-overlay">
+            <button type="button" class="overlay-quick-btn" onclick="openProjectModal('kuchewood')">Quick View ↗</button>
           </div>
         </div>
-        <div class="pcard-body">
-          <div class="pcard-meta">
-            <span class="pcard-num">07</span>
-            <span class="pcard-badge">Catalyst Project</span>
+        <div class="project-card-body">
+          <div class="project-meta-row">
+            <span class="pcard-badge">Shopify Theme</span>
+            <span class="pcard-year">2024</span>
           </div>
-          <h3 class="pcard-name">Küchewood</h3>
-          <div class="pcard-type">Eco Wooden Kitchenware • Shopify Theme Build</div>
-          <div class="pcard-tech">
-            <span>Shopify Customization</span>
-            <span>SEO Structure</span>
-            <span>Catalog Layout</span>
+          <h3 class="project-card-title">Küchewood</h3>
+          <p class="project-card-desc">Eco wooden kitchenware catalog with structured collection filters, rich schema SEO tags, and mobile-friendly grids.</p>
+          <div class="project-card-footer">
+            <button type="button" class="card-detail-btn" onclick="openProjectModal('kuchewood')">Case Details ↗</button>
+            <a href="https://kuchewood.myshopify.com" target="_blank" rel="noopener" class="card-live-link">Live Store (Pass: 1) ↗</a>
           </div>
-          <p class="pcard-lesson"><strong>Outcome:</strong> Built during overnight coding sessions using a low-spec phone and borrowed laptop. The project that proved resource limits never block real execution.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SCREENCAST VIDEO WALKTHROUGHS SECTION -->
-  <section id="videos" class="videos-section scroll-reveal">
-    <div class="sec-label">Watch Live Teardowns</div>
-    <h2 class="sec-title">WALKTHROUGH<br><em>SCREENCASTS</em></h2>
-    <p class="videos-intro">Watch in-depth screencasts showing backend migrations, Liquid template logic, and mobile conversion funnels.</p>
+  <!-- SCREENCAST VIDEO WALKTHROUGHS -->
+  <section id="videos" class="section-container scroll-reveal">
+    <div class="section-header">
+      <span class="section-tag">Video Walkthroughs</span>
+      <h2 class="section-title">See How the <em>Stores Are Built</em></h2>
+      <p class="section-desc">Short 2-minute screencast teardowns showing the code, checkout flows, and backend logic in action.</p>
+    </div>
     
-    <div class="videos-grid">
-      <!-- Video 01 -->
-      <div class="vcard reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/6_hK2cO8E8k?autoplay=1')" role="button" tabindex="0" aria-label="Play Swiftglamour Walkthrough Video">
-        <div class="vcard-thumb">
-          <img src="https://img.youtube.com/vi/6_hK2cO8E8k/maxresdefault.jpg" onerror="this.src='https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_swiftglamour_preview.jpg'" alt="Swiftglamour Video Walkthrough Preview" class="vcard-img-preview" loading="lazy" decoding="async" width="640" height="360" />
-          <div class="vcard-overlay">
-            <div class="play-ring">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    <div class="video-demos-grid">
+      <div class="video-card reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/6_hK2cO8E8k?autoplay=1')" role="button" tabindex="0">
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/6_hK2cO8E8k/maxresdefault.jpg" alt="Swiftglamour Video Walkthrough Preview" class="video-thumb-img" loading="lazy" decoding="async" width="640" height="360" />
+          <div class="video-play-overlay">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             </div>
           </div>
-          <span class="vcard-badge">Migration Breakdown</span>
         </div>
-        <div class="vcard-info">
-          <div class="vcard-label">Screencast • 01</div>
-          <h3 class="vcard-title">Swiftglamour 887-SKU Case Study</h3>
-          <p class="vcard-desc">Watch how I migrated 887 products and 900+ images from WooCommerce to Shopify without data or SEO loss.</p>
+        <div class="video-card-info">
+          <span class="video-tag">Screencast 01</span>
+          <h3 class="video-card-title">Swiftglamour 887-SKU Migration</h3>
+          <p class="video-card-desc">Watch how 887 products and 900+ images were migrated with zero SEO drop.</p>
         </div>
       </div>
 
-      <!-- Video 02 -->
-      <div class="vcard reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/a3pHb6dP5as?autoplay=1')" role="button" tabindex="0" aria-label="Play Oversize Plus Walkthrough Video">
-        <div class="vcard-thumb">
-          <img src="https://img.youtube.com/vi/a3pHb6dP5as/maxresdefault.jpg" onerror="this.src='https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_oversized-plus_preview.jpg'" alt="Oversize Plus Video Walkthrough Preview" class="vcard-img-preview" loading="lazy" decoding="async" width="640" height="360" />
-          <div class="vcard-overlay">
-            <div class="play-ring">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <div class="video-card reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/a3pHb6dP5as?autoplay=1')" role="button" tabindex="0">
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/a3pHb6dP5as/maxresdefault.jpg" alt="Oversize Plus Video Walkthrough Preview" class="video-thumb-img" loading="lazy" decoding="async" width="640" height="360" />
+          <div class="video-play-overlay">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             </div>
           </div>
-          <span class="vcard-badge">Theme Customizer</span>
         </div>
-        <div class="vcard-info">
-          <div class="vcard-label">Screencast • 02</div>
-          <h3 class="vcard-title">Oversize Plus Build</h3>
-          <p class="vcard-desc">Reviewing custom Shopify templates, graphics layout, and story variant customization logic.</p>
+        <div class="video-card-info">
+          <span class="video-tag">Screencast 02</span>
+          <h3 class="video-card-title">Oversize Plus Theme Customizer</h3>
+          <p class="video-card-desc">Reviewing custom Shopify Liquid story-driven variant logic.</p>
         </div>
       </div>
 
-      <!-- Video 03 -->
-      <div class="vcard reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/SoN6YXID5j0?autoplay=1')" role="button" tabindex="0" aria-label="Play Fresh Juice Walkthrough Video">
-        <div class="vcard-thumb">
-          <img src="https://img.youtube.com/vi/SoN6YXID5j0/maxresdefault.jpg" onerror="this.src='https://raw.githubusercontent.com/beyubabi/beyubabi.github.io/main/video_fresh-juice_preview.jpg'" alt="Fresh Juice Video Walkthrough Preview" class="vcard-img-preview" loading="lazy" decoding="async" width="640" height="360" />
-          <div class="vcard-overlay">
-            <div class="play-ring">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <div class="video-card reveal-item" onclick="openVideoModal('https://www.youtube.com/embed/SoN6YXID5j0?autoplay=1')" role="button" tabindex="0">
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/SoN6YXID5j0/maxresdefault.jpg" alt="Fresh Juice Video Walkthrough Preview" class="video-thumb-img" loading="lazy" decoding="async" width="640" height="360" />
+          <div class="video-play-overlay">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             </div>
           </div>
-          <span class="vcard-badge">Funnel Teardown</span>
         </div>
-        <div class="vcard-info">
-          <div class="vcard-label">Screencast • 03</div>
-          <h3 class="vcard-title">Fresh Juice Funnel</h3>
-          <p class="vcard-desc">Explaining one-product checkout optimization, Loox review integration, and mobile conversion patterns.</p>
+        <div class="video-card-info">
+          <span class="video-tag">Screencast 03</span>
+          <h3 class="video-card-title">Fresh Juice DTC Funnel</h3>
+          <p class="video-card-desc">2-tap mobile checkout optimization &amp; photo review integration.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL TOOLKIT & AUTOMATION PIPELINE -->
+  <section id="stack" class="section-container scroll-reveal">
+    <div class="section-header">
+      <span class="section-tag">Technical Depth</span>
+      <h2 class="section-title">Tools &amp; Code <em>Behind the Builds</em></h2>
+      <p class="section-desc">When standard Shopify apps fail or timeout on large catalogs, custom scripts guarantee accurate data migration.</p>
+    </div>
+    
+    <div class="toolkit-grid">
+      <div class="tool-card">
+        <div class="tool-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3 class="tool-name">Python Catalogue Automation</h3>
+        <p class="tool-desc">Custom scripts to parse, cleanse, and import 100 to 1,000+ items without app timeouts or broken variant links.</p>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <h3 class="tool-name">Shopify Liquid &amp; Storefront API</h3>
+        <p class="tool-desc">Crafting tailored theme templates, sticky buy modules, and lightweight mobile checkout funnels.</p>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <h3 class="tool-name">301 SEO Redirection Mapping</h3>
+        <p class="tool-desc">Systematic URL mapping matrices ensuring search engines pass 100% of their authority without 404 errors.</p>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h3 class="tool-name">PhotoRoom Batch Engine</h3>
+        <p class="tool-desc">Automated uniform 1:1 square canvas framing and background polishing for a clean catalog presentation.</p>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <h3 class="tool-name">WooCommerce &amp; WordPress DB</h3>
+        <p class="tool-desc">Direct MySQL database querying for brands replatforming away from overloaded WordPress setups.</p>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3 class="tool-name">Google Merchant Center</h3>
+        <p class="tool-desc">Direct XML feed formatting and error resolution for high-performing Google Shopping ad campaigns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERIFIED REVIEWS & SOCIAL PROOF -->
+  <section id="proof" class="section-container scroll-reveal">
+    <div class="section-header">
+      <span class="section-tag">Client Feedback</span>
+      <h2 class="section-title">Verified <em>Client Feedback</em></h2>
+      <p class="section-desc">Real feedback from live stores and contracts delivered on time.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-body">"The migration was flawless — every single product, image, and redirect was preserved. He even caught catalogue errors we hadn't noticed."</p>
+        <div class="review-meta">
+          <strong>SwiftGlamour Store Owner</strong>
+          <span>887 SKUs Full Replatform • 2026</span>
+          <div class="review-verified-tag">✓ Verified Live Store: swiftglamour.shop</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-body">"Zero reviews on his profile and he still won the contract. He understood the exact UAE shipping requirement and delivered early."</p>
+        <div class="review-meta">
+          <strong>Toko (Dubai Agency Subcontractor)</strong>
+          <span>Shopify Rebuild &amp; UAE Setup • 2025</span>
+          <div class="review-verified-tag">✓ Verified via Upwork Ledger</div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-body">"Passed our technical Liquid test on the first try. Clean code, fast cart implementation, zero unnecessary app bloat."</p>
+        <div class="review-meta">
+          <strong>Sowkids</strong>
+          <span>Shopify Liquid Code Task • 2025</span>
+          <div class="review-verified-tag">✓ Verified Technical Submission</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREQUENTLY ASKED QUESTIONS -->
+  <section id="faq" class="section-container scroll-reveal">
+    <div class="section-header">
+      <span class="section-tag">Got Questions?</span>
+      <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+    </div>
+    
+    <div class="faq-accordion-wrap">
+      <div class="faq-item">
+        <button class="faq-toggle-btn" onclick="toggleFaqAccordion(this)" aria-expanded="false">
+          <span class="faq-question">Will we lose our Google rankings or SEO traffic during migration?</span>
+          <span class="faq-indicator">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No. I map a comprehensive 301 URL redirection matrix from your legacy WooCommerce/Wix/Magento links to the corresponding Shopify URLs so search engines transfer 100% of their authority without 404 errors.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-toggle-btn" onclick="toggleFaqAccordion(this)" aria-expanded="false">
+          <span class="faq-question">How do you handle messy product images and mixed aspect ratios?</span>
+          <span class="faq-indicator">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>I use automated image processing pipelines to standardize every single image onto a uniform 1:1 square canvas with clean margins and optional background cleansing for a luxury catalog look.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-toggle-btn" onclick="toggleFaqAccordion(this)" aria-expanded="false">
+          <span class="faq-question">What happens if an issue occurs after we launch?</span>
+          <span class="faq-indicator">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Every store migration and sprint includes <strong>14 days of dedicated post-launch support</strong> at no extra cost. I actively monitor checkout events, payment gateway callbacks, and redirect logs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECT CONTACT SECTION -->
+  <section id="contact" class="section-container scroll-reveal">
+    <div class="contact-box-card">
+      <div class="contact-header">
+        <span class="section-tag">Let's Work Together</span>
+        <h2 class="contact-title">Let's Discuss Your <em>E-Commerce Store</em></h2>
+        <p class="contact-desc">
+          Send me your store link and current platform. I'll get back to you with a fixed-scope plan within 24 hours.
+        </p>
+      </div>
+      
+      <div class="contact-methods-grid">
+        <a class="contact-method-card primary" href="https://wa.me/2348126679348?text=Hi%20Bayode%2C%20I%20need%20help%20with%20my%20e-commerce%20store." target="_blank" rel="noopener">
+          <div class="cm-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div class="cm-text">
+            <strong>Chat on WhatsApp</strong>
+            <span>Fastest response (Usually under 1 hour)</span>
+          </div>
+          <span class="cm-arrow">→</span>
+        </a>
+
+        <a class="contact-method-card" href="https://www.linkedin.com/in/bayode-akindiose-a18a72402" target="_blank" rel="noopener">
+          <div class="cm-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="cm-text">
+            <strong>LinkedIn Profile</strong>
+            <span>Connect &amp; view professional history</span>
+          </div>
+          <span class="cm-arrow">→</span>
+        </a>
+
+        <a class="contact-method-card" href="https://www.instagram.com/beyubabi.dev/" target="_blank" rel="noopener">
+          <div class="cm-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="cm-text">
+            <strong>Instagram DM</strong>
+            <span>@beyubabi.dev</span>
+          </div>
+          <span class="cm-arrow">→</span>
+        </a>
+
+        <a class="contact-method-card" href="mailto:bayu4e.com@gmail.com?subject=Shopify%20Migration%20Inquiry">
+          <div class="cm-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="cm-text">
+            <strong>Email Direct</strong>
+            <span>bayu4e.com@gmail.com</span>
+          </div>
+          <span class="cm-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="contact-quote-footer">
+        <p class="closing-quote">"I don't plan with fear. I plan with purpose."</p>
+        <span class="closing-author">— Bayode Akindiose · Shopify Specialist</span>
       </div>
     </div>
   </section>
 
   <!-- Video Modal -->
-  <div class="vmodal" id="videoModal" aria-hidden="true" role="dialog">
+  <div class="vmodal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Video Walkthrough">
     <button class="vmodal-close" onclick="closeVideoModal()" aria-label="Close Video Modal">✕ Close</button>
     <div class="vmodal-video-wrap">
       <iframe id="videoIframe" src="" title="Portfolio Video Screencast" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>
     </div>
   </div>
 
-  <!-- TECHNICAL TOOLKIT & AUTOMATION ENGINE -->
-  <section id="stack" class="stack-section scroll-reveal">
-    <div class="sec-label">Technical Depth</div>
-    <h2 class="sec-title">AUTOMATION TOOLS<br><em>BEHIND THE BUILDS</em></h2>
-    
-    <div class="stack-wrap">
-      <div class="stack-intro-col">
-        <p class="stack-intro">When off-the-shelf Shopify apps timeout or crash on large catalogs, custom code solves the problem. I build with precision, clean data scripts, and direct client ownership.</p>
-        
-        <div class="stack-illustration">
-          <div class="code-snippet-box">
-            <div class="snippet-header">
-              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-              <span class="snippet-title">catalogue_pipeline.py</span>
-            </div>
-            <pre class="snippet-code"><code><span class="keyword">import</span> shopify_api
-<span class="keyword">import</span> photoroom_engine
-<span class="keyword">import</span> seo_redirects
-
-<span class="comment"># 1. Parse legacy catalog database</span>
-products = extract_catalog(source=<span class="string">"woocommerce_db"</span>)
-
-<span class="comment"># 2. Process images & map 301 redirects</span>
-<span class="keyword">for</span> item <span class="keyword">in</span> products:
-    framed_media = photoroom_engine.standardize_1x1(item.images)
-    seo_redirects.create_301(old=item.legacy_url, new=item.shopify_slug)
-    shopify_api.create_product(item, images=framed_media)</code></pre>
-          </div>
-        </div>
-      </div>
+  <!-- Interactive Project Deep-Dive Modal -->
+  <div class="pmodal" id="projectModal" aria-hidden="true" role="dialog" aria-labelledby="pmodalTitle">
+    <div class="pmodal-backdrop" onclick="closeProjectModal()"></div>
+    <div class="pmodal-card">
+      <button class="pmodal-close" onclick="closeProjectModal()" aria-label="Close Project Modal">✕</button>
       
-      <div class="stack-grid">
-        <div class="sitem">
-          <h3 class="sitem-tool">Python Catalogue Automation</h3>
-          <p class="sitem-use">Custom scripts to scrape, cleanse, validate nested variants, and import 100–1,000+ items without standard CSV timeouts.</p>
+      <div class="pmodal-header">
+        <div class="pmodal-meta">
+          <span class="pmodal-badge" id="pmodalBadge">Shopify Build</span>
+          <span class="pmodal-year" id="pmodalYear">2025–2026</span>
         </div>
-        <div class="sitem">
-          <h3 class="sitem-tool">Shopify Liquid &amp; Storefront API</h3>
-          <p class="sitem-use">Modifying theme architectures, building sticky mobile buy modules, and eliminating checkout friction.</p>
-        </div>
-        <div class="sitem">
-          <h3 class="sitem-tool">301 SEO Redirection Mapping</h3>
-          <p class="sitem-use">Systematic mapping matrices ensuring zero 404 broken pages and 100% preservation of legacy Google rankings.</p>
-        </div>
-        <div class="sitem">
-          <h3 class="sitem-tool">PhotoRoom Batch Engine</h3>
-          <p class="sitem-use">Automated background stripping, uniform square canvas framing, and drop-shadow generation at scale.</p>
-        </div>
-        <div class="sitem">
-          <h3 class="sitem-tool">WooCommerce &amp; WordPress DB</h3>
-          <p class="sitem-use">Direct MySQL querying and table extraction for brands migrating away from heavy WordPress setups.</p>
-        </div>
-        <div class="sitem">
-          <h3 class="sitem-tool">Google Merchant Center</h3>
-          <p class="sitem-use">Direct XML feed formatting and error resolution for Google Shopping ads.</p>
-        </div>
+        <h3 class="pmodal-title" id="pmodalTitle">Project Title</h3>
+        <p class="pmodal-subtitle" id="pmodalSubtitle">Project Subtitle</p>
       </div>
-    </div>
-  </section>
 
-  <!-- SOCIAL PROOF & VERIFIED FEEDBACK -->
-  <section id="proof" class="proof-section scroll-reveal">
-    <div class="sec-label">Verification</div>
-    <h2 class="sec-title">EVIDENCE &amp;<br><span class="stroke">VERIFIED REVIEWS</span></h2>
-    
-    <div class="proof-nums">
-      <div class="proof-num">
-        <div class="proof-num-n">887</div>
-        <div class="proof-num-l">Products Migrated</div>
+      <div class="pmodal-img-wrap">
+        <img src="" alt="Project Preview" id="pmodalImg" class="pmodal-img" />
       </div>
-      <div class="proof-num">
-        <div class="proof-num-n">900+</div>
-        <div class="proof-num-l">Images Framed</div>
-      </div>
-      <div class="proof-num">
-        <div class="proof-num-n">100%</div>
-        <div class="proof-num-l">SEO Slugs Maintained</div>
-      </div>
-      <div class="proof-num">
-        <div class="proof-num-n">0</div>
-        <div class="proof-num-l">Reviews on 1st Upwork Win</div>
-      </div>
-    </div>
 
-    <div class="proof-grid">
-      <!-- Review 1 -->
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Bayode delivered beyond what was agreed. The migration was flawless — every single product, image, and redirect. He even caught catalogue and variant errors we hadn't noticed."</p>
-        <div class="review-author">
-          <strong>SwiftGlamour Client</strong>
-          <span>887-Product Full Replatform • 2026</span>
-          <div class="review-verify">✓ Verified Live Store: swiftglamour.shop</div>
+      <div class="pmodal-body">
+        <div class="pmodal-metrics-grid" id="pmodalMetrics"></div>
+
+        <div class="pmodal-section">
+          <h4 class="pmodal-sec-title">Challenge</h4>
+          <p class="pmodal-text" id="pmodalChallenge"></p>
+        </div>
+
+        <div class="pmodal-section">
+          <h4 class="pmodal-sec-title">Engineering Fix</h4>
+          <p class="pmodal-text" id="pmodalSolution"></p>
+        </div>
+
+        <div class="pmodal-section">
+          <h4 class="pmodal-sec-title">Tech Stack</h4>
+          <div class="pmodal-tags" id="pmodalTags"></div>
         </div>
       </div>
 
-      <!-- Review 2 -->
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Zero reviews on his profile and he still won the contract over everyone else. He understood the exact technical requirement for the UAE store and delivered early."</p>
-        <div class="review-author">
-          <strong>Toko (Dubai Agency Subcontractor)</strong>
-          <span>Shopify Rebuild &amp; Logistics Setup • 2025</span>
-          <div class="review-verify">✓ Verified via Upwork Ledger</div>
-        </div>
-      </div>
-
-      <!-- Review 3 -->
-      <div class="review">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Passed our technical Liquid test on the first try. Clean code, fast cart implementation, zero bloat. Hired immediately."</p>
-        <div class="review-author">
-          <strong>Sowkids</strong>
-          <span>Shopify Liquid Code Task • 2025</span>
-          <div class="review-verify">✓ Verified Technical Submission</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FREQUENTLY ASKED QUESTIONS SECTION -->
-  <section id="faq" class="faq-section scroll-reveal">
-    <div class="sec-label">Common Queries</div>
-    <h2 class="sec-title">GOT QUESTIONS?<br><span class="stroke">CLEAR ANSWERS.</span></h2>
-    
-    <div class="faq-wrap">
-      <div class="faq-item">
-        <button class="faq-q-btn" onclick="toggleFaqAccordion(this)" aria-expanded="false">
-          <span class="faq-q-text">Will we lose our Google rankings or SEO traffic during migration?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a">
-          <p>No. Preserving your SEO is a non-negotiable part of my Migration Rescue service. I map a comprehensive 301 URL redirection matrix from your legacy WooCommerce/Wix/Magento links to the exact corresponding Shopify URLs so search engines and existing backlinks transfer 100% of their authority without 404 errors.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q-btn" onclick="toggleFaqAccordion(this)" aria-expanded="false">
-          <span class="faq-q-text">How do you handle messy product images and inconsistent aspect ratios?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a">
-          <p>Standard migration tools leave image galleries looking distorted with mixed vertical and horizontal crops. I use automated image processing pipelines to standardize every single image onto a uniform 1:1 square canvas with clean margins and optional background cleansing, giving your store a luxury department-store look.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q-btn" onclick="toggleFaqAccordion(this)" aria-expanded="false">
-          <span class="faq-q-text">Do you work with international clients across different time zones?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a">
-          <p>Yes. I work with brands and agencies across the United Kingdom, United States, Canada, Australia, and UAE. Communication is seamless via WhatsApp, Email, or Slack with async video Loom walkthroughs. Payments are accepted securely via standard gateways, Wise, or Direct Wire.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q-btn" onclick="toggleFaqAccordion(this)" aria-expanded="false">
-          <span class="faq-q-text">What happens if an issue occurs after we launch?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a">
-          <p>Every store migration and sprint includes <strong>14 days of dedicated post-launch support</strong> at no extra cost. I actively monitor checkout events, payment gateway callbacks, and redirect logs to ensure zero customer friction. Ongoing retainer support is also available.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q-btn" onclick="toggleFaqAccordion(this)" aria-expanded="false">
-          <span class="faq-q-text">How are payments structured?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a">
-          <p>For migrations and builds, we work on a straightforward 50% upfront deposit to lock your project slot, and 50% upon completed staging verification prior to live DNS transfer. For the $120 Strategic Store Audit, it is paid upfront and 100% credited toward implementation if you hire me to execute the fixes.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q-btn" onclick="toggleFaqAccordion(this)" aria-expanded="false">
-          <span class="faq-q-text">Do you work with agencies as a white-label technical partner?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-a">
-          <p>Yes. Many design, branding, and SEO agencies sell e-commerce projects but do not want to handle complex database migrations, Liquid coding, or catalogue pipelines. I can work quietly as your white-label technical partner, adhering to your agency standards and communication channels.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TACTILE ORIGIN & LESSONS (SUPPORTING CREDIBILITY) -->
-  <section id="origin" class="origin-section scroll-reveal">
-    <div class="origin-container">
-      <div class="origin-journal">
-        <div class="journal-header">
-          <span class="journal-title">My Technical Origin</span>
-          <span class="journal-date">August 2024 – Present</span>
-        </div>
-        <div class="journal-content">
-          <p class="handwritten">"I had a 2GB RAM phone and a client migration request. I structured the store architecture on my phone, coded templates using a borrowed laptop overnight, and learned Python when standard tools broke. Problems demand solutions, not excuses."</p>
-        </div>
-        <div class="journal-footer">
-          <span>— Bayode Akindiose</span>
-        </div>
-      </div>
-
-      <div class="origin-lessons">
-        <div class="sec-label">Foundational Principles</div>
-        <h2 class="origin-title">HARD-WON<br><em>STANDARDS</em></h2>
-        
-        <div class="lessons-list">
-          <div class="lesson-card">
-            <h3 class="lesson-num">01 / On Technical Mastery</h3>
-            <p>I learned Python because 887 products couldn't migrate through standard CSV tools without failing. <strong>Code doesn't care about circumstances — it cares about solving the client's problem.</strong></p>
-          </div>
-          <div class="lesson-card">
-            <h3 class="lesson-num">02 / On Commercial Value</h3>
-            <p>A website without sales is just an expensive billboard. <strong>I build the store, verify the tracking, test checkout speeds on real devices, and fight for the conversions.</strong></p>
-          </div>
-          <div class="lesson-card">
-            <h3 class="lesson-num">03 / On Relentless Execution</h3>
-            <p>Won my first international contract with zero profile reviews by identifying the exact technical gap in the client's proposal. <strong>Hunger and precision beat complacency every time.</strong></p>
-          </div>
-          <div class="lesson-card">
-            <h3 class="lesson-num">04 / On Integrity</h3>
-            <p>Every line of code and redirect matrix is built for longevity and client ownership. <strong>No lock-in, no sloppy shortcuts, 100% clean handoff.</strong></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIRECT CONTACT & ASSESSMENT INTAKE -->
-  <section id="contact" class="contact-section scroll-reveal">
-    <div class="contact-bg-watermark" aria-hidden="true">SHOPIFY.</div>
-    <div class="contact-inner">
-      <div class="sec-label">Start Your Project</div>
-      <h2 class="contact-headline">LET'S FIX YOUR<br>STORE <span class="stroke">TODAY.</span></h2>
-      <p class="contact-sub">
-        Stop losing sales to slow checkouts and messy catalogues. Send me your store link, product count, and current platform. I'll get back to you with an honest breakdown in 24 hours.
-      </p>
-      
-      <div class="contact-links-grid">
-        <a class="clink primary" href="https://wa.me/2348126679348?text=Hi%20Bayode%2C%20I%20need%20help%20with%20my%20e-commerce%20store.%20My%20current%20platform%20is%20%5Bplatform%5D%2C%20I%20have%20approximately%20%5Bnumber%5D%20products%2C%20and%20my%20main%20problem%20is%20%5Bproblem%5D." target="_blank" rel="noopener">
-          <span class="icon">💬</span>
-          <span class="text">Chat on WhatsApp (Fastest)</span>
+      <div class="pmodal-footer">
+        <a href="#" target="_blank" rel="noopener" id="pmodalLiveBtn" class="btn-primary pmodal-action-btn">
+          Visit Live Demo ↗
         </a>
-        <a class="clink" href="https://www.linkedin.com/in/bayode-akindiose-a18a72402" target="_blank" rel="noopener">
-          <span class="icon">🔗</span>
-          <span class="text">LinkedIn Profile</span>
-        </a>
-        <a class="clink" href="https://www.instagram.com/beyu_babi3/" target="_blank" rel="noopener">
-          <span class="icon">📸</span>
-          <span class="text">Instagram DM</span>
-        </a>
-        <a class="clink" href="mailto:bayu4e.com@gmail.com?subject=Shopify%20Migration%20%2F%20Store%20Inquiry">
-          <span class="icon">✉️</span>
-          <span class="text">Direct Email</span>
+        <a href="#" target="_blank" rel="noopener" id="pmodalWhatsAppBtn" class="btn-secondary pmodal-action-btn">
+          Chat on WhatsApp
         </a>
       </div>
-
-      <div class="contact-quote-footer">
-        <p class="closing-quote">"I don't plan with fear. I plan with purpose."</p>
-        <span class="closing-author">— Bayode Akindiose · E-Commerce Engineer</span>
-      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
+  <!-- High-End Agency Footer -->
   <footer>
     <div class="footer-container">
-      <span class="footer-logo">BAYODE.</span>
-      <span class="footer-desc">Shopify Migration Rescue &amp; Conversion Specialist</span>
-      <span class="footer-copy">© 2026 Bayode Akindiose. Based in Lagos, Nigeria · Serving Brands Globally.</span>
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <a class="footer-logo" href="#hero">
+            BAYODE<span class="logo-dot">.</span>
+          </a>
+          <p class="footer-tagline">
+            Shopify Migration Rescue &amp; Conversion Specialist. Helping brands move catalogues safely with zero data or organic search rank loss.
+          </p>
+          <div class="footer-status-pill">
+            <span class="live-pulse"></span>
+            <span>Available for Q4 2026 Projects</span>
+          </div>
+        </div>
+
+        <div class="footer-nav-col">
+          <span class="footer-col-title">Navigation</span>
+          <ul class="footer-links-list">
+            <li><a href="#case-study">887-SKU Case Study</a></li>
+            <li><a href="#services">Packages &amp; Pricing</a></li>
+            <li><a href="#estimator">Cost Calculator</a></li>
+            <li><a href="#projects">Selected Work</a></li>
+            <li><a href="#proof">Client Reviews</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <span class="footer-col-title">Services</span>
+          <ul class="footer-links-list">
+            <li><a href="#services">Shopify Migration Rescue</a></li>
+            <li><a href="#services">Conversion Repair Sprint</a></li>
+            <li><a href="#services">15-Min Store Video Audit</a></li>
+            <li><a href="#stack">301 SEO Redirection Matrix</a></li>
+            <li><a href="#stack">PhotoRoom Batch 1:1 Framing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <span class="footer-col-title">Connect</span>
+          <ul class="footer-links-list">
+            <li>
+              <a href="https://wa.me/2348126679348" target="_blank" rel="noopener">
+                <span>WhatsApp (+234 812 667 9348)</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/bayode-akindiose-a18a72402" target="_blank" rel="noopener">
+                <span>LinkedIn Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/beyubabi.dev/" target="_blank" rel="noopener">
+                <span>Instagram (@beyubabi.dev)</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:bayu4e.com@gmail.com">
+                <span>bayu4e.com@gmail.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span class="footer-copy">© 2026 Bayode Akindiose. Engineered for high performance · Lagos, Nigeria (WAT).</span>
+        <span class="footer-warranty-badge">✓ 14-Day Post-Launch Warranty Standard</span>
+      </div>
     </div>
   </footer>
 
