@@ -362,156 +362,159 @@
 
   // --- 6. INTERACTIVE ESTIMATOR ---
   const servicePills = document.querySelectorAll('.service-toggle-btn');
-  const skuSliderGroup = document.getElementById('productCountGroup');
   const skuSlider = document.getElementById('productCountRange');
   const skuDisplayVal = document.getElementById('productCountVal');
+  const platformGroup = document.getElementById('platformSelectGroup');
   const platformChips = document.querySelectorAll('.plat-chip');
   const addonsGroup = document.getElementById('addonsGroup');
   const addonCheckboxes = document.querySelectorAll('.addon-checkbox');
-  
+  const buildGroup = document.getElementById('buildRequirementsGroup');
+  const buildBrief = document.getElementById('buildBrief');
+  const buildTimeline = document.getElementById('buildTimeline');
   const calcPriceEl = document.getElementById('calcPrice');
   const calcNairaEl = document.getElementById('calcNaira');
   const calcDetailsEl = document.getElementById('calcDetails');
+  const calcEyebrow = document.getElementById('calcEyebrow');
   const whatsappBtn = document.getElementById('estimateWhatsAppBtn');
+  const summaryCard = document.querySelector('.quote-summary-card');
+  const initialService = document.querySelector('.service-toggle-btn.act');
 
-  const NAIRA_RATE = 1400;
+  let activeService = initialService?.dataset.service || 'migration';
+  let basePrice = Number(initialService?.dataset.price) || 650;
+  let productCount = Number(skuSlider?.value) || 100;
+  let migrationPlatform = document.querySelector('.plat-chip.act')?.dataset.plat || 'WooCommerce';
 
-  let activeService = 'migration';
-  let basePrice = 650;
-  let productCount = 100;
-  let activePlatform = 'WooCommerce';
+  function selectService(service) {
+    const selected = [...servicePills].find(pill => pill.dataset.service === service);
+    if (!selected) return;
+    activeService = service;
+    basePrice = Number(selected.dataset.price) || 0;
+    servicePills.forEach(pill => {
+      const isSelected = pill === selected;
+      pill.classList.toggle('act', isSelected);
+      pill.setAttribute('aria-pressed', String(isSelected));
+    });
+    if (buildGroup) buildGroup.hidden = service !== 'build';
+    if (platformGroup) platformGroup.hidden = service !== 'migration';
+    if (addonsGroup) addonsGroup.hidden = service === 'build';
+    calculateEstimate();
+  }
 
-  // Service Selection
   servicePills.forEach(pill => {
-    pill.addEventListener('click', function () {
-      servicePills.forEach(p => p.classList.remove('act'));
-      this.classList.add('act');
-      
-      activeService = this.getAttribute('data-service');
-      basePrice = parseFloat(this.getAttribute('data-price'));
-
-      if (activeService === 'audit') {
-        if (skuSliderGroup) skuSliderGroup.style.display = 'none';
-        if (addonsGroup) addonsGroup.style.display = 'none';
-      } else {
-        if (skuSliderGroup) skuSliderGroup.style.display = 'block';
-        if (addonsGroup) addonsGroup.style.display = 'block';
-      }
-
-      calculateEstimate();
-    });
+    pill.addEventListener('click', () => selectService(pill.dataset.service));
   });
-
-  // Platform Selection
+  document.querySelectorAll('[data-estimator-service]').forEach(link => {
+    link.addEventListener('click', () => selectService(link.dataset.estimatorService));
+  });
   platformChips.forEach(chip => {
-    chip.addEventListener('click', function () {
-      platformChips.forEach(c => c.classList.remove('act'));
-      this.classList.add('act');
-      activePlatform = this.getAttribute('data-plat');
+    chip.addEventListener('click', () => {
+      platformChips.forEach(item => item.classList.toggle('act', item === chip));
+      migrationPlatform = chip.dataset.plat;
       calculateEstimate();
     });
   });
 
-  // Slider Input
   if (skuSlider) {
     const paintSliderProgress = () => {
-      const min = parseFloat(skuSlider.min) || 0;
-      const max = parseFloat(skuSlider.max) || 1000;
-      const pct = ((skuSlider.value - min) / (max - min)) * 100;
+      const min = Number(skuSlider.min) || 1;
+      const max = Number(skuSlider.max) || 1000;
+      const pct = ((Number(skuSlider.value) - min) / (max - min)) * 100;
       skuSlider.style.setProperty('--range-progress', `${pct}%`);
     };
-
-    ['input', 'change'].forEach(evt => {
-      skuSlider.addEventListener(evt, function () {
-        productCount = parseInt(this.value);
-        if (skuDisplayVal) {
-          skuDisplayVal.textContent = `${productCount} Products`;
-        }
+    ['input', 'change'].forEach(event => {
+      skuSlider.addEventListener(event, () => {
+        productCount = Number(skuSlider.value);
+        if (skuDisplayVal) skuDisplayVal.textContent = `${productCount} ${productCount === 1 ? 'Product' : 'Products'}`;
         paintSliderProgress();
         calculateEstimate();
       });
     });
-
     paintSliderProgress();
   }
-
-  // Addon Checkbox Listeners
-  addonCheckboxes.forEach(cb => {
-    cb.addEventListener('change', calculateEstimate);
+  addonCheckboxes.forEach(checkbox => checkbox.addEventListener('change', calculateEstimate));
+  [buildBrief, buildTimeline].filter(Boolean).forEach(field => {
+    field.addEventListener('input', calculateEstimate);
+    field.addEventListener('change', calculateEstimate);
   });
 
   function calculateEstimate() {
-    if (!calcPriceEl) return;
-
+    if (!calcPriceEl || !calcDetailsEl) return;
+    const isBuild = activeService === 'build';
+    const serviceLabel = isBuild ? 'Shopify Store Build' :
+      activeService === 'migration' ? 'Shopify Migration' : 'Storefront Improvement Sprint';
     let totalUSD = basePrice;
-    let detailsHTML = '';
+    const details = [];
+    if (summaryCard) summaryCard.classList.toggle('is-custom', isBuild);
 
-    if (activeService === 'migration') {
-      detailsHTML += `<li>• Shopify Migration Rescue (Base up to 100 SKUs): $${basePrice}</li>`;
-      if (productCount > 100) {
-        const extraVolume = productCount - 100;
-        const extraCharge = Math.ceil(extraVolume / 50) * 35;
-        totalUSD += extraCharge;
-        detailsHTML += `<li>• Catalog Volume Surcharge (${productCount} items): +$${extraCharge}</li>`;
-      }
-    } 
-    else if (activeService === 'conversion') {
-      detailsHTML += `<li>• Conversion Repair Sprint: $${basePrice} (1-Week Sprint)</li>`;
-      if (productCount > 50) {
-        const extraVolume = productCount - 50;
-        const extraCharge = Math.ceil(extraVolume / 25) * 20;
-        totalUSD += extraCharge;
-        detailsHTML += `<li>• Extended Catalog Review (${productCount} items): +$${extraCharge}</li>`;
-      }
-    } 
-    else if (activeService === 'audit') {
-      detailsHTML += `<li>• Strategic Store Audit & 15-Min Video Teardown: $${basePrice}</li>`;
-      detailsHTML += `<li>• 100% credited toward build if hired for fixes</li>`;
-    }
-
-    // Addons
-    if (activeService !== 'audit') {
-      addonCheckboxes.forEach(cb => {
-        if (cb.checked) {
-          const value = parseFloat(cb.value);
-          totalUSD += value;
-          
-          let addonName = '';
-          if (cb.id === 'addonImage') addonName = 'Batch Image 1:1 Canvas Framing';
-          if (cb.id === 'addonSeo') addonName = 'Complete 301 URL SEO Redirection Map';
-          if (cb.id === 'addonMerchant') addonName = 'Google Merchant Shopping Feed Sync';
-
-          detailsHTML += `<li>• Add-on: ${addonName} (+$${value})</li>`;
+    if (isBuild) {
+      details.push('Complete Shopify setup, storefront and agreed launch scope.');
+      details.push(`Planned catalogue: ${productCount} ${productCount === 1 ? 'product' : 'products'}.`);
+      details.push('Final fee follows review of your pages, features and supplied assets.');
+      details.push('Paid themes, apps and subscriptions are agreed separately.');
+      calcPriceEl.textContent = 'Custom quote';
+      if (calcEyebrow) calcEyebrow.textContent = 'New Store · Scope First';
+    } else {
+      if (activeService === 'migration') {
+        details.push(`Shopify Migration (base up to 100 SKUs): $${basePrice}`);
+        if (productCount > 100) {
+          const charge = Math.ceil((productCount - 100) / 50) * 35;
+          totalUSD += charge;
+          details.push(`Catalogue volume (${productCount} items): +$${charge}`);
         }
+      } else {
+        details.push(`Storefront Improvement Sprint: $${basePrice}`);
+        if (productCount > 50) {
+          const charge = Math.ceil((productCount - 50) / 25) * 20;
+          totalUSD += charge;
+          details.push(`Extended catalogue review (${productCount} items): +$${charge}`);
+        }
+      }
+      const addonNames = {
+        addonImage: 'Batch image framing',
+        addonSeo: 'Agreed URL redirect mapping',
+        addonMerchant: 'Google Merchant feed setup'
+      };
+      addonCheckboxes.forEach(checkbox => {
+        if (!checkbox.checked) return;
+        const charge = Number(checkbox.value);
+        totalUSD += charge;
+        details.push(`${addonNames[checkbox.id] || 'Scoped add-on'}: +$${charge}`);
       });
+      calcPriceEl.textContent = `$${totalUSD}`;
+      if (calcEyebrow) calcEyebrow.textContent = 'Indicative Scope Estimate';
     }
+    if (calcNairaEl) calcNairaEl.textContent = 'Naira invoicing agreed when quoted';
+    calcDetailsEl.replaceChildren(...details.map(text => {
+      const item = document.createElement('li');
+      item.textContent = `• ${text}`;
+      return item;
+    }));
 
-    const totalNaira = totalUSD * NAIRA_RATE;
-
-    calcPriceEl.textContent = `$${totalUSD}`;
-    calcNairaEl.textContent = `₦${totalNaira.toLocaleString()}`;
-    calcDetailsEl.innerHTML = detailsHTML;
-
-    // WhatsApp Message
-    let serviceLabel = 'Shopify Migration Rescue';
-    if (activeService === 'conversion') serviceLabel = 'Conversion Repair Sprint';
-    else if (activeService === 'audit') serviceLabel = 'Strategic Store Audit ($120)';
-
-    let messageText = `Hi Bayode, I need help with my e-commerce store.\n\n`;
-    messageText += `*Service Requested:* ${serviceLabel}\n`;
-    messageText += `*Current Platform:* ${activePlatform}\n`;
-    if (activeService !== 'audit') {
-      messageText += `*Estimated Products:* ${productCount} items\n`;
+    let message = `Hi Bayode, I’d like to discuss a store project.\n\n`;
+    message += `Service requested: ${serviceLabel}\n`;
+    if (isBuild) {
+      message += `Platform: New Shopify store\n`;
+    } else {
+      message += `Current platform: ${activeService === 'migration' ? migrationPlatform : 'Shopify'}\n`;
     }
-    messageText += `*Estimated Scope Quote:* $${totalUSD} / ₦${totalNaira.toLocaleString()}\n\n`;
-    messageText += `Let's discuss my project requirements!`;
-
+    message += `Estimated products: ${productCount}\n`;
+    if (isBuild) {
+      message += `Project brief: ${buildBrief?.value.trim() || 'To discuss'}\n`;
+      message += `Preferred launch timing: ${buildTimeline?.value.trim() || 'Flexible / to discuss'}\n`;
+      message += 'Pricing: Please prepare a custom quote after reviewing the scope.\n';
+    } else {
+      message += `Indicative scope estimate: $${totalUSD}\n`;
+      message += `Included estimate items:\n${details.map(item => `- ${item}`).join('\n')}\n`;
+    }
+    message += '\nPlease confirm the final scope, timing, third-party costs and payment currency.';
     if (whatsappBtn) {
-      whatsappBtn.href = `https://wa.me/2348126679348?text=${encodeURIComponent(messageText)}`;
+      whatsappBtn.href = `https://wa.me/2348126679348?text=${encodeURIComponent(message)}`;
+      const label = whatsappBtn.querySelector('span');
+      if (label) label.textContent = isBuild ? 'Request My Build Quote' : 'Discuss This Scope';
     }
   }
 
-  calculateEstimate();
+  selectService(activeService);
 
 
   // --- 7. FAQ ACCORDION ---
