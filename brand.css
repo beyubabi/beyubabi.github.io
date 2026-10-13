@@ -323,3 +323,43 @@ textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; 
   .audit-entry { grid-template-columns: 1fr; gap: 18px; padding: 20px; }
   .audit-entry .btn-secondary { width: 100%; white-space: normal; text-align: center; }
 }
+
+
+/* Bayode shopfront-B header identity (desktop and mobile) */
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.16em;
+  white-space: nowrap;
+}
+.nav-brand-icon {
+  display: block;
+  width: 1.08em;
+  height: 1.08em;
+  flex: 0 0 auto;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.nav-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+.drawer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.drawer-brand-icon {
+  display: block;
+  width: 1.08em;
+  height: 1.08em;
+  flex: 0 0 auto;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.drawer-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+}
