@@ -218,3 +218,20 @@ h2{font-size:32px}
 .showcase img{height:260px}
 }
 
+
+
+/* Platform logos: official marks. Mark follows text colour, the S cut-out shows the page background (white in light mode, dark in dark mode) */
+.platform-logo{width:20px;height:20px;fill:currentColor;stroke:none;display:block}
+.platform-name{color:var(--text)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Images: show the full screenshot from the top instead of a cropped centre slice */
+.showcase img,.case-image img,.project img,.video img{height:auto;aspect-ratio:594/376;object-fit:cover;object-position:center top}
+
+
+/* "Specialist in" row: everything sits on one straight centre line with even spacing */
+.platforms{display:flex;flex-wrap:wrap;align-items:center;column-gap:36px;row-gap:16px}
+.platforms>*{margin:0;line-height:1}
+.platforms .eyebrow{margin-right:4px}
+.platforms .platform-name{display:inline-flex;align-items:center;gap:10px;font-size:14px}
+.platforms .small{font-size:14px;color:var(--muted)}
