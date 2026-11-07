@@ -1,1 +1,31 @@
+name: Rotate weekly OG image
 
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rotate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Select the next design
+        run: python3 .github/scripts/rotate-og-image.py
+      - name: Publish the rotation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No OG image changes to publish."
+          else
+            git add index.html og-image.jpg .og-rotation-index
+            git commit -m "Rotate weekly Open Graph image"
+            git push
+          fi
