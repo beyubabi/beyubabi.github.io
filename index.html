@@ -479,9 +479,54 @@
 </article>
 </div>
 </section>
+<section class="container section" id="shopify-code">
+<header class="section-heading">
+<p class="eyebrow">07 / Shopify theme development</p>
+<h2>Liquid builds the logic. CSS makes it feel right.</h2>
+<p class="description">I work directly in Shopify themes to tailor product templates, reusable sections and storefront details — then refine the layout for mobile, where the buying experience matters most.</p>
+</header>
+<div class="code-showcase">
+<div class="code-copy">
+<article class="code-skill">
+<span class="code-index">01</span>
+<div><h3>Shopify Liquid</h3><p>Product templates, reusable theme sections, availability states and storefront logic.</p></div>
+</article>
+<article class="code-skill">
+<span class="code-index">02</span>
+<div><h3>Theme CSS</h3><p>Responsive styling for product pages, variant controls, sticky purchase actions and custom layouts.</p></div>
+</article>
+<article class="code-skill">
+<span class="code-index">03</span>
+<div><h3>Careful implementation</h3><p>Tested storefront changes designed to fit the existing theme instead of adding unnecessary app weight.</p></div>
+</article>
+<p class="code-proof"><strong>Client feedback · Shopify Liquid code task</strong><br>“Passed our technical Liquid test on the first try. Clean code, fast cart implementation, zero unnecessary app bloat.” <span>— <a href="https://sowkids.com/" target="_blank" rel="noopener noreferrer">Sowkids</a></span></p>
+</div>
+<div class="code-window" aria-label="Illustrative Shopify Liquid and CSS code example">
+<div class="code-window-bar"><span class="code-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>product-form.liquid</span><span class="code-filetype">EXAMPLE</span></div>
+<div class="code-block"><p class="code-caption">LIQUID · PRODUCT AVAILABILITY</p>
+<pre><code><span class="code-muted">{%</span> <span class="code-key">if</span> product.available <span class="code-muted">%}</span>
+  &lt;button
+    class="product__submit"
+    type="submit"
+    name="add"&gt;
+    Add to cart
+  &lt;/button&gt;
+<span class="code-muted">{%</span> <span class="code-key">endif</span> <span class="code-muted">%}</span></code></pre>
+</div>
+<div class="code-block code-block-css"><p class="code-caption">CSS · MOBILE-FRIENDLY ACTION</p>
+<pre><code><span class="code-selector">.product__submit</span> {
+  <span class="code-property">width</span>: <span class="code-value">100%</span>;
+  <span class="code-property">min-height</span>: <span class="code-value">48px</span>;
+  <span class="code-property">border-radius</span>: <span class="code-value">6px</span>;
+}</code></pre>
+</div>
+<p class="code-note">Illustrative snippet — not a client’s private source code.</p>
+</div>
+</div>
+</section>
 <section class="container section" id="proof">
 <header class="section-heading">
-<p class="eyebrow">07 / Client feedback</p>
+<p class="eyebrow">08 / Client feedback</p>
 <h2>The work, in their words.</h2>
 </header>
 <div class="grid-3 quotes">
@@ -513,7 +558,7 @@
 </section>
 <section class="container section" id="faq">
 <header class="section-heading">
-<p class="eyebrow">08 / A few answers</p>
+<p class="eyebrow">09 / A few answers</p>
 <h2>Before we build.</h2>
 </header>
 <div class="faq-list">

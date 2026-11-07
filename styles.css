@@ -325,3 +325,28 @@ h2{font-size:32px}
  .service .button svg{width:15px;height:15px}
 }
 @media(prefers-reduced-motion:reduce){.back-to-top{transition:none}}
+
+
+/* Shopify Liquid + CSS technical showcase. */
+.code-showcase{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:28px;align-items:stretch}
+.code-copy{display:grid;align-content:start;gap:18px}
+.code-skill{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.code-index{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;font-size:11px;color:var(--accent)}
+.code-skill h3{font-size:19px;margin:0 0 6px}
+.code-skill p{font-size:14px;line-height:1.55}
+.code-proof{margin-top:4px;padding:18px 20px;border-left:3px solid var(--accent);border-radius:0 7px 7px 0;background:var(--surface);font-size:14px;line-height:1.6;color:var(--text)}
+.code-proof strong{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.code-proof span{color:var(--muted);white-space:nowrap}
+.code-window{min-width:0;align-self:stretch;overflow:hidden;border:1px solid #25372e;border-radius:10px;background:#111a16;color:#eaf2eb;box-shadow:0 12px 30px rgba(10,25,15,.12)}
+.code-window-bar{min-height:45px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid #29372f;background:#18231d;color:#bbc9bf;font-size:12px}
+.code-dots{display:flex;gap:5px}.code-dots i{width:7px;height:7px;border-radius:50%;background:#7b9282}.code-dots i:nth-child(1){background:#d98b74}.code-dots i:nth-child(2){background:#d8b66a}.code-dots i:nth-child(3){background:#86b68e}
+.code-filetype{margin-left:auto;color:#96b49c;font-size:9px;letter-spacing:.12em}
+.code-block{padding:19px 22px 4px}.code-caption{font-size:9px;letter-spacing:.13em;color:#91aa98;margin:0 0 10px}
+.code-block pre{margin:0;overflow-x:auto;white-space:pre;font:13px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e6eee6}
+.code-muted{color:#95a79b}.code-key{color:#dba4cc}.code-selector{color:#91cfad}.code-property{color:#9dc8ec}.code-value{color:#e4c17c}
+.code-block-css{padding-top:14px}
+.code-note{padding:0 22px 18px;font-size:11px;color:#9eaea2}
+@media(max-width:809.98px){.code-showcase{grid-template-columns:1fr;gap:20px}.code-skill{padding:14px 0}.code-block{padding-inline:16px}.code-note{padding-inline:16px}.code-block pre{font-size:12px}}
+
+.code-proof a{color:var(--accent);font-weight:600;text-underline-offset:3px}
+.code-proof a:hover{color:var(--text)}

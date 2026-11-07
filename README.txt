@@ -28,3 +28,9 @@ OG images affect link previews, not a WhatsApp Status photo. WhatsApp may cache 
 
 SITE FILES
 Upload index.html, styles.css, app.js, og-image.jpg, the complete og-images folder, .og-rotation-index, and the .github folder to the root of the repository. The existing website OG metadata uses https://beyubabi.github.io/og-images/og-01.jpg at first.
+
+SHOPIFY LIQUID + CSS SECTION
+The portfolio now includes a prominent Shopify theme-development section with Liquid and CSS skills, an illustrative code pattern clearly labeled as an example (not private client source), and the existing client testimonial about a Liquid test.
+
+HTML-TEST PROJECT ASSET
+The current upload did not include html-test.jpg: the attached index.html is a 31-product catalogue page, and no html-test image or associated demo URL was included. The specific image-based project card is therefore not fabricated or linked to a guessed URL. Provide the image and exact public project URL to add it accurately.
