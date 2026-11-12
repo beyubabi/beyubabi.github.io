@@ -46,4 +46,47 @@ if(service&&products&&platform)[service,products,platform].concat(extras).forEac
 document.querySelectorAll("[data-service]").forEach(function(link){link.addEventListener("click",function(){if(service){service.value=link.dataset.service;updateScope()}})});document.querySelectorAll(".faq-list details").forEach(function(item){item.addEventListener("toggle",function(){if(item.open)document.querySelectorAll(".faq-list details").forEach(function(other){if(other!==item)other.open=false})})});
 var backToTop=document.getElementById("back-to-top");if(backToTop){function toggleBackToTop(){backToTop.classList.toggle("is-visible",window.scrollY>360)}window.addEventListener("scroll",toggleBackToTop,{passive:true});toggleBackToTop()}
 setCurrencyOptions();updateRateHint();refreshStaticPrices();updateScope();updateBrowserColor();
+/* Behind the builds carousel: three slides, autoplay every 3.5 seconds. */
+var carousel=document.querySelector("[data-build-carousel]");
+if(carousel){
+ var slides=Array.from(carousel.querySelectorAll("[data-build-slide]")),indicators=Array.from(carousel.querySelectorAll("[data-build-to]")),announcement=carousel.querySelector("[data-build-announcement]"),active=0,timer=null,hovered=false,focused=false,reduced=window.matchMedia("(prefers-reduced-motion: reduce)");
+ function showBuildSlide(index){active=(index+slides.length)%slides.length;slides.forEach(function(slide,i){var current=i===active;slide.hidden=!current;slide.classList.toggle("is-active",current);slide.setAttribute("aria-hidden",current?"false":"true")});indicators.forEach(function(button,i){var current=i===active;button.classList.toggle("is-active",current);button.setAttribute("aria-pressed",current?"true":"false")});if(announcement){var label=slides[active].querySelector(".build-slide-copy .eyebrow");announcement.textContent=(active+1)+" of "+slides.length+": "+(label?label.textContent:"Behind the builds")}}
+ function stopBuildTimer(){if(timer){window.clearInterval(timer);timer=null}}
+ function startBuildTimer(){stopBuildTimer();if(slides.length>1&&!reduced.matches&&!hovered&&!focused&&document.visibilityState==="visible")timer=window.setInterval(function(){showBuildSlide(active+1)},3500)}
+ indicators.forEach(function(button){button.addEventListener("click",function(){var next=Number(button.dataset.buildTo);if(Number.isInteger(next))showBuildSlide(next);startBuildTimer()})});
+ Array.from(carousel.querySelectorAll("[data-build-prev],[data-build-next]")).forEach(function(button){button.addEventListener("click",function(){showBuildSlide(active+(button.hasAttribute("data-build-next")?1:-1));startBuildTimer()})});
+ carousel.addEventListener("mouseenter",function(){hovered=true;stopBuildTimer()});carousel.addEventListener("mouseleave",function(){hovered=false;startBuildTimer()});
+ carousel.addEventListener("focusin",function(){focused=true;stopBuildTimer()});carousel.addEventListener("focusout",function(event){if(!carousel.contains(event.relatedTarget)){focused=false;startBuildTimer()}});
+ document.addEventListener("visibilitychange",startBuildTimer);
+ if(reduced.addEventListener)reduced.addEventListener("change",startBuildTimer);else if(reduced.addListener)reduced.addListener(startBuildTimer);
+ showBuildSlide(0);startBuildTimer();
+}
+/* Hero carousel: preserve current headline/actions, animate the copy, and rotate at a readable pace. */
+var heroCarousel=document.querySelector("[data-hero-carousel]");
+if(heroCarousel){
+ var heroSlides=Array.from(heroCarousel.querySelectorAll("[data-hero-slide]")),heroDots=Array.from(document.querySelectorAll("[data-hero-to]")),heroAnnounce=document.querySelector("[data-hero-announcement]"),heroActive=0,heroTimer=null,heroHover=false,heroFocus=false,heroReduced=window.matchMedia("(prefers-reduced-motion: reduce)");
+ function showHeroSlide(index){heroActive=(index+heroSlides.length)%heroSlides.length;heroSlides.forEach(function(slide,i){var current=i===heroActive;slide.hidden=!current;slide.classList.toggle("is-active",current);slide.setAttribute("aria-hidden",current?"false":"true")});heroDots.forEach(function(dot,i){var current=i===heroActive;dot.classList.toggle("is-active",current);dot.setAttribute("aria-pressed",current?"true":"false")});if(heroAnnounce){var label=heroSlides[heroActive].querySelector(".showcase .eyebrow");heroAnnounce.textContent=(heroActive+1)+" of "+heroSlides.length+": "+(label?label.textContent:"Featured work")}}
+ function stopHeroTimer(){if(heroTimer){window.clearInterval(heroTimer);heroTimer=null}}
+ function startHeroTimer(){stopHeroTimer();if(heroSlides.length>1&&!heroReduced.matches&&!heroHover&&!heroFocus&&document.visibilityState==="visible")heroTimer=window.setInterval(function(){showHeroSlide(heroActive+1)},3500)}
+ heroDots.forEach(function(dot){dot.addEventListener("click",function(){var target=Number(dot.dataset.heroTo);if(Number.isInteger(target))showHeroSlide(target);startHeroTimer()})});
+ Array.from(document.querySelectorAll("[data-hero-prev],[data-hero-next]")).forEach(function(button){button.addEventListener("click",function(){showHeroSlide(heroActive+(button.hasAttribute("data-hero-next")?1:-1));startHeroTimer()})});
+ var heroNavigation=document.querySelector(".hero-controls");
+ [heroCarousel,heroNavigation].filter(Boolean).forEach(function(region){region.addEventListener("mouseenter",function(){heroHover=true;stopHeroTimer()});region.addEventListener("mouseleave",function(){heroHover=false;startHeroTimer()});region.addEventListener("focusin",function(){heroFocus=true;stopHeroTimer()});region.addEventListener("focusout",function(event){if(!heroCarousel.contains(event.relatedTarget)&&(!heroNavigation||!heroNavigation.contains(event.relatedTarget))){heroFocus=false;startHeroTimer()}})});
+ document.addEventListener("visibilitychange",startHeroTimer);if(heroReduced.addEventListener)heroReduced.addEventListener("change",startHeroTimer);else if(heroReduced.addListener)heroReduced.addListener(startHeroTimer);
+ showHeroSlide(0);startHeroTimer();
+}
+/* Selected Work: progressive reveal keeps the featured grid focused. */
+var projectsMore=document.getElementById("projects-more"),projectGrid=document.getElementById("project-grid");
+if(projectsMore&&projectGrid){
+ var extraProjects=Array.from(projectGrid.querySelectorAll(":scope > .project")).slice(4);
+ projectsMore.addEventListener("click",function(){var expanded=projectsMore.getAttribute("aria-expanded")==="true";projectsMore.setAttribute("aria-expanded",expanded?"false":"true");extraProjects.forEach(function(card){card.hidden=expanded});projectsMore.querySelector("span")&&(projectsMore.querySelector("span").textContent=expanded?"See all projects":"Show fewer projects");if(!projectsMore.querySelector("span")){projectsMore.childNodes[0].textContent=expanded?"See more projects ":"Show fewer projects "}})
+}
+/* Desktop section rail: highlight the page section currently crossing the viewport midpoint. */
+var sectionRail=document.getElementById("section-rail");
+if(sectionRail){
+ var railLinks=Array.from(sectionRail.querySelectorAll("[data-rail-target]")),railSections=railLinks.map(function(link){return document.getElementById(link.dataset.railTarget)}).filter(Boolean),railFrame=0;
+ function updateSectionRail(){railFrame=0;var mid=window.innerHeight*.5,current=null,closest=null,closestDistance=Infinity;railSections.forEach(function(section){var rect=section.getBoundingClientRect();if(rect.top<=mid&&rect.bottom>mid)current=section;var distance=Math.abs((rect.top+rect.bottom)/2-mid);if(distance<closestDistance){closestDistance=distance;closest=section}});current=current||closest;if(!current)return;railLinks.forEach(function(link){if(link.dataset.railTarget===current.id)link.setAttribute("aria-current","location");else link.removeAttribute("aria-current")})}
+ function queueSectionRailUpdate(){if(!railFrame)railFrame=window.requestAnimationFrame(updateSectionRail)}
+ window.addEventListener("scroll",queueSectionRailUpdate,{passive:true});window.addEventListener("resize",queueSectionRailUpdate);railLinks.forEach(function(link){link.addEventListener("click",function(){window.setTimeout(queueSectionRailUpdate,350)})});updateSectionRail();
+}
 })();

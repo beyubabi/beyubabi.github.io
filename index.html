@@ -11,15 +11,15 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://beyubabi.github.io/">
 <link rel="canonical" href="https://beyubabi.github.io/">
-<meta property="og:image" content="https://beyubabi.github.io/og-images/og-02.jpg">
-<meta property="og:image:secure_url" content="https://beyubabi.github.io/og-images/og-02.jpg">
+<meta property="og:image" content="https://beyubabi.github.io/og-images/og-01.jpg">
+<meta property="og:image:secure_url" content="https://beyubabi.github.io/og-images/og-01.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Bayode Akindiose — E-commerce Website Specialist">
 <meta name="twitter:description" content="Shopify and WooCommerce builds, careful migrations and mobile-first improvements for growing product brands.">
-<meta name="twitter:image" content="https://beyubabi.github.io/og-images/og-02.jpg">
+<meta name="twitter:image" content="https://beyubabi.github.io/og-images/og-01.jpg">
 <link rel="preconnect" href="https://framerusercontent.com" crossorigin>
 <script>
 (function(){var m="system";try{var stored=localStorage.getItem("bayode-appearance");if(["light","dark","system"].includes(stored))m=stored}catch(e){}document.documentElement.dataset.theme=m;var d=m==="dark"||(m==="system"&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.getElementById("theme-color").content=d?"#0c1211":"#f7f8f5"})()
@@ -44,27 +44,69 @@
 </select></label>
 </nav>
 </div>
+<nav class="section-rail" id="section-rail" aria-label="Page section navigation">
+<a href="#hero" data-rail-target="hero" data-label="Home" aria-label="Home"></a>
+<a href="#case-study" data-rail-target="case-study" data-label="Featured case study" aria-label="Featured case study"></a>
+<a href="#services" data-rail-target="services" data-label="Services" aria-label="Services"></a>
+<a href="#estimator" data-rail-target="estimator" data-label="Project estimator" aria-label="Project estimator"></a>
+<a href="#projects" data-rail-target="projects" data-label="Selected work" aria-label="Selected work"></a>
+<a href="#videos" data-rail-target="videos" data-label="Behind the builds" aria-label="Behind the builds"></a>
+<a href="#stack" data-rail-target="stack" data-label="Technical expertise" aria-label="Technical expertise"></a>
+<a href="#shopify-code" data-rail-target="shopify-code" data-label="Shopify theme development" aria-label="Shopify theme development"></a>
+<a href="#proof" data-rail-target="proof" data-label="Client feedback" aria-label="Client feedback"></a>
+<a href="#faq" data-rail-target="faq" data-label="FAQ" aria-label="FAQ"></a>
+<a href="#contact" data-rail-target="contact" data-label="Contact" aria-label="Contact"></a>
+</nav>
 <main id="main">
 <section class="container section intro" id="hero">
-<p class="eyebrow">Independent e-commerce website specialist</p>
-<div class="intro-grid">
+<div class="hero-carousel" data-hero-carousel aria-roledescription="carousel" aria-label="Featured work and Shopify development">
+<article class="intro-grid hero-slide is-active" data-hero-slide aria-label="1 of 2" aria-hidden="false">
 <div class="intro-copy">
+<p class="eyebrow">Independent e-commerce website specialist</p>
 <h1>Online stores. Built for your next chapter.</h1>
 <p>I’m Bayode. I build thoughtful Shopify and WooCommerce websites for product brands, from the first product to the next big move.</p>
 <div class="actions">
-<a class="button" href="#estimator">Let’s build your store<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M7 17 17 7M7 7h10v10"/>
-</svg>
-</a>
+<a class="button" href="#estimator">Let’s build your store<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
 <a class="text-link" href="#projects">Explore my work</a>
 </div>
 </div>
 <div class="showcase">
-<img src="https://framerusercontent.com/images/T4QSiSBqfZ2JyheQXMln2YBWhA.jpg?width=1080&amp;height=1080" alt="Swiftglamour beauty and lifestyle storefront" width="594" height="376" fetchpriority="high">
+<img src="behind-swiftglamour.jpg" alt="Swiftglamour beauty storefront, a real Shopify replatform project" width="594" height="376" fetchpriority="high">
 <p class="eyebrow">Swiftglamour / Shopify replatform</p>
 <p class="small">Considered design. Careful engineering.</p>
 </div>
+</article>
+<article class="intro-grid hero-slide" data-hero-slide aria-label="2 of 2" aria-hidden="true" hidden>
+<div class="intro-copy">
+<p class="eyebrow">Shopify theme development · Built by hand</p>
+<h1>Shopify, shaped around the way you sell.</h1>
+<p>I build tailored theme sections and storefront details with Liquid, CSS, HTML and JavaScript—designed to work smoothly on mobile, not just look good in a mockup.</p>
+<div class="actions"><a class="button" href="#shopify-code">Explore Shopify code<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
 </div>
+<div class="showcase hero-maker-showcase">
+<div class="hero-maker-visual">
+<div class="hero-maker-photo"><img src="hero-bayode-profile.jpg" alt="Portrait of Bayode Akindiose, e-commerce developer" width="1215" height="1215" loading="eager"><span class="hero-photo-caption">Bayode Akindiose <span>Shopify developer</span></span></div>
+<div class="hero-maker-code">
+<div class="hero-maker-badge"><svg aria-hidden="true" class="platform-logo" viewbox="0 0 24 24"><path d="M15.337 23.979l7.216-1.561s-2.604-17.613-2.625-17.73c-.018-.116-.114-.192-.211-.192s-1.929-.136-1.929-.136-1.275-1.274-1.439-1.411c-.045-.037-.075-.057-.121-.074l-.914 21.104h.023zM11.71 11.305s-.81-.424-1.774-.424c-1.447 0-1.504.906-1.504 1.141 0 1.232 3.24 1.715 3.24 4.629 0 2.295-1.44 3.76-3.406 3.76-2.354 0-3.54-1.465-3.54-1.465l.646-2.086s1.245 1.066 2.28 1.066c.675 0 .975-.545.975-.932 0-1.619-2.654-1.694-2.654-4.359-.034-2.237 1.571-4.416 4.827-4.416 1.257 0 1.875.361 1.875.361l-.945 2.715-.02.01zM11.17.83c.136 0 .271.038.405.135-.984.465-2.064 1.639-2.508 3.992-.656.213-1.293.405-1.889.578C7.697 3.75 8.951.84 11.17.84V.83zm1.235 2.949v.135c-.754.232-1.583.484-2.394.736.466-1.777 1.333-2.645 2.085-2.971.193.501.309 1.176.309 2.1zm.539-2.234c.694.074 1.141.867 1.429 1.755-.349.114-.735.231-1.158.366v-.252c0-.752-.096-1.371-.271-1.871v.002zm2.992 1.289c-.02 0-.06.021-.078.021s-.289.075-.714.21c-.423-1.233-1.176-2.37-2.508-2.37h-.115C12.135.209 11.669 0 11.265 0 8.159 0 6.675 3.877 6.21 5.846c-1.194.365-2.063.636-2.16.674-.675.213-.694.232-.772.87-.075.462-1.83 14.063-1.83 14.063L15.009 24l.927-21.166z"></path></svg><span>Shopify</span></div>
+<p class="hero-code-overline">THEME DEVELOPMENT</p>
+<h3>Built with care.<br>Built to fit.</h3>
+<p class="hero-code-stack">Liquid · CSS · HTML · JavaScript</p>
+<div class="hero-code-rule" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="hero-work-thumb"><img src="behind-oversize-plus.jpg" alt="" width="594" height="376" loading="eager"><span>Oversize Plus · Custom storefront</span></div>
+</div>
+</div>
+<p class="eyebrow">The craft behind the storefront</p>
+<p class="small">My portrait alongside real Shopify project work and the tools I use.</p>
+</div>
+</article>
+</div>
+<div class="hero-controls" role="group" aria-label="Choose a hero slide">
+<button class="hero-arrow" type="button" data-hero-prev aria-label="Previous hero slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+<button class="hero-dot is-active" type="button" data-hero-to="0" aria-label="Show online store slide" aria-pressed="true"></button>
+<button class="hero-dot" type="button" data-hero-to="1" aria-label="Show Shopify coding slide" aria-pressed="false"></button>
+<button class="hero-arrow" type="button" data-hero-next aria-label="Next hero slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+</div>
+<p class="sr-only" data-hero-announcement aria-live="polite" aria-atomic="true">1 of 2: Swiftglamour Shopify replatform</p>
 <div class="platforms" aria-label="E-commerce stores: Shopify and WooCommerce"><div class="platform-track">
 <div class="platform-group">
 <span class="eyebrow">E-commerce stores</span>
@@ -338,7 +380,7 @@
 <h2>Different brands. The same attention to detail.</h2>
 <p class="description">A selection of Shopify and WooCommerce builds, custom storefronts and replatforming projects.</p>
 </header>
-<div class="projects">
+<div class="projects" id="project-grid">
 <a class="project card" href="https://oversizedplus.myshopify.com/" target="_blank" rel="noopener noreferrer">
 <img class="" src="https://framerusercontent.com/images/DjKcYbSOTRitB5x8F1KzH9eJ8Nk.jpg?width=594&amp;height=376" alt="Oversize Plus storefront" loading="lazy" decoding="async" width="594" height="376">
 <p class="eyebrow">SHOPIFY / CUSTOM APPAREL</p>
@@ -361,39 +403,6 @@
 </div>
 <p>A focused single-product experience with reviews and a streamlined purchase journey.</p>
 </a>
-<a class="project card" href="#proof">
-<img class="" src="https://framerusercontent.com/images/wgPP6AqzEqtp2KF20AYFWFvefI.jpg?width=594&amp;height=376" alt="Toko (Dubai) storefront" loading="lazy" decoding="async" width="594" height="376">
-<p class="eyebrow">SHOPIFY / CUSTOM DEVELOPMENT</p>
-<div class="project-title">
-<h3>Toko (Dubai)</h3>
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M7 17 17 7M7 7h10v10"/>
-</svg>
-</div>
-<p>Product bundling and shipping configuration for a UAE-focused store.</p>
-</a>
-<a class="project card" href="https://beyutech.gt.tc/?i=3" target="_blank" rel="noopener noreferrer">
-<img class="" src="https://framerusercontent.com/images/FGY7ScN66tvG8JVqdGiWLrOnNM.jpg?width=594&amp;height=376" alt="Bayu Tech storefront" loading="lazy" decoding="async" width="594" height="376">
-<p class="eyebrow">WOOCOMMERCE / ELECTRONICS</p>
-<div class="project-title">
-<h3>Bayu Tech</h3>
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M7 17 17 7M7 7h10v10"/>
-</svg>
-</div>
-<p>A considered gadget catalogue, product filtering and custom checkout styling.</p>
-</a>
-<a class="project card" href="https://incredible-fibre.myshopify.com/" target="_blank" rel="noopener noreferrer">
-<img class="" src="https://framerusercontent.com/images/wfGxjiiTYvGab8g8CToyK1DQPRk.jpg?width=594&amp;height=376" alt="Incredible Fiber storefront" loading="lazy" decoding="async" width="594" height="376">
-<p class="eyebrow">SHOPIFY / WIX MIGRATION</p>
-<div class="project-title">
-<h3>Incredible Fiber</h3>
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M7 17 17 7M7 7h10v10"/>
-</svg>
-</div>
-<p>A carefully organized move to Shopify, including variants and recipe content.</p>
-</a>
 <a class="project card" href="https://kuchewood.myshopify.com/" target="_blank" rel="noopener noreferrer">
 <img class="" src="https://framerusercontent.com/images/AaqYRAJVMDL96XU4wBkMY1TamQs.jpg?width=594&amp;height=376" alt="Küchewood storefront" loading="lazy" decoding="async" width="594" height="376">
 <p class="eyebrow">SHOPIFY / HOME &amp; LIVING</p>
@@ -405,40 +414,98 @@
 </div>
 <p>A clean kitchenware catalogue with useful filters and mobile-friendly grids.</p>
 </a>
+<a class="project card" href="#proof">
+<img class="" src="https://framerusercontent.com/images/wgPP6AqzEqtp2KF20AYFWFvefI.jpg?width=594&amp;height=376" alt="Toko (Dubai) storefront" loading="lazy" decoding="async" width="594" height="376">
+<p class="eyebrow">SHOPIFY / CUSTOM DEVELOPMENT</p>
+<div class="project-title">
+<h3>Toko (Dubai)</h3>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M7 17 17 7M7 7h10v10"/>
+</svg>
 </div>
+<p>Product bundling and shipping configuration for a UAE-focused store.</p>
+</a>
+<a class="project card" hidden href="https://beyutech.gt.tc/?i=3" target="_blank" rel="noopener noreferrer">
+<img class="" src="https://framerusercontent.com/images/FGY7ScN66tvG8JVqdGiWLrOnNM.jpg?width=594&amp;height=376" alt="Bayu Tech storefront" loading="lazy" decoding="async" width="594" height="376">
+<p class="eyebrow">WOOCOMMERCE / ELECTRONICS</p>
+<div class="project-title">
+<h3>Bayu Tech</h3>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M7 17 17 7M7 7h10v10"/>
+</svg>
+</div>
+<p>A considered gadget catalogue, product filtering and custom checkout styling.</p>
+</a>
+<a class="project card" hidden href="https://incredible-fibre.myshopify.com/" target="_blank" rel="noopener noreferrer">
+<img class="" src="https://framerusercontent.com/images/wfGxjiiTYvGab8g8CToyK1DQPRk.jpg?width=594&amp;height=376" alt="Incredible Fiber storefront" loading="lazy" decoding="async" width="594" height="376">
+<p class="eyebrow">SHOPIFY / WIX MIGRATION</p>
+<div class="project-title">
+<h3>Incredible Fiber</h3>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M7 17 17 7M7 7h10v10"/>
+</svg>
+</div>
+<p>A carefully organized move to Shopify, including variants and recipe content.</p>
+</a>
+</div>
+<div class="projects-more-wrap"><button class="projects-more" type="button" id="projects-more" aria-expanded="false" aria-controls="project-grid"><span>See all projects</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
 <p class="project-note">Some Shopify previews require password: 1.</p>
 </section>
-<section class="container section" id="videos">
-<header class="section-heading">
-<p class="eyebrow">05 / Behind the builds</p>
-<h2>See the thinking. Not just the finish.</h2>
-<p class="description">Short walkthroughs of real storefronts, custom logic and the details behind each build.</p>
-</header>
-<div class="grid-3 videos">
-<a class="card video" href="https://www.youtube.com/watch?v=6_hK2cO8E8k" target="_blank" rel="noopener noreferrer">
-<img class="" src="https://framerusercontent.com/images/T4QSiSBqfZ2JyheQXMln2YBWhA.jpg?width=1080&amp;height=1080" alt="Swiftglamour migration video preview" loading="lazy" decoding="async" width="594" height="376">
-<h3>Swiftglamour migration</h3>
-<span class="watch">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="m8 5 11 7-11 7Z"/>
-</svg>Watch walkthrough</span>
+<section class="container section build-section" id="videos" aria-roledescription="carousel" aria-label="Behind the builds">
+<div class="build-carousel" data-build-carousel>
+<div class="build-slides">
+<article class="build-slide is-active" data-build-slide aria-label="1 of 3" aria-hidden="false">
+<div class="build-slide-copy">
+<p class="eyebrow">Behind the builds · Swiftglamour migration</p>
+<h2>A complex catalogue, rebuilt with care.</h2>
+<p>See how 887 products and 900+ images moved from WooCommerce to Shopify, with catalogue structure and launch details carefully checked.</p>
+<a class="build-play" href="https://www.youtube.com/watch?v=6_hK2cO8E8k" target="_blank" rel="noopener noreferrer" aria-label="Play the Swiftglamour migration walkthrough">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 10 6-10 6z"/></svg><span>Play Video</span>
 </a>
-<a class="card video" href="https://www.youtube.com/watch?v=a3pHb6dP5as" target="_blank" rel="noopener noreferrer">
-<img class="" src="https://framerusercontent.com/images/DjKcYbSOTRitB5x8F1KzH9eJ8Nk.jpg?width=594&amp;height=376" alt="Oversize Plus customizer video preview" loading="lazy" decoding="async" width="594" height="376">
-<h3>Oversize Plus customizer</h3>
-<span class="watch">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="m8 5 11 7-11 7Z"/>
-</svg>Watch walkthrough</span>
+</div>
+<div class="build-slide-media"><img src="behind-swiftglamour.jpg" alt="Swiftglamour Shopify storefront after the catalogue migration" width="1080" height="1080" fetchpriority="high">
+<div class="build-arrows"><button class="build-arrow build-arrow-prev" type="button" data-build-prev aria-label="Previous walkthrough"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+<button class="build-arrow build-arrow-next" type="button" data-build-next aria-label="Next walkthrough"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+</div>
+</div>
+</article>
+<article class="build-slide" data-build-slide aria-label="2 of 3" aria-hidden="true" hidden>
+<div class="build-slide-copy">
+<p class="eyebrow">Behind the builds · Oversize Plus customizer</p>
+<h2>Custom apparel options made easier on mobile.</h2>
+<p>A walkthrough of tailored product variants and a mobile-first shopping experience for an apparel store.</p>
+<a class="build-play" href="https://www.youtube.com/watch?v=a3pHb6dP5as" target="_blank" rel="noopener noreferrer" aria-label="Play the Oversize Plus customizer walkthrough">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 10 6-10 6z"/></svg><span>Play Video</span>
 </a>
-<a class="card video" href="https://www.youtube.com/watch?v=SoN6YXID5j0" target="_blank" rel="noopener noreferrer">
-<img class="" src="https://framerusercontent.com/images/ZUdBQMHCKJiYI7GyyFkTr7zwzK8.jpg?width=594&amp;height=376" alt="Fresh Juice storefront video preview" loading="lazy" decoding="async" width="594" height="376">
-<h3>Fresh Juice storefront</h3>
-<span class="watch">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="m8 5 11 7-11 7Z"/>
-</svg>Watch walkthrough</span>
+</div>
+<div class="build-slide-media"><img src="behind-oversize-plus.jpg" alt="Oversize Plus storefront displayed on desktop and mobile" width="594" height="376" loading="lazy">
+<div class="build-arrows"><button class="build-arrow build-arrow-prev" type="button" data-build-prev aria-label="Previous walkthrough"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+<button class="build-arrow build-arrow-next" type="button" data-build-next aria-label="Next walkthrough"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+</div>
+</div>
+</article>
+<article class="build-slide" data-build-slide aria-label="3 of 3" aria-hidden="true" hidden>
+<div class="build-slide-copy">
+<p class="eyebrow">Behind the builds · Fresh Juice storefront</p>
+<h2>A focused journey from product story to checkout.</h2>
+<p>See the single-product storefront, customer reviews and streamlined purchase journey built to keep the next step clear.</p>
+<a class="build-play" href="https://www.youtube.com/watch?v=SoN6YXID5j0" target="_blank" rel="noopener noreferrer" aria-label="Play the Fresh Juice storefront walkthrough">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 10 6-10 6z"/></svg><span>Play Video</span>
 </a>
+</div>
+<div class="build-slide-media"><img src="behind-fresh-juice.jpg" alt="Fresh Juice e-commerce storefront displayed on desktop and mobile" width="594" height="376" loading="lazy">
+<div class="build-arrows"><button class="build-arrow build-arrow-prev" type="button" data-build-prev aria-label="Previous walkthrough"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+<button class="build-arrow build-arrow-next" type="button" data-build-next aria-label="Next walkthrough"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+</div>
+</div>
+</article>
+</div>
+<div class="build-indicators" role="group" aria-label="Choose a walkthrough">
+<button class="build-indicator is-active" type="button" data-build-to="0" aria-label="Show Swiftglamour walkthrough" aria-pressed="true"></button>
+<button class="build-indicator" type="button" data-build-to="1" aria-label="Show Oversize Plus walkthrough" aria-pressed="false"></button>
+<button class="build-indicator" type="button" data-build-to="2" aria-label="Show Fresh Juice walkthrough" aria-pressed="false"></button>
+</div>
+<p class="sr-only" data-build-announcement aria-live="polite" aria-atomic="true">1 of 3: Swiftglamour migration</p>
 </div>
 </section>
 <section class="container section" id="stack">

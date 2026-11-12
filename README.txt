@@ -34,3 +34,17 @@ The portfolio now includes a prominent Shopify theme-development section with Li
 
 HTML-TEST PROJECT ASSET
 The current upload did not include html-test.jpg: the attached index.html is a 31-product catalogue page, and no html-test image or associated demo URL was included. The specific image-based project card is therefore not fabricated or linked to a guessed URL. Provide the image and exact public project URL to add it accurately.
+
+BEHIND THE BUILDS SLIDESHOW
+The Behind the builds section now follows the supplied responsive image-and-copy layout. It cycles through Swiftglamour, Oversize Plus and Fresh Juice every 3.5 seconds; the left/right arrows (outside the image on desktop and below it on mobile) and indicator buttons select slides, and the Play Video links open the existing walkthrough videos. The portfolio uses its own project screenshots, not the jewelry demo images from the reference theme. Upload these three image files to the repository root together with index.html, styles.css and app.js: behind-swiftglamour.jpg, behind-oversize-plus.jpg, behind-fresh-juice.jpg.
+
+HERO SLIDESHOW
+The hero now rotates between the real Swiftglamour project and Bayode’s supplied portrait paired with the existing Shopify logo, coding stack, and real Oversize Plus work. Upload hero-bayode-profile.jpg to the repository root along with index.html, styles.css, app.js, behind-swiftglamour.jpg, and behind-oversize-plus.jpg. The portrait is used as supplied; the hero coding card is HTML/CSS, not an AI-generated image.
+
+SELECTED WORK
+Section 04 shows the first four portfolio cards initially. Use “See all projects” to reveal the remaining cards; the button then becomes “Show fewer projects” to collapse back to the featured four. The mobile project grid remains two columns. Hero slideshow autoplay is set to 3.5 seconds.
+
+DESKTOP SECTION INDICATOR
+A compact vertical dot rail appears on desktop/tablet-wide layouts (1100px and above), links to all 11 page sections, highlights the section around the viewport midpoint, and shows its label beside the active dot. It is hidden below 1100px to keep mobile/tablet navigation clear.
+
+Selected Work order: Oversize Plus, Fresh Juice, Küchewood, followed by the remaining projects.
