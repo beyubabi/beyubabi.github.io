@@ -9,7 +9,7 @@ try:
     current = int(STATE.read_text(encoding="utf-8").strip())
 except (FileNotFoundError, ValueError):
     current = 0
-next_index = current % 10 + 1
+next_index = current % 30 + 1
 relative_image = f"og-images/og-{next_index:02d}.jpg"
 image_file = ROOT / relative_image
 if not image_file.is_file():
