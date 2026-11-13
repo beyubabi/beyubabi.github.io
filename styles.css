@@ -477,3 +477,173 @@ h2{font-size:32px}
 .section-rail a[aria-current="location"]::after,.section-rail a:hover::after,.section-rail a:focus-visible::after{opacity:1;transform:translate(0,-50%)}
 @media(max-width:1099.98px){.section-rail{display:none}}
 @media(prefers-reduced-motion:reduce){.section-rail a,.section-rail a::after{transition:none}}
+
+
+/* Accessible pause/play control for the hero carousel. */
+.hero-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--text);cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.hero-toggle:hover{border-color:var(--accent);background:var(--button);color:var(--button-text)}
+.hero-toggle svg{width:15px;height:15px;fill:currentColor}
+.hero-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* Phone-first hero: bring the message, proof image, and primary action above the fold. */
+@media(max-width:600px){
+ #hero.section{padding-top:18px;padding-bottom:16px}
+ #hero .hero-carousel{padding-top:0}
+ #hero .hero-slide{grid-template-columns:minmax(0,1fr);align-items:start;gap:12px}
+ #hero .hero-slide .intro-copy{gap:10px}
+ #hero .hero-slide .intro-copy>.eyebrow{font-size:9px;letter-spacing:.1em;line-height:1.25}
+ #hero .hero-slide h1{max-width:15ch;margin:0;font-size:clamp(29px,8.2vw,33px);line-height:1.02;letter-spacing:-.045em}
+ #hero .hero-slide .intro-copy>p:not(.eyebrow){font-size:13px;line-height:1.42;max-width:43ch}
+ #hero .hero-slide .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:1px}
+ #hero .hero-slide .actions .button{min-height:42px;padding:10px 14px;font-size:13px}
+ #hero .hero-slide .actions .text-link{font-size:13px}
+ #hero .showcase{padding:8px;gap:6px;border-radius:10px}
+ #hero .showcase>img{width:100%;height:auto;aspect-ratio:1.85;object-fit:contain;object-position:center;background:var(--surface);border-radius:6px}
+ #hero .showcase>.eyebrow{font-size:9px;line-height:1.2;letter-spacing:.09em}
+ #hero .showcase>.small{font-size:11px;line-height:1.3}
+ #hero .hero-maker-showcase{padding:8px;gap:7px}
+ #hero .hero-maker-visual{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);min-height:218px;aspect-ratio:1.55;border-radius:8px}
+ #hero .hero-maker-photo>img{object-position:center 27%}
+ #hero .hero-photo-caption{inset:auto 6px 6px;padding:6px 7px;font-size:9px}
+ #hero .hero-photo-caption span{margin-top:2px;font-size:8px}
+ #hero .hero-maker-code{justify-content:center;gap:6px;padding:9px}
+ #hero .hero-maker-badge{gap:5px;font-size:8px}
+ #hero .hero-maker-badge svg{width:14px;height:14px}
+ #hero .hero-code-overline{font-size:7px;letter-spacing:.1em}
+ #hero .hero-maker-code h3{font-size:clamp(17px,5vw,19px);line-height:1.08;letter-spacing:-.03em}
+ #hero .hero-code-stack{font-size:8px;line-height:1.3}
+ #hero .hero-code-rule{margin:0;height:2px}
+ #hero .hero-work-thumb{margin-top:0}
+ #hero .hero-work-thumb img{height:42px;aspect-ratio:auto;object-fit:cover;object-position:center 32%}
+ #hero .hero-work-thumb span{padding:3px 4px;font-size:7px;line-height:1.15}
+ #hero .hero-controls{justify-content:center;gap:10px;margin-top:9px;padding:0}
+ #hero .hero-arrow,#hero .hero-toggle{width:30px;height:30px}
+ #hero .hero-arrow svg{width:16px;height:16px}
+ #hero .hero-dot{width:7px;height:7px}
+ #hero .hero-dot.is-active{width:20px}
+ #hero .platforms{margin-top:16px}
+}
+@media(max-width:360px){
+ #hero .hero-slide h1{font-size:29px}
+ #hero .hero-slide .intro-copy>p:not(.eyebrow){font-size:12px}
+ #hero .hero-maker-visual{min-height:208px;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr)}
+ #hero .hero-maker-code{padding:7px;gap:5px}
+ #hero .hero-maker-code h3{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.hero-toggle{transition:none}}
+@media(max-width:600px){#hero .hero-maker-photo>img{aspect-ratio:auto}}
+@media(max-width:360px){#hero .hero-maker-visual{width:100%;max-width:100%;min-width:0;box-sizing:border-box;aspect-ratio:auto}}
+
+
+/* Shopify slide: let the headline lead; keep the visual focused on the real portrait. */
+#hero .hero-shopify-title{font-size:68px;line-height:1.02;letter-spacing:-.045em}
+.hero-maker-showcase{padding:12px;background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--accent) 8%,var(--bg)));border-radius:16px;box-shadow:0 18px 48px rgba(9,25,17,.11)}
+.hero-maker-visual{display:block;width:100%;min-width:0;min-height:0;aspect-ratio:1/1;overflow:hidden;border:1px solid color-mix(in srgb,var(--accent) 20%,var(--line));border-radius:12px;background:var(--surface);box-shadow:0 8px 24px rgba(9,25,17,.1)}
+.hero-maker-photo{width:100%;height:100%;min-width:0;min-height:0;overflow:hidden;background:var(--surface)}
+.hero-maker-photo>img{width:100%;height:100%;min-width:0;aspect-ratio:auto;object-fit:cover;object-position:center 42%}
+.hero-photo-caption{inset:auto 12px 12px;padding:10px 13px;border:1px solid rgba(255,255,255,.6);border-radius:8px;background:rgba(255,255,255,.94);box-shadow:0 8px 24px rgba(10,25,18,.14);font-size:12px}
+.hero-photo-caption span{font-size:10px}
+@media(max-width:1199.98px){#hero .hero-shopify-title{font-size:52px}}
+@media(max-width:809.98px){#hero .hero-shopify-title{font-size:46px}}
+@media(max-width:600px){
+ #hero .hero-shopify-title{font-size:clamp(32px,9vw,35px);line-height:1.04;letter-spacing:-.045em}
+ #hero .hero-maker-showcase{padding:8px;border-radius:12px}
+ #hero .hero-maker-visual{width:100%;max-width:100%;min-width:0;min-height:0;aspect-ratio:1/1;border-radius:10px;box-sizing:border-box}
+ #hero .hero-maker-photo{width:100%;height:100%;min-width:0;min-height:0}
+ #hero .hero-maker-photo>img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center 42%}
+ #hero .hero-photo-caption{inset:auto 9px 9px;padding:8px 10px;font-size:10px}
+ #hero .hero-photo-caption span{font-size:9px}
+}
+@media(max-width:360px){#hero .hero-shopify-title{font-size:32px}#hero .hero-maker-visual{aspect-ratio:1/1}}
+.hero-toggle svg[hidden]{display:none!important}
+
+/* First hero slide only: stronger mobile type and a slightly larger storefront preview. */
+@media(max-width:600px){
+ #hero .hero-slide[aria-label="1 of 2"] .intro-copy{gap:12px}
+ #hero .hero-slide[aria-label="1 of 2"] h1{font-size:clamp(32px,9vw,36px);line-height:1.02;max-width:14ch;letter-spacing:-.045em}
+ #hero .hero-slide[aria-label="1 of 2"] .intro-copy>p:not(.eyebrow){font-size:15px;line-height:1.45;max-width:42ch}
+ #hero .hero-slide[aria-label="1 of 2"] .showcase>img{aspect-ratio:1.7}
+ #hero.section{padding-bottom:22px}
+}
+@media(max-width:360px){
+ #hero .hero-slide[aria-label="1 of 2"] h1{font-size:32px}
+ #hero .hero-slide[aria-label="1 of 2"] .intro-copy>p:not(.eyebrow){font-size:14px}
+}
+
+/* First-slide mobile scale: enlarge the full message and proof so the brand strip lands by the bottom nav. */
+@media(max-width:600px){
+ #hero .hero-slide[aria-label="1 of 2"] .intro-copy{gap:14px}
+ #hero .hero-slide[aria-label="1 of 2"] h1{font-size:clamp(36px,9.7vw,39px);line-height:1.02;max-width:13ch}
+ #hero .hero-slide[aria-label="1 of 2"] .intro-copy>p:not(.eyebrow){font-size:16px;line-height:1.45;max-width:39ch}
+ #hero .hero-slide[aria-label="1 of 2"] .actions .button{min-height:52px;padding:13px 18px;font-size:14px}
+ #hero .hero-slide[aria-label="1 of 2"] .showcase{gap:8px;padding:9px}
+ #hero .hero-slide[aria-label="1 of 2"] .showcase>img{aspect-ratio:1.5}
+ #hero .platforms{margin-top:20px}
+ #hero.section{padding-bottom:24px}
+}
+@media(max-width:360px){
+ #hero .hero-slide[aria-label="1 of 2"] h1{font-size:34px}
+ #hero .hero-slide[aria-label="1 of 2"] .intro-copy>p:not(.eyebrow){font-size:15px}
+}
+@media(max-width:600px){
+ #hero .hero-slide[aria-label="1 of 2"] .showcase>img{aspect-ratio:1.65}
+ #hero .platforms{margin-top:16px}
+}
+@media(max-width:360px){#hero .hero-slide[aria-label="1 of 2"] .showcase>img{aspect-ratio:1.8}}
+
+/* The first hero slide cycles through the user's seven real storefront visuals. */
+#hero .hero-work-carousel{display:grid;gap:10px;min-width:0}
+#hero .hero-work-slide{display:grid;gap:9px;margin:0;animation:hero-visual-in .45s ease both}
+#hero .hero-work-slide[hidden]{display:none}
+#hero .hero-work-slide>img{width:100%;height:auto;aspect-ratio:1472/1084;object-fit:contain;object-position:center;border-radius:6px;background:var(--bg)}
+#hero .hero-work-slide figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:12px;color:var(--text);font-size:13px;font-weight:600;line-height:1.3}
+#hero .hero-work-slide figcaption span{color:var(--muted);font-size:11px;font-weight:400;text-align:right}
+.hero-work-controls{display:flex;align-items:center;justify-content:flex-end;gap:10px;padding-top:1px}
+.hero-work-arrow,.hero-work-toggle{display:grid;place-items:center;width:31px;height:31px;padding:0;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--text);cursor:pointer;transition:background .18s,color .18s,border-color .18s}
+.hero-work-arrow:hover,.hero-work-toggle:hover{border-color:var(--accent);background:var(--button);color:var(--button-text)}
+.hero-work-arrow svg{width:16px;height:16px}
+.hero-work-toggle svg{width:13px;height:13px;fill:currentColor}
+.hero-work-toggle svg[hidden]{display:none!important}
+.hero-work-count{min-width:46px;color:var(--text);font-size:11px;font-variant-numeric:tabular-nums;text-align:center}
+.hero-work-count span{color:var(--muted)}
+.hero-work-arrow:focus-visible,.hero-work-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(max-width:600px){
+ #hero .hero-work-carousel{gap:8px}
+ #hero .hero-work-slide{gap:6px}
+ #hero .hero-work-slide>img{aspect-ratio:1.5}
+ #hero .hero-work-slide figcaption{font-size:12px}
+ #hero .hero-work-slide figcaption span{font-size:10px}
+ .hero-work-controls{gap:8px}
+ .hero-work-arrow,.hero-work-toggle{width:29px;height:29px}
+}
+@media(prefers-reduced-motion:reduce){#hero .hero-work-slide{animation:none}.hero-work-arrow,.hero-work-toggle{transition:none}}
+/* Keep the message and work art compact on phones, with the platform strip clear of the floating nav. */
+@media(max-width:600px){
+ #hero .hero-slide[aria-label="1 of 2"] h1{font-size:clamp(32px,8.8vw,35px)}
+ #hero .hero-slide[aria-label="1 of 2"] .intro-copy>p:not(.eyebrow){font-size:15px;line-height:1.42}
+ #hero .hero-slide[aria-label="1 of 2"] .actions .button{min-height:46px;padding:11px 15px}
+ #hero .hero-work-slide>img{height:190px;aspect-ratio:auto;object-fit:contain}
+ #hero .hero-slide[aria-label="1 of 2"] .showcase>.eyebrow,
+ #hero .hero-slide[aria-label="1 of 2"] .showcase>.small{display:none}
+}
+@media(max-width:360px){#hero .hero-slide[aria-label="1 of 2"] h1{font-size:32px}#hero .hero-work-slide>img{height:176px}}
+
+/* Slide 2 portrait signature: a compact, readable badge that sits with the image. */
+#hero .hero-photo-caption{inset:auto auto 18px 18px;display:flex;align-items:center;gap:11px;width:max-content;max-width:calc(100% - 36px);padding:12px 16px 12px 13px;border:1px solid rgba(255,255,255,.24);border-radius:13px;background:linear-gradient(145deg,rgba(20,55,43,.95),rgba(13,34,28,.90));color:#f8fbf7;box-shadow:0 12px 28px rgba(8,22,15,.25);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-family:"Uncut Sans",Arial,Helvetica,sans-serif;font-size:14px;line-height:1.2}
+#hero .hero-photo-caption .hero-caption-mark{display:block;flex:0 0 3px;width:3px;height:34px;margin:0;border-radius:999px;background:#8bd5ac;box-shadow:0 0 14px rgba(139,213,172,.38)}
+#hero .hero-photo-caption .hero-caption-copy{display:grid;gap:4px;min-width:0;margin:0}
+#hero .hero-photo-caption .hero-caption-copy strong{display:block;color:inherit;font-size:15px;font-weight:650;line-height:1.12;letter-spacing:-.02em;white-space:nowrap}
+#hero .hero-photo-caption .hero-caption-copy span{display:block;margin:0;color:rgba(242,248,243,.78);font-size:11px;font-weight:500;line-height:1.25;letter-spacing:.02em}
+@media(max-width:600px){
+ #hero .hero-photo-caption{left:10px;bottom:10px;max-width:calc(100% - 20px);gap:9px;padding:9px 12px 9px 10px;border-radius:11px}
+ #hero .hero-photo-caption .hero-caption-mark{height:29px}
+ #hero .hero-photo-caption .hero-caption-copy{gap:3px}
+ #hero .hero-photo-caption .hero-caption-copy strong{font-size:13px}
+ #hero .hero-photo-caption .hero-caption-copy span{font-size:10px}
+}
+@media(max-width:360px){
+ #hero .hero-photo-caption{left:8px;bottom:8px;max-width:calc(100% - 16px);gap:8px;padding:8px 10px 8px 9px}
+ #hero .hero-photo-caption .hero-caption-mark{height:27px}
+ #hero .hero-photo-caption .hero-caption-copy strong{font-size:12px}
+ #hero .hero-photo-caption .hero-caption-copy span{font-size:9px}
+}
