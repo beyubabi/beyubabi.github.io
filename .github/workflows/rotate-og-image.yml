@@ -1,8 +1,8 @@
-name: Rotate weekly OG image
+name: Rotate daily OG image
 
 on:
   schedule:
-    - cron: "0 9 * * 1"
+    - cron: "17 9 * * *"
   workflow_dispatch:
 
 permissions:
@@ -26,6 +26,6 @@ jobs:
             echo "No OG image changes to publish."
           else
             git add index.html og-image.jpg .og-rotation-index
-            git commit -m "Rotate weekly Open Graph image"
+            git commit -m "Rotate daily Open Graph image"
             git push
           fi
