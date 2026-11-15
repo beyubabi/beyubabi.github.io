@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import datetime, timezone
 import re
 import shutil
 
@@ -19,7 +20,8 @@ if not image_file.is_file():
 shutil.copyfile(image_file, ROOT / "og-image.jpg")
 index_file = ROOT / "index.html"
 html = index_file.read_text(encoding="utf-8")
-image_url = f"https://beyubabi.github.io/{relative_image}"
+cache_version = datetime.now(timezone.utc).strftime("%Y%m%d")
+image_url = f"https://beyubabi.github.io/{relative_image}?v={cache_version}"
 for attribute, value in (("property", "og:image"), ("property", "og:image:secure_url"), ("name", "twitter:image")):
     pattern = rf'(<meta\s+{attribute}="{re.escape(value)}"\s+content=")[^"]*(">)'
     html, count = re.subn(pattern, rf"\g<1>{image_url}\g<2>", html, count=1)
