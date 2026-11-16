@@ -257,11 +257,12 @@ h2{font-size:32px}
  body{padding-bottom:calc(86px + env(safe-area-inset-bottom))}
  .topbar{position:relative;z-index:5}
  .nav{flex-wrap:nowrap;gap:14px;padding-block:17px}
- .navlinks{position:fixed;left:50%;right:auto;bottom:calc(12px + env(safe-area-inset-bottom));z-index:1000;transform:translateX(-50%);width:min(420px,calc(100vw - 28px));order:initial;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px 10px;border:1px solid var(--line);border-radius:20px;background:color-mix(in srgb,var(--surface) 94%,transparent);box-shadow:0 10px 34px rgba(9,25,17,.2);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
- .navlinks a{display:flex;min-width:0;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px 2px;border-radius:12px;font-size:10px;line-height:1.2;color:var(--muted);text-decoration:none}
- .navlinks a:hover,.navlinks a:focus-visible{background:var(--bg);color:var(--accent)}
+ .navlinks{position:fixed;left:50%;right:auto;bottom:calc(12px + env(safe-area-inset-bottom));z-index:1000;transform:translateX(-50%);width:min(420px,calc(100vw - 28px));order:initial;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px 10px;border:1px solid color-mix(in srgb,var(--text) 13%,transparent);border-radius:22px;background:linear-gradient(135deg,color-mix(in srgb,var(--surface) 80%,transparent),color-mix(in srgb,var(--surface) 70%,transparent));box-shadow:0 16px 42px rgba(8,23,16,.22),inset 0 1px 0 rgba(255,255,255,.34),inset 0 -1px 0 color-mix(in srgb,var(--accent) 12%,transparent);backdrop-filter:blur(24px) saturate(1.45);-webkit-backdrop-filter:blur(24px) saturate(1.45);isolation:isolate}
+ .navlinks::before{content:"";position:absolute;inset:1px 18px auto;height:1px;border-radius:50%;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--text) 20%,transparent),transparent);pointer-events:none}
+ .navlinks a{display:flex;min-width:0;min-height:48px;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px 2px;border-radius:12px;font-size:10px;line-height:1.2;color:var(--muted);text-decoration:none;transition:background-color .18s,color .18s}
+ .navlinks a:hover,.navlinks a:focus-visible{background:color-mix(in srgb,var(--accent) 13%,transparent);color:var(--accent)}
  .navlinks svg{display:block;width:19px;height:19px}
- .navlinks span{font-size:10px;white-space:nowrap}
+ .navlinks span{font-size:10px;font-weight:500;letter-spacing:.01em;white-space:nowrap}
  .appearance{flex:0 0 96px}
  .platforms{padding-block:20px 16px}
  .platform-track{width:max-content;min-width:0;animation:platform-drift 26s linear infinite;will-change:transform}
