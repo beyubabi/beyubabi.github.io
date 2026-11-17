@@ -5,7 +5,10 @@ WHAT CHANGED
 - The first hero image is prioritized. The next project image and portrait are warmed in the background at low priority.
 - The main hero's left/right arrows are removed. Its two slide dots and pause/play button stay.
 - Hero copy now appears in a gentle stagger, and the image settles in with a small fade and scale. There is no constant motion, and the effects switch off for visitors who prefer reduced motion.
+- The hero introduction now includes a compact “3 years’ experience · 2024–present” proof point.
+- The floating mobile navigation now has a frosted-glass look with a softer translucent tint, stronger backdrop blur and a fine highlight; icons and labels remain clear over moving page content.
 - The project grid shows four cards across on wide desktop and keeps the two-column mobile layout.
+- Selected work now shows project years: Küchewood 2024; Oversize Plus, Fresh Juice, Toko and Incredible Fiber 2025; Bayu Tech 2026; Swiftglamour 2025–2026.
 - Behind-the-builds videos open in a popup on the page. Close with the X, click outside, or press Escape.
 - The Open Graph image rotates daily through 30 designs. The script adds a date to the image URL to help with caching when the 30-design cycle repeats.
 

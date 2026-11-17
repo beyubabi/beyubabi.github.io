@@ -42,6 +42,8 @@ p{margin:0;color:var(--muted)}
 .intro .eyebrow{margin-bottom:32px}
 .intro-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:56px}
 .intro-copy{display:grid;gap:26px}
+.experience-note{display:flex;align-items:center;gap:9px;width:max-content;max-width:100%;margin-top:-10px;color:var(--muted);font-size:13px;font-weight:600;line-height:1.35;letter-spacing:.005em}
+.experience-note>span{width:3px;height:18px;flex:0 0 3px;border-radius:99px;background:var(--accent)}
 .actions{display:flex;align-items:center;flex-wrap:wrap;gap:20px}
 .actions .text-link{text-decoration:none}
 .showcase{padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);display:grid;gap:16px}
@@ -91,6 +93,7 @@ p{margin:0;color:var(--muted)}
 .project img{border-radius:6px;height:280px;object-fit:cover}
 .project-title{display:flex;align-items:center;gap:16px}
 .project-title h3{flex:1}
+.project-year{flex:0 0 auto;padding:4px 8px;border:1px solid color-mix(in srgb,var(--accent) 20%,var(--line));border-radius:999px;background:color-mix(in srgb,var(--accent) 7%,var(--surface));color:var(--accent);font-size:11px;font-weight:600;line-height:1.2;font-variant-numeric:tabular-nums;white-space:nowrap}
 .project p{font-size:15px}
 .project .eyebrow{font-size:11px}
 .project-title svg{color:var(--text)}
@@ -310,6 +313,7 @@ h2{font-size:32px}
  .project .eyebrow{font-size:9px;line-height:1.35;letter-spacing:.07em}
  .project-title{gap:5px}
  .project-title h3{font-size:16px;overflow-wrap:anywhere}
+ .project-year{padding:3px 5px;font-size:9px}
  .project-title svg{width:15px;height:15px}
  .project p:not(.eyebrow){font-size:11px;line-height:1.4}
  .service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -497,6 +501,8 @@ h2{font-size:32px}
  #hero .hero-slide .intro-copy>.eyebrow{font-size:9px;letter-spacing:.1em;line-height:1.25}
  #hero .hero-slide h1{max-width:15ch;margin:0;font-size:clamp(29px,8.2vw,33px);line-height:1.02;letter-spacing:-.045em}
  #hero .hero-slide .intro-copy>p:not(.eyebrow){font-size:13px;line-height:1.42;max-width:43ch}
+ #hero .hero-slide .intro-copy>.experience-note{margin-top:-5px;font-size:11px;line-height:1.25;gap:7px}
+ #hero .hero-slide .intro-copy>.experience-note>span{height:15px}
  #hero .hero-slide .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:1px}
  #hero .hero-slide .actions .button{min-height:42px;padding:10px 14px;font-size:13px}
  #hero .hero-slide .actions .text-link{font-size:13px}
